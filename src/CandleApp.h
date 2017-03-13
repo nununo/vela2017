@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "XmlStore.h"
+#include "Util.h"
 
 class CandleApp : public ofBaseApp{
 
