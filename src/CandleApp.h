@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "XmlStore.h"
 #include "Util.h"
+#include "Arduino.h"
 
 class CandleApp : public ofBaseApp{
 
