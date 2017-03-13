@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofMain.h"
+#include "XmlStore.h"
 
-class ofApp : public ofBaseApp{
+class CandleApp : public ofBaseApp{
 
 	public:
 		void setup();

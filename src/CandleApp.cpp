@@ -1,71 +1,71 @@
-#include "ofApp.h"
+#include "CandleApp.h"
 
 //--------------------------------------------------------------
-void ofApp::setup(){
+void CandleApp::setup(){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::update(){
+void CandleApp::update(){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::draw(){
+void CandleApp::draw(){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key){
+void CandleApp::keyPressed(int key){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::keyReleased(int key){
+void CandleApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y ){
+void CandleApp::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button){
+void CandleApp::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button){
+void CandleApp::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button){
+void CandleApp::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y){
+void CandleApp::mouseEntered(int x, int y){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y){
+void CandleApp::mouseExited(int x, int y){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::windowResized(int w, int h){
+void CandleApp::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg){
+void CandleApp::gotMessage(ofMessage msg){
 
 }
 
 //--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo){ 
+void CandleApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
