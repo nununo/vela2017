@@ -12,7 +12,7 @@ void TraceLayer::draw() {
   text += "Thresholds: " + ofToString(arduino->getThreshold(0))
       + " " + ofToString(arduino->getThreshold(1)) + " "
       + ofToString(arduino->getThreshold(2)) + "\n";
-	ofSetColor(0x00FF00);
+	ofSetHexColor(0x00FF00);
 	font.drawString(text, 10,10);
 	// Draw arduino buffer
 	for (int i = 0; i < ARDUINO_BUFFER_SIZE; i++){

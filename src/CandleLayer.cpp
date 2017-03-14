@@ -57,7 +57,7 @@ void CandleLayer::draw() {
     if (alpha == ALPHA_MAX)
     {
       ofDisableAlphaBlending();
-      ofSetColor(0xFFFFFF);
+      ofSetHexColor(0xFFFFFF);
     } else {
       ofEnableAlphaBlending();
       ofSetColor(255,255,255,alpha);
