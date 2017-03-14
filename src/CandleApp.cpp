@@ -40,32 +40,3 @@ void CandleApp::mousePressed(int x, int y, int button){
 
 }
 
-//--------------------------------------------------------------
-void CandleApp::mouseReleased(int x, int y, int button){
-
-}
-
-//--------------------------------------------------------------
-void CandleApp::mouseEntered(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void CandleApp::mouseExited(int x, int y){
-
-}
-
-//--------------------------------------------------------------
-void CandleApp::windowResized(int w, int h){
-
-}
-
-//--------------------------------------------------------------
-void CandleApp::gotMessage(ofMessage msg){
-
-}
-
-//--------------------------------------------------------------
-void CandleApp::dragEvent(ofDragInfo dragInfo){ 
-
-}
