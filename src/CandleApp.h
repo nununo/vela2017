@@ -4,6 +4,7 @@
 #include "XmlStore.h"
 #include "Util.h"
 #include "Arduino.h"
+#include "TraceLayer.h"
 
 class CandleApp : public ofBaseApp{
 

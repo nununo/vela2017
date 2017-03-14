@@ -10,7 +10,7 @@ bool Arduino::setup(int device, int threshold1, int threshold2, int threshold3, 
   maxValue = _maxValue;
   bAutocalibrate = _autocalibrate;
   lastValue = 0;
-  serial.enumerateDevices();
+  serial.listDevices();
   return serial.setup(device, 9600);
   bufferCursor = 0;
   for(int i=0; i<ARDUINO_BUFFER_SIZE; i++)
