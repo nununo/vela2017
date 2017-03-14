@@ -20,7 +20,7 @@ CandleLevel::CandleLevel(int _intensity, string foldername) {
     filenames.push_back(oDir.getPath(i));
     cout << "Loaded movie " << oDir.getPath(i) << endl;
   }
-  // initialize random see
+  // initialize random seed
   srand(time(NULL));
 }
 
