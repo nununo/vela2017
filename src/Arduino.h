@@ -3,7 +3,7 @@
 
 #include "ofMain.h"
 
-#define ARDUINO_BUFFER_SIZE 700
+#define ARDUINO_BUFFER_SIZE 500
 #define ARDUINO_CALIBRATION_COUNT 20
 
 class Arduino {

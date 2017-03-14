@@ -117,7 +117,7 @@ void CandleApp::draw(){
   
   // Draw trace layer
   if (bTrace) {
-    float v = 0.15 * (float)ofGetWidth();
+    float v = 0.05 * (float)ofGetWidth();
     glTranslated(v, v, 0);
     traceLayer.draw();
     glTranslated(-v, -v, 0);
