@@ -5,7 +5,6 @@
 ## Build generated
 build/
 DerivedData/
-bin/
 
 ## Various settings
 *.pbxuser
@@ -22,3 +21,8 @@ xcuserdata/
 *.moved-aside
 *.xccheckout
 *.xcscmblueprint
+
+## Inside bin/
+*.app
+*.mov
+
