@@ -8,9 +8,13 @@
 #include "CandleLayer.h"
 #include "CandleLevel.h"
 
+#define XML_FILENAME "vela.xml"
+
 class CandleApp : public ofBaseApp{
 
 	public:
+    enum InputType { InputArduino, InputMouse };
+
 		void setup();
 		void update();
 		void draw();
@@ -21,4 +25,28 @@ class CandleApp : public ofBaseApp{
 		void mouseDragged(int x, int y, int button);
 		void mousePressed(int x, int y, int button);
 		
+private:
+  void addLayer() {addLayer(arduino.getLastIntensity());}
+  void addLayer(int intensity);
+  void outputLayerStatus();
+  void checkTrigger();
+  void setTrace(bool value) {bTrace = value;}
+  void setFullscreen(bool value);
+  void setAutoFlickerMinPeriod(int value) {autoFlickerMinPeriod = value;}
+  void toggleTrace() {setTrace(!bTrace);}
+  void toggleFullscreen() {setFullscreen(!bFullscreen);}
+  void autoFlicker();
+  
+  Arduino arduino;
+  vector<CandleLevel*> levels;
+  vector<CandleLayer*> layers;
+  CandleLayer *baseLayer;
+  XmlStore xmlStore;
+  TraceLayer traceLayer;
+  int previousIntensity;
+  bool bFullscreen;
+  bool bTrace;
+  InputType inputType;
+  int autoFlickerMinPeriod;
+  int autoFlickerLastTime;
 };
