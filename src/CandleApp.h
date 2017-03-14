@@ -6,6 +6,7 @@
 #include "Arduino.h"
 #include "TraceLayer.h"
 #include "CandleLayer.h"
+#include "CandleLevel.h"
 
 class CandleApp : public ofBaseApp{
 
