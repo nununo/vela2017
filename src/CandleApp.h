@@ -11,7 +11,7 @@
 
 #define XML_FILENAME "vela.xml"
 
-class CandleApp : public ofBaseApp{
+class CandleApp : public ofBaseApp {
 
 	public:
     CandleApp( IDataInput *_dataInput) { dataInput = _dataInput; };
