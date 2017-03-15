@@ -72,6 +72,7 @@
 		7DAA8B5B1E776AD4005385DD /* CandleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLayer.h; sourceTree = "<group>"; };
 		7DAA8B5F1E776C62005385DD /* CandleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLevel.cpp; sourceTree = "<group>"; };
 		7DAA8B601E776C62005385DD /* CandleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLevel.h; sourceTree = "<group>"; };
+		7DFE1C351E79CDBE003ECE97 /* IInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInfo.h; sourceTree = "<group>"; };
 		7DFECCDE1E77638800D9104C /* XmlStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlStore.cpp; sourceTree = "<group>"; };
 		7DFECCDF1E77638800D9104C /* XmlStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlStore.h; sourceTree = "<group>"; };
 		7FA5BD62DF0EFD479C5A1D3E /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
@@ -180,6 +181,7 @@
 				7DAA8B4D1E7767C6005385DD /* Util.cpp */,
 				7DAA8B4E1E7767C6005385DD /* Util.h */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
+				7DFE1C351E79CDBE003ECE97 /* IInfo.h */,
 				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
 				7D42A3B41E78BCEA0097B54C /* MouseInput.cpp */,
 				7D42A3B51E78BCEA0097B54C /* MouseInput.h */,

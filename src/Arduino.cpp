@@ -4,9 +4,7 @@
 
 //--------------------------------------------------------------
 bool Arduino::setup(int device, int threshold1, int threshold2, int threshold3, int _maxValue, bool _autocalibrate) {
-  threshold[0] =  threshold1;
-  threshold[1] =  threshold2;
-  threshold[2] =  threshold3;
+  offset = 0;
   maxValue = _maxValue;
   bAutocalibrate = _autocalibrate;
   lastValue = 0;
@@ -57,19 +55,6 @@ void Arduino::update() {
 }
 
 //--------------------------------------------------------------
-int Arduino::getIntensity(int value) {
-		// Map value to intensity
-		if (value >= threshold[2])
-      return 3;
-    else if (value >= threshold[1])
-      return 2;
-    else if (value >= threshold[0])
-      return 1;
-    else
-      return 0;
-}
-
-//--------------------------------------------------------------
  void Arduino::setValue(int value) {
   if (value > maxValue)
     return;
@@ -85,13 +70,9 @@ int Arduino::getIntensity(int value) {
 }
 
 //--------------------------------------------------------------
-void Arduino::offsetThresholds(int diff) {
-  cout << "Offsettting thresholds by " << diff << ". ";
-  for (int i=0;i<3;i++) {
-    threshold[i] += diff;
-    cout << i << "=" << threshold[i];
-  }
-  cout << endl;
+void Arduino::offsetOffset(int diff) {
+  offset += diff;
+  cout << "Offsettting offset by " << diff << " to " << offset << endl;
 }
 
 //--------------------------------------------------------------
@@ -103,14 +84,14 @@ void Arduino::calibrate() {
 
 //--------------------------------------------------------------
 bool Arduino::calibrate1() {
-  int count = 0;
-  for(int i=ARDUINO_BUFFER_SIZE-1; i>=0; i--)
-    if (getIntensity(buffer[i])>0)
-      count++;
-  if (count > ARDUINO_CALIBRATION_COUNT) {
-    offsetThresholds(1);
-    cout << " lowering sensibility by 1. movements=" << count << endl;
-  }
+//  int count = 0;
+//  for(int i=ARDUINO_BUFFER_SIZE-1; i>=0; i--)
+//    if (getIntensity(buffer[i])>0)
+//      count++;
+//  if (count > ARDUINO_CALIBRATION_COUNT) {
+//    offsetOffset(1);
+//    cout << " lowering sensibility by 1. movements=" << count << endl;
+//  }
 }
 
 //--------------------------------------------------------------
@@ -133,8 +114,8 @@ bool Arduino::calibrate2() {
 
   if (count > ARDUINO_CALIBRATION_COUNT) {
     // Calculate difference between
-    int diffCalibration = maxValue - threshold[0] + 1;
-    offsetThresholds(diffCalibration);
+    int diffCalibration = maxValue - offset + 1;
+    offsetOffset(diffCalibration);
     cout << " adjusting sentibility." << " diff=" << diffCalibration << endl;
   } else {
     cout << " unstable: nothing done." << endl;

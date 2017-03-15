@@ -1,6 +1,11 @@
 #include "CandleApp.h"
 
 //--------------------------------------------------------------
+CandleApp::CandleApp( IDataInput *_dataInput) {
+  inputLevel = new InputLevel( _dataInput );
+};
+
+//--------------------------------------------------------------
 void CandleApp::setup(){
   // Initialize vars
   previousIntensity = 0;
@@ -25,7 +30,7 @@ void CandleApp::setup(){
   CandleLayer::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
 
   // Initialize trace layer
-  traceLayer.setup(&arduino);
+  traceLayer.setup(inputLevel);
   
   // Initialize Arduino
   if (!arduino.setup(xmlStore.getArduinoDevice(), xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3), xmlStore.getMaxValue(), xmlStore.getAutocalirate()))
@@ -138,10 +143,10 @@ void CandleApp::keyPressed  (int key){
       arduino.toggleAutocalibrate();
       break;
     case '+':
-      arduino.offsetThresholds(1);
+      inputLevel->offsetThresholds(1);
       break;
     case '-':
-      arduino.offsetThresholds(-1);
+      inputLevel->offsetThresholds(-1);
       break;
     case 'i':
       if (inputType == CandleApp::InputArduino)
@@ -174,15 +179,15 @@ void CandleApp::setFullscreen(bool value) {
 
 //--------------------------------------------------------------
 void CandleApp::checkTrigger() {
-  
-  if (arduino.getLastIntensity() > previousIntensity) {
-    // No triggers allowed in level 3 (candle was blown out)
-    if (layers.size() == 0 || layers.back()->getIntensity() < 3) {
-      addLayer();
-      cout << "Current: " << arduino.getLastIntensity() << " previous: " << previousIntensity << endl;
-    }
-  }
-  previousIntensity = arduino.getLastIntensity();
+
+//  if (arduino.getLastIntensity() > previousIntensity) {
+//    // No triggers allowed in level 3 (candle was blown out)
+//    if (layers.size() == 0 || layers.back()->getIntensity() < 3) {
+//      addLayer();
+//      cout << "Current: " << arduino.getLastIntensity() << " previous: " << previousIntensity << endl;
+//    }
+//  }
+//  previousIntensity = arduino.getLastIntensity();
 }
 
 //--------------------------------------------------------------

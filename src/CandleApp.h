@@ -8,13 +8,14 @@
 #include "CandleLayer.h"
 #include "CandleLevel.h"
 #include "IDataInput.h"
+#include "InputLevel.h"
 
 #define XML_FILENAME "vela.xml"
 
 class CandleApp : public ofBaseApp {
 
 	public:
-    CandleApp( IDataInput *_dataInput) { dataInput = _dataInput; };
+    CandleApp( IDataInput *_dataInput);
     enum InputType { InputArduino, InputMouse };
 
 		void setup();
@@ -28,7 +29,7 @@ class CandleApp : public ofBaseApp {
 		void mousePressed(int x, int y, int button) {};
 		
 private:
-  void addLayer() {addLayer(arduino.getLastIntensity());}
+  void addLayer() {addLayer(inputLevel->getLevel());}
   void addLayer(int intensity);
   void outputLayerStatus();
   void checkTrigger();
@@ -39,7 +40,7 @@ private:
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   void autoFlicker();
   
-  IDataInput *dataInput;
+  InputLevel *inputLevel;
   Arduino arduino;
   vector<CandleLevel*> levels;
   vector<CandleLayer*> layers;
