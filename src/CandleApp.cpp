@@ -172,8 +172,8 @@ void CandleApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void CandleApp::mousePressed(int x, int y, int button){
-  if (inputType == CandleApp::InputMouse)
-    arduino.setValue(x);
+//  if (inputType == CandleApp::InputMouse)
+//    arduino.setValue(x);
 }
 
 //--------------------------------------------------------------
