@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */; };
 		7D42A3B61E78BCEA0097B54C /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3B41E78BCEA0097B54C /* MouseInput.cpp */; };
+		7D42A3BE1E78C9C80097B54C /* InputLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */; };
 		7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B491E77665F005385DD /* CandleApp.cpp */; };
 		7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B4D1E7767C6005385DD /* Util.cpp */; };
 		7DAA8B551E776833005385DD /* Arduino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B531E776833005385DD /* Arduino.cpp */; };
@@ -57,6 +58,8 @@
 		7D42A3B31E78BAA60097B54C /* IDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDataInput.h; sourceTree = "<group>"; };
 		7D42A3B41E78BCEA0097B54C /* MouseInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
 		7D42A3B51E78BCEA0097B54C /* MouseInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInput.h; sourceTree = "<group>"; };
+		7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLevel.cpp; sourceTree = "<group>"; };
+		7D42A3BD1E78C9C80097B54C /* InputLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputLevel.h; sourceTree = "<group>"; };
 		7DAA8B491E77665F005385DD /* CandleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleApp.cpp; sourceTree = "<group>"; };
 		7DAA8B4A1E77665F005385DD /* CandleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleApp.h; sourceTree = "<group>"; };
 		7DAA8B4D1E7767C6005385DD /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
+				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
 				7DAA8B5F1E776C62005385DD /* CandleLevel.cpp */,
 				7DAA8B601E776C62005385DD /* CandleLevel.h */,
 				7DAA8B5A1E776AD4005385DD /* CandleLayer.cpp */,
@@ -289,6 +294,7 @@
 				7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */,
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
+				7D42A3BE1E78C9C80097B54C /* InputLevel.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* CandleLayer.cpp in Sources */,
 				EF25968535CD7F4428AC8DB7 /* tinyxmlerror.cpp in Sources */,
 				7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */,

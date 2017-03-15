@@ -15,6 +15,7 @@
 class MouseInput: public IDataInput {
 public:
   virtual void setup();
+  virtual void update();
   virtual float getValue();
   ~MouseInput();
 

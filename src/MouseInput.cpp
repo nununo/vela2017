@@ -20,9 +20,13 @@ void MouseInput::setup() {
 
 //--------------------------------------------------------------
 float MouseInput::getValue() {
-  float value = lastMouseY / ofGetScreenHeight();
-  lastMouseY = 0;
-  return value;
+  return lastMouseY / ofGetScreenHeight();
+};
+
+//--------------------------------------------------------------
+void MouseInput::update() {
+  if (lastMouseY > 0)
+    lastMouseY--;
 };
 
 //--------------------------------------------------------------
