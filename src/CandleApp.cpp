@@ -29,10 +29,6 @@ void CandleApp::setup(){
   // Initialize trace layer
   traceLayer.setup(inputLevel);
   
-//  // Initialize Arduino
-//  if (!arduino.setup(xmlStore.getArduinoDevice(), xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3), xmlStore.getMaxValue(), xmlStore.getAutocalirate()))
-//    cout << "Error connecting to Arduino." << endl;
-  
   candleLevels = new CandleLevels(xmlStore.getDataFolder());
 
   // Create base layer for level 0
@@ -51,10 +47,8 @@ void CandleApp::update(){
   
   layers.update();
   
-  // Update current level and check for triggers
   checkTrigger();
   
-  // Auto flicker
   if (autoFlickerMinPeriod > 0)
     autoFlicker();
 }

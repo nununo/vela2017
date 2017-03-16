@@ -44,9 +44,7 @@ private:
   
   CandleLevels *candleLevels;
   InputLevel *inputLevel;
-  Arduino arduino;
   Layers layers;
-  //vector<CandleLayer*> layers;
   CandleLayer *baseLayer;
   XmlStore xmlStore;
   TraceLayer traceLayer;
