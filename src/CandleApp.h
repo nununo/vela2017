@@ -6,7 +6,7 @@
 #include "Arduino.h"
 #include "TraceLayer.h"
 #include "CandleLayer.h"
-#include "CandleLevel.h"
+#include "LevelClips.h"
 #include "IDataInput.h"
 #include "InputLevel.h"
 #include "CandleLevels.h"

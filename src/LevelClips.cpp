@@ -1,9 +1,9 @@
-#include "CandleLevel.h"
+#include "LevelClips.h"
 
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-CandleLevel::CandleLevel(int _intensity, string foldername) {
+LevelClips::LevelClips(int _intensity, string foldername) {
   intensity = _intensity;
   // Read files in this folder
   ofDirectory oDir;
@@ -24,7 +24,7 @@ CandleLevel::CandleLevel(int _intensity, string foldername) {
   srand(time(NULL));
 }
 
-CandleLayer *CandleLevel::getNewLayer(bool loop) {
+CandleLayer *LevelClips::getNewLayer(bool loop) {
   // Select a random movie from vector
   int i = movies.size();
   i = rand() % i;

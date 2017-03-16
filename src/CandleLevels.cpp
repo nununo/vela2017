@@ -19,8 +19,8 @@ CandleLevels::CandleLevels( string dataFolder ) {
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
     cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
-    CandleLevel *level = new CandleLevel(i, oDir.getPath(i));
-    levels.push_back(level);
+    LevelClips *levelClips = new LevelClips(i, oDir.getPath(i));
+    levels.push_back(levelClips);
   }
   cout << levels.size() << " levels loaded." << endl;
 

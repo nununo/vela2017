@@ -1,5 +1,5 @@
-#ifndef CANDLELEVEL_H_INCLUDED
-#define CANDLELEVEL_H_INCLUDED
+#ifndef LEVELCLIPS_H_INCLUDED
+#define LEVELCLIPS_H_INCLUDED
 
 #include <vector>
 #include <string>
@@ -9,10 +9,10 @@ using namespace std;
 
 #define FADE_TIME 0.1
 
-class CandleLevel {
+class LevelClips {
 
   public:
-    CandleLevel(int _intensity, string foldername);
+    LevelClips(int _intensity, string foldername);
     CandleLayer *getNewLayer(bool loop);
 
     vector<ofVideoPlayer*> movies;
@@ -22,4 +22,4 @@ class CandleLevel {
     int intensity;
 };
 
-#endif // CANDLELEVEL_H_INCLUDED
+#endif // LEVELCLIPS_H_INCLUDED

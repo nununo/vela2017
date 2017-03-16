@@ -9,7 +9,7 @@
 #ifndef CandleLevels_h
 #define CandleLevels_h
 
-#include "CandleLevel.h"
+#include "LevelClips.h"
 
 class CandleLevels{
   
@@ -18,7 +18,7 @@ public:
   CandleLayer *getNewLayer( int level, bool loop);
   
 private:
-  vector<CandleLevel*> levels;
+  vector<LevelClips*> levels;
 
 };
 

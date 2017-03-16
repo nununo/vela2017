@@ -15,7 +15,7 @@
 		7DAA8B551E776833005385DD /* Arduino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B531E776833005385DD /* Arduino.cpp */; };
 		7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* TraceLayer.cpp */; };
 		7DAA8B5C1E776AD4005385DD /* CandleLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5A1E776AD4005385DD /* CandleLayer.cpp */; };
-		7DAA8B611E776C62005385DD /* CandleLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* CandleLevel.cpp */; };
+		7DAA8B611E776C62005385DD /* LevelClips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* LevelClips.cpp */; };
 		7DFE1C381E79D14B003ECE97 /* CandleLevels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */; };
 		7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFECCDE1E77638800D9104C /* XmlStore.cpp */; };
 		7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9A033F7A5413E686F440ADA /* ofxXmlSettings.cpp */; };
@@ -71,8 +71,8 @@
 		7DAA8B571E776875005385DD /* TraceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraceLayer.h; sourceTree = "<group>"; };
 		7DAA8B5A1E776AD4005385DD /* CandleLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLayer.cpp; sourceTree = "<group>"; };
 		7DAA8B5B1E776AD4005385DD /* CandleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLayer.h; sourceTree = "<group>"; };
-		7DAA8B5F1E776C62005385DD /* CandleLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLevel.cpp; sourceTree = "<group>"; };
-		7DAA8B601E776C62005385DD /* CandleLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLevel.h; sourceTree = "<group>"; };
+		7DAA8B5F1E776C62005385DD /* LevelClips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelClips.cpp; sourceTree = "<group>"; };
+		7DAA8B601E776C62005385DD /* LevelClips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelClips.h; sourceTree = "<group>"; };
 		7DFE1C351E79CDBE003ECE97 /* IInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInfo.h; sourceTree = "<group>"; };
 		7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLevels.cpp; sourceTree = "<group>"; };
 		7DFE1C371E79D14B003ECE97 /* CandleLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLevels.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 			children = (
 				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
 				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
-				7DAA8B5F1E776C62005385DD /* CandleLevel.cpp */,
-				7DAA8B601E776C62005385DD /* CandleLevel.h */,
+				7DAA8B5F1E776C62005385DD /* LevelClips.cpp */,
+				7DAA8B601E776C62005385DD /* LevelClips.h */,
 				7DAA8B5A1E776AD4005385DD /* CandleLayer.cpp */,
 				7DAA8B5B1E776AD4005385DD /* CandleLayer.h */,
 				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
@@ -297,7 +297,7 @@
 				7DAA8B551E776833005385DD /* Arduino.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */,
-				7DAA8B611E776C62005385DD /* CandleLevel.cpp in Sources */,
+				7DAA8B611E776C62005385DD /* LevelClips.cpp in Sources */,
 				7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */,
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
