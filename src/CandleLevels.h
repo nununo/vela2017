@@ -15,7 +15,7 @@ class CandleLevels{
   
 public:
   CandleLevels( string dataFolder );
-  CandleLayer *getNewLayer( int level, bool loop);
+  Layer *getNewLayer( int level, bool loop);
   
 private:
   vector<LevelClips*> levels;

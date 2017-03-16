@@ -24,10 +24,9 @@ LevelClips::LevelClips(int _intensity, string foldername) {
   srand(time(NULL));
 }
 
-CandleLayer *LevelClips::getNewLayer(bool loop) {
+Layer *LevelClips::getNewLayer(bool loop) {
   // Select a random movie from vector
   int i = movies.size();
   i = rand() % i;
-  CandleLayer *layer = new CandleLayer(intensity, filenames.at(i), movies.at(i), FADE_TIME, loop);
-  return layer;
+  return new Layer(intensity, filenames.at(i), movies.at(i), FADE_TIME, loop);
 }

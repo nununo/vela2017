@@ -5,7 +5,7 @@
 #include "Util.h"
 #include "Arduino.h"
 #include "TraceLayer.h"
-#include "CandleLayer.h"
+#include "Layer.h"
 #include "LevelClips.h"
 #include "IDataInput.h"
 #include "InputLevel.h"
@@ -45,7 +45,7 @@ private:
   CandleLevels *candleLevels;
   InputLevel *inputLevel;
   Layers layers;
-  CandleLayer *baseLayer;
+  Layer *baseLayer;
   XmlStore xmlStore;
   TraceLayer traceLayer;
   int previousIntensity;

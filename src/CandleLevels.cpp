@@ -27,6 +27,6 @@ CandleLevels::CandleLevels( string dataFolder ) {
 };
 
 //--------------------------------------------------------------
-CandleLayer *CandleLevels::getNewLayer(int level, bool loop) {
+Layer *CandleLevels::getNewLayer(int level, bool loop) {
   return levels[level]->getNewLayer(loop);
 };

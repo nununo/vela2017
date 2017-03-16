@@ -12,7 +12,7 @@
 void Layers::update() {
 
   // Updates each layer
-  vector<CandleLayer*>::iterator it;
+  vector<Layer*>::iterator it;
   for (it = layers.begin(); it != layers.end(); it++) {
     (*it)->update();
     
@@ -37,13 +37,13 @@ void Layers::update() {
 };
 
 //--------------------------------------------------------------
-void Layers::push(CandleLayer *layer) {
+void Layers::push(Layer *layer) {
   layers.push_back(layer);
 };
 
 //--------------------------------------------------------------
 void Layers::draw() {
-  vector<CandleLayer*>::iterator it;
+  vector<Layer*>::iterator it;
   for (it = layers.begin(); it != layers.end(); it++)
     (*it)->draw();
 };

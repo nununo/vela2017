@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 #include "ofMain.h"
-#include "CandleLayer.h"
+#include "Layer.h"
 using namespace std;
 
 #define FADE_TIME 0.1
@@ -13,7 +13,7 @@ class LevelClips {
 
   public:
     LevelClips(int _intensity, string foldername);
-    CandleLayer *getNewLayer(bool loop);
+    Layer *getNewLayer(bool loop);
 
     vector<ofVideoPlayer*> movies;
     vector<string> filenames;

@@ -24,7 +24,7 @@ void CandleApp::setup(){
   setAutoFlickerMinPeriod(xmlStore.getAutoFlickerMinPeriod());
   
   // Configure layers' static vars
-  CandleLayer::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
+  Layer::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
 
   // Initialize trace layer
   traceLayer.setup(inputLevel);
@@ -146,8 +146,7 @@ void CandleApp::checkTrigger() {
 
 //--------------------------------------------------------------
 void CandleApp::addLayer(int level) {
-  CandleLayer *layer = candleLevels->getNewLayer(level, false);
-  layers.push(layer);
+  layers.push( candleLevels->getNewLayer(level, false) );
 }
 
 //--------------------------------------------------------------

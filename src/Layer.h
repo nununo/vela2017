@@ -7,11 +7,11 @@ using namespace std;
 
 #define ALPHA_MAX 255
 
-class CandleLayer {
+class Layer {
 
   public:
-    CandleLayer(int _intensity, string _filename, ofVideoPlayer *_movie, float fadeTime, bool _loop);
-    ~CandleLayer();
+    Layer(int _intensity, string _filename, ofVideoPlayer *_movie, float fadeTime, bool _loop);
+    ~Layer();
     void update();
     void draw();
     bool isOpaque() {return movie->getPosition() > fadePercentage;}

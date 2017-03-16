@@ -1,17 +1,17 @@
-#include "CandleLayer.h"
+#include "Layer.h"
 #include "Util.h"
 
 //-----------------------------------------------------------------------
 // Why are classes with static data members getting linker errors?
 // http://forums.msdn.microsoft.com/en-US/vclanguage/thread/8655a6c5-ba8c-4d66-98e4-f0643268c25c
 // http://www.faqs.org/faqs/C++-faq/part4/
-float CandleLayer::offsetX = 0;
-float CandleLayer::offsetY = 0;
-float CandleLayer::zoomX = 1;
-float CandleLayer::zoomY = 1;
+float Layer::offsetX = 0;
+float Layer::offsetY = 0;
+float Layer::zoomX = 1;
+float Layer::zoomY = 1;
 
 //-----------------------------------------------------------------------
-CandleLayer::CandleLayer(int _intensity, string _filename, ofVideoPlayer *_movie, float fadeTime, bool _loop) {
+Layer::Layer(int _intensity, string _filename, ofVideoPlayer *_movie, float fadeTime, bool _loop) {
   filename = _filename;
   movie = _movie;
   loop = _loop;
@@ -33,12 +33,12 @@ CandleLayer::CandleLayer(int _intensity, string _filename, ofVideoPlayer *_movie
 }
 
 //-----------------------------------------------------------------------
-CandleLayer::~CandleLayer() {
+Layer::~Layer() {
   cout << "Destroyed layer for " << filename << endl;
 }
 
 //-----------------------------------------------------------------------
-void CandleLayer::update() {
+void Layer::update() {
     movie->update();
     if (playing && lastPosition > 0 && movie->getPosition()>0.98 && (movie->getPosition() == lastPosition)) {
       if (loop)
@@ -51,7 +51,7 @@ void CandleLayer::update() {
 }
 
 //-----------------------------------------------------------------------
-void CandleLayer::draw() {
+void Layer::draw() {
   if (playing) {
     int alpha = getAlpha();
     if (alpha == ALPHA_MAX)
@@ -62,17 +62,17 @@ void CandleLayer::draw() {
       ofEnableAlphaBlending();
       ofSetColor(255,255,255,alpha);
     }
-    movie->draw(ofGetWidth()*CandleLayer::offsetX,
-                ofGetHeight()*CandleLayer::offsetY,
-                ofGetWidth()*CandleLayer::zoomX,
-                ofGetHeight()*CandleLayer::zoomY);
+    movie->draw(ofGetWidth()*Layer::offsetX,
+                ofGetHeight()*Layer::offsetY,
+                ofGetWidth()*Layer::zoomX,
+                ofGetHeight()*Layer::zoomY);
     ofDisableAlphaBlending();
   }
 }
 
 
 //-----------------------------------------------------------------------
-int CandleLayer::getAlpha() {
+int Layer::getAlpha() {
   if (loop)
     return ALPHA_MAX;
   else {
@@ -83,6 +83,6 @@ int CandleLayer::getAlpha() {
 }
 
 //-----------------------------------------------------------------------
-void CandleLayer::outputStatus() {
+void Layer::outputStatus() {
   cout << "layer " << filename << " intensity=" << intensity << " pos=" << movie->getPosition() << " playing=" << isPlaying() << endl;
 }

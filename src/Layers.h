@@ -9,16 +9,16 @@
 #ifndef Layers_h
 #define Layers_h
 
-#include "CandleLayer.h"
+#include "Layer.h"
 
 class Layers {
 public:
   void update();
-  void push(CandleLayer *layer);
+  void push(Layer *layer);
   void draw();
   
 private:
-  vector<CandleLayer*> layers;
+  vector<Layer*> layers;
 
 };
 
