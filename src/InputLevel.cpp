@@ -41,6 +41,11 @@ int InputLevel::getLevel() {
 };
 
 //--------------------------------------------------------------
+void InputLevel::update() {
+  dataInput->update();
+}
+
+//--------------------------------------------------------------
 void InputLevel::offsetThresholds(float diff) {
   cout << "Offsettting thresholds by " << diff << ". ";
   for (int i=THRESHOLD_1; i<=THRESHOLD_3; i++) {

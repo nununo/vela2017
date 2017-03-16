@@ -25,6 +25,7 @@ class InputLevel: IInfo {
 public:
   InputLevel( IDataInput *_dataInput );
   int getLevel();
+  void update();
   string getInfo();
   void offsetThresholds( float diff );
   float getThreshold( int i) { return threshold[i]; };

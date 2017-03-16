@@ -10,6 +10,7 @@
 #include "IDataInput.h"
 #include "InputLevel.h"
 #include "CandleLevels.h"
+#include "Layers.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -44,14 +45,14 @@ private:
   CandleLevels *candleLevels;
   InputLevel *inputLevel;
   Arduino arduino;
-  vector<CandleLayer*> layers;
+  Layers layers;
+  //vector<CandleLayer*> layers;
   CandleLayer *baseLayer;
   XmlStore xmlStore;
   TraceLayer traceLayer;
   int previousIntensity;
   bool bFullscreen;
   bool bTrace;
-  InputType inputType;
   int autoFlickerMinPeriod;
   int autoFlickerLastTime;
 };

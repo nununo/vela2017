@@ -11,9 +11,6 @@ void CandleApp::setup(){
   previousIntensity = 0;
   autoFlickerLastTime = ofGetElapsedTimeMillis();
   
-  // Set input
-  inputType = CandleApp::InputMouse;
-
   // Initialize XML data storage
   xmlStore.setup(XML_FILENAME);
   
@@ -32,9 +29,9 @@ void CandleApp::setup(){
   // Initialize trace layer
   traceLayer.setup(inputLevel);
   
-  // Initialize Arduino
-  if (!arduino.setup(xmlStore.getArduinoDevice(), xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3), xmlStore.getMaxValue(), xmlStore.getAutocalirate()))
-    cout << "Error connecting to Arduino." << endl;
+//  // Initialize Arduino
+//  if (!arduino.setup(xmlStore.getArduinoDevice(), xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3), xmlStore.getMaxValue(), xmlStore.getAutocalirate()))
+//    cout << "Error connecting to Arduino." << endl;
   
   candleLevels = new CandleLevels(xmlStore.getDataFolder());
 
@@ -48,35 +45,11 @@ void CandleApp::setup(){
 //--------------------------------------------------------------
 void CandleApp::update(){
   
-  // Update arduino value
-  if (inputType == CandleApp::InputArduino)
-    arduino.update();
+  inputLevel->update();
   
-  // Update base layer
   baseLayer->update();
   
-  // Updates each layer
-  vector<CandleLayer*>::iterator it;
-  for (it = layers.begin(); it != layers.end(); it++) {
-    (*it)->update();
-    
-    // Delete finished layers
-    if (!(*it)->isPlaying()) {
-      delete *it;
-      layers.erase(it);
-      // Ideally I wouldn't break here and go through all the layers looking for other deletable movies
-      // but since deleting it destroys the iterator and the next iteration explodes... I'd have to come up
-      // with a smarter code and I'm lazy.
-      break;
-    }
-  }
-  
-  // Remove old first layer if top layer is already fully opaque.
-  if (layers.size() > 1 && layers.back()->isOpaque()) {
-    delete *layers.begin();
-    layers.erase(layers.begin());
-    cout << "Layer erased. " << layers.size() << " layers remain." << endl;
-  }
+  layers.update();
   
   // Update current level and check for triggers
   checkTrigger();
@@ -99,9 +72,7 @@ void CandleApp::draw(){
   baseLayer->draw();
   
   // Draw all layers
-  vector<CandleLayer*>::iterator it;
-  for (it = layers.begin(); it != layers.end(); it++)
-    (*it)->draw();
+  layers.draw();
   
   // Reset rotation
   if (xmlStore.getUpsideDown()) {
@@ -128,8 +99,8 @@ void CandleApp::keyPressed  (int key){
     case 't':
       toggleTrace();
       break;
-    case 'c':
-      arduino.toggleAutocalibrate();
+//    case 'c':
+//      arduino.toggleAutocalibrate();
       break;
     case '+':
       inputLevel->offsetThresholds(1);
@@ -137,15 +108,15 @@ void CandleApp::keyPressed  (int key){
     case '-':
       inputLevel->offsetThresholds(-1);
       break;
-    case 'i':
-      if (inputType == CandleApp::InputArduino)
-        inputType = CandleApp::InputMouse;
-      else
-        inputType = CandleApp::InputArduino;
-      break;
-    case 's':
+//    case 'i':
+//      if (inputType == CandleApp::InputArduino)
+//        inputType = CandleApp::InputMouse;
+//      else
+//        inputType = CandleApp::InputArduino;
+//      break;
+//    case 's':
       //xmlStore.save();
-      break;
+//      break;
   }
 }
 
@@ -182,7 +153,7 @@ void CandleApp::checkTrigger() {
 //--------------------------------------------------------------
 void CandleApp::addLayer(int level) {
   CandleLayer *layer = candleLevels->getNewLayer(level, false);
-  layers.push_back(layer);
+  layers.push(layer);
 }
 
 //--------------------------------------------------------------
