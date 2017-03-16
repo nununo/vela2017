@@ -3,11 +3,9 @@
 #include "ofMain.h"
 #include "XmlStore.h"
 #include "Util.h"
-#include "Arduino.h"
 #include "TraceLayer.h"
 #include "Layer.h"
 #include "LevelClips.h"
-#include "IDataInput.h"
 #include "InputLevel.h"
 #include "CandleLevels.h"
 #include "Layers.h"
@@ -18,7 +16,6 @@ class CandleApp : public ofBaseApp {
 
 	public:
     CandleApp( IDataInput *_dataInput);
-    enum InputType { InputArduino, InputMouse };
 
 		void setup();
 		void update();

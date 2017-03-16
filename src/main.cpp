@@ -1,6 +1,7 @@
 #include "ofMain.h"
 #include "CandleApp.h"
 #include "MouseInput.h"
+#include "CalibratedInput.h"
 
 //========================================================================
 int main( ){
@@ -9,6 +10,8 @@ int main( ){
 	// this kicks off the running of my app
 	// can be OF_WINDOW or OF_FULLSCREEN
 	// pass in width and height too:
-	ofRunApp(new CandleApp( new MouseInput() ));
+  CalibratedInput *calibratedInput = new CalibratedInput( new MouseInput() );
+  
+	ofRunApp(new CandleApp( calibratedInput ));
 
 }
