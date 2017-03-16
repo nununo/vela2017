@@ -9,6 +9,7 @@
 #include "CandleLevel.h"
 #include "IDataInput.h"
 #include "InputLevel.h"
+#include "CandleLevels.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -40,9 +41,9 @@ private:
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   void autoFlicker();
   
+  CandleLevels *candleLevels;
   InputLevel *inputLevel;
   Arduino arduino;
-  vector<CandleLevel*> levels;
   vector<CandleLayer*> layers;
   CandleLayer *baseLayer;
   XmlStore xmlStore;

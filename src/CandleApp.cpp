@@ -36,21 +36,10 @@ void CandleApp::setup(){
   if (!arduino.setup(xmlStore.getArduinoDevice(), xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3), xmlStore.getMaxValue(), xmlStore.getAutocalirate()))
     cout << "Error connecting to Arduino." << endl;
   
-  // Read files in this folder
-  ofDirectory oDir;
-  //oDir.setVerbose(false);
-  int nFiles = oDir.listDir(xmlStore.getDataFolder());
-  
-  // Load movies into vector
-  for(int i = 0; i < nFiles; i++){
-    cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
-    CandleLevel *level = new CandleLevel(i, oDir.getPath(i));
-    levels.push_back(level);
-  }
-  cout << levels.size() << " levels loaded." << endl;
-  
+  candleLevels = new CandleLevels(xmlStore.getDataFolder());
+
   // Create base layer for level 0
-  baseLayer = levels[0]->getNewLayer(true);
+  baseLayer = candleLevels->getNewLayer(0, true);
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -191,8 +180,8 @@ void CandleApp::checkTrigger() {
 }
 
 //--------------------------------------------------------------
-void CandleApp::addLayer(int intensity) {
-  CandleLayer *layer = levels[intensity]->getNewLayer(false);
+void CandleApp::addLayer(int level) {
+  CandleLayer *layer = candleLevels->getNewLayer(level, false);
   layers.push_back(layer);
 }
 
