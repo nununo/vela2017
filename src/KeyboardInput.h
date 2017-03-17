@@ -15,7 +15,7 @@
 class KeyboardInput: public IDataInput {
 public:
   virtual void setup();
-  virtual void update();
+  virtual void update() {};
   virtual float getValue();
   ~KeyboardInput();
 

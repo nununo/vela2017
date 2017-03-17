@@ -18,7 +18,7 @@ public:
   virtual void setup();
   virtual void update();
   virtual float getValue();
-  ~MultiInput();
+  ~MultiInput() {dataInputs.clear();}; // XXX This probably leaks
 
   void add(IDataInput *_dataInput);
 

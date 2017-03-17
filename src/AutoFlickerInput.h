@@ -17,13 +17,13 @@ public:
   virtual void setup();
   virtual void update();
   virtual float getValue();
-  ~AutoFlickerInput();
+  ~AutoFlickerInput() {};
   
 private:
   int minPeriod;
   int lastTime;
   float flickerValue;
-  float value;
+  bool isFlickerTime;
 };
 
 #endif /* AutoFlickerInput_h */

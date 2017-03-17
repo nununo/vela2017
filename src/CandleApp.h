@@ -15,29 +15,26 @@
 class CandleApp : public ofBaseApp {
 
 	public:
-    CandleApp( IDataInput *_dataInput);
-
 		void setup();
 		void update();
 		void draw();
 
 		void keyPressed(int key);
 		void keyReleased(int key) {};
-		void mouseMoved(int x, int y ) {};
-		void mouseDragged(int x, int y, int button) {};
+    void mouseMoved(int x, int y ) {};
+    void mouseDragged(int x, int y, int button) {};
 		void mousePressed(int x, int y, int button) {};
 		
 private:
+  void setupInputs();
   void addLayer() {addLayer(inputLevel->getLevel());}
   void addLayer(int intensity);
   void outputLayerStatus();
   void checkTrigger();
   void setTrace(bool value) {bTrace = value;}
   void setFullscreen(bool value);
-  void setAutoFlickerMinPeriod(int value) {autoFlickerMinPeriod = value;}
   void toggleTrace() {setTrace(!bTrace);}
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
-  void autoFlicker();
   
   CandleLevels *candleLevels;
   InputLevel *inputLevel;
@@ -48,6 +45,4 @@ private:
   int previousIntensity;
   bool bFullscreen;
   bool bTrace;
-  int autoFlickerMinPeriod;
-  int autoFlickerLastTime;
 };

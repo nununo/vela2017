@@ -1,27 +1,20 @@
 #include "CandleApp.h"
-
-//--------------------------------------------------------------
-CandleApp::CandleApp( IDataInput *_dataInput) {
-  inputLevel = new InputLevel( _dataInput );
-};
+#include "MultiInput.h"
+#include "KeyboardInput.h"
+#include "AutoFlickerInput.h"
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
-  // Initialize vars
+
   previousIntensity = 0;
-  autoFlickerLastTime = ofGetElapsedTimeMillis();
   
-  // Initialize XML data storage
   xmlStore.setup(XML_FILENAME);
   
-  // Initialize trace
   setTrace(xmlStore.getTrace());
   
-  // Initialize full screen
   setFullscreen(xmlStore.getFullscreen());
 
-  // Configure auto flickr flag
-  setAutoFlickerMinPeriod(xmlStore.getAutoFlickerMinPeriod());
+  setupInputs();
   
   // Configure layers' static vars
   Layer::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
@@ -48,9 +41,6 @@ void CandleApp::update(){
   layers.update();
   
   checkTrigger();
-  
-  if (autoFlickerMinPeriod > 0)
-    autoFlicker();
 }
 
 //--------------------------------------------------------------
@@ -102,12 +92,6 @@ void CandleApp::keyPressed  (int key){
     case '-':
       inputLevel->offsetThresholds(-1);
       break;
-//    case 'i':
-//      if (inputType == CandleApp::InputArduino)
-//        inputType = CandleApp::InputMouse;
-//      else
-//        inputType = CandleApp::InputArduino;
-//      break;
 //    case 's':
       //xmlStore.save();
 //      break;
@@ -150,13 +134,19 @@ void CandleApp::addLayer(int level) {
 }
 
 //--------------------------------------------------------------
-void CandleApp::autoFlicker() {
-  int timeNow = ofGetElapsedTimeMillis();
-  if (timeNow - autoFlickerLastTime > autoFlickerMinPeriod + ofRandomuf() * autoFlickerMinPeriod) {
-    bool x = timeNow - autoFlickerLastTime > autoFlickerMinPeriod + ofRandomuf() * autoFlickerMinPeriod;
-    cout << "Autoflicker: " << autoFlickerLastTime << " " << timeNow << "..." << timeNow - autoFlickerLastTime << "..." << autoFlickerMinPeriod + ofRandomuf() * autoFlickerMinPeriod << ".." << x << endl;
-    addLayer(1);
-    autoFlickerLastTime = timeNow;
-  }
+void CandleApp::setupInputs() {
+  MultiInput *multiInput;
+  
+  multiInput = new MultiInput();
+
+  multiInput->add( new KeyboardInput() );
+
+  multiInput->add( new AutoFlickerInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
+
+  multiInput->setup();
+  
+  inputLevel = new InputLevel( multiInput );
+
 }
+
 

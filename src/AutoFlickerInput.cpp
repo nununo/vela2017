@@ -13,6 +13,7 @@
 AutoFlickerInput::AutoFlickerInput(int _minPeriod, float _flickerValue) {
   minPeriod = _minPeriod;
   flickerValue = _flickerValue;
+  isFlickerTime = false;
 }
 
 //--------------------------------------------------------------
@@ -22,12 +23,30 @@ void AutoFlickerInput::setup() {
 
 //--------------------------------------------------------------
 void AutoFlickerInput::update() {
-  int timeNow = ofGetElapsedTimeMillis();
-  if (timeNow - lastTime > minPeriod + ofRandomuf() * minPeriod) {
-    bool x = timeNow - lastTime > minPeriod + ofRandomuf() * minPeriod;
-    cout << "Autoflicker: " << lastTime << " " << timeNow << "..." << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod << ".." << x << endl;
+  if (minPeriod > 0) {
     
-    value = flickerValue;
-    lastTime = timeNow;
+    int timeNow = ofGetElapsedTimeMillis();
+    
+    isFlickerTime = timeNow - lastTime > minPeriod + ofRandomuf() * minPeriod;
+
+    if (isFlickerTime) {
+
+      lastTime = timeNow;
+
+      cout << "Autoflicker: " << lastTime << " " << timeNow << "..." << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod << endl;
+    }
   }
+}
+
+//--------------------------------------------------------------
+float AutoFlickerInput::getValue() {
+  float value;
+  
+  if (isFlickerTime) {
+    isFlickerTime = false;
+    value = flickerValue;
+  } else
+    value = 0.0f;
+  
+  return value;
 }
