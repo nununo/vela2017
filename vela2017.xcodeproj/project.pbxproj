@@ -154,6 +154,25 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		7DB90F061E7B69F4000978EC /* dataInputs */ = {
+			isa = PBXGroup;
+			children = (
+				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
+				7DB90EF81E7B4D16000978EC /* ArduinoInput.h */,
+				7DB90EFA1E7B5713000978EC /* CalibratedInput.cpp */,
+				7DB90EFB1E7B5713000978EC /* CalibratedInput.h */,
+				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
+				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
+				7D42A3B41E78BCEA0097B54C /* MouseInput.cpp */,
+				7D42A3B51E78BCEA0097B54C /* MouseInput.h */,
+				7DB90F001E7B62A2000978EC /* MultiInput.cpp */,
+				7DB90F011E7B62A2000978EC /* MultiInput.h */,
+				7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */,
+				7DB90F041E7B6799000978EC /* AutoFlickerInput.h */,
+			);
+			name = dataInputs;
+			sourceTree = "<group>";
+		};
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,10 +205,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
-				7DB90EF81E7B4D16000978EC /* ArduinoInput.h */,
-				7DB90EFA1E7B5713000978EC /* CalibratedInput.cpp */,
-				7DB90EFB1E7B5713000978EC /* CalibratedInput.h */,
+				7DB90F061E7B69F4000978EC /* dataInputs */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
 				7DAA8B4A1E77665F005385DD /* CandleApp.h */,
 				7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */,
@@ -198,8 +214,6 @@
 				7DFE1C351E79CDBE003ECE97 /* IInfo.h */,
 				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
 				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
-				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
-				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
 				7DAA8B5A1E776AD4005385DD /* Layer.cpp */,
 				7DAA8B5B1E776AD4005385DD /* Layer.h */,
 				7DB90EF41E7B4885000978EC /* Layers.cpp */,
@@ -207,18 +221,12 @@
 				7DAA8B5F1E776C62005385DD /* LevelClips.cpp */,
 				7DAA8B601E776C62005385DD /* LevelClips.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				7D42A3B41E78BCEA0097B54C /* MouseInput.cpp */,
-				7D42A3B51E78BCEA0097B54C /* MouseInput.h */,
-				7DB90F001E7B62A2000978EC /* MultiInput.cpp */,
-				7DB90F011E7B62A2000978EC /* MultiInput.h */,
 				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
 				7DAA8B571E776875005385DD /* TraceLayer.h */,
 				7DAA8B4D1E7767C6005385DD /* Util.cpp */,
 				7DAA8B4E1E7767C6005385DD /* Util.h */,
 				7DFECCDE1E77638800D9104C /* XmlStore.cpp */,
 				7DFECCDF1E77638800D9104C /* XmlStore.h */,
-				7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */,
-				7DB90F041E7B6799000978EC /* AutoFlickerInput.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
