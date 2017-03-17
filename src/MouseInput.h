@@ -19,8 +19,7 @@ public:
   virtual float getValue();
   ~MouseInput();
 
-  //We need to declare all this mouse events methods to be able to listen to mouse events.
-  //All this must be declared even if we are just going to use only one of this methods.
+  //We must declare all these mouse events methods to be able to listen to mouse events, even if we don't need them all
   void mouseMoved(ofMouseEventArgs & args) {};
   void mouseDragged(ofMouseEventArgs & args) {};
   void mousePressed(ofMouseEventArgs & args);    // We only need this one

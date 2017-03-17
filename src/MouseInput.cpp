@@ -45,4 +45,7 @@ void MouseInput::registerMouseEvents() {
 
 //--------------------------------------------------------------
 void MouseInput::unregisterMouseEvents() {
+  if(bRegisteredEvents)
+    ofUnregisterMouseEvents(this);
+  bRegisteredEvents = false;
 };
