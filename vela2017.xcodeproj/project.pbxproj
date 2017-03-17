@@ -19,6 +19,7 @@
 		7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */; };
 		7DB90EFC1E7B5713000978EC /* CalibratedInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFA1E7B5713000978EC /* CalibratedInput.cpp */; };
 		7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */; };
+		7DB90F021E7B62A2000978EC /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90F001E7B62A2000978EC /* MultiInput.cpp */; };
 		7DFE1C381E79D14B003ECE97 /* CandleLevels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */; };
 		7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFECCDE1E77638800D9104C /* XmlStore.cpp */; };
 		7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9A033F7A5413E686F440ADA /* ofxXmlSettings.cpp */; };
@@ -82,6 +83,8 @@
 		7DB90EFB1E7B5713000978EC /* CalibratedInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibratedInput.h; sourceTree = "<group>"; };
 		7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyboardInput.cpp; sourceTree = "<group>"; };
 		7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardInput.h; sourceTree = "<group>"; };
+		7DB90F001E7B62A2000978EC /* MultiInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiInput.cpp; sourceTree = "<group>"; };
+		7DB90F011E7B62A2000978EC /* MultiInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiInput.h; sourceTree = "<group>"; };
 		7DFE1C351E79CDBE003ECE97 /* IInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInfo.h; sourceTree = "<group>"; };
 		7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLevels.cpp; sourceTree = "<group>"; };
 		7DFE1C371E79D14B003ECE97 /* CandleLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLevels.h; sourceTree = "<group>"; };
@@ -209,6 +212,8 @@
 				7DFECCDF1E77638800D9104C /* XmlStore.h */,
 				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
 				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
+				7DB90F001E7B62A2000978EC /* MultiInput.cpp */,
+				7DB90F011E7B62A2000978EC /* MultiInput.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -310,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				7DB90F021E7B62A2000978EC /* MultiInput.cpp in Sources */,
 				7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */,
 				7DAA8B611E776C62005385DD /* LevelClips.cpp in Sources */,
 				7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */,
