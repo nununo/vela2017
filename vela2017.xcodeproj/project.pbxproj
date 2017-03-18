@@ -160,9 +160,31 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		7DB90F061E7B69F4000978EC /* dataInputs */ = {
+		7D7245B71E7DD327006E5653 /* videoHandling */ = {
 			isa = PBXGroup;
 			children = (
+				7D7245AC1E7DA83F006E5653 /* Clip.cpp */,
+				7D7245AD1E7DA83F006E5653 /* Clip.h */,
+				7DAA8B5F1E776C62005385DD /* Clips.cpp */,
+				7DAA8B601E776C62005385DD /* Clips.h */,
+				7DAA8B5A1E776AD4005385DD /* Layer.cpp */,
+				7DAA8B5B1E776AD4005385DD /* Layer.h */,
+				7DB90EF41E7B4885000978EC /* Layers.cpp */,
+				7DB90EF51E7B4885000978EC /* Layers.h */,
+				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
+				7DFE1C371E79D14B003ECE97 /* Levels.h */,
+				7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */,
+				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
+			);
+			name = videoHandling;
+			sourceTree = "<group>";
+		};
+		7DB90F061E7B69F4000978EC /* inputHandling */ = {
+			isa = PBXGroup;
+			children = (
+				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
+				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
+				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
 				7DB90EF71E7B4D16000978EC /* ArduinoDataInput.cpp */,
 				7DB90EF81E7B4D16000978EC /* ArduinoDataInput.h */,
 				7DB90EFA1E7B5713000978EC /* CalibratedDataInput.cpp */,
@@ -176,7 +198,7 @@
 				7DB90F031E7B6799000978EC /* AutoFlickerDataInput.cpp */,
 				7DB90F041E7B6799000978EC /* AutoFlickerDataInput.h */,
 			);
-			name = dataInputs;
+			name = inputHandling;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -211,26 +233,12 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7DB90F061E7B69F4000978EC /* dataInputs */,
+				7D7245B71E7DD327006E5653 /* videoHandling */,
+				7DB90F061E7B69F4000978EC /* inputHandling */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
 				7DAA8B4A1E77665F005385DD /* CandleApp.h */,
-				7D7245AC1E7DA83F006E5653 /* Clip.cpp */,
-				7D7245AD1E7DA83F006E5653 /* Clip.h */,
-				7DAA8B5F1E776C62005385DD /* Clips.cpp */,
-				7DAA8B601E776C62005385DD /* Clips.h */,
-				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
 				7DFE1C351E79CDBE003ECE97 /* IInfo.h */,
-				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
-				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
-				7DAA8B5A1E776AD4005385DD /* Layer.cpp */,
-				7DAA8B5B1E776AD4005385DD /* Layer.h */,
-				7DB90EF41E7B4885000978EC /* Layers.cpp */,
-				7DB90EF51E7B4885000978EC /* Layers.h */,
-				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
-				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */,
-				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
 				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
 				7DAA8B571E776875005385DD /* TraceLayer.h */,
 				7DAA8B4D1E7767C6005385DD /* Util.cpp */,
