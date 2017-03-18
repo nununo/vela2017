@@ -1,10 +1,9 @@
-#include "LevelClips.h"
+#include "Clips.h"
 
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-LevelClips::LevelClips(int _intensity, bool loop, string foldername) {
-  intensity = _intensity;
+Clips::Clips(bool loop, string foldername) {
 
   loadMovies(loop, foldername);
   
@@ -13,15 +12,15 @@ LevelClips::LevelClips(int _intensity, bool loop, string foldername) {
 }
 
 //-----------------------------------------------------------------------
-Layer *LevelClips::getRandomLayer() {
+Clip *Clips::getRandomClip() {
   // Select a random movie from vector
   int i = clips.size();
   i = rand() % i;
-  return new Layer(intensity, clips.at(i));
+  return clips.at(i);
 }
 
 //-----------------------------------------------------------------------
-void LevelClips::loadMovies(bool loop, string foldername) {
+void Clips::loadMovies(bool loop, string foldername) {
 
   ofDirectory oDir;
   

@@ -1,5 +1,5 @@
-#ifndef LEVELCLIPS_H_INCLUDED
-#define LEVELCLIPS_H_INCLUDED
+#ifndef CLIPS_H_INCLUDED
+#define CLIPS_H_INCLUDED
 
 #include <vector>
 #include <string>
@@ -10,17 +10,16 @@ using namespace std;
 
 #define FADE_TIME 0.1
 
-class LevelClips {
+class Clips {
 
 public:
-  LevelClips(int _intensity, bool loop, string foldername);
-  Layer *getRandomLayer();
+  Clips(bool loop, string foldername);
+  Clip *getRandomClip();
 
   vector<Clip*> clips;
 
 private:
   void loadMovies(bool loop, string foldername);
-  int intensity;
 };
 
-#endif // LEVELCLIPS_H_INCLUDED
+#endif // CLIPS_H_INCLUDED

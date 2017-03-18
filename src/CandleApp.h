@@ -5,7 +5,6 @@
 #include "Util.h"
 #include "TraceLayer.h"
 #include "Layer.h"
-#include "LevelClips.h"
 #include "InputLevel.h"
 #include "CandleLevels.h"
 #include "Layers.h"

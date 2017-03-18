@@ -15,7 +15,7 @@
 		7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B4D1E7767C6005385DD /* Util.cpp */; };
 		7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* TraceLayer.cpp */; };
 		7DAA8B5C1E776AD4005385DD /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5A1E776AD4005385DD /* Layer.cpp */; };
-		7DAA8B611E776C62005385DD /* LevelClips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* LevelClips.cpp */; };
+		7DAA8B611E776C62005385DD /* Clips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* Clips.cpp */; };
 		7DB90EF61E7B4885000978EC /* Layers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EF41E7B4885000978EC /* Layers.cpp */; };
 		7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */; };
 		7DB90EFC1E7B5713000978EC /* CalibratedInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFA1E7B5713000978EC /* CalibratedInput.cpp */; };
@@ -77,8 +77,8 @@
 		7DAA8B571E776875005385DD /* TraceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraceLayer.h; sourceTree = "<group>"; };
 		7DAA8B5A1E776AD4005385DD /* Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		7DAA8B5B1E776AD4005385DD /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
-		7DAA8B5F1E776C62005385DD /* LevelClips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelClips.cpp; sourceTree = "<group>"; };
-		7DAA8B601E776C62005385DD /* LevelClips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelClips.h; sourceTree = "<group>"; };
+		7DAA8B5F1E776C62005385DD /* Clips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clips.cpp; sourceTree = "<group>"; };
+		7DAA8B601E776C62005385DD /* Clips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clips.h; sourceTree = "<group>"; };
 		7DB90EF41E7B4885000978EC /* Layers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Layers.cpp; sourceTree = "<group>"; };
 		7DB90EF51E7B4885000978EC /* Layers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layers.h; sourceTree = "<group>"; };
 		7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ArduinoInput.cpp; sourceTree = "<group>"; };
@@ -221,8 +221,8 @@
 				7DAA8B5B1E776AD4005385DD /* Layer.h */,
 				7DB90EF41E7B4885000978EC /* Layers.cpp */,
 				7DB90EF51E7B4885000978EC /* Layers.h */,
-				7DAA8B5F1E776C62005385DD /* LevelClips.cpp */,
-				7DAA8B601E776C62005385DD /* LevelClips.h */,
+				7DAA8B5F1E776C62005385DD /* Clips.cpp */,
+				7DAA8B601E776C62005385DD /* Clips.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
 				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
 				7DAA8B571E776875005385DD /* TraceLayer.h */,
@@ -336,7 +336,7 @@
 				7DB90F021E7B62A2000978EC /* MultiInput.cpp in Sources */,
 				7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */,
 				7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */,
-				7DAA8B611E776C62005385DD /* LevelClips.cpp in Sources */,
+				7DAA8B611E776C62005385DD /* Clips.cpp in Sources */,
 				7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */,
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,

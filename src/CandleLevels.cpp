@@ -7,6 +7,7 @@
 //
 
 #include "CandleLevels.h"
+#include "Clips.h"
 
 //--------------------------------------------------------------
 CandleLevels::CandleLevels( string dataFolder ) {
@@ -16,7 +17,7 @@ CandleLevels::CandleLevels( string dataFolder ) {
 
 //--------------------------------------------------------------
 Layer *CandleLevels::getNewLayer(int level) {
-  return levels[level]->getRandomLayer();
+  return new Layer(level, levels[level]->getRandomClip());
 };
 
 //--------------------------------------------------------------
@@ -30,7 +31,6 @@ void CandleLevels::loadMovies(string dataFolder) {
   for(int i = 0; i < nFiles; i++){
     cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
     
-    LevelClips *levelClips = new LevelClips(i, i==0, oDir.getPath(i));
-    levels.push_back(levelClips);
+    levels.push_back(new Clips(i==0, oDir.getPath(i)));
   }
 }

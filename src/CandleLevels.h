@@ -9,7 +9,7 @@
 #ifndef CandleLevels_h
 #define CandleLevels_h
 
-#include "LevelClips.h"
+#include "Clips.h"
 
 class CandleLevels{
   
@@ -20,7 +20,7 @@ public:
 private:
   void loadMovies(string dataFolder);
   
-  vector<LevelClips*> levels;
+  vector<Clips*> levels;
 
 };
 
