@@ -133,17 +133,17 @@ void CandleApp::addLayer(int level) {
 
 //--------------------------------------------------------------
 void CandleApp::setupInputs() {
-  MultiDataInput *multiDataInput;
+//  MultiDataInput *multiDataInput;
+//  
+//  multiDataInput = new MultiDataInput();
+//
+//  multiDataInput->add( new KeyDataInput() );
+//
+//  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
+//
+//  multiDataInput->setup();
   
-  multiDataInput = new MultiDataInput();
-
-  multiDataInput->add( new KeyDataInput() );
-
-  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
-
-  multiDataInput->setup();
-  
-  inputLevel = new InputLevel( multiDataInput );
+  inputLevel = new InputLevel( new KeyDataInput() );
 
 }
 
