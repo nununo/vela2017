@@ -31,6 +31,8 @@ void Levels::loadMovies(ClipOutputSettings *clipOutputSettings, string dataFolde
   for(int i = 0; i < nFiles; i++){
     cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
     
+    // Level 0 loops because it's the base layer. All the other levels
+    // must not loop, they fade out when finished
     levels.push_back(new Clips(clipOutputSettings, i==0, oDir.getPath(i)));
   }
 }
