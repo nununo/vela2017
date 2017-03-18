@@ -1,13 +1,13 @@
 //
-//  ArduinoInput.h
+//  ArduinoDataInput.h
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#ifndef ArduinoInput_h
-#define ArduinoInput_h
+#ifndef ArduinoDataInput_h
+#define ArduinoDataInput_h
 
 #include "IDataInput.h"
 #include "ofMain.h"
@@ -15,13 +15,13 @@
 #define ARDUINO_BUFFER_SIZE 500
 #define ARDUINO_CALIBRATION_COUNT 20
 
-class ArduinoInput: public IDataInput {
+class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoInput(int _device, int _maxValue);
+  ArduinoDataInput(int _device, int _maxValue);
   virtual void setup();
   virtual void update();
   virtual float getValue() {return lastValue;}
-  ~ArduinoInput();
+  ~ArduinoDataInput();
   
 private:
   void setValue(float _value);
@@ -35,4 +35,4 @@ private:
   
 };
 
-#endif /* ArduinoInput_h */
+#endif /* ArduinoDataInput_h */

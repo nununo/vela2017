@@ -1,22 +1,22 @@
 //
-//  ArduinoInput.cpp
+//  ArduinoDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "ArduinoInput.h"
+#include "ArduinoDataInput.h"
 
 //--------------------------------------------------------------
-ArduinoInput::ArduinoInput(int _device, int _maxValue) {
+ArduinoDataInput::ArduinoDataInput(int _device, int _maxValue) {
   maxValue = _maxValue;
   lastValue = 0;
   serial.listDevices();
   serial.setup(_device, 9600);
 }
 
-void ArduinoInput::update() {
+void ArduinoDataInput::update() {
   
   // we try to read 2 bytes
   
@@ -56,7 +56,7 @@ void ArduinoInput::update() {
 }
 
 //--------------------------------------------------------------
-void ArduinoInput::setValue(float value) {
+void ArduinoDataInput::setValue(float value) {
   if (value > maxValue)
     return;
   lastValue = value;

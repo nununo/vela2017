@@ -1,25 +1,25 @@
 //
-//  KeyboardInput.cpp
+//  KeyDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "KeyboardInput.h"
+#include "KeyDataInput.h"
 
 //--------------------------------------------------------------
-KeyboardInput::~KeyboardInput() {
+KeyDataInput::~KeyDataInput() {
   unregisterKeyboardEvents();
 };
 
 //--------------------------------------------------------------
-void KeyboardInput::setup() {
+void KeyDataInput::setup() {
   registerKeyboardEvents();
 };
 
 //--------------------------------------------------------------
-float KeyboardInput::getValue() {
+float KeyDataInput::getValue() {
   switch (lastKey) {
     case '3':
       return 0.99f;
@@ -39,7 +39,7 @@ float KeyboardInput::getValue() {
 };
 
 //--------------------------------------------------------------
-void KeyboardInput::keyPressed(ofKeyEventArgs &e) {
+void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
   switch (e.key) {
     case '1':
     case '2':
@@ -51,7 +51,7 @@ void KeyboardInput::keyPressed(ofKeyEventArgs &e) {
 
 
 //--------------------------------------------------------------
-void KeyboardInput::registerKeyboardEvents() {
+void KeyDataInput::registerKeyboardEvents() {
   if(!bRegisteredEvents) {
     ofRegisterKeyEvents(this); // enable our class to listen to mouse events.
     bRegisteredEvents = true;
@@ -59,7 +59,7 @@ void KeyboardInput::registerKeyboardEvents() {
 };
 
 //--------------------------------------------------------------
-void KeyboardInput::unregisterKeyboardEvents() {
+void KeyDataInput::unregisterKeyboardEvents() {
   if(bRegisteredEvents)
     ofUnregisterKeyEvents(this);
   bRegisteredEvents = false;

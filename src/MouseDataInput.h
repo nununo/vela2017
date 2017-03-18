@@ -1,23 +1,23 @@
 //
-//  MouseInput.h
+//  MouseDataInput.h
 //  vela2017
 //
 //  Created by Nuno on 15/03/2017.
 //
 //
 
-#ifndef MouseInput_h
-#define MouseInput_h
+#ifndef MouseDataInput_h
+#define MouseDataInput_h
 
 #include "IDataInput.h"
 #include "ofMain.h"
 
-class MouseInput: public IDataInput {
+class MouseDataInput: public IDataInput {
 public:
   virtual void setup();
   virtual void update();
   virtual float getValue();
-  ~MouseInput();
+  ~MouseDataInput();
 
   //We must declare all these mouse events methods to be able to listen to mouse events, even if we don't need them all
   void mouseMoved(ofMouseEventArgs & args) {};
@@ -36,4 +36,4 @@ private:
   int lastMouseY;
 };
 
-#endif /* MouseInput_h */
+#endif /* MouseDataInput_h */

@@ -1,28 +1,28 @@
 //
-//  AutoFlickerInput.cpp
+//  AutoFlickerDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 17/03/2017.
 //
 //
 
-#include "AutoFlickerInput.h"
+#include "AutoFlickerDataInput.h"
 #include "ofMain.h"
 
 //--------------------------------------------------------------
-AutoFlickerInput::AutoFlickerInput(int _minPeriod, float _flickerValue) {
+AutoFlickerDataInput::AutoFlickerDataInput(int _minPeriod, float _flickerValue) {
   minPeriod = _minPeriod;
   flickerValue = _flickerValue;
   isFlickerTime = false;
 }
 
 //--------------------------------------------------------------
-void AutoFlickerInput::setup() {
+void AutoFlickerDataInput::setup() {
   lastTime = ofGetElapsedTimeMillis();
 }
 
 //--------------------------------------------------------------
-void AutoFlickerInput::update() {
+void AutoFlickerDataInput::update() {
   if (minPeriod > 0) {
     
     int timeNow = ofGetElapsedTimeMillis();
@@ -39,7 +39,7 @@ void AutoFlickerInput::update() {
 }
 
 //--------------------------------------------------------------
-float AutoFlickerInput::getValue() {
+float AutoFlickerDataInput::getValue() {
   float value;
   
   if (isFlickerTime) {

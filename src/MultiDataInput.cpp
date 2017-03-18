@@ -1,20 +1,20 @@
 //
-//  MultiInput.cpp
+//  MultiDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 17/03/2017.
 //
 //
 
-#include "MultiInput.h"
+#include "MultiDataInput.h"
 
 //-----------------------------------------------------------------------
-void MultiInput::add(IDataInput *dataInput) {
+void MultiDataInput::add(IDataInput *dataInput) {
   dataInputs.push_back(dataInput);
 };
 
 //-----------------------------------------------------------------------
-void MultiInput::setup() {
+void MultiDataInput::setup() {
   vector<IDataInput*>::iterator it;
   
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
@@ -22,7 +22,7 @@ void MultiInput::setup() {
 }
 
 //-----------------------------------------------------------------------
-void MultiInput::update() {
+void MultiDataInput::update() {
   vector<IDataInput*>::iterator it;
     
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
@@ -30,7 +30,7 @@ void MultiInput::update() {
 }
 
 //-----------------------------------------------------------------------
-float MultiInput::getValue() {
+float MultiDataInput::getValue() {
   
   float inputValue;
   float maxValue = 0;

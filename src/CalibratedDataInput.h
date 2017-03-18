@@ -1,23 +1,23 @@
 //
-//  CalibratedInput.hpp
+//  CalibratedDataInput.hpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#ifndef CalibratedInput_h
-#define CalibratedInput_h
+#ifndef CalibratedDataInput_h
+#define CalibratedDataInput_h
 
 #include "IDataInput.h"
 
-class CalibratedInput: public IDataInput {
+class CalibratedDataInput: public IDataInput {
 public:
-  CalibratedInput(IDataInput *_dataInput);
+  CalibratedDataInput(IDataInput *_dataInput);
   virtual void setup();
   virtual void update();
   virtual float getValue() {return dataInput->getValue() + offset;}
-  ~CalibratedInput() {};
+  ~CalibratedDataInput() {};
 
 private:
   void calibrate();
@@ -27,4 +27,4 @@ private:
   float offset;
 };
 
-#endif /* CalibratedInput_h */
+#endif /* CalibratedDataInput_h */

@@ -1,38 +1,38 @@
 //
-//  CalibratedInput.cpp
+//  CalibratedDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "CalibratedInput.h"
+#include "CalibratedDataInput.h"
 
 //--------------------------------------------------------------
-CalibratedInput::CalibratedInput(IDataInput *_dataInput) {
+CalibratedDataInput::CalibratedDataInput(IDataInput *_dataInput) {
  dataInput = _dataInput;
   offset = 0;
 };
 
 //--------------------------------------------------------------
-void CalibratedInput::update() {
+void CalibratedDataInput::update() {
   dataInput->update();
 }
 
 //--------------------------------------------------------------
-void CalibratedInput::setup() {
+void CalibratedDataInput::setup() {
   dataInput->setup();
 }
 
 //--------------------------------------------------------------
-void CalibratedInput::calibrate() {
+void CalibratedDataInput::calibrate() {
 //  cout << "Calibrating...";
 //  if (!calibrate1())
 //    calibrate2();
 }
 
 //--------------------------------------------------------------
-bool CalibratedInput::calibrate1() {
+bool CalibratedDataInput::calibrate1() {
   //  int count = 0;
   //  for(int i=ARDUINO_BUFFER_SIZE-1; i>=0; i--)
   //    if (getIntensity(buffer[i])>0)
@@ -44,7 +44,7 @@ bool CalibratedInput::calibrate1() {
 }
 
 //--------------------------------------------------------------
-bool CalibratedInput::calibrate2() {
+bool CalibratedDataInput::calibrate2() {
 //  // Sort buffer in ascending order
 //  sort(buffer, buffer+ARDUINO_BUFFER_SIZE);
 //  // get max value

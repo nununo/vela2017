@@ -1,7 +1,7 @@
 #include "CandleApp.h"
-#include "MultiInput.h"
-#include "KeyboardInput.h"
-#include "AutoFlickerInput.h"
+#include "MultiDataInput.h"
+#include "KeyDataInput.h"
+#include "AutoFlickerDataInput.h"
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
@@ -133,17 +133,17 @@ void CandleApp::addLayer(int level) {
 
 //--------------------------------------------------------------
 void CandleApp::setupInputs() {
-  MultiInput *multiInput;
+  MultiDataInput *multiDataInput;
   
-  multiInput = new MultiInput();
+  multiDataInput = new MultiDataInput();
 
-  multiInput->add( new KeyboardInput() );
+  multiDataInput->add( new KeyDataInput() );
 
-  multiInput->add( new AutoFlickerInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
+  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
 
-  multiInput->setup();
+  multiDataInput->setup();
   
-  inputLevel = new InputLevel( multiInput );
+  inputLevel = new InputLevel( multiDataInput );
 
 }
 
