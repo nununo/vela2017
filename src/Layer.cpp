@@ -19,6 +19,7 @@ Layer::Layer(int _intensity, string _filename, ofVideoPlayer *_movie, float fade
   // initialize variables
   lastPosition = 0;
   playing = true;
+  
   // Rewind
   if (loop)
     movie->setLoopState(OF_LOOP_NORMAL);
@@ -26,6 +27,7 @@ Layer::Layer(int _intensity, string _filename, ofVideoPlayer *_movie, float fade
     movie->setLoopState(OF_LOOP_NONE);
   movie->setSpeed(1);
   movie->setPosition(0);
+
   // Calculate fade percentage for current movie
   fadePercentage = Util::remap(fadeTime, 0, movie->getDuration(), 0, 1);
   // Output

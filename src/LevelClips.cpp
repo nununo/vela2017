@@ -5,10 +5,12 @@
 //-----------------------------------------------------------------------
 LevelClips::LevelClips(int _intensity, string foldername) {
   intensity = _intensity;
+
   // Read files in this folder
   ofDirectory oDir;
-  //oDir.setVerbose(false);                   // Is this needed? It was in the old version
+  //oDir.setVerbose(false);                   // Is this needed? It was present in the old version
   int nFiles = oDir.listDir(foldername);
+
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
     // Load movie
@@ -16,6 +18,7 @@ LevelClips::LevelClips(int _intensity, string foldername) {
     movie->load(oDir.getPath(i));
     movie->play();
     movies.push_back(movie);
+  
     // Save filename
     filenames.push_back(oDir.getPath(i));
     cout << "Loaded movie " << oDir.getPath(i) << endl;
@@ -24,7 +27,7 @@ LevelClips::LevelClips(int _intensity, string foldername) {
   srand(time(NULL));
 }
 
-Layer *LevelClips::getNewLayer(bool loop) {
+Layer *LevelClips::getRandomLayer(bool loop) {
   // Select a random movie from vector
   int i = movies.size();
   i = rand() % i;

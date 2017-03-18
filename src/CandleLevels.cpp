@@ -28,5 +28,5 @@ CandleLevels::CandleLevels( string dataFolder ) {
 
 //--------------------------------------------------------------
 Layer *CandleLevels::getNewLayer(int level, bool loop) {
-  return levels[level]->getNewLayer(loop);
+  return levels[level]->getRandomLayer(loop);
 };

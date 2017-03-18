@@ -13,7 +13,7 @@ class LevelClips {
 
   public:
     LevelClips(int _intensity, string foldername);
-    Layer *getNewLayer(bool loop);
+    Layer *getRandomLayer(bool loop);
 
     vector<ofVideoPlayer*> movies;
     vector<string> filenames;
