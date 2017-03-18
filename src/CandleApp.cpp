@@ -17,7 +17,7 @@ void CandleApp::setup(){
   setupInputs();
   
   // Configure layers' static vars
-  Layer::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
+  Clip::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
 
   // Initialize trace layer
   traceLayer.setup(inputLevel);
@@ -25,7 +25,7 @@ void CandleApp::setup(){
   candleLevels = new CandleLevels(xmlStore.getDataFolder());
 
   // Create base layer for level 0
-  baseLayer = candleLevels->getNewLayer(0, true);
+  baseLayer = candleLevels->getNewLayer(0);
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -52,10 +52,8 @@ void CandleApp::draw(){
     glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
   }
   
-  // Draw base layer
   baseLayer->draw();
   
-  // Draw all layers
   layers.draw();
   
   // Reset rotation
@@ -130,7 +128,7 @@ void CandleApp::checkTrigger() {
 
 //--------------------------------------------------------------
 void CandleApp::addLayer(int level) {
-  layers.push( candleLevels->getNewLayer(level, false) );
+  layers.push( candleLevels->getNewLayer(level) );
 }
 
 //--------------------------------------------------------------

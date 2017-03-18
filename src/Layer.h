@@ -2,6 +2,7 @@
 #define CANDLELAYER_H_INCLUDED
 
 #include "ofMain.h"
+#include "Clip.h"
 #include <string>
 using namespace std;
 
@@ -9,33 +10,19 @@ using namespace std;
 
 class Layer {
 
-  public:
-    Layer(int _intensity, string _filename, ofVideoPlayer *_movie, float fadeTime, bool _loop);
-    ~Layer();
-    void update();
-    void draw();
-    bool isOpaque() {return movie->getPosition() > fadePercentage;}
-    int getIntensity() {return intensity;}
-    bool isPlaying() {return playing;}
-    void outputStatus();
+public:
+  Layer(int _intensity, Clip *_clip);
+  ~Layer();
+  void update();
+  void draw();
+  int getIntensity() {return intensity;}
+  bool isPlaying() {return clip->isPlaying();}
+  void outputStatus();
+  bool isOpaque() {return clip->isOpaque();};
 
-    static void configure(float _offsetX, float _offsetY, float _zoomX, float _zoomY) {offsetX = _offsetX; offsetY = _offsetY; zoomX = _zoomX; zoomY = _zoomY;}
-
-  private:
-    string filename;
-    ofVideoPlayer *movie;
-    float fadePercentage;
-    bool loop;
-    int intensity;
-    bool playing;
-    float lastPosition;
-
-    static float offsetX;
-    static float offsetY;
-    static float zoomX;
-    static float zoomY;
-
-    int getAlpha();
+private:
+  Clip *clip;
+  int intensity;
 };
 
 #endif // CANDLELAYER_H_INCLUDED

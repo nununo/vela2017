@@ -19,9 +19,11 @@ float Clip::zoomX = 1;
 float Clip::zoomY = 1;
 
 //-----------------------------------------------------------------------
-Clip::Clip(string _filename, ofVideoPlayer *_movie, bool _loop, float fadeTime) {
+Clip::Clip(string _filename, bool _loop, float fadeTime) {
   filename = _filename;
-  movie = _movie;
+
+  movie = loadMovie(filename);
+
   fadePercentage = timeToPercentage(fadeTime);
 
   setLoop(_loop);
@@ -30,6 +32,15 @@ Clip::Clip(string _filename, ofVideoPlayer *_movie, bool _loop, float fadeTime) 
   rewind();
 }
 
+//-----------------------------------------------------------------------
+ofVideoPlayer *Clip::loadMovie(string filename) {
+  ofVideoPlayer *newMovie = new ofVideoPlayer();
+  newMovie->load(filename);
+  newMovie->play();
+  return newMovie;
+}
+
+//-----------------------------------------------------------------------
 void Clip::setLoop(bool _loop) {
   _loop = loop;
   if (loop)

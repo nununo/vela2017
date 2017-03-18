@@ -15,9 +15,11 @@ class CandleLevels{
   
 public:
   CandleLevels( string dataFolder );
-  Layer *getNewLayer( int level, bool loop);
+  Layer *getNewLayer( int level);
   
 private:
+  void loadMovies(string dataFolder);
+  
   vector<LevelClips*> levels;
 
 };

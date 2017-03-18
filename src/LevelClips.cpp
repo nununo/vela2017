@@ -3,33 +3,33 @@
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-LevelClips::LevelClips(int _intensity, string foldername) {
+LevelClips::LevelClips(int _intensity, bool loop, string foldername) {
   intensity = _intensity;
 
-  // Read files in this folder
-  ofDirectory oDir;
-  //oDir.setVerbose(false);                   // Is this needed? It was present in the old version
-  int nFiles = oDir.listDir(foldername);
-
-  // Load movies into vector
-  for(int i = 0; i < nFiles; i++){
-    // Load movie
-    ofVideoPlayer *movie = new ofVideoPlayer();
-    movie->load(oDir.getPath(i));
-    movie->play();
-    movies.push_back(movie);
+  loadMovies(loop, foldername);
   
-    // Save filename
-    filenames.push_back(oDir.getPath(i));
-    cout << "Loaded movie " << oDir.getPath(i) << endl;
-  }
   // initialize random seed
   srand(time(NULL));
 }
 
-Layer *LevelClips::getRandomLayer(bool loop) {
+//-----------------------------------------------------------------------
+Layer *LevelClips::getRandomLayer() {
   // Select a random movie from vector
-  int i = movies.size();
+  int i = clips.size();
   i = rand() % i;
-  return new Layer(intensity, filenames.at(i), movies.at(i), FADE_TIME, loop);
+  return new Layer(intensity, clips.at(i));
+}
+
+//-----------------------------------------------------------------------
+void LevelClips::loadMovies(bool loop, string foldername) {
+
+  ofDirectory oDir;
+  
+  int nFiles = oDir.listDir(foldername);
+  
+  // Load movies into vector
+  for(int i = 0; i < nFiles; i++){
+    clips.push_back(new Clip(oDir.getPath(i), loop, FADE_TIME));
+    cout << "Loaded movie " << oDir.getPath(i) << endl;
+  }
 }
