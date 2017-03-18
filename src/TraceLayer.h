@@ -2,18 +2,18 @@
 #define TRACELAYER_H_INCLUDED
 
 #include "ofMain.h"
-#include "Arduino.h"
+#include "InputLevel.h"
 
 class TraceLayer {
 
   public:
-    void setup(Arduino *_arduino);
+    void setup(InputLevel *_inputLevel);
     void update();
     void draw();
 
   private:
     ofTrueTypeFont font;
-    Arduino *arduino;
+    InputLevel *inputLevel;
 };
 
 #endif // TRACELAYER_H_INCLUDED
