@@ -6,22 +6,22 @@
 //
 //
 
-#include "CandleLevels.h"
+#include "Levels.h"
 #include "Clips.h"
 
 //--------------------------------------------------------------
-CandleLevels::CandleLevels( string dataFolder ) {
+Levels::Levels( string dataFolder ) {
   loadMovies(dataFolder);
   cout << levels.size() << " levels loaded." << endl;
 };
 
 //--------------------------------------------------------------
-Clip *CandleLevels::getRandomClip(int level) {
+Clip *Levels::getRandomClip(int level) {
   return levels[level]->getRandomClip();
 };
 
 //--------------------------------------------------------------
-void CandleLevels::loadMovies(string dataFolder) {
+void Levels::loadMovies(string dataFolder) {
   // Read files in this folder
   ofDirectory oDir;
   

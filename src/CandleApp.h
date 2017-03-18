@@ -6,7 +6,7 @@
 #include "TraceLayer.h"
 #include "Layer.h"
 #include "InputLevel.h"
-#include "CandleLevels.h"
+#include "Levels.h"
 #include "Layers.h"
 
 #define XML_FILENAME "vela.xml"
@@ -35,7 +35,7 @@ private:
   void toggleTrace() {setTrace(!bTrace);}
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   
-  CandleLevels *candleLevels;
+  Levels *levels;
   InputLevel *inputLevel;
   Layers layers;
   Layer *baseLayer;

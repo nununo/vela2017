@@ -22,10 +22,10 @@ void CandleApp::setup(){
   // Initialize trace layer
   traceLayer.setup(inputLevel);
   
-  candleLevels = new CandleLevels(xmlStore.getDataFolder());
+  levels = new Levels(xmlStore.getDataFolder());
 
   // Create base layer for level 0
-  baseLayer = new Layer(0, candleLevels->getRandomClip(0));
+  baseLayer = new Layer(0, levels->getRandomClip(0));
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -128,7 +128,7 @@ void CandleApp::checkTrigger() {
 
 //--------------------------------------------------------------
 void CandleApp::addLayer(int level) {
-  layers.push( new Layer(level, candleLevels->getRandomClip(level)) );
+  layers.push( new Layer(level, levels->getRandomClip(level)) );
 }
 
 //--------------------------------------------------------------

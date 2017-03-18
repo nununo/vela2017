@@ -22,7 +22,7 @@
 		7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */; };
 		7DB90F021E7B62A2000978EC /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90F001E7B62A2000978EC /* MultiInput.cpp */; };
 		7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */; };
-		7DFE1C381E79D14B003ECE97 /* CandleLevels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */; };
+		7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE1C361E79D14B003ECE97 /* Levels.cpp */; };
 		7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFECCDE1E77638800D9104C /* XmlStore.cpp */; };
 		7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9A033F7A5413E686F440ADA /* ofxXmlSettings.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
@@ -92,8 +92,8 @@
 		7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AutoFlickerInput.cpp; sourceTree = "<group>"; };
 		7DB90F041E7B6799000978EC /* AutoFlickerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoFlickerInput.h; sourceTree = "<group>"; };
 		7DFE1C351E79CDBE003ECE97 /* IInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IInfo.h; sourceTree = "<group>"; };
-		7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleLevels.cpp; sourceTree = "<group>"; };
-		7DFE1C371E79D14B003ECE97 /* CandleLevels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleLevels.h; sourceTree = "<group>"; };
+		7DFE1C361E79D14B003ECE97 /* Levels.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Levels.cpp; sourceTree = "<group>"; };
+		7DFE1C371E79D14B003ECE97 /* Levels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Levels.h; sourceTree = "<group>"; };
 		7DFECCDE1E77638800D9104C /* XmlStore.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = XmlStore.cpp; sourceTree = "<group>"; };
 		7DFECCDF1E77638800D9104C /* XmlStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlStore.h; sourceTree = "<group>"; };
 		7FA5BD62DF0EFD479C5A1D3E /* tinyxml.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 30; name = tinyxml.h; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxml.h; sourceTree = SOURCE_ROOT; };
@@ -211,8 +211,8 @@
 				7DB90F061E7B69F4000978EC /* dataInputs */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
 				7DAA8B4A1E77665F005385DD /* CandleApp.h */,
-				7DFE1C361E79D14B003ECE97 /* CandleLevels.cpp */,
-				7DFE1C371E79D14B003ECE97 /* CandleLevels.h */,
+				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
+				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
 				7DFE1C351E79CDBE003ECE97 /* IInfo.h */,
 				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
@@ -341,7 +341,7 @@
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
 				7D42A3BE1E78C9C80097B54C /* InputLevel.cpp in Sources */,
-				7DFE1C381E79D14B003ECE97 /* CandleLevels.cpp in Sources */,
+				7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */,
 				7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* Layer.cpp in Sources */,

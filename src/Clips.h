@@ -4,7 +4,6 @@
 #include <vector>
 #include <string>
 #include "ofMain.h"
-#include "Layer.h"
 #include "Clip.h"
 using namespace std;
 
