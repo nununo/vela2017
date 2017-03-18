@@ -10,19 +10,12 @@
 #include "util.h"
 
 //-----------------------------------------------------------------------
-// Why are classes with static data members getting linker errors?
-// http://forums.msdn.microsoft.com/en-US/vclanguage/thread/8655a6c5-ba8c-4d66-98e4-f0643268c25c
-// http://www.faqs.org/faqs/C++-faq/part4/
-float Clip::offsetX = 0;
-float Clip::offsetY = 0;
-float Clip::zoomX = 1;
-float Clip::zoomY = 1;
-
-//-----------------------------------------------------------------------
-Clip::Clip(string _filename, bool _loop, float fadeTime) {
+Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime) {
   filename = _filename;
 
   movie = loadMovie(filename);
+  
+  clipOutputSettings = _clipOutputSettings;
 
   fadePercentage = timeToPercentage(fadeTime);
 
@@ -100,10 +93,10 @@ void Clip::draw() {
       ofEnableAlphaBlending();
       ofSetColor(255,255,255,alpha);
     }
-    movie->draw(ofGetWidth()*Clip::offsetX,
-                ofGetHeight()*Clip::offsetY,
-                ofGetWidth()*Clip::zoomX,
-                ofGetHeight()*Clip::zoomY);
+    movie->draw(ofGetWidth()*clipOutputSettings->getOffsetX(),
+                ofGetHeight()*clipOutputSettings->getOffsetY(),
+                ofGetWidth()*clipOutputSettings->getZoomX(),
+                ofGetHeight()*clipOutputSettings->getZoomY());
     ofDisableAlphaBlending();
   }
 }

@@ -10,8 +10,8 @@
 #include "Clips.h"
 
 //--------------------------------------------------------------
-Levels::Levels( string dataFolder ) {
-  loadMovies(dataFolder);
+Levels::Levels(ClipOutputSettings *clipOutputSettings, string dataFolder) {
+  loadMovies(clipOutputSettings, dataFolder);
   cout << levels.size() << " levels loaded." << endl;
 };
 
@@ -21,7 +21,7 @@ Clip *Levels::getRandomClip(int level) {
 };
 
 //--------------------------------------------------------------
-void Levels::loadMovies(string dataFolder) {
+void Levels::loadMovies(ClipOutputSettings *clipOutputSettings, string dataFolder) {
   // Read files in this folder
   ofDirectory oDir;
   
@@ -31,6 +31,6 @@ void Levels::loadMovies(string dataFolder) {
   for(int i = 0; i < nFiles; i++){
     cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
     
-    levels.push_back(new Clips(i==0, oDir.getPath(i)));
+    levels.push_back(new Clips(clipOutputSettings, i==0, oDir.getPath(i)));
   }
 }

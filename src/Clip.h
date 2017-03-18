@@ -10,22 +10,22 @@
 #define Clip_h
 
 #include "ofMain.h"
+#include "ClipOutputSettings.h"
 
 #define ALPHA_MAX 255
 
 class Clip {
 public:
-  Clip(string _filename, bool _loop, float fadeTime);
+  Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
   void rewind_and_play();
   void update();
   void draw();
   string getFilename() {return filename;};
   bool isOpaque() {return movie->getPosition() > fadePercentage;}
   bool isPlaying() {return movie->getSpeed() > 0;};
-  
-  static void configure(float _offsetX, float _offsetY, float _zoomX, float _zoomY) {offsetX = _offsetX; offsetY = _offsetY; zoomX = _zoomX; zoomY = _zoomY;}
-  
+
 private:
+  ClipOutputSettings *clipOutputSettings;
   ofVideoPlayer *loadMovie(string filename);
   float timeToPercentage(float time);
   void setLoop(bool _loop);
@@ -39,10 +39,6 @@ private:
   bool loop;
   float fadePercentage;
 
-  static float offsetX;
-  static float offsetY;
-  static float zoomX;
-  static float zoomY;
   
 };
 

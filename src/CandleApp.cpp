@@ -15,14 +15,14 @@ void CandleApp::setup(){
   setFullscreen(xmlStore.getFullscreen());
 
   setupInputs();
-  
-  // Configure layers' static vars
-  Clip::configure(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY());
 
   // Initialize trace layer
   traceLayer.setup(inputLevel);
   
-  levels = new Levels(xmlStore.getDataFolder());
+  levels =
+    new Levels(
+               new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
+               xmlStore.getDataFolder());
 
   // Create base layer for level 0
   baseLayer = new Layer(0, levels->getRandomClip(0));

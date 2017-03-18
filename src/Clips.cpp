@@ -3,9 +3,9 @@
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-Clips::Clips(bool loop, string foldername) {
+Clips::Clips(ClipOutputSettings *clipOutputSettings, bool loop, string foldername) {
 
-  loadMovies(loop, foldername);
+  loadMovies(clipOutputSettings, loop, foldername);
   
   // initialize random seed
   srand(time(NULL));
@@ -20,7 +20,7 @@ Clip *Clips::getRandomClip() {
 }
 
 //-----------------------------------------------------------------------
-void Clips::loadMovies(bool loop, string foldername) {
+void Clips::loadMovies(ClipOutputSettings *clipOutputSettings, bool loop, string foldername) {
 
   ofDirectory oDir;
   
@@ -28,7 +28,7 @@ void Clips::loadMovies(bool loop, string foldername) {
   
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
-    clips.push_back(new Clip(oDir.getPath(i), loop, FADE_TIME));
+    clips.push_back(new Clip(clipOutputSettings, oDir.getPath(i), loop, FADE_TIME));
     cout << "Loaded movie " << oDir.getPath(i) << endl;
   }
 }

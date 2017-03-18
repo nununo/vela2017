@@ -12,13 +12,13 @@ using namespace std;
 class Clips {
 
 public:
-  Clips(bool loop, string foldername);
+  Clips(ClipOutputSettings *clipOutputSettings, bool loop, string foldername);
   Clip *getRandomClip();
 
   vector<Clip*> clips;
 
 private:
-  void loadMovies(bool loop, string foldername);
+  void loadMovies(ClipOutputSettings *clipOutputSettings, bool loop, string foldername);
 };
 
 #endif // CLIPS_H_INCLUDED
