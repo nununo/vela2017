@@ -16,8 +16,8 @@ CandleLevels::CandleLevels( string dataFolder ) {
 };
 
 //--------------------------------------------------------------
-Layer *CandleLevels::getNewLayer(int level) {
-  return new Layer(level, levels[level]->getRandomClip());
+Clip *CandleLevels::getRandomClip(int level) {
+  return levels[level]->getRandomClip();
 };
 
 //--------------------------------------------------------------

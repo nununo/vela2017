@@ -15,7 +15,8 @@ class CandleLevels{
   
 public:
   CandleLevels( string dataFolder );
-  Layer *getNewLayer( int level);
+  Clip *getRandomClip(int level);
+  Layer *getNewLayer2( int level);
   
 private:
   void loadMovies(string dataFolder);
