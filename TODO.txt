@@ -1,0 +1,6 @@
+- Stop and don't draw() base layer when not visible
+- Try arduino old manual serial approach (without Firmata)
+- Invent a more performant buffer history
+- Reimplement calibration
+- Solve MOV files debug warning message
+- Introduce AutoFlicker and review its code

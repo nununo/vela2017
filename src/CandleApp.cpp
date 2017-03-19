@@ -7,6 +7,8 @@
 //--------------------------------------------------------------
 void CandleApp::setup(){
 
+  ofSetFrameRate(25);
+  
   previousIntensity = 0;
   
   xmlStore.setup(XML_FILENAME);
