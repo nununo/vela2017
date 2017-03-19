@@ -26,8 +26,3 @@ void ClipLayer::drawAlgorithm() {
   clip->draw();
 }
 
-
-//-----------------------------------------------------------------------
-void ClipLayer::outputStatus() {
-//  cout << "layer " << clip->getFilename() << " intensity=" << intensity << " pos=" << movie->getPosition() << " playing=" << isPlaying() << endl;
-}

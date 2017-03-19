@@ -10,7 +10,7 @@ void CandleApp::setup(){
   
   xmlStore.setup(XML_FILENAME);
   
-  setTrace(xmlStore.getTrace());
+  traceLayer.setVisible(xmlStore.getTrace());
   
   setFullscreen(xmlStore.getFullscreen());
 
