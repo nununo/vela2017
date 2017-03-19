@@ -9,7 +9,7 @@ class TraceLayer {
   public:
     void setup(InputLevel *_inputLevel);
     void update();
-    void draw();
+    void draw(string text);
 
   private:
     ofTrueTypeFont font;

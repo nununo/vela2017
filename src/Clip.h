@@ -22,6 +22,7 @@ public:
   void draw();
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
+  float getPosition() {return movie->getPosition();}
 
 private:
   ClipOutputSettings *clipOutputSettings;

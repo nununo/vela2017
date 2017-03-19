@@ -10,7 +10,7 @@
 #define InputLevel_h
 
 #include "IDataInput.h"
-#include "IInfo.h"
+#include "ITrace.h"
 
 #define THRESHOLD_1 0
 #define THRESHOLD_2 1
@@ -21,14 +21,14 @@
 #define LEVEL_2 2
 #define LEVEL_3 3
 
-class InputLevel: IInfo {
+class InputLevel: ITrace {
 public:
   InputLevel( IDataInput *_dataInput );
-  int getLevel();
+  int getIntensity();
   void update();
-  string getInfo();
+  string getTrace();
   void offsetThresholds( float diff );
-  float getThreshold( int i) { return threshold[i]; };
+  
 private:
   IDataInput *dataInput;
   float threshold[3];

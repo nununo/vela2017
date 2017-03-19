@@ -7,14 +7,7 @@ void TraceLayer::setup(InputLevel *_inputLevel) {
 }
 
 //--------------------------------------------------------------
-void TraceLayer::draw() {
-  string text;
-  
-//  text = "Intensity: " + ofToString(arduino->getLastValue()) + " " + ofToString(arduino->getLastIntensity()) + "\n";
-
-  text += "Thresholds: " + ofToString(inputLevel->getThreshold(0))
-      + " " + ofToString(inputLevel->getThreshold(1)) + " "
-      + ofToString(inputLevel->getThreshold(2)) + "\n";
+void TraceLayer::draw(string text) {
 	
   ofSetHexColor(0x00FF00);
 	font.drawString(text, 0, 0);

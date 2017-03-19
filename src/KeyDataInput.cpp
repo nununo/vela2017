@@ -10,7 +10,12 @@
 
 //--------------------------------------------------------------
 float KeyDataInput::getValue() {
-  switch (lastKey) {
+  int tempKey;
+  
+  tempKey = lastKey;
+  lastKey = 0;
+
+  switch (tempKey) {
     case '3':
       return 0.99f;
       break;
@@ -25,7 +30,6 @@ float KeyDataInput::getValue() {
       return 0.0f;
       break;
   }
-  lastKey = 0;
 };
 
 //--------------------------------------------------------------

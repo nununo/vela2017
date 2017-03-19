@@ -17,6 +17,8 @@ public:
   void update();
   virtual void drawAlgorithm();
   int getIntensity() {return intensity;}
+  string getFilename() {return clip->getFilename();}
+  float getPosition() {return clip->getPosition();}
   virtual bool isVisible() {return clip->isPlaying();}
   void outputStatus();
 

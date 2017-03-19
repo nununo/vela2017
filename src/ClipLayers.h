@@ -11,12 +11,14 @@
 
 #include "ClipLayer.h"
 #include "Levels.h"
+#include "ITrace.h"
 
-class ClipLayers {
+class ClipLayers: public ITrace {
 public:
   ClipLayers(Levels *levels, int _clipsRotation);
   void update(int intensity);
   void draw();
+  virtual string getTrace();
   
 private:
   void add(int intensity);

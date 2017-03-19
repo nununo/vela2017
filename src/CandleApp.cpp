@@ -34,7 +34,7 @@ void CandleApp::update(){
   
   inputLevel->update();
   
-  clipLayers->update(inputLevel->getLevel());
+  clipLayers->update(inputLevel->getIntensity());
 
 }
 
@@ -47,7 +47,7 @@ void CandleApp::draw(){
   if (bTrace) {
     float v = 0.05 * (float)ofGetWidth();
     glTranslated(v, v, 0);
-    traceLayer.draw();
+    traceLayer.draw(inputLevel->getTrace() + clipLayers->getTrace());
     glTranslated(-v, -v, 0);
   }
 }

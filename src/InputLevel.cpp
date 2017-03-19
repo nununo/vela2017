@@ -22,21 +22,21 @@ InputLevel::InputLevel( IDataInput *_dataInput ) {
 };
 
 //--------------------------------------------------------------
-int InputLevel::getLevel() {
+int InputLevel::getIntensity() {
   
   float value = dataInput->getValue();
-  int level;
+  int intensity;
   
   if (value > threshold[THRESHOLD_3])
-    level = LEVEL_3;
+    intensity = LEVEL_3;
   else if (value > threshold[THRESHOLD_2])
-    level = LEVEL_2;
+    intensity = LEVEL_2;
   else if (value > threshold[THRESHOLD_1])
-    level = LEVEL_1;
+    intensity = LEVEL_1;
   else
-    level = LEVEL_0;
+    intensity = LEVEL_0;
   
-  return level;
+  return intensity;
   
 };
 
@@ -56,7 +56,8 @@ void InputLevel::offsetThresholds(float diff) {
 };
 
 //--------------------------------------------------------------
-string InputLevel::getInfo() {
+string InputLevel::getTrace() {
   return "InputLevel:\n"
-         "  Thresholds:" + ofToString(getThreshold(THRESHOLD_1)) + ofToString(getThreshold(THRESHOLD_2)) + ofToString(getThreshold(THRESHOLD_3)) + "\n";
+         "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
+         "  Current value: " + ofToString(getIntensity()) + "\n";
 };

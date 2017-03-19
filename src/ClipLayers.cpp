@@ -7,6 +7,7 @@
 //
 
 #include "ClipLayers.h"
+#include <sstream>
 
 ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   levels = _levels;
@@ -20,7 +21,8 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
 //--------------------------------------------------------------
 void ClipLayers::update(int intensity) {
 
-  if (list.size() == 0 || intensity > list.back()->getIntensity())
+  if (intensity > 0 &&
+      (list.size() == 0 || intensity > list.back()->getIntensity()))
       add(intensity);
   
   baseClipLayer->update();
@@ -64,12 +66,12 @@ void ClipLayers::deleteHidden() {
     list.erase(list.begin());
     cout << "Layer erased. " << list.size() << " layers remain." << endl;
   }
-
 }
+
 //--------------------------------------------------------------
 void ClipLayers::add(int intensity) {
   list.push_back(new ClipLayer(intensity, levels->getRandomClip(intensity)));
-};
+}
 
 //--------------------------------------------------------------
 void ClipLayers::draw() {
@@ -91,4 +93,20 @@ void ClipLayers::draw() {
     glTranslated(ofGetWidth(), ofGetHeight(), 0);
     glRotated(-clipsRotation, 0, 0, 1);
   }
-};
+}
+
+//--------------------------------------------------------------
+string ClipLayers::getTrace() {
+  stringstream ss;
+
+  ss << "ClipLayers:\n";
+  ss << "  Num: " << ofToString(list.size()) << "\n";
+  
+  vector<ClipLayer*>::iterator it;
+  for (it = list.begin(); it != list.end(); it++)
+    ss << "  " << (*it)->getIntensity() << "\n"
+       << "    Filename: " << (*it)->getFilename() << "\n"
+       << "    Position: " << (*it)->getPosition() << "\n";
+  
+  return ss.str();
+}
