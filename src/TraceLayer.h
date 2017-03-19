@@ -17,6 +17,7 @@ private:
   ofTrueTypeFont font;
   string text;
   bool visible;
+  string getSysInfo();
 };
 
 #endif // TRACELAYER_H_INCLUDED

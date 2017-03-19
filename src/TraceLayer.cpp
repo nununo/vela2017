@@ -7,8 +7,14 @@ TraceLayer::TraceLayer() {
 }
 
 //--------------------------------------------------------------
+string TraceLayer::getSysInfo() {
+  return "System info:\n"
+          "  Framerate: " + ofToString(ofGetFrameRate()) + "\n";
+}
+
+//--------------------------------------------------------------
 void TraceLayer::update(string _text) {
-  text = _text;
+  text = getSysInfo() + _text;
 }
 
 //--------------------------------------------------------------
@@ -22,8 +28,4 @@ void TraceLayer::drawAlgorithm() {
   
   glTranslated(-v, -v, 0);
 
-	// Draw arduino buffer
-//	for (int i = 0; i < ARDUINO_BUFFER_SIZE; i++){
-//		ofDrawLine(i,25,i,25+(arduino->getThreshold(0)-arduino->getBuffer(i))/2);
-//	}
 }
