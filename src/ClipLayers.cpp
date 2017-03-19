@@ -1,14 +1,14 @@
 //
-//  Layers.cpp
+//  ClipLayers.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "Layers.h"
+#include "ClipLayers.h"
 
-Layers::Layers(Levels *_levels) {
+ClipLayers::ClipLayers(Levels *_levels) {
   levels = _levels;
   
   // Create base layer for level 0
@@ -17,17 +17,17 @@ Layers::Layers(Levels *_levels) {
 }
 
 //--------------------------------------------------------------
-void Layers::update(int intensity) {
+void ClipLayers::update(int intensity) {
 
-  if (clipLayers.size()>0)
-    if (intensity > clipLayers.back()->getIntensity())
+  if (list.size()>0)
+    if (intensity > list.back()->getIntensity())
       add(intensity);
   
   baseClipLayer->update();
   
   // Updates each layer
   vector<ClipLayer*>::iterator it;
-  for (it = clipLayers.begin(); it != clipLayers.end(); it++) {
+  for (it = list.begin(); it != list.end(); it++) {
     (*it)->update();
   }
   
@@ -37,7 +37,7 @@ void Layers::update(int intensity) {
 };
 
 //--------------------------------------------------------------
-void Layers::deleteFinished() {
+void ClipLayers::deleteFinished() {
   
   // I do this 3 times because that's the maximum layers that can exist
   // Ideally I would delete all with the same iterator but deleting one
@@ -46,10 +46,10 @@ void Layers::deleteFinished() {
 
   for (int i=0; i<3;i++) {
     vector<ClipLayer*>::iterator it;
-    for (it = clipLayers.begin(); it != clipLayers.end(); it++) {
+    for (it = list.begin(); it != list.end(); it++) {
       if (!(*it)->isPlaying()) {
         delete *it;
-        clipLayers.erase(it);
+        list.erase(it);
         break;
       }
     }
@@ -57,26 +57,26 @@ void Layers::deleteFinished() {
 }
 
 //--------------------------------------------------------------
-void Layers::deleteHidden() {
+void ClipLayers::deleteHidden() {
   // Remove old first layer if top layer is no longer playing
-  if (clipLayers.size() > 1 && !clipLayers.back()->isPlaying()) {
-    delete *clipLayers.begin();
-    clipLayers.erase(clipLayers.begin());
-    cout << "Layer erased. " << clipLayers.size() << " layers remain." << endl;
+  if (list.size() > 1 && !list.back()->isPlaying()) {
+    delete *list.begin();
+    list.erase(list.begin());
+    cout << "Layer erased. " << list.size() << " layers remain." << endl;
   }
 
 }
 //--------------------------------------------------------------
-void Layers::add(int intensity) {
-  clipLayers.push_back(new ClipLayer(intensity, levels->getRandomClip(intensity)));
+void ClipLayers::add(int intensity) {
+  list.push_back(new ClipLayer(intensity, levels->getRandomClip(intensity)));
 };
 
 //--------------------------------------------------------------
-void Layers::draw() {
+void ClipLayers::draw() {
   
   baseClipLayer->draw();
   
   vector<ClipLayer*>::iterator it;
-  for (it = clipLayers.begin(); it != clipLayers.end(); it++)
+  for (it = list.begin(); it != list.end(); it++)
     (*it)->draw();
 };

@@ -23,7 +23,7 @@ void CandleApp::setup(){
                new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
                xmlStore.getDataFolder());
 
-  layers = new Layers(levels);
+  clipLayers = new ClipLayers(levels);
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -34,7 +34,7 @@ void CandleApp::update(){
   
   inputLevel->update();
   
-  layers->update(inputLevel->getLevel());
+  clipLayers->update(inputLevel->getLevel());
   
   checkTrigger();
 }
@@ -48,7 +48,7 @@ void CandleApp::draw(){
     glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
   }
   
-  layers->draw();
+  clipLayers->draw();
   
   // Reset rotation
   if (xmlStore.getUpsideDown()) {

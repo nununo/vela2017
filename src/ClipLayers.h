@@ -1,20 +1,20 @@
 //
-//  Layers.h
+//  ClipLayers.h
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#ifndef Layers_h
-#define Layers_h
+#ifndef ClipLayers_h
+#define ClipLayers_h
 
 #include "ClipLayer.h"
 #include "Levels.h"
 
-class Layers {
+class ClipLayers {
 public:
-  Layers(Levels *levels);
+  ClipLayers(Levels *levels);
   void update(int intensity);
   void draw();
   
@@ -24,7 +24,7 @@ private:
   void deleteHidden();
   
   Levels *levels;
-  vector<ClipLayer*> clipLayers;
+  vector<ClipLayer*> list;
   ClipLayer *baseClipLayer;
 
 };

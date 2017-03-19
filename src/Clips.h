@@ -15,7 +15,7 @@ public:
   Clips(ClipOutputSettings *clipOutputSettings, bool loop, string foldername);
   Clip *getRandomClip();
 
-  vector<Clip*> clips;
+  vector<Clip*> list;
 
 private:
   void loadMovies(ClipOutputSettings *clipOutputSettings, bool loop, string foldername);

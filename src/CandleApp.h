@@ -6,7 +6,7 @@
 #include "TraceLayer.h"
 #include "InputLevel.h"
 #include "Levels.h"
-#include "Layers.h"
+#include "ClipLayers.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -33,7 +33,7 @@ private:
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   
   InputLevel *inputLevel;
-  Layers *layers;
+  ClipLayers *clipLayers;
   XmlStore xmlStore;
   TraceLayer traceLayer;
   int previousIntensity;

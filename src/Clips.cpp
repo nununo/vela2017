@@ -14,9 +14,9 @@ Clips::Clips(ClipOutputSettings *clipOutputSettings, bool loop, string foldernam
 //-----------------------------------------------------------------------
 Clip *Clips::getRandomClip() {
   // Select a random movie from vector
-  int i = clips.size();
+  int i = list.size();
   i = rand() % i;
-  return clips.at(i);
+  return list.at(i);
 }
 
 //-----------------------------------------------------------------------
@@ -28,7 +28,7 @@ void Clips::loadMovies(ClipOutputSettings *clipOutputSettings, bool loop, string
   
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
-    clips.push_back(new Clip(clipOutputSettings, oDir.getPath(i), loop, FADE_TIME));
+    list.push_back(new Clip(clipOutputSettings, oDir.getPath(i), loop, FADE_TIME));
     cout << "Loaded movie " << oDir.getPath(i) << endl;
   }
 }
