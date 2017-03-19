@@ -17,7 +17,7 @@ class XmlStore {
     bool save();
     string getDataFolder() {return XML.getValue("SETTINGS:DATAFOLDER", "");}
     int getArduinoDevice() {return XML.getValue("SETTINGS:ARDUINODEVICE", 1);}
-    bool getUpsideDown() {return (XML.getValue("SETTINGS:UPSIDEDOWN", 0) == 1);}
+    int getClipsRotation() {return XML.getValue("SETTINGS:CLIPSROTATION", 180);}
     int getThreshold(int threshold) {return XML.getValue("SETTINGS:THRESHOLD" + ofToString(threshold), 0);}
     int getMaxValue() {return XML.getValue("SETTINGS:MAXVALUE", 0);}
     float getOffsetX() {return XML.getValue("SETTINGS:OFFSETX", 0.0f);}

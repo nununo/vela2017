@@ -14,7 +14,7 @@
 
 class ClipLayers {
 public:
-  ClipLayers(Levels *levels);
+  ClipLayers(Levels *levels, int _clipsRotation);
   void update(int intensity);
   void draw();
   
@@ -26,6 +26,7 @@ private:
   Levels *levels;
   vector<ClipLayer*> list;
   ClipLayer *baseClipLayer;
+  int clipsRotation;
 
 };
 

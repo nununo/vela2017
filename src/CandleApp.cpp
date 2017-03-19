@@ -23,7 +23,7 @@ void CandleApp::setup(){
                new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
                xmlStore.getDataFolder());
 
-  clipLayers = new ClipLayers(levels);
+  clipLayers = new ClipLayers(levels, xmlStore.getClipsRotation());
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -42,19 +42,7 @@ void CandleApp::update(){
 //--------------------------------------------------------------
 void CandleApp::draw(){
   
-  // Rotate 180º
-  if (xmlStore.getUpsideDown()) {
-    glRotated(180, 0, 0, 1);
-    glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
-  }
-  
   clipLayers->draw();
-  
-  // Reset rotation
-  if (xmlStore.getUpsideDown()) {
-    glTranslated(ofGetWidth(), ofGetHeight(), 0);
-    glRotated(-180, 0, 0, 1);
-  }
   
   // Draw trace layer
   if (bTrace) {

@@ -8,8 +8,9 @@
 
 #include "ClipLayers.h"
 
-ClipLayers::ClipLayers(Levels *_levels) {
+ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   levels = _levels;
+  clipsRotation = _clipsRotation;
   
   // Create base layer for level 0
   baseClipLayer = new ClipLayer(0, levels->getRandomClip(0));
@@ -73,10 +74,22 @@ void ClipLayers::add(int intensity) {
 
 //--------------------------------------------------------------
 void ClipLayers::draw() {
-  
+
+  // Rotate clips
+  if (clipsRotation != 0) {
+    glRotated(clipsRotation, 0, 0, 1);
+    glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
+  }
+
   baseClipLayer->draw();
   
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++)
     (*it)->draw();
+
+  // Reset rotation
+  if (clipsRotation != 0) {
+    glTranslated(ofGetWidth(), ofGetHeight(), 0);
+    glRotated(-clipsRotation, 0, 0, 1);
+  }
 };
