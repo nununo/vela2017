@@ -10,19 +10,15 @@
 
 //--------------------------------------------------------------
 float MouseDataInput::getValue() {
-  return lastMouseY / ofGetScreenHeight();
-};
-
-//--------------------------------------------------------------
-void MouseDataInput::update() {
-  if (lastMouseY > 0)
-    lastMouseY--;
+  int mouseY = lastMouseY;
+  lastMouseY = 0;
+  return (float)mouseY / (float)ofGetScreenHeight();
 };
 
 //--------------------------------------------------------------
 void MouseDataInput::mousePressed(ofMouseEventArgs & args) {
   cout << "mouse: " << args.y;
-  lastMouseY = args.y;
+  lastMouseY = ofGetScreenHeight() - args.y;
 };
 
 //--------------------------------------------------------------

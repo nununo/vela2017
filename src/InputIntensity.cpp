@@ -59,5 +59,6 @@ void InputIntensity::offsetThresholds(float diff) {
 string InputIntensity::getTrace() {
   return "InputLevel:\n"
          "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
-         "  Current value: " + ofToString(getIntensity()) + "\n";
+         "  Current intensity: " + ofToString(getIntensity()) + "\n"
+         "  Current value: " + ofToString(dataInput->getValue()) + "\n";
 };

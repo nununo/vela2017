@@ -1,6 +1,7 @@
 #include "CandleApp.h"
 #include "MultiDataInput.h"
 #include "KeyDataInput.h"
+#include "MouseDataInput.h"
 #include "AutoFlickerDataInput.h"
 
 //--------------------------------------------------------------
@@ -90,17 +91,17 @@ void CandleApp::setFullscreen(bool value) {
 
 //--------------------------------------------------------------
 void CandleApp::setupInputs() {
-//  MultiDataInput *multiDataInput;
-//  
-//  multiDataInput = new MultiDataInput();
-//
-//  multiDataInput->add( new KeyDataInput() );
-//
-//  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
-//
-//  multiDataInput->setup();
+  MultiDataInput *multiDataInput;
   
-  inputIntensity = new InputIntensity( new KeyDataInput() );
+  multiDataInput = new MultiDataInput();
+
+  multiDataInput->add( new KeyDataInput() );
+
+  multiDataInput->add( new MouseDataInput() );
+  
+//  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
+  
+  inputIntensity = new InputIntensity( multiDataInput );
 
 }
 
