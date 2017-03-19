@@ -16,6 +16,7 @@ ArduinoDataInput::ArduinoDataInput(int _device, int _maxValue) {
   serial.setup(_device, 9600);
 }
 
+//--------------------------------------------------------------
 void ArduinoDataInput::update() {
   
   // we try to read 2 bytes

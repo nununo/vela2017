@@ -14,10 +14,10 @@
 
 class MouseDataInput: public IDataInput {
 public:
-  virtual void setup();
+  MouseDataInput() {registerMouseEvents();}
+  ~MouseDataInput() {unregisterMouseEvents();}
   virtual void update();
   virtual float getValue();
-  ~MouseDataInput();
 
   //We must declare all these mouse events methods to be able to listen to mouse events, even if we don't need them all
   void mouseMoved(ofMouseEventArgs & args) {};

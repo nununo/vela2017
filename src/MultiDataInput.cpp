@@ -14,14 +14,6 @@ void MultiDataInput::add(IDataInput *dataInput) {
 };
 
 //-----------------------------------------------------------------------
-void MultiDataInput::setup() {
-  vector<IDataInput*>::iterator it;
-  
-  for (it = dataInputs.begin(); it != dataInputs.end(); it++)
-    (*it)->setup();
-}
-
-//-----------------------------------------------------------------------
 void MultiDataInput::update() {
   vector<IDataInput*>::iterator it;
     

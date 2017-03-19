@@ -12,7 +12,6 @@
 class IDataInput {
 public:
   virtual ~IDataInput() {}
-  virtual void setup() = 0;
   virtual void update() = 0;
   virtual float getValue() = 0;
 };

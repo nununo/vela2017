@@ -14,7 +14,6 @@
 class AutoFlickerDataInput: public IDataInput {
 public:
   AutoFlickerDataInput(int _minPeriod, float _flickerValue);
-  virtual void setup();
   virtual void update();
   virtual float getValue();
   ~AutoFlickerDataInput() {};

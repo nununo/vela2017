@@ -18,7 +18,6 @@
 class ArduinoDataInput: public IDataInput {
 public:
   ArduinoDataInput(int _device, int _maxValue);
-  virtual void setup();
   virtual void update();
   virtual float getValue() {return lastValue;}
   ~ArduinoDataInput();

@@ -20,11 +20,6 @@ void CalibratedDataInput::update() {
 }
 
 //--------------------------------------------------------------
-void CalibratedDataInput::setup() {
-  dataInput->setup();
-}
-
-//--------------------------------------------------------------
 void CalibratedDataInput::calibrate() {
 //  cout << "Calibrating...";
 //  if (!calibrate1())

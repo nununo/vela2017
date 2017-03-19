@@ -14,10 +14,6 @@ AutoFlickerDataInput::AutoFlickerDataInput(int _minPeriod, float _flickerValue) 
   minPeriod = _minPeriod;
   flickerValue = _flickerValue;
   isFlickerTime = false;
-}
-
-//--------------------------------------------------------------
-void AutoFlickerDataInput::setup() {
   lastTime = ofGetElapsedTimeMillis();
 }
 

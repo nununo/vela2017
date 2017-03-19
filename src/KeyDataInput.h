@@ -15,7 +15,6 @@
 class KeyDataInput: public IDataInput {
 public:
   KeyDataInput() {registerKeyboardEvents();}
-  virtual void setup() {}
   virtual void update() {}
   virtual float getValue();
   ~KeyDataInput() {unregisterKeyboardEvents();}

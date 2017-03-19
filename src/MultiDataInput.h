@@ -15,7 +15,6 @@ using namespace std;
 
 class MultiDataInput: public IDataInput {
 public:
-  virtual void setup();
   virtual void update();
   virtual float getValue();
   ~MultiDataInput() {dataInputs.clear();}; // XXX This probably leaks

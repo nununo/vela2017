@@ -14,7 +14,6 @@
 class CalibratedDataInput: public IDataInput {
 public:
   CalibratedDataInput(IDataInput *_dataInput);
-  virtual void setup();
   virtual void update();
   virtual float getValue() {return dataInput->getValue() + offset;}
   ~CalibratedDataInput() {};

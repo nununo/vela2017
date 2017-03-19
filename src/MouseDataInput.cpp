@@ -9,16 +9,6 @@
 #include "MouseDataInput.h"
 
 //--------------------------------------------------------------
-MouseDataInput::~MouseDataInput() {
-  unregisterMouseEvents();
-};
-
-//--------------------------------------------------------------
-void MouseDataInput::setup() {
-  registerMouseEvents();
-};
-
-//--------------------------------------------------------------
 float MouseDataInput::getValue() {
   return lastMouseY / ofGetScreenHeight();
 };
