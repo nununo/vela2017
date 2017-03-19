@@ -19,7 +19,7 @@ public:
   int getIntensity() {return intensity;}
   string getFilename() {return clip->getFilename();}
   float getPosition() {return clip->getPosition();}
-  virtual bool isVisible() {return clip->isPlaying();}
+  bool isVisible() {return clip->isPlaying();}
   float getAlpha() {return clip->getAlpha();}
   bool isOpaque() {return clip->isOpaque();}
 

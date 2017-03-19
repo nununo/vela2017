@@ -54,19 +54,24 @@ float Clip::timeToPercentage(float fadeTime) {
 //-----------------------------------------------------------------------
 void Clip::update() {
 
+  float newPosition;
+  
   movie->update();
   
   alpha = calcAlpha();
   
-  if (movie->getPosition()>0.98) {
+  newPosition = movie->getPosition();
+  
+  if (newPosition>0.98 || newPosition == lastPosition) {
     if (loop) {
       rewind();
       play();
     }
     else
       stop();
+  } else
+    lastPosition = newPosition;
   }
-}
 
 //-----------------------------------------------------------------------
 void Clip::draw() {

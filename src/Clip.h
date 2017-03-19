@@ -22,7 +22,7 @@ public:
   void draw();
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
-  float getPosition() {return movie->getPosition();}
+  float getPosition() {return lastPosition;}
   bool isOpaque() {return movie->getPosition() > fadePercentage;}
   int getAlpha() {return alpha;}
 
@@ -32,7 +32,7 @@ private:
   float timeToPercentage(float time);
   int calcAlpha();
   void setLoop(bool _loop);
-  void rewind() {movie->setPosition(0);}
+  void rewind() {movie->setPosition(0); lastPosition=0;}
   void play() {movie->setSpeed(1);}
   void stop() {movie->setSpeed(0);}
   
@@ -42,6 +42,7 @@ private:
   bool loop;
   float fadePercentage;
   int alpha;
+  float lastPosition;
 
   
 };
