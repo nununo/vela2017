@@ -54,8 +54,6 @@ float Clip::timeToPercentage(float fadeTime) {
 //-----------------------------------------------------------------------
 void Clip::update() {
 
-  cout << "#: "<< movie->getPosition() << " " << movie->getSpeed() << "\n";
-  
   float newPosition;
   
   movie->update();
