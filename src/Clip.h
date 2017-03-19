@@ -23,22 +23,25 @@ public:
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
   float getPosition() {return movie->getPosition();}
+  bool isOpaque() {return movie->getPosition() > fadePercentage;}
+  int getAlpha() {return alpha;}
 
 private:
   ClipOutputSettings *clipOutputSettings;
   ofVideoPlayer *loadMovie(string filename);
   float timeToPercentage(float time);
+  int calcAlpha();
   void setLoop(bool _loop);
   void rewind() {movie->setPosition(0);}
   void play() {movie->setSpeed(1);}
   void stop() {movie->setSpeed(0);}
-  int getAlpha();
-  bool isOpaque() {return movie->getPosition() > fadePercentage;}
+  
   
   string filename;
   ofVideoPlayer *movie;
   bool loop;
   float fadePercentage;
+  int alpha;
 
   
 };

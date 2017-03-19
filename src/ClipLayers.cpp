@@ -57,10 +57,10 @@ void ClipLayers::deleteFinished() {
 
 //--------------------------------------------------------------
 void ClipLayers::deleteHidden() {
-  // Remove old first layer if top layer is no longer playing
-  if (list.size() > 1 && !list.back()->isVisible()) {
-    delete *list.begin();
-    list.erase(list.begin());
+  // Remove lower layers if top layer is already opaque
+  if (list.size() > 2 && list.back()->isOpaque()) {
+    delete *(list.begin()+1);
+    list.erase(list.begin()+1);
     cout << "Layer erased. " << list.size() << " layers remain." << endl;
   }
 }
@@ -101,7 +101,8 @@ string ClipLayers::getTrace() {
   for (it = list.begin(); it != list.end(); it++)
     ss << "  " << (*it)->getIntensity() << "\n"
        << "    Filename: " << (*it)->getFilename() << "\n"
-       << "    Position: " << (*it)->getPosition() << "\n";
+       << "    Position: " << (*it)->getPosition() << "\n"
+       << "    Alpha: " << (*it)->getAlpha() << "\n";
   
   return ss.str();
 }

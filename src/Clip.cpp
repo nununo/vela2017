@@ -11,6 +11,7 @@
 
 //-----------------------------------------------------------------------
 Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime) {
+  
   filename = _filename;
 
   movie = loadMovie(filename);
@@ -19,6 +20,8 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop
 
   fadePercentage = timeToPercentage(fadeTime);
 
+  alpha = 0;
+  
   setLoop(_loop);
 
   stop();
@@ -53,7 +56,8 @@ void Clip::update() {
 
   movie->update();
   
-  //if (playing && lastPosition > 0 && movie->getPosition()>0.98 && (movie->getPosition() == lastPosition))
+  alpha = calcAlpha();
+  
   if (movie->getPosition()>0.98) {
     if (loop) {
       rewind();
@@ -87,7 +91,7 @@ void Clip::draw() {
 
 
 //-----------------------------------------------------------------------
-int Clip::getAlpha() {
+int Clip::calcAlpha() {
   if (loop)
     return ALPHA_MAX;
   else {
