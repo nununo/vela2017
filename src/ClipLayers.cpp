@@ -20,8 +20,7 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
 //--------------------------------------------------------------
 void ClipLayers::update(int intensity) {
 
-  if (list.size()>0)
-    if (intensity > list.back()->getIntensity())
+  if (list.size() == 0 || intensity > list.back()->getIntensity())
       add(intensity);
   
   baseClipLayer->update();

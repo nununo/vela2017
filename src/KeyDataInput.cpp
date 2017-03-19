@@ -9,16 +9,6 @@
 #include "KeyDataInput.h"
 
 //--------------------------------------------------------------
-KeyDataInput::~KeyDataInput() {
-  unregisterKeyboardEvents();
-};
-
-//--------------------------------------------------------------
-void KeyDataInput::setup() {
-  registerKeyboardEvents();
-};
-
-//--------------------------------------------------------------
 float KeyDataInput::getValue() {
   switch (lastKey) {
     case '3':

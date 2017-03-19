@@ -26,7 +26,6 @@ class CandleApp : public ofBaseApp {
 private:
   void setupInputs();
   void outputLayerStatus();
-  void checkTrigger();
   void setTrace(bool value) {bTrace = value;}
   void setFullscreen(bool value);
   void toggleTrace() {setTrace(!bTrace);}

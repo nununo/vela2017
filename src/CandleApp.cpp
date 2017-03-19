@@ -35,8 +35,7 @@ void CandleApp::update(){
   inputLevel->update();
   
   clipLayers->update(inputLevel->getLevel());
-  
-  checkTrigger();
+
 }
 
 //--------------------------------------------------------------
@@ -95,20 +94,6 @@ void CandleApp::setFullscreen(bool value) {
   } else if (bFullscreen) {
     ofSetFullscreen(true);
   }
-}
-
-
-//--------------------------------------------------------------
-void CandleApp::checkTrigger() {
-
-//  if (arduino.getLastIntensity() > previousIntensity) {
-//    // No triggers allowed in level 3 (candle was blown out)
-//    if (layers.size() == 0 || layers.back()->getIntensity() < 3) {
-//      addLayer();
-//      cout << "Current: " << arduino.getLastIntensity() << " previous: " << previousIntensity << endl;
-//    }
-//  }
-//  previousIntensity = arduino.getLastIntensity();
 }
 
 //--------------------------------------------------------------

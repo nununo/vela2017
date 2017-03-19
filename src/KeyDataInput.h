@@ -14,10 +14,11 @@
 
 class KeyDataInput: public IDataInput {
 public:
-  virtual void setup();
-  virtual void update() {};
+  KeyDataInput() {registerKeyboardEvents();}
+  virtual void setup() {}
+  virtual void update() {}
   virtual float getValue();
-  ~KeyDataInput();
+  ~KeyDataInput() {unregisterKeyboardEvents();}
 
   void keyPressed(ofKeyEventArgs &e);
   void keyReleased(ofKeyEventArgs &e) {};
