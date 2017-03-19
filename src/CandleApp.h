@@ -7,6 +7,7 @@
 #include "InputIntensity.h"
 #include "Levels.h"
 #include "ClipLayers.h"
+#include "HistoryLayer.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -29,10 +30,11 @@ private:
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   
+  XmlStore xmlStore;
   InputIntensity *inputIntensity;
   ClipLayers *clipLayers;
-  XmlStore xmlStore;
   TraceLayer traceLayer;
+  HistoryLayer historyLayer;
   int previousIntensity;
   bool bFullscreen;
 };

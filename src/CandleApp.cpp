@@ -33,6 +33,8 @@ void CandleApp::update(){
   
   inputIntensity->update();
   
+  historyLayer.saveValue(inputIntensity->getValue());
+  
   clipLayers->update(inputIntensity->getIntensity());
 
   traceLayer.update(inputIntensity->getTrace() + clipLayers->getTrace());
@@ -43,6 +45,7 @@ void CandleApp::update(){
 void CandleApp::draw(){
   clipLayers->draw();
   traceLayer.draw();
+  historyLayer.draw();
 }
 
 //--------------------------------------------------------------
@@ -54,6 +57,9 @@ void CandleApp::keyPressed  (int key){
       break;
     case 't':
       traceLayer.setVisible(!traceLayer.isVisible());
+      break;
+    case 'h':
+      historyLayer.setVisible(!historyLayer.isVisible());
       break;
 //    case 'c':
 //      arduino.toggleAutocalibrate();

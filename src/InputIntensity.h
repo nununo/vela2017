@@ -24,14 +24,20 @@
 class InputIntensity: ITrace {
 public:
   InputIntensity( IDataInput *_dataInput );
-  int getIntensity();
+  int getIntensity() {return lastIntensity;};
+  float getValue() {return lastValue;};
   void update();
   string getTrace();
   void offsetThresholds( float diff );
   
 private:
+  void calcIntensity();
+  
   IDataInput *dataInput;
+  float lastValue;
+  int lastIntensity;
   float threshold[3];
+
 };
 
 #endif /* InputIntensity_h */

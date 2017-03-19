@@ -19,30 +19,28 @@ InputIntensity::InputIntensity( IDataInput *_dataInput ) {
   threshold[THRESHOLD_1] = 0.25f;
   threshold[THRESHOLD_2] = 0.50f;
   threshold[THRESHOLD_3] = 0.75f;
-};
+}
 
 //--------------------------------------------------------------
-int InputIntensity::getIntensity() {
+void InputIntensity::calcIntensity() {
+
+  lastValue = dataInput->getValue();
   
-  float value = dataInput->getValue();
-  int intensity;
-  
-  if (value > threshold[THRESHOLD_3])
-    intensity = LEVEL_3;
-  else if (value > threshold[THRESHOLD_2])
-    intensity = LEVEL_2;
-  else if (value > threshold[THRESHOLD_1])
-    intensity = LEVEL_1;
+  if (lastValue > threshold[THRESHOLD_3])
+    lastIntensity = LEVEL_3;
+  else if (lastValue > threshold[THRESHOLD_2])
+    lastIntensity = LEVEL_2;
+  else if (lastValue > threshold[THRESHOLD_1])
+    lastIntensity = LEVEL_1;
   else
-    intensity = LEVEL_0;
-  
-  return intensity;
+    lastIntensity = LEVEL_0;
   
 };
 
 //--------------------------------------------------------------
 void InputIntensity::update() {
   dataInput->update();
+  calcIntensity();
 }
 
 //--------------------------------------------------------------
