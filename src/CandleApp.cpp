@@ -95,14 +95,17 @@ void CandleApp::keyPressed  (int key){
 //--------------------------------------------------------------
 void CandleApp::setFullscreen(bool value) {
   bFullscreen = value;
+  
   if (!bFullscreen){
     ofSetWindowShape(720,576);
     ofSetFullscreen(false);
+    
     // figure out how to put the window in the center:
     int screenW = ofGetScreenWidth();
     int screenH = ofGetScreenHeight();
     ofSetWindowPosition(screenW/2-300/2, screenH/2-300/2);
-  } else if (bFullscreen == 1) {
+    
+  } else if (bFullscreen) {
     ofSetFullscreen(true);
   }
 }

@@ -11,15 +11,16 @@
 
 #include "ofMain.h"
 #include "ClipOutputSettings.h"
+#include "Drawable.h"
 
 #define ALPHA_MAX 255
 
-class Clip {
+class Clip : public Drawable {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
   void rewind_and_play();
   void update();
-  void draw();
+  virtual void drawAlgorithm();
   string getFilename() {return filename;};
   bool isOpaque() {return movie->getPosition() > fadePercentage;}
   bool isPlaying() {return movie->getSpeed() > 0;};

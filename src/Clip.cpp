@@ -81,7 +81,7 @@ void Clip::update() {
 }
 
 //-----------------------------------------------------------------------
-void Clip::draw() {
+void Clip::drawAlgorithm() {
   
   if (isPlaying()) {
     int alpha = getAlpha();
