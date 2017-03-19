@@ -25,8 +25,9 @@ class XmlStore {
     float getZoomX() {return XML.getValue("SETTINGS:ZOOMX", 1.0f);}
     float getZoomY() {return XML.getValue("SETTINGS:ZOOMY", 1.0f);}
     bool getAutocalirate() {return (XML.getValue("SETTINGS:AUTOCALIBRATE", 0) == 1);}
-    bool getTrace() {return (XML.getValue("SETTINGS:TRACE", 0) == 1);}
-    bool getFullscreen() {return (XML.getValue("SETTINGS:FULLSCREEN", 0) == 1);}
+  bool getTrace() {return (XML.getValue("SETTINGS:TRACE", 0) == 1);}
+  bool getHistory() {return (XML.getValue("SETTINGS:HISTORY", 0) == 1);}
+  bool getFullscreen() {return (XML.getValue("SETTINGS:FULLSCREEN", 0) == 1);}
     int getAutoFlickerMinPeriod() {return XML.getValue("SETTINGS:AUTOFLICKERMINPERIOD", 0);}
 
   private:

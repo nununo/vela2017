@@ -13,6 +13,8 @@ void CandleApp::setup(){
   
   traceLayer.setVisible(xmlStore.getTrace());
   
+  historyLayer.setVisible(xmlStore.getHistory());
+  
   setFullscreen(xmlStore.getFullscreen());
 
   setupInputs();
