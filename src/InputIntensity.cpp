@@ -1,19 +1,19 @@
 //
-//  InputLevel.cpp
+//  InputIntensity.cpp
 //  vela2017
 //
 //  Created by Nuno on 15/03/2017.
 //
 //
 
-#include "InputLevel.h"
+#include "InputIntensity.h"
 #include <iostream>
 #include "ofMain.h"
 
 using namespace std;
 
 //--------------------------------------------------------------
-InputLevel::InputLevel( IDataInput *_dataInput ) {
+InputIntensity::InputIntensity( IDataInput *_dataInput ) {
   dataInput = _dataInput;
   
   threshold[THRESHOLD_1] = 0.25f;
@@ -22,7 +22,7 @@ InputLevel::InputLevel( IDataInput *_dataInput ) {
 };
 
 //--------------------------------------------------------------
-int InputLevel::getIntensity() {
+int InputIntensity::getIntensity() {
   
   float value = dataInput->getValue();
   int intensity;
@@ -41,12 +41,12 @@ int InputLevel::getIntensity() {
 };
 
 //--------------------------------------------------------------
-void InputLevel::update() {
+void InputIntensity::update() {
   dataInput->update();
 }
 
 //--------------------------------------------------------------
-void InputLevel::offsetThresholds(float diff) {
+void InputIntensity::offsetThresholds(float diff) {
   cout << "Offsettting thresholds by " << diff << ". ";
   for (int i=THRESHOLD_1; i<=THRESHOLD_3; i++) {
     threshold[i] += diff;
@@ -56,7 +56,7 @@ void InputLevel::offsetThresholds(float diff) {
 };
 
 //--------------------------------------------------------------
-string InputLevel::getTrace() {
+string InputIntensity::getTrace() {
   return "InputLevel:\n"
          "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
          "  Current value: " + ofToString(getIntensity()) + "\n";

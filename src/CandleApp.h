@@ -4,7 +4,7 @@
 #include "XmlStore.h"
 #include "Util.h"
 #include "TraceLayer.h"
-#include "InputLevel.h"
+#include "InputIntensity.h"
 #include "Levels.h"
 #include "ClipLayers.h"
 
@@ -26,16 +26,14 @@ class CandleApp : public ofBaseApp {
 private:
   void setupInputs();
   void outputLayerStatus();
-  void setTrace(bool value) {bTrace = value;}
+  void setTrace(bool value) {traceLayer.setVisible(value);}
   void setFullscreen(bool value);
-  void toggleTrace() {setTrace(!bTrace);}
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   
-  InputLevel *inputLevel;
+  InputIntensity *inputIntensity;
   ClipLayers *clipLayers;
   XmlStore xmlStore;
   TraceLayer traceLayer;
   int previousIntensity;
   bool bFullscreen;
-  bool bTrace;
 };

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */; };
 		7D42A3B61E78BCEA0097B54C /* MouseDataInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3B41E78BCEA0097B54C /* MouseDataInput.cpp */; };
-		7D42A3BE1E78C9C80097B54C /* InputLevel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */; };
+		7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
 		7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */; };
 		7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B491E77665F005385DD /* CandleApp.cpp */; };
@@ -66,8 +66,8 @@
 		7D42A3B31E78BAA60097B54C /* IDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDataInput.h; sourceTree = "<group>"; };
 		7D42A3B41E78BCEA0097B54C /* MouseDataInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseDataInput.cpp; sourceTree = "<group>"; };
 		7D42A3B51E78BCEA0097B54C /* MouseDataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseDataInput.h; sourceTree = "<group>"; };
-		7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputLevel.cpp; sourceTree = "<group>"; };
-		7D42A3BD1E78C9C80097B54C /* InputLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputLevel.h; sourceTree = "<group>"; };
+		7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputIntensity.cpp; sourceTree = "<group>"; };
+		7D42A3BD1E78C9C80097B54C /* InputIntensity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputIntensity.h; sourceTree = "<group>"; };
 		7D7245AC1E7DA83F006E5653 /* Clip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clip.cpp; sourceTree = "<group>"; };
 		7D7245AD1E7DA83F006E5653 /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClipOutputSettings.cpp; sourceTree = "<group>"; };
@@ -184,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
-				7D42A3BC1E78C9C80097B54C /* InputLevel.cpp */,
-				7D42A3BD1E78C9C80097B54C /* InputLevel.h */,
+				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
+				7D42A3BD1E78C9C80097B54C /* InputIntensity.h */,
 				7DB90EF71E7B4D16000978EC /* ArduinoDataInput.cpp */,
 				7DB90EF81E7B4D16000978EC /* ArduinoDataInput.h */,
 				7DB90EFA1E7B5713000978EC /* CalibratedDataInput.cpp */,
@@ -355,7 +355,7 @@
 				7DFECCE01E77638800D9104C /* XmlStore.cpp in Sources */,
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
-				7D42A3BE1E78C9C80097B54C /* InputLevel.cpp in Sources */,
+				7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */,
 				7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */,
 				7DB90EF91E7B4D16000978EC /* ArduinoDataInput.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyDataInput.cpp in Sources */,

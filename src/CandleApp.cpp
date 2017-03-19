@@ -15,8 +15,6 @@ void CandleApp::setup(){
   setFullscreen(xmlStore.getFullscreen());
 
   setupInputs();
-
-  traceLayer.setup(inputLevel);
   
   Levels *levels =
     new Levels(
@@ -32,24 +30,18 @@ void CandleApp::setup(){
 //--------------------------------------------------------------
 void CandleApp::update(){
   
-  inputLevel->update();
+  inputIntensity->update();
   
-  clipLayers->update(inputLevel->getIntensity());
+  clipLayers->update(inputIntensity->getIntensity());
+
+  traceLayer.update(inputIntensity->getTrace() + clipLayers->getTrace());
 
 }
 
 //--------------------------------------------------------------
 void CandleApp::draw(){
-  
   clipLayers->draw();
-  
-  // Draw trace layer
-  if (bTrace) {
-    float v = 0.05 * (float)ofGetWidth();
-    glTranslated(v, v, 0);
-    traceLayer.draw(inputLevel->getTrace() + clipLayers->getTrace());
-    glTranslated(-v, -v, 0);
-  }
+  traceLayer.draw();
 }
 
 //--------------------------------------------------------------
@@ -60,16 +52,16 @@ void CandleApp::keyPressed  (int key){
       toggleFullscreen();
       break;
     case 't':
-      toggleTrace();
+      traceLayer.setVisible(!traceLayer.isVisible());
       break;
 //    case 'c':
 //      arduino.toggleAutocalibrate();
       break;
     case '+':
-      inputLevel->offsetThresholds(1);
+      inputIntensity->offsetThresholds(1);
       break;
     case '-':
-      inputLevel->offsetThresholds(-1);
+      inputIntensity->offsetThresholds(-1);
       break;
 //    case 's':
       //xmlStore.save();
@@ -108,7 +100,7 @@ void CandleApp::setupInputs() {
 //
 //  multiDataInput->setup();
   
-  inputLevel = new InputLevel( new KeyDataInput() );
+  inputIntensity = new InputIntensity( new KeyDataInput() );
 
 }
 

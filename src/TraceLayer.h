@@ -2,18 +2,21 @@
 #define TRACELAYER_H_INCLUDED
 
 #include "ofMain.h"
-#include "InputLevel.h"
+#include "Layer.h"
 
-class TraceLayer {
+class TraceLayer : public Layer {
 
-  public:
-    void setup(InputLevel *_inputLevel);
-    void update();
-    void draw(string text);
+public:
+  TraceLayer();
+  void update(string text);
+  bool isVisible() {return visible;}
+  void setVisible(bool _visible) {visible = _visible;}
+  void drawAlgorithm();
 
-  private:
-    ofTrueTypeFont font;
-    InputLevel *inputLevel;
+private:
+  ofTrueTypeFont font;
+  string text;
+  bool visible;
 };
 
 #endif // TRACELAYER_H_INCLUDED

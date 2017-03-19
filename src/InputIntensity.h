@@ -1,13 +1,13 @@
 //
-//  InputLevel.h
+//  InputIntensity.h
 //  vela2017
 //
 //  Created by Nuno on 15/03/2017.
 //
 //
 
-#ifndef InputLevel_h
-#define InputLevel_h
+#ifndef InputIntensity_h
+#define InputIntensity_h
 
 #include "IDataInput.h"
 #include "ITrace.h"
@@ -21,9 +21,9 @@
 #define LEVEL_2 2
 #define LEVEL_3 3
 
-class InputLevel: ITrace {
+class InputIntensity: ITrace {
 public:
-  InputLevel( IDataInput *_dataInput );
+  InputIntensity( IDataInput *_dataInput );
   int getIntensity();
   void update();
   string getTrace();
@@ -34,4 +34,4 @@ private:
   float threshold[3];
 };
 
-#endif /* InputLevel_h */
+#endif /* InputIntensity_h */

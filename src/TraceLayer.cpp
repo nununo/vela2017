@@ -1,17 +1,27 @@
 #include "TraceLayer.h"
 
 //--------------------------------------------------------------
-void TraceLayer::setup(InputLevel *_inputLevel) {
+TraceLayer::TraceLayer() {
 	font.load("frabk.ttf",12);
-	inputLevel = _inputLevel;
+  visible = true;
 }
 
 //--------------------------------------------------------------
-void TraceLayer::draw(string text) {
-	
+void TraceLayer::update(string _text) {
+  text = _text;
+}
+
+//--------------------------------------------------------------
+void TraceLayer::drawAlgorithm() {
+
+  float v = 0.05 * (float)ofGetWidth();
+  glTranslated(v, v, 0);
+
   ofSetHexColor(0x00FF00);
 	font.drawString(text, 0, 0);
   
+  glTranslated(-v, -v, 0);
+
 	// Draw arduino buffer
 //	for (int i = 0; i < ARDUINO_BUFFER_SIZE; i++){
 //		ofDrawLine(i,25,i,25+(arduino->getThreshold(0)-arduino->getBuffer(i))/2);
