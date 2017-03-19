@@ -26,8 +26,6 @@ class CandleApp : public ofBaseApp {
 		
 private:
   void setupInputs();
-  void addLayer() {addLayer(inputLevel->getLevel());}
-  void addLayer(int intensity);
   void outputLayerStatus();
   void checkTrigger();
   void setTrace(bool value) {bTrace = value;}
@@ -35,10 +33,8 @@ private:
   void toggleTrace() {setTrace(!bTrace);}
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   
-  Levels *levels;
   InputLevel *inputLevel;
-  Layers layers;
-  Layer *baseLayer;
+  Layers *layers;
   XmlStore xmlStore;
   TraceLayer traceLayer;
   int previousIntensity;

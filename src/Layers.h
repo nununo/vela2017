@@ -10,15 +10,22 @@
 #define Layers_h
 
 #include "Layer.h"
+#include "Levels.h"
 
 class Layers {
 public:
-  void update();
+  Layers(Levels *levels);
+  void update(int level);
   void push(Layer *layer);
   void draw();
   
 private:
+  void deleteFinished();
+  void deleteHidden();
+  
+  Levels *levels;
   vector<Layer*> layers;
+  Layer *baseLayer;
 
 };
 

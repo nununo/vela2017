@@ -19,13 +19,12 @@ void CandleApp::setup(){
   // Initialize trace layer
   traceLayer.setup(inputLevel);
   
-  levels =
+  Levels *levels =
     new Levels(
                new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
                xmlStore.getDataFolder());
 
-  // Create base layer for level 0
-  baseLayer = new Layer(0, levels->getRandomClip(0));
+  layers = new Layers(levels);
   
   // Draw background
   ofBackground(0, 0, 0);
@@ -36,9 +35,7 @@ void CandleApp::update(){
   
   inputLevel->update();
   
-  baseLayer->update();
-  
-  layers.update();
+  layers->update(inputLevel->getLevel());
   
   checkTrigger();
 }
@@ -52,9 +49,7 @@ void CandleApp::draw(){
     glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
   }
   
-  baseLayer->draw();
-  
-  layers.draw();
+  layers->draw();
   
   // Reset rotation
   if (xmlStore.getUpsideDown()) {
@@ -124,11 +119,6 @@ void CandleApp::checkTrigger() {
 //    }
 //  }
 //  previousIntensity = arduino.getLastIntensity();
-}
-
-//--------------------------------------------------------------
-void CandleApp::addLayer(int level) {
-  layers.push( new Layer(level, levels->getRandomClip(level)) );
 }
 
 //--------------------------------------------------------------

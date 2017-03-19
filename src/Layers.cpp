@@ -8,25 +8,52 @@
 
 #include "Layers.h"
 
-//--------------------------------------------------------------
-void Layers::update() {
+Layers::Layers(Levels *_levels) {
+  levels = _levels;
+  
+  // Create base layer for level 0
+  baseLayer = new Layer(0, levels->getRandomClip(0));
 
+}
+
+//--------------------------------------------------------------
+void Layers::update(int level) {
+
+  baseLayer->update();
+  
   // Updates each layer
   vector<Layer*>::iterator it;
   for (it = layers.begin(); it != layers.end(); it++) {
     (*it)->update();
-    
-    // Delete finished layers
-    if (!(*it)->isPlaying()) {
-      delete *it;
-      layers.erase(it);
-      // Ideally I wouldn't break here and go through all the layers looking for other deletable movies
-      // but since deleting it destroys the iterator and the next iteration explodes... I'd have to come up
-      // with a smarter code and I'm lazy.
-      break;
+  }
+  
+  deleteFinished();
+  deleteHidden();
+
+};
+
+//--------------------------------------------------------------
+void Layers::deleteFinished() {
+  
+  // I do this 3 times because that's the maximum layers that can exist
+  // Ideally I would delete all with the same iterator but deleting one
+  // element destroys the iterator and the next iteration explodes
+  // So this is not pretty but... it works
+
+  for (int i=0; i<3;i++) {
+    vector<Layer*>::iterator it;
+    for (it = layers.begin(); it != layers.end(); it++) {
+      if (!(*it)->isPlaying()) {
+        delete *it;
+        layers.erase(it);
+        break;
+      }
     }
   }
+}
 
+//--------------------------------------------------------------
+void Layers::deleteHidden() {
   // Remove old first layer if top layer is already fully opaque.
   if (layers.size() > 1 && layers.back()->isOpaque()) {
     delete *layers.begin();
@@ -34,8 +61,7 @@ void Layers::update() {
     cout << "Layer erased. " << layers.size() << " layers remain." << endl;
   }
 
-};
-
+}
 //--------------------------------------------------------------
 void Layers::push(Layer *layer) {
   layers.push_back(layer);
@@ -43,6 +69,9 @@ void Layers::push(Layer *layer) {
 
 //--------------------------------------------------------------
 void Layers::draw() {
+  
+  baseLayer->draw();
+  
   vector<Layer*>::iterator it;
   for (it = layers.begin(); it != layers.end(); it++)
     (*it)->draw();
