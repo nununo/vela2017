@@ -15,11 +15,11 @@
 class Layers {
 public:
   Layers(Levels *levels);
-  void update(int level);
-  void push(Layer *layer);
+  void update(int intensity);
   void draw();
   
 private:
+  void add(int intensity);
   void deleteFinished();
   void deleteHidden();
   

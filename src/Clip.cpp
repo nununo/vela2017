@@ -49,32 +49,16 @@ float Clip::timeToPercentage(float fadeTime) {
 }
 
 //-----------------------------------------------------------------------
-void Clip::rewind_and_play() {
-  if (loop)
-    movie->setLoopState(OF_LOOP_NORMAL);
-  else
-    movie->setLoopState(OF_LOOP_NONE);
-  
-  movie->setSpeed(1);
-  movie->setPosition(0);
-}
-
-//-----------------------------------------------------------------------
-void Clip::rewind() {
-  
-  movie->setPosition(0);
-}
-
-
-//-----------------------------------------------------------------------
 void Clip::update() {
 
   movie->update();
   
   //if (playing && lastPosition > 0 && movie->getPosition()>0.98 && (movie->getPosition() == lastPosition))
   if (movie->getPosition()>0.98) {
-    if (loop)
-      rewind_and_play();
+    if (loop) {
+      rewind();
+      play();
+    }
     else
       stop();
   }
@@ -83,7 +67,7 @@ void Clip::update() {
 //-----------------------------------------------------------------------
 void Clip::drawAlgorithm() {
   
-  if (isPlaying()) {
+  if (getVisible()) {
     int alpha = getAlpha();
     if (alpha == ALPHA_MAX)
     {

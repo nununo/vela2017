@@ -17,8 +17,12 @@ Layers::Layers(Levels *_levels) {
 }
 
 //--------------------------------------------------------------
-void Layers::update(int level) {
+void Layers::update(int intensity) {
 
+  if (layers.size()>0)
+    if (intensity > layers.back()->getIntensity())
+      add(intensity);
+  
   baseLayer->update();
   
   // Updates each layer
@@ -54,8 +58,8 @@ void Layers::deleteFinished() {
 
 //--------------------------------------------------------------
 void Layers::deleteHidden() {
-  // Remove old first layer if top layer is already fully opaque.
-  if (layers.size() > 1 && layers.back()->isOpaque()) {
+  // Remove old first layer if top layer is no longer playing
+  if (layers.size() > 1 && !layers.back()->isPlaying()) {
     delete *layers.begin();
     layers.erase(layers.begin());
     cout << "Layer erased. " << layers.size() << " layers remain." << endl;
@@ -63,8 +67,8 @@ void Layers::deleteHidden() {
 
 }
 //--------------------------------------------------------------
-void Layers::push(Layer *layer) {
-  layers.push_back(layer);
+void Layers::add(int intensity) {
+  layers.push_back(new Layer(intensity, levels->getRandomClip(intensity)));
 };
 
 //--------------------------------------------------------------

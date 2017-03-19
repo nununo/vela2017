@@ -16,7 +16,6 @@ void CandleApp::setup(){
 
   setupInputs();
 
-  // Initialize trace layer
   traceLayer.setup(inputLevel);
   
   Levels *levels =

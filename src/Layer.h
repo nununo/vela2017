@@ -16,9 +16,8 @@ public:
   void update();
   void draw();
   int getIntensity() {return intensity;}
-  bool isPlaying() {return clip->isPlaying();}
+  bool isPlaying() {return clip->getVisible();}
   void outputStatus();
-  bool isOpaque() {return clip->isOpaque();};
 
 private:
   Clip *clip;

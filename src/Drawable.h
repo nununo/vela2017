@@ -12,8 +12,11 @@
 class Drawable {
 
 public:
-  void setVisible(bool _visible) {visible=_visible;}
   void draw() {if (visible) drawAlgorithm();}
+  void setVisible(bool _visible) {visible=_visible;}
+  bool getVisible() {return visible;}
+  
+protected:
   virtual void drawAlgorithm() = 0;
   
 private:
