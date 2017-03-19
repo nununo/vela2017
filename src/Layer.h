@@ -14,11 +14,13 @@ class Layer {
 public:
   virtual ~Layer() {};
   void draw() {if (isVisible()) drawAlgorithm();}
-  virtual bool isVisible() = 0;
+  void setVisible(bool _visible) {visible = _visible;}
+  virtual bool isVisible() {return visible;}
   
 protected:
   virtual void drawAlgorithm() = 0;
   
+  bool visible;
 };
 
 #endif /* Layer_h */
