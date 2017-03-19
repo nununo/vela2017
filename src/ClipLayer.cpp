@@ -1,8 +1,8 @@
-#include "Layer.h"
+#include "ClipLayer.h"
 #include "Util.h"
 
 //-----------------------------------------------------------------------
-Layer::Layer(int _intensity, Clip *_clip) {
+ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
   clip = _clip;
   intensity = _intensity;
   
@@ -12,22 +12,22 @@ Layer::Layer(int _intensity, Clip *_clip) {
 }
 
 //-----------------------------------------------------------------------
-Layer::~Layer() {
+ClipLayer::~ClipLayer() {
   cout << "Destroyed layer for " << clip->getFilename() << endl;
 }
 
 //-----------------------------------------------------------------------
-void Layer::update() {
+void ClipLayer::update() {
   clip->update();
 }
 
 //-----------------------------------------------------------------------
-void Layer::draw() {
+void ClipLayer::draw() {
   clip->draw();
 }
 
 
 //-----------------------------------------------------------------------
-void Layer::outputStatus() {
+void ClipLayer::outputStatus() {
 //  cout << "layer " << clip->getFilename() << " intensity=" << intensity << " pos=" << movie->getPosition() << " playing=" << isPlaying() << endl;
 }

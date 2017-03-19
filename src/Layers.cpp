@@ -12,22 +12,22 @@ Layers::Layers(Levels *_levels) {
   levels = _levels;
   
   // Create base layer for level 0
-  baseLayer = new Layer(0, levels->getRandomClip(0));
+  baseClipLayer = new ClipLayer(0, levels->getRandomClip(0));
 
 }
 
 //--------------------------------------------------------------
 void Layers::update(int intensity) {
 
-  if (layers.size()>0)
-    if (intensity > layers.back()->getIntensity())
+  if (clipLayers.size()>0)
+    if (intensity > clipLayers.back()->getIntensity())
       add(intensity);
   
-  baseLayer->update();
+  baseClipLayer->update();
   
   // Updates each layer
-  vector<Layer*>::iterator it;
-  for (it = layers.begin(); it != layers.end(); it++) {
+  vector<ClipLayer*>::iterator it;
+  for (it = clipLayers.begin(); it != clipLayers.end(); it++) {
     (*it)->update();
   }
   
@@ -45,11 +45,11 @@ void Layers::deleteFinished() {
   // So this is not pretty but... it works
 
   for (int i=0; i<3;i++) {
-    vector<Layer*>::iterator it;
-    for (it = layers.begin(); it != layers.end(); it++) {
+    vector<ClipLayer*>::iterator it;
+    for (it = clipLayers.begin(); it != clipLayers.end(); it++) {
       if (!(*it)->isPlaying()) {
         delete *it;
-        layers.erase(it);
+        clipLayers.erase(it);
         break;
       }
     }
@@ -59,24 +59,24 @@ void Layers::deleteFinished() {
 //--------------------------------------------------------------
 void Layers::deleteHidden() {
   // Remove old first layer if top layer is no longer playing
-  if (layers.size() > 1 && !layers.back()->isPlaying()) {
-    delete *layers.begin();
-    layers.erase(layers.begin());
-    cout << "Layer erased. " << layers.size() << " layers remain." << endl;
+  if (clipLayers.size() > 1 && !clipLayers.back()->isPlaying()) {
+    delete *clipLayers.begin();
+    clipLayers.erase(clipLayers.begin());
+    cout << "Layer erased. " << clipLayers.size() << " layers remain." << endl;
   }
 
 }
 //--------------------------------------------------------------
 void Layers::add(int intensity) {
-  layers.push_back(new Layer(intensity, levels->getRandomClip(intensity)));
+  clipLayers.push_back(new ClipLayer(intensity, levels->getRandomClip(intensity)));
 };
 
 //--------------------------------------------------------------
 void Layers::draw() {
   
-  baseLayer->draw();
+  baseClipLayer->draw();
   
-  vector<Layer*>::iterator it;
-  for (it = layers.begin(); it != layers.end(); it++)
+  vector<ClipLayer*>::iterator it;
+  for (it = clipLayers.begin(); it != clipLayers.end(); it++)
     (*it)->draw();
 };

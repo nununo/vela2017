@@ -4,7 +4,6 @@
 #include "XmlStore.h"
 #include "Util.h"
 #include "TraceLayer.h"
-#include "Layer.h"
 #include "InputLevel.h"
 #include "Levels.h"
 #include "Layers.h"

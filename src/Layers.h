@@ -9,7 +9,7 @@
 #ifndef Layers_h
 #define Layers_h
 
-#include "Layer.h"
+#include "ClipLayer.h"
 #include "Levels.h"
 
 class Layers {
@@ -24,8 +24,8 @@ private:
   void deleteHidden();
   
   Levels *levels;
-  vector<Layer*> layers;
-  Layer *baseLayer;
+  vector<ClipLayer*> clipLayers;
+  ClipLayer *baseClipLayer;
 
 };
 

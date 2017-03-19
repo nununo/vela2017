@@ -1,5 +1,5 @@
-#ifndef CANDLELAYER_H_INCLUDED
-#define CANDLELAYER_H_INCLUDED
+#ifndef CLIPLAYER_H_INCLUDED
+#define CLIPLAYER_H_INCLUDED
 
 #include "ofMain.h"
 #include "Clip.h"
@@ -8,11 +8,11 @@ using namespace std;
 
 #define ALPHA_MAX 255
 
-class Layer {
+class ClipLayer {
 
 public:
-  Layer(int _intensity, Clip *_clip);
-  ~Layer();
+  ClipLayer(int _intensity, Clip *_clip);
+  ~ClipLayer();
   void update();
   void draw();
   int getIntensity() {return intensity;}
@@ -24,4 +24,4 @@ private:
   int intensity;
 };
 
-#endif // CANDLELAYER_H_INCLUDED
+#endif // CLIPLAYER_H_INCLUDED
