@@ -27,7 +27,6 @@ private:
   
   Levels *levels;
   vector<ClipLayer*> list;
-  ClipLayer *baseClipLayer;
   int clipsRotation;
 
 };

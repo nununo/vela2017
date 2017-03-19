@@ -13,19 +13,16 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   levels = _levels;
   clipsRotation = _clipsRotation;
   
-  // Create base layer for level 0
-  baseClipLayer = new ClipLayer(0, levels->getRandomClip(0));
+  // Create base layer for level 0 (which will always loop)
+  add(0);
 
 }
 
 //--------------------------------------------------------------
 void ClipLayers::update(int intensity) {
 
-  if (intensity > 0 &&
-      (list.size() == 0 || intensity > list.back()->getIntensity()))
+  if (intensity > 0 && intensity > list.back()->getIntensity())
       add(intensity);
-  
-  baseClipLayer->update();
   
   // Updates each layer
   vector<ClipLayer*>::iterator it;
@@ -81,8 +78,6 @@ void ClipLayers::draw() {
     glRotated(clipsRotation, 0, 0, 1);
     glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
   }
-
-  baseClipLayer->draw();
   
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++)
