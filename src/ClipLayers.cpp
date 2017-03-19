@@ -57,7 +57,7 @@ void ClipLayers::deleteFinished() {
 
 //--------------------------------------------------------------
 void ClipLayers::deleteHidden() {
-  // Remove lower layers if top layer is already opaque
+  // Remove lower layers if top layer is already opaque (skipping base layer 0)
   if (list.size() > 2 && list.back()->isOpaque()) {
     delete *(list.begin()+1);
     list.erase(list.begin()+1);
@@ -101,7 +101,7 @@ string ClipLayers::getTrace() {
   for (it = list.begin(); it != list.end(); it++)
     ss << "  " << (*it)->getIntensity() << "\n"
        << "    Filename: " << (*it)->getFilename() << "\n"
-       << "    Position: " << (*it)->getPosition() << "\n"
+       << "    Position: " << roundf((*it)->getPosition()*100)/100 << "\n"
        << "    Alpha: " << (*it)->getAlpha() << "\n";
   
   return ss.str();
