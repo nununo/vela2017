@@ -22,7 +22,7 @@ void ClipLayer::update() {
 }
 
 //-----------------------------------------------------------------------
-void ClipLayer::draw() {
+void ClipLayer::drawAlgorithm() {
   clip->draw();
 }
 

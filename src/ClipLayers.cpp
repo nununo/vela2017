@@ -47,7 +47,7 @@ void ClipLayers::deleteFinished() {
   for (int i=0; i<3;i++) {
     vector<ClipLayer*>::iterator it;
     for (it = list.begin(); it != list.end(); it++) {
-      if (!(*it)->isPlaying()) {
+      if (!(*it)->isVisible()) {
         delete *it;
         list.erase(it);
         break;
@@ -59,7 +59,7 @@ void ClipLayers::deleteFinished() {
 //--------------------------------------------------------------
 void ClipLayers::deleteHidden() {
   // Remove old first layer if top layer is no longer playing
-  if (list.size() > 1 && !list.back()->isPlaying()) {
+  if (list.size() > 1 && !list.back()->isVisible()) {
     delete *list.begin();
     list.erase(list.begin());
     cout << "Layer erased. " << list.size() << " layers remain." << endl;

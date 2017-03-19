@@ -65,9 +65,9 @@ void Clip::update() {
 }
 
 //-----------------------------------------------------------------------
-void Clip::drawAlgorithm() {
+void Clip::draw() {
   
-  if (getVisible()) {
+  if (isPlaying()) {
     int alpha = getAlpha();
     if (alpha == ALPHA_MAX)
     {

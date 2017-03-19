@@ -2,21 +2,22 @@
 #define CLIPLAYER_H_INCLUDED
 
 #include "ofMain.h"
-#include "Clip.h"
 #include <string>
+#include "Clip.h"
+#include "Layer.h"
 using namespace std;
 
 #define ALPHA_MAX 255
 
-class ClipLayer {
+class ClipLayer: public Layer {
 
 public:
   ClipLayer(int _intensity, Clip *_clip);
-  ~ClipLayer();
+  virtual ~ClipLayer();
   void update();
-  void draw();
+  virtual void drawAlgorithm();
   int getIntensity() {return intensity;}
-  bool isPlaying() {return clip->getVisible();}
+  virtual bool isVisible() {return clip->isPlaying();}
   void outputStatus();
 
 private:
