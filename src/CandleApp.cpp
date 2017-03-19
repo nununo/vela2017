@@ -58,6 +58,9 @@ void CandleApp::keyPressed  (int key){
     case 't':
       traceLayer.setVisible(!traceLayer.isVisible());
       break;
+    case 'd':
+      outputTraceInfo();
+      break;
     case 'h':
       historyLayer.setVisible(!historyLayer.isVisible());
       break;
@@ -93,6 +96,11 @@ void CandleApp::setFullscreen(bool value) {
   } else if (bFullscreen) {
     ofSetFullscreen(true);
   }
+}
+
+//--------------------------------------------------------------
+void CandleApp::outputTraceInfo() {
+  cout << traceLayer.getText();
 }
 
 //--------------------------------------------------------------

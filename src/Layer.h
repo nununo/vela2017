@@ -9,17 +9,20 @@
 #ifndef Layer_h
 #define Layer_h
 
+#include "ofMain.h"
+
 class Layer {
 
 public:
+  Layer() {visible = true;}
   virtual ~Layer() {};
   void draw() {if (isVisible()) drawAlgorithm();}
-  void setVisible(bool _visible) {visible = _visible;}
+  virtual void setVisible(bool _visible) {visible = _visible;}
   virtual bool isVisible() {return visible;}
   
 protected:
   virtual void drawAlgorithm() = 0;
-  
+
   bool visible;
 };
 

@@ -54,6 +54,8 @@ float Clip::timeToPercentage(float fadeTime) {
 //-----------------------------------------------------------------------
 void Clip::update() {
 
+  cout << "#: "<< movie->getPosition() << " " << movie->getSpeed() << "\n";
+  
   float newPosition;
   
   movie->update();
@@ -62,7 +64,9 @@ void Clip::update() {
   
   newPosition = movie->getPosition();
   
-  if (newPosition>0.98 || newPosition == lastPosition) {
+  if (newPosition>0.98) {
+    if (newPosition == lastPosition)
+      cout << "newPosition " << newPosition << " = lastPosition " << lastPosition << "\n";
     if (loop) {
       rewind();
       play();

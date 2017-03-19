@@ -29,7 +29,8 @@ private:
   void outputLayerStatus();
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
-  
+  void outputTraceInfo();
+
   XmlStore xmlStore;
   InputIntensity *inputIntensity;
   ClipLayers *clipLayers;

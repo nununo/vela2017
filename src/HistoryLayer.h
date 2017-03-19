@@ -17,15 +17,12 @@ class HistoryLayer: public Layer {
 
 public:
   HistoryLayer();
-  bool isVisible() {return visible;}
-  void setVisible(bool _visible) {visible = _visible;}
   void saveValue(float value);
   
 private:
   virtual void drawAlgorithm();
   void initializeBuffer();
   
-  bool visible;
   float buffer[BUFFER_SIZE];
   int bufferCursor;
 };

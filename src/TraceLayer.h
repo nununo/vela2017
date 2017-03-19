@@ -5,18 +5,16 @@
 #include "Layer.h"
 
 class TraceLayer : public Layer {
-
+  
 public:
   TraceLayer();
   void update(string text);
-  bool isVisible() {return visible;}
-  void setVisible(bool _visible) {visible = _visible;}
   void drawAlgorithm();
-
+  string getText() {return text;}
+  
 private:
   ofTrueTypeFont font;
   string text;
-  bool visible;
   string getSysInfo();
 };
 
