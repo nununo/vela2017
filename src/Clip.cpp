@@ -35,7 +35,7 @@ ofVideoPlayer *Clip::loadMovie(string filename) {
 
 //-----------------------------------------------------------------------
 void Clip::setLoop(bool _loop) {
-  _loop = loop;
+  loop = _loop;
   if (loop)
     movie->setLoopState(OF_LOOP_NORMAL);
   else
