@@ -14,15 +14,17 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   clipsRotation = _clipsRotation;
   
   // Create base layer for level 0 (which will always loop)
-  add(0);
+  baseLayer = new ClipLayer(0, levels->getRandomClip(0));
 
 }
 
 //--------------------------------------------------------------
 void ClipLayers::update(int intensity) {
 
-  if (intensity > 0 && intensity > list.back()->getIntensity())
+  if (intensity > 0 && (list.size() == 0 || intensity > list.back()->getIntensity()))
       add(intensity);
+
+  baseLayer->update();
   
   // Updates each layer
   vector<ClipLayer*>::iterator it;
@@ -57,10 +59,10 @@ void ClipLayers::deleteFinished() {
 
 //--------------------------------------------------------------
 void ClipLayers::deleteHidden() {
-  // Remove lower layers if top layer is already opaque (skipping base layer 0)
-  if (list.size() > 2 && list.back()->isOpaque()) {
-    delete *(list.begin()+1);
-    list.erase(list.begin()+1);
+  // Remove lower layers if top layer is already opaque
+  if (list.size() > 1 && list.back()->isOpaque()) {
+    delete *(list.begin());
+    list.erase(list.begin());
     cout << "Layer erased. " << list.size() << " layers remain." << endl;
   }
 }
@@ -79,6 +81,8 @@ void ClipLayers::draw() {
     glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
   }
   
+  baseLayer->draw();
+  
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++)
     (*it)->draw();
@@ -96,6 +100,8 @@ string ClipLayers::getTrace() {
 
   ss << "ClipLayers:\n";
   ss << "  Num: " << ofToString(list.size()) << "\n";
+  
+  ss << baseLayer->getTrace();
   
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++)

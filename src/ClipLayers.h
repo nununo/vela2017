@@ -26,6 +26,7 @@ private:
   void deleteHidden();
   
   Levels *levels;
+  ClipLayer *baseLayer;
   vector<ClipLayer*> list;
   int clipsRotation;
 
