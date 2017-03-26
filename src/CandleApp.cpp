@@ -2,6 +2,7 @@
 #include "MultiDataInput.h"
 #include "KeyDataInput.h"
 #include "MouseDataInput.h"
+#include "ArduinoDataInput.h"
 #include "AutoFlickerDataInput.h"
 
 //--------------------------------------------------------------
@@ -89,7 +90,7 @@ void CandleApp::setFullscreen(bool value) {
   bFullscreen = value;
   
   if (!bFullscreen){
-    ofSetWindowShape(720,576);
+    ofSetWindowShape(360,288); // (720,576);
     ofSetFullscreen(false);
     
     // figure out how to put the window in the center:
@@ -115,7 +116,9 @@ void CandleApp::setupInputs() {
 
   multiDataInput->add( new KeyDataInput() );
 
-  multiDataInput->add( new MouseDataInput() );
+  multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoDevice(), xmlStore.getArduinoMinValue(), xmlStore.getArduinoMaxValue()) );
+  
+  //multiDataInput->add( new MouseDataInput() );
   
 //  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
   

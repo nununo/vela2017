@@ -17,10 +17,10 @@
 
 class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoDataInput(int _device, int _maxValue);
+  ArduinoDataInput(int _device, int _minValue, int _maxValue);
   virtual void update();
-  virtual float getValue() {return lastValue;}
-  ~ArduinoDataInput();
+  virtual float getValue();
+  ~ArduinoDataInput() {};
   
 private:
   void setValue(float _value);
@@ -28,7 +28,8 @@ private:
   ofSerial serial;
   int lastValue;
   int offset;
-  int maxValue; // limit beyond which values are ignored, to avoid strange values
+  int minValue; // lower sensor limit below which values are ignored, to avoid strange values
+  int maxValue; // upper sensor limit beyond which values are ignored, to avoid strange values
   int buffer[ARDUINO_BUFFER_SIZE];
   int bufferCursor;
   

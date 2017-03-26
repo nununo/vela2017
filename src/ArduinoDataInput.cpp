@@ -9,9 +9,10 @@
 #include "ArduinoDataInput.h"
 
 //--------------------------------------------------------------
-ArduinoDataInput::ArduinoDataInput(int _device, int _maxValue) {
+ArduinoDataInput::ArduinoDataInput(int _device, int _minValue, int _maxValue) {
+  minValue = _minValue;
   maxValue = _maxValue;
-  lastValue = 0;
+  lastValue = minValue;
   serial.listDevices();
   serial.setup(_device, 9600);
 }
@@ -46,10 +47,10 @@ void ArduinoDataInput::update() {
   if( nBytesRead == 2){
     
     //lets update our buffer
-    memcpy(bytesReadString, bytesReturned, 2);
+    memcpy(bytesReadString, bytesReturned, 3);
     
     //we need to put the bytes back into an int and then remap it to a float
-    int value = ( (unsigned char)bytesReadString[1] << 8 | (unsigned char)bytesReadString[0] );
+    int value = ( (unsigned char)bytesReadString[0] << 8 | (unsigned char)bytesReadString[1] );
     
     setValue(value);
   }
@@ -58,8 +59,16 @@ void ArduinoDataInput::update() {
 
 //--------------------------------------------------------------
 void ArduinoDataInput::setValue(float value) {
-  if (value > maxValue)
+  
+  //cout << "Arduino value: " << ofToString(value) << "\n";
+  
+  if (value < minValue || value > maxValue)
     return;
+  
   lastValue = value;
 }
 
+//--------------------------------------------------------------
+float ArduinoDataInput::getValue() {
+  return ofMap(lastValue, minValue, maxValue, 0.0f, 1.0f);
+}

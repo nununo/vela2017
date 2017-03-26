@@ -2,14 +2,14 @@
 
 //--------------------------------------------------------------
 TraceLayer::TraceLayer() {
-	font.load("frabk.ttf",12);
+	font.load("frabk.ttf",10);
   visible = true;
 }
 
 //--------------------------------------------------------------
 string TraceLayer::getSysInfo() {
   return "System info:\n"
-          "  Framerate: " + ofToString(ofGetFrameRate()) + "\n";
+          "  Framerate: " + ofToString(roundf(ofGetFrameRate()*1)/1) + "\n";
 }
 
 //--------------------------------------------------------------
