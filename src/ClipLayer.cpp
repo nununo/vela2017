@@ -26,3 +26,14 @@ void ClipLayer::drawAlgorithm() {
   clip->draw();
 }
 
+//--------------------------------------------------------------
+string ClipLayer::getTrace() {
+  stringstream ss;
+  
+    ss << "  " << getIntensity() << "\n"
+    << "    Filename: " << getFilename() << "\n"
+    << "    Position: " << roundf(getPosition()*100)/100 << "\n"
+    << "    Alpha: " << getAlpha() << "\n";
+  
+  return ss.str();
+}

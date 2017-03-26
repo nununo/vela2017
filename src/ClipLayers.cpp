@@ -99,10 +99,7 @@ string ClipLayers::getTrace() {
   
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++)
-    ss << "  " << (*it)->getIntensity() << "\n"
-       << "    Filename: " << (*it)->getFilename() << "\n"
-       << "    Position: " << roundf((*it)->getPosition()*100)/100 << "\n"
-       << "    Alpha: " << (*it)->getAlpha() << "\n";
+    ss << (*it)->getTrace();
   
   return ss.str();
 }

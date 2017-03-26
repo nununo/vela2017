@@ -5,11 +5,13 @@
 #include <string>
 #include "Clip.h"
 #include "Layer.h"
+#include "ITrace.h"
+
 using namespace std;
 
 #define ALPHA_MAX 255
 
-class ClipLayer: public Layer {
+class ClipLayer: public Layer, public ITrace {
 
 public:
   ClipLayer(int _intensity, Clip *_clip);
@@ -22,7 +24,10 @@ public:
   bool isVisible() {return clip->isPlaying();}
   float getAlpha() {return clip->getAlpha();}
   bool isOpaque() {return clip->isOpaque();}
-
+  
+  // ITrace
+  virtual string getTrace();
+  
 private:
   Clip *clip;
   int intensity;
