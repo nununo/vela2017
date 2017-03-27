@@ -31,7 +31,10 @@ void HistoryLayer::saveValue(float value) {
 
 //--------------------------------------------------------------
 void HistoryLayer::drawAlgorithm() {
+
+  int height = ofGetScreenHeight();
+
   for (int i = 0; i < BUFFER_SIZE; i++){
-    ofDrawLine(i, ofGetScreenHeight(), i, ofGetScreenHeight()-20-buffer[i]);
+    ofDrawLine(i, height, i, height-20-buffer[i]);
   }
 }

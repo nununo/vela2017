@@ -11,7 +11,7 @@
 
 #include "Layer.h"
 
-#define BUFFER_SIZE 100
+#define BUFFER_SIZE 500
 
 class HistoryLayer: public Layer {
 

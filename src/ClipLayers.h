@@ -11,7 +11,6 @@
 
 #include "ClipLayer.h"
 #include "Levels.h"
-#include "ITrace.h"
 
 class ClipLayers: public ITrace {
 public:
