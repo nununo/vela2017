@@ -103,7 +103,7 @@ int Clip::calcAlpha() {
     return ALPHA_MAX;
   else {
     float alpha = Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *
-    Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0);
+      Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0);
     return (int)(alpha * ALPHA_MAX);
   }
 }

@@ -24,7 +24,8 @@ private:
   void add(int intensity);
   void deleteFinished();
   void deleteHidden();
-  
+  bool isBaseLayerVisible() {return list.size() == 0 || !(list.back()->isOpaque());}
+
   Levels *levels;
   ClipLayer *baseLayer;
   vector<ClipLayer*> list;

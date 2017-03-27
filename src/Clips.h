@@ -7,7 +7,7 @@
 #include "Clip.h"
 using namespace std;
 
-#define FADE_TIME 0.1
+#define FADE_TIME 0.15
 
 class Clips {
 

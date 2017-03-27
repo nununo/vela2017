@@ -18,6 +18,8 @@ ClipLayer::~ClipLayer() {
 
 //-----------------------------------------------------------------------
 void ClipLayer::update() {
+  setVisible(clip->isPlaying());
+  
   clip->update();
 }
 

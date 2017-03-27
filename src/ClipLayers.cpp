@@ -22,20 +22,44 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
 void ClipLayers::update(int intensity) {
 
   if (intensity > 0 && (list.size() == 0 || intensity > list.back()->getIntensity()))
-      add(intensity);
+    add(intensity);
 
-  baseLayer->update();
-  
   // Updates each layer
   vector<ClipLayer*>::iterator it;
   for (it = list.begin(); it != list.end(); it++) {
     (*it)->update();
   }
-  
+
   deleteFinished();
   deleteHidden();
 
+  if (isBaseLayerVisible())
+    baseLayer->update();
+  
 };
+
+//--------------------------------------------------------------
+void ClipLayers::draw() {
+  
+  // Rotate clips
+  if (clipsRotation != 0) {
+    glRotated(clipsRotation, 0, 0, 1);
+    glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
+  }
+  
+  if (isBaseLayerVisible())
+    baseLayer->draw();
+  
+  vector<ClipLayer*>::iterator it;
+  for (it = list.begin(); it != list.end(); it++)
+    (*it)->draw();
+  
+  // Reset rotation
+  if (clipsRotation != 0) {
+    glTranslated(ofGetWidth(), ofGetHeight(), 0);
+    glRotated(-clipsRotation, 0, 0, 1);
+  }
+}
 
 //--------------------------------------------------------------
 void ClipLayers::deleteFinished() {
@@ -70,28 +94,6 @@ void ClipLayers::deleteHidden() {
 //--------------------------------------------------------------
 void ClipLayers::add(int intensity) {
   list.push_back(new ClipLayer(intensity, levels->getRandomClip(intensity)));
-}
-
-//--------------------------------------------------------------
-void ClipLayers::draw() {
-
-  // Rotate clips
-  if (clipsRotation != 0) {
-    glRotated(clipsRotation, 0, 0, 1);
-    glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
-  }
-  
-  baseLayer->draw();
-  
-  vector<ClipLayer*>::iterator it;
-  for (it = list.begin(); it != list.end(); it++)
-    (*it)->draw();
-
-  // Reset rotation
-  if (clipsRotation != 0) {
-    glTranslated(ofGetWidth(), ofGetHeight(), 0);
-    glRotated(-clipsRotation, 0, 0, 1);
-  }
 }
 
 //--------------------------------------------------------------

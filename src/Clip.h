@@ -23,7 +23,7 @@ public:
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
   float getPosition() {return lastPosition;}
-  bool isOpaque() {return movie->getPosition() > fadePercentage;}
+  bool isOpaque() {return alpha == ALPHA_MAX;} // movie->getPosition() > fadePercentage;
   int getAlpha() {return alpha;}
 
 private:
