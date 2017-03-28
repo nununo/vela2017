@@ -7,7 +7,7 @@
 //
 
 #include "Clip.h"
-#include "util.h"
+#include "Util.h"
 
 //-----------------------------------------------------------------------
 Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime) {
