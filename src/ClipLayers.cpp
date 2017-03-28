@@ -43,8 +43,8 @@ void ClipLayers::draw() {
   
   // Rotate clips
   if (clipsRotation != 0) {
-    glRotated(clipsRotation, 0, 0, 1);
-    glTranslated(-ofGetWidth(), -ofGetHeight(), 0);
+    glRotatef(clipsRotation, 0, 0, 1);
+    glTranslatef(-ofGetWidth(), -ofGetHeight(), 0);
   }
   
   if (isBaseLayerVisible())
@@ -56,8 +56,8 @@ void ClipLayers::draw() {
   
   // Reset rotation
   if (clipsRotation != 0) {
-    glTranslated(ofGetWidth(), ofGetHeight(), 0);
-    glRotated(-clipsRotation, 0, 0, 1);
+    glTranslatef(ofGetWidth(), ofGetHeight(), 0);
+    glRotatef(-clipsRotation, 0, 0, 1);
   }
 }
 

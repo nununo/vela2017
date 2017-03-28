@@ -21,11 +21,11 @@ void TraceLayer::update(string _text) {
 void TraceLayer::drawAlgorithm() {
 
   float v = 0.05 * (float)ofGetWidth();
-  glTranslated(v, v, 0);
+  glTranslatef(v, v, 0);
 
   ofSetHexColor(0x00FF00);
 	font.drawString(text, 0, 0);
   
-  glTranslated(-v, -v, 0);
+  glTranslatef(-v, -v, 0);
 
 }

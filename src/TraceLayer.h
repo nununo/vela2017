@@ -1,7 +1,6 @@
 #ifndef TRACELAYER_H_INCLUDED
 #define TRACELAYER_H_INCLUDED
 
-#include "ofMain.h"
 #include "Layer.h"
 
 class TraceLayer : public Layer {
