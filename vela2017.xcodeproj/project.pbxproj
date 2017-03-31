@@ -168,26 +168,52 @@
 			name = src;
 			sourceTree = "<group>";
 		};
-		7D7245B71E7DD327006E5653 /* videoHandling */ = {
+		7D7245B71E7DD327006E5653 /* clips */ = {
 			isa = PBXGroup;
 			children = (
 				7D7245AC1E7DA83F006E5653 /* Clip.cpp */,
 				7D7245AD1E7DA83F006E5653 /* Clip.h */,
 				7DAA8B5F1E776C62005385DD /* Clips.cpp */,
 				7DAA8B601E776C62005385DD /* Clips.h */,
-				7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */,
-				7DAA8B5B1E776AD4005385DD /* ClipLayer.h */,
-				7DB90EF41E7B4885000978EC /* ClipLayers.cpp */,
-				7DB90EF51E7B4885000978EC /* ClipLayers.h */,
 				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
 				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */,
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
 			);
-			name = videoHandling;
+			name = clips;
 			sourceTree = "<group>";
 		};
-		7DB90F061E7B69F4000978EC /* inputHandling */ = {
+		7DB3F7DC1E8DD8B20025498A /* layers */ = {
+			isa = PBXGroup;
+			children = (
+				7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */,
+				7DAA8B5B1E776AD4005385DD /* ClipLayer.h */,
+				7DB90EF41E7B4885000978EC /* ClipLayers.cpp */,
+				7DB90EF51E7B4885000978EC /* ClipLayers.h */,
+				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
+				7DAA8B571E776875005385DD /* TraceLayer.h */,
+				7D7245BB1E7E4F92006E5653 /* HistoryLayer.cpp */,
+				7D7245BC1E7E4F92006E5653 /* HistoryLayer.h */,
+			);
+			name = layers;
+			sourceTree = "<group>";
+		};
+		7DB3F7DD1E8DD8F90025498A /* tools */ = {
+			isa = PBXGroup;
+			children = (
+				7DFE1C351E79CDBE003ECE97 /* ITrace.h */,
+				7D7245B91E7E0FDF006E5653 /* Layer.h */,
+				7DAA8B4D1E7767C6005385DD /* Util.cpp */,
+				7DAA8B4E1E7767C6005385DD /* Util.h */,
+				7DB3F7D91E8DD1C90025498A /* SystemTrace.cpp */,
+				7DB3F7DA1E8DD1C90025498A /* SystemTrace.h */,
+				7DFECCDE1E77638800D9104C /* XmlStore.cpp */,
+				7DFECCDF1E77638800D9104C /* XmlStore.h */,
+			);
+			name = tools;
+			sourceTree = "<group>";
+		};
+		7DB90F061E7B69F4000978EC /* inputs */ = {
 			isa = PBXGroup;
 			children = (
 				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
@@ -206,7 +232,7 @@
 				7DB90F031E7B6799000978EC /* AutoFlickerDataInput.cpp */,
 				7DB90F041E7B6799000978EC /* AutoFlickerDataInput.h */,
 			);
-			name = inputHandling;
+			name = inputs;
 			sourceTree = "<group>";
 		};
 		BB4B014C10F69532006C3DED /* addons */ = {
@@ -242,23 +268,13 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				7DB90F061E7B69F4000978EC /* inputHandling */,
-				7D7245B71E7DD327006E5653 /* videoHandling */,
+				7DB3F7DD1E8DD8F90025498A /* tools */,
+				7DB3F7DC1E8DD8B20025498A /* layers */,
+				7DB90F061E7B69F4000978EC /* inputs */,
+				7D7245B71E7DD327006E5653 /* clips */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
 				7DAA8B4A1E77665F005385DD /* CandleApp.h */,
-				7DFE1C351E79CDBE003ECE97 /* ITrace.h */,
-				7D7245B91E7E0FDF006E5653 /* Layer.h */,
 				E4B69E1D0A3A1BDC003C02F2 /* main.cpp */,
-				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
-				7DAA8B571E776875005385DD /* TraceLayer.h */,
-				7DAA8B4D1E7767C6005385DD /* Util.cpp */,
-				7DAA8B4E1E7767C6005385DD /* Util.h */,
-				7DFECCDE1E77638800D9104C /* XmlStore.cpp */,
-				7DFECCDF1E77638800D9104C /* XmlStore.h */,
-				7D7245BB1E7E4F92006E5653 /* HistoryLayer.cpp */,
-				7D7245BC1E7E4F92006E5653 /* HistoryLayer.h */,
-				7DB3F7D91E8DD1C90025498A /* SystemTrace.cpp */,
-				7DB3F7DA1E8DD1C90025498A /* SystemTrace.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
