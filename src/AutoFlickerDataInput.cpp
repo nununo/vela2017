@@ -8,6 +8,7 @@
 
 #include "AutoFlickerDataInput.h"
 #include "ofMain.h"
+#include <sstream>
 
 //--------------------------------------------------------------
 AutoFlickerDataInput::AutoFlickerDataInput(int _minPeriod, float _flickerValue) {
@@ -45,4 +46,13 @@ float AutoFlickerDataInput::getValue() {
     value = 0.0f;
   
   return value;
+}
+
+//--------------------------------------------------------------
+string AutoFlickerDataInput::getTrace() {
+  stringstream ss;
+
+  ss << "Auto Flicker input: min period: " << minPeriod << " value: " << flickerValue << " lastTime: " << lastTime << "\n";
+
+  return ss.str();
 }

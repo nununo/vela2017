@@ -16,6 +16,7 @@ public:
   AutoFlickerDataInput(int _minPeriod, float _flickerValue);
   virtual void update();
   virtual float getValue();
+  virtual string getTrace();
   ~AutoFlickerDataInput() {};
   
 private:

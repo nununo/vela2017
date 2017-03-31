@@ -18,7 +18,7 @@ public:
   virtual void update();
   virtual float getValue();
   ~MultiDataInput() {dataInputs.clear();}; // XXX This probably leaks
-
+  virtual string getTrace();
   void add(IDataInput *_dataInput);
 
 private:

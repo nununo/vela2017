@@ -9,6 +9,7 @@
 #include "InputIntensity.h"
 #include <iostream>
 #include "ofMain.h"
+#include <sstream>
 
 using namespace std;
 
@@ -55,8 +56,15 @@ void InputIntensity::offsetThresholds(float diff) {
 
 //--------------------------------------------------------------
 string InputIntensity::getTrace() {
-  return "InputLevel:\n"
+  stringstream ss;
+  
+  ss << "InputLevel:\n"
          "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
          "  Current intensity: " + ofToString(getIntensity()) + "\n"
          "  Current value: " + ofToString(dataInput->getValue()) + "\n";
+  
+  ss << dataInput->getTrace();
+  
+  return ss.str();
+  
 };

@@ -26,6 +26,7 @@ class CandleApp : public ofBaseApp {
 		
 private:
   void setupInputs();
+  void setupTrace();
   void outputLayerStatus();
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!bFullscreen);}

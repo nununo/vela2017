@@ -1,3 +1,2 @@
 - Reimplement calibration
 - Solve MOV files debug warning message
-- Introduce AutoFlicker and review its code

@@ -9,7 +9,9 @@
 #ifndef IDataInput_h
 #define IDataInput_h
 
-class IDataInput {
+#include "ITrace.h"
+
+class IDataInput : public ITrace {
 public:
   virtual ~IDataInput() {}
   virtual void update() = 0;

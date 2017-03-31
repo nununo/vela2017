@@ -19,6 +19,9 @@ public:
   virtual void update() {};
   virtual float getValue();
 
+  // ITrace
+  virtual string getTrace() {return "Mouse input\n";};
+  
   //We must declare all these mouse events methods to be able to listen to mouse events, even if we don't need them all
   void mouseMoved(ofMouseEventArgs & args) {};
   void mouseDragged(ofMouseEventArgs & args) {};

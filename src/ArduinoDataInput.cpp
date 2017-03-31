@@ -7,12 +7,14 @@
 //
 
 #include "ArduinoDataInput.h"
+#include <sstream>
 
 //--------------------------------------------------------------
 ArduinoDataInput::ArduinoDataInput(int _device, int _minValue, int _maxValue) {
   minValue = _minValue;
   maxValue = _maxValue;
   lastValue = minValue;
+  device = _device;
   serial.listDevices();
   serial.setup(_device, 9600);
 }
@@ -71,4 +73,13 @@ void ArduinoDataInput::setValue(float value) {
 //--------------------------------------------------------------
 float ArduinoDataInput::getValue() {
   return ofMap(lastValue, minValue, maxValue, 0.0f, 1.0f);
+}
+
+//--------------------------------------------------------------
+string ArduinoDataInput::getTrace() {
+  stringstream ss;
+  
+  ss << "Arduino input device " << device << " min:" << minValue << " max:" << maxValue << " last:" << lastValue << "\n";
+  
+  return ss.str();
 }

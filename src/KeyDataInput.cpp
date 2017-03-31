@@ -58,4 +58,3 @@ void KeyDataInput::unregisterKeyboardEvents() {
     ofUnregisterKeyEvents(this);
   bRegisteredEvents = false;
 };
-

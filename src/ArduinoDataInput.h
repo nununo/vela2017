@@ -12,26 +12,23 @@
 #include "IDataInput.h"
 #include "ofMain.h"
 
-#define ARDUINO_BUFFER_SIZE 500
-#define ARDUINO_CALIBRATION_COUNT 20
-
 class ArduinoDataInput: public IDataInput {
 public:
   ArduinoDataInput(int _device, int _minValue, int _maxValue);
+  ~ArduinoDataInput() {};
   virtual void update();
   virtual float getValue();
-  ~ArduinoDataInput() {};
+  virtual string getTrace();
   
 private:
   void setValue(float _value);
   
   ofSerial serial;
+  int device;
   int lastValue;
   int offset;
   int minValue; // lower sensor limit below which values are ignored, to avoid strange values
   int maxValue; // upper sensor limit beyond which values are ignored, to avoid strange values
-  int buffer[ARDUINO_BUFFER_SIZE];
-  int bufferCursor;
   
 };
 

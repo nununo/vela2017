@@ -21,13 +21,16 @@
 #define LEVEL_2 2
 #define LEVEL_3 3
 
-class InputIntensity: ITrace {
+class InputIntensity: public ITrace {
 public:
   InputIntensity( IDataInput *_dataInput );
   int getIntensity() {return lastIntensity;};
   float getValue() {return lastValue;};
   void update();
-  string getTrace();
+  
+  // ITrace
+  virtual string getTrace();
+
   void offsetThresholds( float diff );
   
 private:

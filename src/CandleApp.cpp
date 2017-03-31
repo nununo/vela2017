@@ -4,6 +4,7 @@
 #include "MouseDataInput.h"
 #include "ArduinoDataInput.h"
 #include "AutoFlickerDataInput.h"
+#include "SystemTrace.h"
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
@@ -13,8 +14,6 @@ void CandleApp::setup(){
   previousIntensity = 0;
   
   xmlStore.setup(XML_FILENAME);
-  
-  traceLayer.setVisible(xmlStore.getTrace());
   
   historyLayer.setVisible(xmlStore.getHistory());
   
@@ -29,21 +28,18 @@ void CandleApp::setup(){
 
   clipLayers = new ClipLayers(levels, xmlStore.getClipsRotation());
   
+  setupTrace();
+  
   // Draw background
   ofBackground(0, 0, 0);
 }
 
 //--------------------------------------------------------------
 void CandleApp::update(){
-  
   inputIntensity->update();
-  
   historyLayer.saveValue(inputIntensity->getValue());
-  
   clipLayers->update(inputIntensity->getIntensity());
-
-  traceLayer.update(inputIntensity->getTrace() + clipLayers->getTrace());
-
+  traceLayer.update();
 }
 
 //--------------------------------------------------------------
@@ -116,14 +112,22 @@ void CandleApp::setupInputs() {
 
   multiDataInput->add( new KeyDataInput() );
 
-  multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoDevice(), xmlStore.getArduinoMinValue(), xmlStore.getArduinoMaxValue()) );
+//  multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoDevice(), xmlStore.getArduinoMinValue(), xmlStore.getArduinoMaxValue()) );
   
   //multiDataInput->add( new MouseDataInput() );
   
-//  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), 1.0f) );
+  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
   
   inputIntensity = new InputIntensity( multiDataInput );
 
+}
+
+//--------------------------------------------------------------
+void CandleApp::setupTrace() {
+  traceLayer.setVisible(xmlStore.getTrace());
+  traceLayer.add( new SystemTrace() );
+  traceLayer.add(inputIntensity);
+  traceLayer.add(clipLayers);
 }
 
 

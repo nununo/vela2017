@@ -7,6 +7,7 @@
 //
 
 #include "MultiDataInput.h"
+#include <sstream>
 
 //-----------------------------------------------------------------------
 void MultiDataInput::add(IDataInput *dataInput) {
@@ -39,3 +40,16 @@ float MultiDataInput::getValue() {
   return maxValue;
 };
 
+//-----------------------------------------------------------------------
+string MultiDataInput::getTrace() {
+  stringstream ss;
+  
+  ss << "MultiDataInput:\n";
+
+  vector<IDataInput*>::iterator it;
+
+  for (it = dataInputs.begin(); it != dataInputs.end(); it++)
+    ss << "  " << (*it)->getTrace();
+
+  return ss.str();
+}
