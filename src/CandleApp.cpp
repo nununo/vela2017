@@ -9,17 +9,9 @@
 //--------------------------------------------------------------
 void CandleApp::setup(){
 
-  ofSetFrameRate(25);
-  
   previousIntensity = 0;
   
   xmlStore.setup(XML_FILENAME);
-  
-  historyLayer.setVisible(xmlStore.getHistory());
-  
-  setFullscreen(xmlStore.getFullscreen());
-
-  setupInputs();
   
   Levels *levels =
     new Levels(
@@ -28,9 +20,13 @@ void CandleApp::setup(){
 
   clipLayers = new ClipLayers(levels, xmlStore.getClipsRotation());
   
+  historyLayer.setVisible(xmlStore.getHistory());
+
+  setupInputs();
   setupTrace();
-  
-  // Draw background
+
+  ofSetFrameRate(25);
+  setFullscreen(xmlStore.getFullscreen());
   ofBackground(0, 0, 0);
 }
 
@@ -69,14 +65,11 @@ void CandleApp::keyPressed  (int key){
 //      arduino.toggleAutocalibrate();
       break;
     case '+':
-      inputIntensity->offsetThresholds(1);
+      inputIntensity->offsetThresholds(0.01f);
       break;
     case '-':
-      inputIntensity->offsetThresholds(-1);
+      inputIntensity->offsetThresholds(-0.01f);
       break;
-//    case 's':
-      //xmlStore.save();
-//      break;
   }
 }
 
