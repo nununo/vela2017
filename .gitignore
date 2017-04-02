@@ -25,4 +25,4 @@ xcuserdata/
 ## Inside bin/
 *.app
 *.mov
-
+bin/data/media/

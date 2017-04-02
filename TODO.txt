@@ -1,2 +1,3 @@
 - Reimplement calibration
 - Solve MOV files debug warning message
+- Sort folders https://stackoverflow.com/questions/7856514/how-to-sort-a-vector-char
