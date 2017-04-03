@@ -14,12 +14,10 @@
 class Levels{
   
 public:
-  Levels(ClipOutputSettings *clipOutputSettings, string dataFolder);
+  Levels(ClipOutputSettings *clipOutputSettings, string folder0, string folder1, string folder2, string folder3);
   Clip *getRandomClip(int level);
   
-private:
-  void loadMovies(ClipOutputSettings *clipOutputSettings, string dataFolder);
-  
+private:  
   vector<Clips*> levels;
 };
 

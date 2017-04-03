@@ -14,8 +14,10 @@ class XmlStore {
 
 public:
   bool setup(string filename);
-  bool save();
-  string getDataFolder() {return XML.getValue("SETTINGS:DATAFOLDER", "");}
+  string getMovieFolder0() {return XML.getValue("SETTINGS:MOVIEFOLDER0", "");}
+  string getMovieFolder1() {return XML.getValue("SETTINGS:MOVIEFOLDER1", "");}
+  string getMovieFolder2() {return XML.getValue("SETTINGS:MOVIEFOLDER2", "");}
+  string getMovieFolder3() {return XML.getValue("SETTINGS:MOVIEFOLDER3", "");}
   int getArduinoDevice() {return XML.getValue("SETTINGS:ARDUINODEVICE", 1);}
   int getArduinoMinValue() {return XML.getValue("SETTINGS:ARDUINOMINVALUE", 0);}
   int getArduinoMaxValue() {return XML.getValue("SETTINGS:ARDUINOMAXVALUE", 1023);}

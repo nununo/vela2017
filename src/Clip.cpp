@@ -21,18 +21,17 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop
   fadePercentage = timeToPercentage(fadeTime);
 
   alpha = 0;
+  freezeCount = 0;
   
   setLoop(_loop);
 
   stop();
-  rewind();
 }
 
 //-----------------------------------------------------------------------
 ofVideoPlayer *Clip::loadMovie(string filename) {
   ofVideoPlayer *newMovie = new ofVideoPlayer();
   newMovie->load(filename);
-  newMovie->play();
   return newMovie;
 }
 
@@ -47,53 +46,47 @@ void Clip::setLoop(bool _loop) {
 
 //-----------------------------------------------------------------------
 float Clip::timeToPercentage(float fadeTime) {
-// Convert movie time position to percentage position
   return Util::remap(fadeTime, 0, movie->getDuration(), 0, 1);
 }
 
 //-----------------------------------------------------------------------
 void Clip::update() {
 
-  float newPosition;
+  if (!isPlaying())
+    return;
   
   movie->update();
+
+  if (!loop && lastPosition == movie->getPosition())
+    if (++freezeCount > FREEZE_FRAMES_MAX) {
+      stop();
+      freezeCount = 0;
+    }
   
   alpha = calcAlpha();
-  
-  newPosition = movie->getPosition();
-  
-  if (newPosition>0.98) {
-    if (newPosition == lastPosition)
-      cout << "newPosition " << newPosition << " = lastPosition " << lastPosition << "\n";
-    if (loop) {
-      rewind();
-      play();
-    }
-    else
-      stop();
-  } else
-    lastPosition = newPosition;
-  }
+    
+  lastPosition = movie->getPosition();
+}
 
 //-----------------------------------------------------------------------
 void Clip::draw() {
   
-  if (isPlaying()) {
-    int alpha = getAlpha();
-    if (alpha == ALPHA_MAX)
-    {
-      ofDisableAlphaBlending();
-      ofSetHexColor(0xFFFFFF);
-    } else {
-      ofEnableAlphaBlending();
-      ofSetColor(255,255,255,alpha);
-    }
-    movie->draw(ofGetWidth()*clipOutputSettings->getOffsetX(),
-                ofGetHeight()*clipOutputSettings->getOffsetY(),
-                ofGetWidth()*clipOutputSettings->getZoomX(),
-                ofGetHeight()*clipOutputSettings->getZoomY());
+  if (!isPlaying())
+    return;
+
+  if (getAlpha() == ALPHA_MAX)
+  {
     ofDisableAlphaBlending();
+    ofSetHexColor(0xFFFFFF);
+  } else {
+    ofEnableAlphaBlending();
+    ofSetColor(255, 255, 255, getAlpha());
   }
+  movie->draw(ofGetWidth()*clipOutputSettings->getOffsetX(),
+              ofGetHeight()*clipOutputSettings->getOffsetY(),
+              ofGetWidth()*clipOutputSettings->getZoomX(),
+              ofGetHeight()*clipOutputSettings->getZoomY());
+  ofDisableAlphaBlending();
 }
 
 
@@ -102,8 +95,9 @@ int Clip::calcAlpha() {
   if (loop)
     return ALPHA_MAX;
   else {
-    float alpha = Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *
-      Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0);
+    float alpha = 
+      Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *        // Fade in
+      Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0); // Fade out
     return (int)(alpha * ALPHA_MAX);
   }
 }

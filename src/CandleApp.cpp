@@ -16,7 +16,10 @@ void CandleApp::setup(){
   Levels *levels =
     new Levels(
                new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
-               xmlStore.getDataFolder());
+               xmlStore.getMovieFolder0(),
+               xmlStore.getMovieFolder1(),
+               xmlStore.getMovieFolder2(),
+               xmlStore.getMovieFolder3());
 
   clipLayers = new ClipLayers(levels, xmlStore.getClipsRotation());
   
@@ -43,6 +46,9 @@ void CandleApp::draw(){
   clipLayers->draw();
   traceLayer.draw();
   historyLayer.draw();
+
+  if (ofGetFrameNum() % 25 == 0)
+    outputTraceInfo();
 }
 
 //--------------------------------------------------------------
@@ -109,7 +115,7 @@ void CandleApp::setupInputs() {
   
   //multiDataInput->add( new MouseDataInput() );
   
-  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
+  //multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
   
   inputIntensity = new InputIntensity( multiDataInput );
 

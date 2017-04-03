@@ -10,29 +10,20 @@
 #include "Clips.h"
 
 //--------------------------------------------------------------
-Levels::Levels(ClipOutputSettings *clipOutputSettings, string dataFolder) {
-  loadMovies(clipOutputSettings, dataFolder);
-  cout << levels.size() << " levels loaded." << endl;
+Levels::Levels(ClipOutputSettings *clipOutputSettings, string folder0, string folder1, string folder2, string folder3) {
+
+  cout << "Clips for 0 will be loaded from folder " << folder0 << "\n";
+  levels.push_back(new Clips(clipOutputSettings, OF_LOOP_NORMAL, folder0));
+  //cout << "Clips for 1 will be loaded from folder " << folder1 << "\n";
+  //levels.push_back(new Clips(clipOutputSettings, OF_LOOP_NONE, folder1));
+  //cout << "Clips for 2 will be loaded from folder " << folder2 << "\n";
+  //levels.push_back(new Clips(clipOutputSettings, OF_LOOP_NONE, folder2));
+  //cout << "Clips for 3 will be loaded from folder " << folder3 << "\n";
+  //levels.push_back(new Clips(clipOutputSettings, OF_LOOP_NONE, folder3));
+  //cout << levels.size() << " levels loaded." << endl;
 };
 
 //--------------------------------------------------------------
 Clip *Levels::getRandomClip(int level) {
   return levels[level]->getRandomClip();
 };
-
-//--------------------------------------------------------------
-void Levels::loadMovies(ClipOutputSettings *clipOutputSettings, string dataFolder) {
-  // Read files in this folder
-  ofDirectory oDir;
-  
-  int nFiles = oDir.listDir( dataFolder );
-  
-  // Load movies into vector
-  for(int i = 0; i < nFiles; i++){
-    cout << "Loading level " << i << " from " << oDir.getPath(i) << endl;
-    
-    // Level 0 loops because it's the base layer. All the other levels
-    // must not loop, they fade out when finished
-    levels.push_back(new Clips(clipOutputSettings, i==0, oDir.getPath(i)));
-  }
-}

@@ -11,8 +11,3 @@ bool XmlStore::setup(string _filename) {
 	  return false;
 	}
 }
-
-//--------------------------------------------------------------
-bool XmlStore::save() {
-  XML.saveFile(filename);
-}

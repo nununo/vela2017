@@ -6,7 +6,7 @@ ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
   clip = _clip;
   intensity = _intensity;
   
-  clip->rewind_and_play();
+  clip->play();
 
   cout << "Created layer for " << clip->getFilename() << endl;
 }
