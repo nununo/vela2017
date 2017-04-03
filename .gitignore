@@ -26,3 +26,4 @@ xcuserdata/
 *.app
 *.mov
 bin/data/media/
+bin/data/media*
