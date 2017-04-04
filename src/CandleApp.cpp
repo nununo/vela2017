@@ -108,7 +108,7 @@ void CandleApp::setupInputs() {
   
   //multiDataInput->add( new MouseDataInput() );
   
-  //multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
+  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
   
   inputIntensity =
     new InputIntensity( multiDataInput, xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3) );
