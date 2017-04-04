@@ -24,7 +24,7 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop
   
   setLoop(_loop);
 
-  stop();
+  movie->play();
 }
 
 //-----------------------------------------------------------------------
@@ -57,9 +57,6 @@ void Clip::update() {
   movie->update();
 
   alpha = calcAlpha();
-
-  if (movie->getPosition() > 0.5 && alpha < ALPHA_MIN)
-      stop();
 }
 
 //-----------------------------------------------------------------------

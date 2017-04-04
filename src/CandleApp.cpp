@@ -47,7 +47,7 @@ void CandleApp::draw(){
   traceLayer.draw();
   historyLayer.draw();
 
-  if (ofGetFrameNum() % 25 == 0)
+  if (ofGetFrameNum() % 50 == 0)
     outputTraceInfo();
 }
 

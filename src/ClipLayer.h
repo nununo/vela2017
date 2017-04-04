@@ -16,16 +16,17 @@ public:
   virtual ~ClipLayer();
   void update();
   virtual void drawAlgorithm();
-  int getIntensity() {return intensity;}
-  string getFilename() {return clip->getFilename();}
-  float getPosition() {return clip->getPosition();}
-  float getAlpha() {return clip->getAlpha();}
   bool isOpaque() {return clip->isOpaque();}
+  int getIntensity() {return intensity;}
   
   // ITrace
   virtual string getTrace();
   
 private:
+  float getPosition() {return clip->getPosition();}
+  float getAlpha() {return clip->getAlpha();}
+  string getFilename() {return clip->getFilename();}
+
   Clip *clip;
   int intensity;
 };

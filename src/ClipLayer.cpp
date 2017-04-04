@@ -32,10 +32,13 @@ void ClipLayer::drawAlgorithm() {
 string ClipLayer::getTrace() {
   stringstream ss;
   
-    ss << "  " << getIntensity() << "\n"
-    << "    Filename: " << getFilename() << "\n"
-    << "    Position: " << roundf(getPosition()*100)/100 << "\n"
-    << "    Alpha: " << getAlpha() << "\n";
+    ss << "  " << getIntensity() << " "
+    << "Filename: " << getFilename() << "\n"
+    << "    Position: " << roundf(getPosition()*100)/100 << " "
+    << "Alpha: " << getAlpha() << "\n"
+    << "    Visible: " << isVisible() << " "
+    << "Playing: " << clip->isPlaying() << "\n"
+    << "";
   
   return ss.str();
 }
