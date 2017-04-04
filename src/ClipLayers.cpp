@@ -87,7 +87,7 @@ void ClipLayers::deleteHidden() {
   if (list.size() > 1 && list.back()->isOpaque()) {
     delete *(list.begin());
     list.erase(list.begin());
-    cout << "Layer erased. " << list.size() << " layers remain." << endl;
+    cout << "Hidden layer erased. " << list.size() << " layers remain." << endl;
   }
 }
 
@@ -100,8 +100,8 @@ void ClipLayers::add(int intensity) {
 string ClipLayers::getTrace() {
   stringstream ss;
 
-  ss << "ClipLayers:\n";
-  ss << "  Num: base + " << ofToString(list.size()) << "\n";
+  ss << "ClipLayers: Num: base + " << ofToString(list.size()) << "\n";
+  ss << "  isBaseLayerVisible: " << isBaseLayerVisible()<< "\n";
   
   ss << baseLayer->getTrace();
   
