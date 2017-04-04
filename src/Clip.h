@@ -18,7 +18,7 @@
 class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
-  void play() {movie->play(); movie->setPosition(0);}
+  void rewind() {movie->setPosition(0);movie->play();}
   void update();
   void draw();
   bool isPlaying() {return !movie->getIsMovieDone();}
