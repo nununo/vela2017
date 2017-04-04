@@ -21,7 +21,6 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop
   fadePercentage = timeToPercentage(fadeTime);
 
   alpha = 0;
-  freezeCount = 0;
   
   setLoop(_loop);
 
@@ -57,15 +56,10 @@ void Clip::update() {
   
   movie->update();
 
-  if (!loop && lastPosition == movie->getPosition())
-    if (++freezeCount > FREEZE_FRAMES_MAX) {
-      stop();
-      freezeCount = 0;
-    }
-
   alpha = calcAlpha();
-    
-  lastPosition = movie->getPosition();
+
+  if (movie->getPosition() > 0.5 && alpha < ALPHA_MIN)
+      stop();
 }
 
 //-----------------------------------------------------------------------

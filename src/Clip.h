@@ -12,18 +12,18 @@
 #include "ofMain.h"
 #include "ClipOutputSettings.h"
 
+#define ALPHA_MIN 10
 #define ALPHA_MAX 255
-#define FREEZE_FRAMES_MAX 4
 
 class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
-  void play() {movie->setPosition(0); lastPosition=0; movie->setSpeed(1); movie->play();}
+  void play() {movie->setPosition(0); movie->setSpeed(1); movie->play();}
   void update();
   void draw();
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
-  float getPosition() {return lastPosition;}
+  float getPosition() {return movie->getPosition();}
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
 
@@ -40,8 +40,6 @@ private:
   float loop;
   float fadePercentage; // Fade percentage converted from fade time
   int alpha;            // Alpha channel
-  float lastPosition;   // To check if the video is frozen
-  int freezeCount;      // Count how many frames the movie doesn't move
 
   
 };
