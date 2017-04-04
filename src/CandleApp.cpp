@@ -28,7 +28,7 @@ void CandleApp::setup(){
   setupInputs();
   setupTrace();
 
-  ofSetFrameRate(25);
+  ofSetFrameRate(50);
   setFullscreen(xmlStore.getFullscreen());
   ofBackground(0, 0, 0);
 }

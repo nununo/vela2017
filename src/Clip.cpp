@@ -38,7 +38,7 @@ ofVideoPlayer *Clip::loadMovie(string filename) {
 //-----------------------------------------------------------------------
 void Clip::setLoop(bool _loop) {
   loop = _loop;
-  if (loop)
+  if (_loop)
     movie->setLoopState(OF_LOOP_NORMAL);
   else
     movie->setLoopState(OF_LOOP_NONE);
@@ -62,7 +62,7 @@ void Clip::update() {
       stop();
       freezeCount = 0;
     }
-  
+
   alpha = calcAlpha();
     
   lastPosition = movie->getPosition();
@@ -95,9 +95,9 @@ int Clip::calcAlpha() {
   if (loop)
     return ALPHA_MAX;
   else {
-    float alpha = 
-      Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *        // Fade in
-      Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0); // Fade out
+    float alpha =
+    Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *        // Fade in
+    Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0); // Fade out
     return (int)(alpha * ALPHA_MAX);
   }
 }

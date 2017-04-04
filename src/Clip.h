@@ -18,27 +18,26 @@
 class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
-  void play() {movie->setPosition(0); lastPosition=0; movie->setSpeed(1);}
+  void play() {movie->setPosition(0); lastPosition=0; movie->setSpeed(1); movie->play();}
   void update();
   void draw();
   bool isPlaying() {return movie->getSpeed()>0;}
   string getFilename() {return filename;};
   float getPosition() {return lastPosition;}
-  bool isOpaque() {return alpha == ALPHA_MAX;} // movie->getPosition() > fadePercentage;
+  bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
 
 private:
-  ClipOutputSettings *clipOutputSettings;
-  ofVideoPlayer *loadMovie(string filename);
   float timeToPercentage(float time);
   int calcAlpha();
   void setLoop(bool _loop);
-  void stop() {movie->setSpeed(0);}
-  
-  
+  void stop() { movie->setSpeed(0); }
+
+  ClipOutputSettings *clipOutputSettings;
+  ofVideoPlayer *loadMovie(string filename);
   string filename;
-  ofVideoPlayer *movie; 
-  bool loop;            // Will it loop?
+  ofVideoPlayer *movie;
+  float loop;
   float fadePercentage; // Fade percentage converted from fade time
   int alpha;            // Alpha channel
   float lastPosition;   // To check if the video is frozen

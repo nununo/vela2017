@@ -101,7 +101,7 @@ string ClipLayers::getTrace() {
   stringstream ss;
 
   ss << "ClipLayers:\n";
-  ss << "  Num: " << ofToString(list.size()) << "\n";
+  ss << "  Num: base + " << ofToString(list.size()) << "\n";
   
   ss << baseLayer->getTrace();
   
