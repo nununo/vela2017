@@ -14,12 +14,12 @@
 using namespace std;
 
 //--------------------------------------------------------------
-InputIntensity::InputIntensity( IDataInput *_dataInput ) {
+InputIntensity::InputIntensity( IDataInput *_dataInput, float threshold1, float threshold2, float threshold3) {
   dataInput = _dataInput;
   
-  threshold[THRESHOLD_1] = 0.25f;
-  threshold[THRESHOLD_2] = 0.50f;
-  threshold[THRESHOLD_3] = 0.75f;
+  threshold[THRESHOLD_1] = threshold1;
+  threshold[THRESHOLD_2] = threshold2;
+  threshold[THRESHOLD_3] = threshold3;
 }
 
 //--------------------------------------------------------------

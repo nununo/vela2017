@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */; };
+		7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A2A071E9452E100637568 /* LevelSettings.cpp */; };
 		7D42A3B61E78BCEA0097B54C /* MouseDataInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3B41E78BCEA0097B54C /* MouseDataInput.cpp */; };
 		7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
@@ -65,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
+		7D0A2A071E9452E100637568 /* LevelSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSettings.cpp; sourceTree = "<group>"; };
+		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
 		7D42A3B31E78BAA60097B54C /* IDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDataInput.h; sourceTree = "<group>"; };
 		7D42A3B41E78BCEA0097B54C /* MouseDataInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseDataInput.cpp; sourceTree = "<group>"; };
 		7D42A3B51E78BCEA0097B54C /* MouseDataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseDataInput.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */,
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
+				7D0A2A071E9452E100637568 /* LevelSettings.cpp */,
+				7D0A2A081E9452E100637568 /* LevelSettings.h */,
 			);
 			name = clips;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				EF25968535CD7F4428AC8DB7 /* tinyxmlerror.cpp in Sources */,
 				7DB90EF61E7B4885000978EC /* ClipLayers.cpp in Sources */,
 				7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */,
+				7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */,
 				7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */,
 				7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */,
 				2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */,

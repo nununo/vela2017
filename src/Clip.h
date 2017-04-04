@@ -11,13 +11,13 @@
 
 #include "ofMain.h"
 #include "ClipOutputSettings.h"
+#include "LevelSettings.h"
 
-#define ALPHA_MIN 20
 #define ALPHA_MAX 255
 
 class Clip {
 public:
-  Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime);
+  Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string filename);
   void rewind() {movie->setPosition(0);movie->play();}
   void update();
   void draw();
@@ -31,17 +31,15 @@ public:
 private:
   float timeToPercentage(float time);
   int calcAlpha();
-  void setLoop(bool _loop);
+  void setupMovie();
 
-  ClipOutputSettings *clipOutputSettings;
-  ofVideoPlayer *loadMovie(string filename);
-  string filename;
   ofVideoPlayer *movie;
-  float loop;
-  float fadePercentage; // Fade percentage converted from fade time
-  int alpha;            // Alpha channel
-
-  
+  ClipOutputSettings *clipOutputSettings;
+  LevelSettings *levelSettings;
+  string filename;
+  float fadeInPercentage;                 // Fade in percentage converted from fade in time
+  float fadeOutPercentage;                // Fade out percentage converted from fade out time
+  int alpha;                              // Alpha channel
 };
 
 #endif /* Clip_h */

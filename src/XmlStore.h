@@ -10,38 +10,42 @@
 
 using namespace std;
 
+#define XML_PREFIX_SETTINGS "settings:"
+
 class XmlStore {
 
 public:
   bool setup(string filename);
-  string getMovieFolder0() {return XML.getValue("SETTINGS:MOVIEFOLDER0", "");}
-  string getMovieFolder1() {return XML.getValue("SETTINGS:MOVIEFOLDER1", "");}
-  string getMovieFolder2() {return XML.getValue("SETTINGS:MOVIEFOLDER2", "");}
-  string getMovieFolder3() {return XML.getValue("SETTINGS:MOVIEFOLDER3", "");}
-  int getArduinoDevice() {return XML.getValue("SETTINGS:ARDUINODEVICE", 1);}
-  int getArduinoMinValue() {return XML.getValue("SETTINGS:ARDUINOMINVALUE", 0);}
-  int getArduinoMaxValue() {return XML.getValue("SETTINGS:ARDUINOMAXVALUE", 1023);}
-  int getClipsRotation() {return XML.getValue("SETTINGS:CLIPSROTATION", 180);}
-  int getThreshold(int threshold) {return XML.getValue("SETTINGS:THRESHOLD" + ofToString(threshold), 0);}
+  
+  string getMovieFolder(int i)  {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":movieFolder", "");}
+  float getFadeInTime(int i)        {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":fadeInTime", 0.0f);}
+  float getFadeOutTime(int i)       {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":fadeOutTime", 0.0f);}
+  float getThreshold(int i)     {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":threshold", 0.0f);}
+  bool getLoop(int i)           {return (XML.getValue(xml_prefix + "level" + ofToString(i) + ":loop", 0) == 1);}
 
-  float getOffsetX() {return XML.getValue("SETTINGS:OFFSETX", 0.0f);}
-  float getOffsetY() {return XML.getValue("SETTINGS:OFFSETY", 0.0f);}
-  
-  float getZoomX() {return XML.getValue("SETTINGS:ZOOMX", 1.0f);}
-  float getZoomY() {return XML.getValue("SETTINGS:ZOOMY", 1.0f);}
-  
-  bool getAutocalirate() {return (XML.getValue("SETTINGS:AUTOCALIBRATE", 0) == 1);}
-  
-  bool getTrace() {return (XML.getValue("SETTINGS:TRACE", 0) == 1);}
-  bool getHistory() {return (XML.getValue("SETTINGS:HISTORY", 0) == 1);}
-  bool getFullscreen() {return (XML.getValue("SETTINGS:FULLSCREEN", 0) == 1);}
-  
-  int getAutoFlickerMinPeriod() {return XML.getValue("SETTINGS:AUTOFLICKERMINPERIOD", 0);}
-  float getAutoFlickerValue() {return XML.getValue("SETTINGS:AUTOFLICKERVALUE", 0.0f);}
+  int getArduinoDevice()        {return XML.getValue(xml_prefix + "arduino:device", 1);}
+  int getArduinoMinValue()      {return XML.getValue(xml_prefix + "arduino:minValue", 0);}
+  int getArduinoMaxValue()      {return XML.getValue(xml_prefix + "arduino:maxValue", 1023);}
 
-  private:
-    string filename;
-		ofxXmlSettings XML;
+  int getClipsRotation()        {return XML.getValue(xml_prefix + "clip:rotation", 180);}
+  float getOffsetX()            {return XML.getValue(xml_prefix + "clip:offsetX", 0.0f);}
+  float getOffsetY()            {return XML.getValue(xml_prefix + "clip:offsetY", 0.0f);}
+  float getZoomX()              {return XML.getValue(xml_prefix + "clip:zoomX", 1.0f);}
+  float getZoomY()              {return XML.getValue(xml_prefix + "clip:zoomY", 1.0f);}
+  
+  //bool getAutocalirate() {return (XML.getValue(xml_prefix + string("AUTOCALIBRATE"), 0) == 1);}
+  
+  bool getShowTrace()           {return (XML.getValue(xml_prefix + "display:showTrace", 0) == 1);}
+  bool getShowHistory()         {return (XML.getValue(xml_prefix + "display:showHistory", 0) == 1);}
+  bool getFullscreen()          {return (XML.getValue(xml_prefix + "display:fullscreen", 0) == 1);}
+  
+  int getAutoFlickerMinPeriod() {return XML.getValue(xml_prefix + "autoFlicker:minPeriod", 0);}
+  float getAutoFlickerValue()   {return XML.getValue(xml_prefix + "autoFlicker:value", 0.0f);}
+
+private:
+  string filename;
+  string xml_prefix = XML_PREFIX_SETTINGS;
+  ofxXmlSettings XML;
 };
 
 

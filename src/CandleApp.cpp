@@ -14,16 +14,12 @@ void CandleApp::setup(){
   xmlStore.setup(XML_FILENAME);
   
   Levels *levels =
-    new Levels(
-               new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
-               xmlStore.getMovieFolder0(),
-               xmlStore.getMovieFolder1(),
-               xmlStore.getMovieFolder2(),
-               xmlStore.getMovieFolder3());
+    new Levels(new ClipOutputSettings(xmlStore.getOffsetX(), xmlStore.getOffsetY(), xmlStore.getZoomX(), xmlStore.getZoomY()),
+               buildLevelSettingsList());
 
   clipLayers = new ClipLayers(levels, xmlStore.getClipsRotation());
   
-  historyLayer.setVisible(xmlStore.getHistory());
+  historyLayer.setVisible(xmlStore.getShowHistory());
 
   setupInputs();
   setupTrace();
@@ -114,16 +110,30 @@ void CandleApp::setupInputs() {
   
   //multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
   
-  inputIntensity = new InputIntensity( multiDataInput );
+  inputIntensity =
+    new InputIntensity( multiDataInput, xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3) );
 
 }
 
 //--------------------------------------------------------------
 void CandleApp::setupTrace() {
-  traceLayer.setVisible(xmlStore.getTrace());
+  traceLayer.setVisible(xmlStore.getShowTrace());
   traceLayer.add( new SystemTrace() );
   traceLayer.add(inputIntensity);
   traceLayer.add(clipLayers);
+}
+
+//--------------------------------------------------------------
+vector<LevelSettings*> CandleApp::buildLevelSettingsList() {
+  vector<LevelSettings*> list;
+  
+  for (int i=0; i<4; i++)
+    list.push_back( new LevelSettings(xmlStore.getMovieFolder(i),
+                                      xmlStore.getFadeInTime(i),
+                                      xmlStore.getFadeOutTime(i),
+                                      xmlStore.getThreshold(i),
+                                      xmlStore.getLoop(i)));
+  return list;
 }
 
 

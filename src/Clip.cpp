@@ -10,34 +10,28 @@
 #include "Util.h"
 
 //-----------------------------------------------------------------------
-Clip::Clip(ClipOutputSettings *_clipOutputSettings, string _filename, bool _loop, float fadeTime) {
-  
-  filename = _filename;
-
-  movie = loadMovie(filename);
+Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string _filename) {
   
   clipOutputSettings = _clipOutputSettings;
+  levelSettings = _levelSettings;
+  filename = _filename;
 
-  fadePercentage = timeToPercentage(fadeTime);
+  setupMovie();
+
+  fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
+  fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
 
   alpha = 0;
-  
-  setLoop(_loop);
+  }
 
+//-----------------------------------------------------------------------
+void Clip::setupMovie() {
+
+  movie = new ofVideoPlayer();
+  movie->load(filename);
   movie->play();
-}
 
-//-----------------------------------------------------------------------
-ofVideoPlayer *Clip::loadMovie(string filename) {
-  ofVideoPlayer *newMovie = new ofVideoPlayer();
-  newMovie->load(filename);
-  return newMovie;
-}
-
-//-----------------------------------------------------------------------
-void Clip::setLoop(bool _loop) {
-  loop = _loop;
-  if (_loop)
+  if (levelSettings->getLoop())
     movie->setLoopState(OF_LOOP_NORMAL);
   else
     movie->setLoopState(OF_LOOP_NONE);
@@ -73,8 +67,8 @@ void Clip::draw() {
     ofEnableAlphaBlending();
     ofSetColor(255, 255, 255, getAlpha());
   }
-  movie->draw(ofGetWidth()*clipOutputSettings->getOffsetX(),
-              ofGetHeight()*clipOutputSettings->getOffsetY(),
+  movie->draw(clipOutputSettings->getOffsetX(),
+              clipOutputSettings->getOffsetY(),
               ofGetWidth()*clipOutputSettings->getZoomX(),
               ofGetHeight()*clipOutputSettings->getZoomY());
   ofDisableAlphaBlending();
@@ -83,12 +77,12 @@ void Clip::draw() {
 
 //-----------------------------------------------------------------------
 int Clip::calcAlpha() {
-  if (loop)
+  if (levelSettings->getLoop())
     return ALPHA_MAX;
   else {
     float alpha =
-    Util::remap(movie->getPosition(), 0, fadePercentage, 0, 1) *        // Fade in
-    Util::remap(movie->getPosition(), 0.98-fadePercentage, 0.98, 1, 0); // Fade out
+    Util::remap(movie->getPosition(), 0, fadeInPercentage, 0, 1) *        // Fade in
+    Util::remap(movie->getPosition(), 0.98-fadeOutPercentage, 0.98, 1, 0); // Fade out
     return (int)(alpha * ALPHA_MAX);
   }
 }

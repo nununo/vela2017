@@ -23,7 +23,7 @@
 
 class InputIntensity: public ITrace {
 public:
-  InputIntensity( IDataInput *_dataInput );
+  InputIntensity( IDataInput *_dataInput, float threshold1, float threshold2, float threshold3);
   int getIntensity() {return lastIntensity;};
   float getValue() {return lastValue;};
   void update();

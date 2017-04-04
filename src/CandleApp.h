@@ -31,7 +31,8 @@ private:
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   void outputTraceInfo();
-
+  vector<LevelSettings*> buildLevelSettingsList();
+  
   XmlStore xmlStore;
   InputIntensity *inputIntensity;
   ClipLayers *clipLayers;
