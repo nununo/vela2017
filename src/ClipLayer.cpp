@@ -1,5 +1,4 @@
 #include "ClipLayer.h"
-#include "Util.h"
 
 //-----------------------------------------------------------------------
 ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
@@ -7,6 +6,8 @@ ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
   intensity = _intensity;
   
   clip->rewind();
+  
+  setVisible(true);
 
   cout << "Created layer for " << clip->getFilename() << endl;
 }
@@ -18,7 +19,8 @@ ClipLayer::~ClipLayer() {
 
 //-----------------------------------------------------------------------
 void ClipLayer::update() {
-  setVisible(clip->isPlaying());
+  if (!clip->isPlaying())
+    setVisible(false);
   
   clip->update();
 }

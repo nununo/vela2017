@@ -44,9 +44,6 @@ float Clip::timeToPercentage(float fadeTime) {
 
 //-----------------------------------------------------------------------
 void Clip::update() {
-
-  if (!isPlaying())
-    return;
   
   movie->update();
 
@@ -56,9 +53,6 @@ void Clip::update() {
 //-----------------------------------------------------------------------
 void Clip::draw() {
   
-  if (!isPlaying())
-    return;
-
   if (getAlpha() == ALPHA_MAX)
   {
     ofDisableAlphaBlending();
@@ -85,4 +79,10 @@ int Clip::calcAlpha() {
     Util::remap(movie->getPosition(), 0.98-fadeOutPercentage, 0.98, 1, 0); // Fade out
     return (int)(alpha * ALPHA_MAX);
   }
+}
+
+//-----------------------------------------------------------------------
+void Clip::rewind() {
+  movie->setPosition(0);
+  movie->play();
 }

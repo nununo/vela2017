@@ -18,10 +18,10 @@
 class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string filename);
-  void rewind() {movie->setPosition(0);movie->play();}
+  void rewind();
   void update();
   void draw();
-  bool isPlaying() {return !movie->getIsMovieDone();}
+  bool isPlaying() {return (levelSettings->getLoop() || !movie->getIsMovieDone());}
   string getFilename() {return filename;};
   float getPosition() {return movie->getPosition();}
   float getSpeed() {return movie->getSpeed();}

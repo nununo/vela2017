@@ -1,22 +1,22 @@
 <settings>
   <level0>
     <movieFolder>media/0</movieFolder>
-    <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>0.15</fadeOutTime>
+    <fadeInTime>0</fadeInTime>
+    <fadeOutTime>0</fadeOutTime>
     <threshold>0</threshold>
     <loop>1</loop>
   </level0>
   <level1>
     <movieFolder>media/1</movieFolder>
     <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>0.15</fadeOutTime>
+    <fadeOutTime>0.40</fadeOutTime>
     <threshold>0.25</threshold>
     <loop>0</loop>
   </level1>
   <level2>
     <movieFolder>media/2</movieFolder>
     <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>0.15</fadeOutTime>
+    <fadeOutTime>0.40</fadeOutTime>
     <threshold>0.50</threshold>
     <loop>0</loop>
   </level2>
