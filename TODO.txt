@@ -1,3 +1,5 @@
 - Reimplement calibration
-- Hide mouse cursor
-- Bsae layer disappears for 1 frame at each loop cycle
+- Solve performance issues when multiple levels are triggered
+--- Consider replacing the Layers vector with a single active level
+--- Consider trying omxPlayer to solve performance issues
+- Implement two sensors input with Arduino

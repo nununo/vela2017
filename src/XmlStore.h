@@ -27,11 +27,11 @@ public:
   int getArduinoMinValue()      {return XML.getValue(xml_prefix + "arduino:minValue", 0);}
   int getArduinoMaxValue()      {return XML.getValue(xml_prefix + "arduino:maxValue", 1023);}
 
-  int getClipsRotation()        {return XML.getValue(xml_prefix + "clip:rotation", 180);}
-  float getOffsetX()            {return XML.getValue(xml_prefix + "clip:offsetX", 0.0f);}
-  float getOffsetY()            {return XML.getValue(xml_prefix + "clip:offsetY", 0.0f);}
-  float getZoomX()              {return XML.getValue(xml_prefix + "clip:zoomX", 1.0f);}
-  float getZoomY()              {return XML.getValue(xml_prefix + "clip:zoomY", 1.0f);}
+  int getVideoRotation()        {return XML.getValue(xml_prefix + "videoOutput:rotation", 180);}
+  float getVideoOffsetX()       {return XML.getValue(xml_prefix + "videoOutput:offsetX", 0.0f);}
+  float getVideoOffsetY()       {return XML.getValue(xml_prefix + "videoOutput:offsetY", 0.0f);}
+  float getVideoZoomX()         {return XML.getValue(xml_prefix + "videoOutput:zoomX", 1.0f);}
+  float getVideoZoomY()         {return XML.getValue(xml_prefix + "videoOutput:zoomY", 1.0f);}
   
   //bool getAutocalirate() {return (XML.getValue(xml_prefix + string("AUTOCALIBRATE"), 0) == 1);}
   

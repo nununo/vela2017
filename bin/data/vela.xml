@@ -9,21 +9,21 @@
   <level1>
     <movieFolder>media/1</movieFolder>
     <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>0.40</fadeOutTime>
+    <fadeOutTime>0.50</fadeOutTime>
     <threshold>0.25</threshold>
     <loop>0</loop>
   </level1>
   <level2>
     <movieFolder>media/2</movieFolder>
     <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>0.40</fadeOutTime>
+    <fadeOutTime>0.50</fadeOutTime>
     <threshold>0.50</threshold>
     <loop>0</loop>
   </level2>
   <level3>
     <movieFolder>media/3</movieFolder>
     <fadeInTime>0.15</fadeInTime>
-    <fadeOutTime>1.00</fadeOutTime>
+    <fadeOutTime>2.00</fadeOutTime>
     <threshold>0.75</threshold>
     <loop>0</loop>
   </level3>
@@ -40,7 +40,7 @@
     <zoomY>1.0</zoomY>
   </clip>
   <display>
-    <fullscreen>0</fullscreen>
+    <fullscreen>1</fullscreen>
     <showTrace>1</showTrace>
     <showHistory>0</showHistory>
   </display>
