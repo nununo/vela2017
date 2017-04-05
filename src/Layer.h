@@ -17,7 +17,7 @@ public:
   Layer() {setVisible(true);}
   virtual ~Layer() {};
   void draw() {if (isVisible()) drawAlgorithm();}
-  virtual void setVisible(bool _visible) {visible = _visible; cout << "setVisible=" << visible << "\n";}
+  virtual void setVisible(bool _visible) {visible = _visible;}
   virtual bool isVisible() {return visible;}
   
 protected:
