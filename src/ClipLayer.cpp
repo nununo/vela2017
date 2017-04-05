@@ -22,12 +22,14 @@ void ClipLayer::update() {
   if (!clip->isPlaying())
     setVisible(false);
   
-  clip->update();
+  if (isVisible())
+    clip->update();
 }
 
 //-----------------------------------------------------------------------
 void ClipLayer::drawAlgorithm() {
-  clip->draw();
+  if (isVisible())
+    clip->draw();
 }
 
 //--------------------------------------------------------------
