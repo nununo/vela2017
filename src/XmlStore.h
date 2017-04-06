@@ -17,30 +17,37 @@ class XmlStore {
 public:
   bool setup(string filename);
   
-  string getMovieFolder(int i)  {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":movieFolder", "");}
-  float getFadeInTime(int i)        {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":fadeInTime", 0.0f);}
-  float getFadeOutTime(int i)       {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":fadeOutTime", 0.0f);}
-  float getThreshold(int i)     {return XML.getValue(xml_prefix + "level" + ofToString(i) + ":threshold", 0.0f);}
-  bool getLoop(int i)           {return (XML.getValue(xml_prefix + "level" + ofToString(i) + ":loop", 0) == 1);}
+  string getMovieFolder(int i)       {
+    string s = xml_prefix + "levels:level" + ofToString(i) + ":movieFolder";
+    return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":movieFolder", "");
+  }
+  float getFadeInTime(int i)         {return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":fadeInTime", 0.0f);}
+  float getFadeOutTime(int i)        {return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":fadeOutTime", 0.0f);}
+  float getThreshold(int i)          {return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":threshold", 0.0f);}
+  bool getLoop(int i)                {return (XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":loop", 0) == 1);}
 
-  int getArduinoDevice()        {return XML.getValue(xml_prefix + "arduino:device", 1);}
-  int getArduinoMinValue()      {return XML.getValue(xml_prefix + "arduino:minValue", 0);}
-  int getArduinoMaxValue()      {return XML.getValue(xml_prefix + "arduino:maxValue", 1023);}
+  int getVideoRotation()             {return XML.getValue(xml_prefix + "videoOutput:rotation", 180);}
+  float getVideoOffsetX()            {return XML.getValue(xml_prefix + "videoOutput:offsetX", 0.0f);}
+  float getVideoOffsetY()            {return XML.getValue(xml_prefix + "videoOutput:offsetY", 0.0f);}
+  float getVideoZoomX()              {return XML.getValue(xml_prefix + "videoOutput:zoomX", 1.0f);}
+  float getVideoZoomY()              {return XML.getValue(xml_prefix + "videoOutput:zoomY", 1.0f);}
+  
+  bool getArduinoInputEnabled()      {return (XML.getValue(xml_prefix + "input:arduino:enabled", 0) == 1);}
+  string getArduinoInputDevice()     {return XML.getValue(xml_prefix + "input:arduino:device", "?");}
+  int getArduinoInputMinValue()      {return XML.getValue(xml_prefix + "input:arduino:minValue", 0);}
+  int getArduinoInputMaxValue()      {return XML.getValue(xml_prefix + "input:arduino:maxValue", 1023);}
+  
+  bool getKeyboardInputEnabled()     {return (XML.getValue(xml_prefix + "input:keyboard:enabled", 0) == 1);}
 
-  int getVideoRotation()        {return XML.getValue(xml_prefix + "videoOutput:rotation", 180);}
-  float getVideoOffsetX()       {return XML.getValue(xml_prefix + "videoOutput:offsetX", 0.0f);}
-  float getVideoOffsetY()       {return XML.getValue(xml_prefix + "videoOutput:offsetY", 0.0f);}
-  float getVideoZoomX()         {return XML.getValue(xml_prefix + "videoOutput:zoomX", 1.0f);}
-  float getVideoZoomY()         {return XML.getValue(xml_prefix + "videoOutput:zoomY", 1.0f);}
+  bool getAutoFlickerInputEnabled()  {return (XML.getValue(xml_prefix + "input:autoFlicker:enabled", 0) == 1);}
+  int getAutoFlickerInputMinPeriod() {return XML.getValue(xml_prefix + "input:autoFlicker:minPeriod", 0);}
+  float getAutoFlickerInputValue()   {return XML.getValue(xml_prefix + "input:autoFlicker:value", 0.0f);}
+
+  bool getShowTrace()                {return (XML.getValue(xml_prefix + "display:showTrace", 0) == 1);}
+  bool getShowHistory()              {return (XML.getValue(xml_prefix + "display:showHistory", 0) == 1);}
+  bool getFullscreen()               {return (XML.getValue(xml_prefix + "display:fullscreen", 0) == 1);}
   
   //bool getAutocalirate() {return (XML.getValue(xml_prefix + string("AUTOCALIBRATE"), 0) == 1);}
-  
-  bool getShowTrace()           {return (XML.getValue(xml_prefix + "display:showTrace", 0) == 1);}
-  bool getShowHistory()         {return (XML.getValue(xml_prefix + "display:showHistory", 0) == 1);}
-  bool getFullscreen()          {return (XML.getValue(xml_prefix + "display:fullscreen", 0) == 1);}
-  
-  int getAutoFlickerMinPeriod() {return XML.getValue(xml_prefix + "autoFlicker:minPeriod", 0);}
-  float getAutoFlickerValue()   {return XML.getValue(xml_prefix + "autoFlicker:value", 0.0f);}
 
 private:
   string filename;

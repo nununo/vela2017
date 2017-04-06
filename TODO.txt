@@ -3,3 +3,5 @@
 --- Consider replacing the Layers vector with a single active level
 --- Consider trying omxPlayer to solve performance issues
 - Implement two sensors input with Arduino
+- Why does the base layer video position keep advancing when it's hidden?'
+- Connect Arduino to RPI

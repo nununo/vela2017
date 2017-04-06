@@ -14,7 +14,7 @@
 
 class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoDataInput(int _device, int _minValue, int _maxValue);
+  ArduinoDataInput(string _device, int _minValue, int _maxValue);
   ~ArduinoDataInput() {};
   virtual void update();
   virtual float getValue();
@@ -24,7 +24,7 @@ private:
   void setValue(float _value);
   
   ofSerial serial;
-  int device;
+  string device;
   int lastValue;
   int offset;
   int minValue; // lower sensor limit below which values are ignored, to avoid strange values

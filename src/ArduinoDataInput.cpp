@@ -10,7 +10,7 @@
 #include <sstream>
 
 //--------------------------------------------------------------
-ArduinoDataInput::ArduinoDataInput(int _device, int _minValue, int _maxValue) {
+ArduinoDataInput::ArduinoDataInput(string _device, int _minValue, int _maxValue) {
   minValue = _minValue;
   maxValue = _maxValue;
   lastValue = minValue;

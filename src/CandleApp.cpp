@@ -107,14 +107,20 @@ void CandleApp::setupInputs() {
   
   multiDataInput = new MultiDataInput();
 
-  multiDataInput->add( new KeyDataInput() );
+  if (xmlStore.getKeyboardInputEnabled())
+    multiDataInput->add( new KeyDataInput() );
 
-//  multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoDevice(), xmlStore.getArduinoMinValue(), xmlStore.getArduinoMaxValue()) );
+  if (xmlStore.getArduinoInputEnabled())
+    multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoInputDevice(),
+                                              xmlStore.getArduinoInputMinValue(),
+                                              xmlStore.getArduinoInputMaxValue()) );
+  
+  if (xmlStore.getAutoFlickerInputEnabled())
+    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod(),
+                                                  xmlStore.getAutoFlickerInputValue()) );
   
   //multiDataInput->add( new MouseDataInput() );
-  
-  multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerMinPeriod(), xmlStore.getAutoFlickerValue()) );
-  
+
   inputIntensity =
     new InputIntensity( multiDataInput, xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3) );
 
