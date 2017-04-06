@@ -61,7 +61,7 @@ string InputIntensity::getTrace() {
   ss << "InputLevel:\n"
          "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
          "  Current intensity: " + ofToString(getIntensity()) + "\n"
-         "  Current value: " + ofToString(dataInput->getValue()) + "\n";
+         "  Current value: " << roundf(dataInput->getValue()*100)/100  << "\n";
   
   ss << dataInput->getTrace();
   
