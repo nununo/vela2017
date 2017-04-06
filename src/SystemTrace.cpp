@@ -10,7 +10,11 @@
 #include "ofMain.h"
 
 string SystemTrace::getTrace() {
-  return "System info:\n"
-  "  Framerate: " + ofToString(roundf(ofGetFrameRate()*1)/1) + "\n";
+  stringstream ss;
+  
+  ss << "System info: "
+     << " Framerate: " << roundf(ofGetFrameRate()*1)/1
+     << " Resolution: " << ofGetWidth() << "x" << ofGetHeight() << "\n";
  
+  return ss.str();
 }
