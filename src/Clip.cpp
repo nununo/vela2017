@@ -28,6 +28,9 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSetting
 void Clip::setupMovie() {
 
   movie = new ofVideoPlayer();
+#ifdef TARGET_RASPBERRY_PI
+  movie->setPixelFormat(OF_PIXELS_NATIVE);
+#endif
   movie->load(filename);
   movie->play();
 
