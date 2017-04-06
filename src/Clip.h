@@ -19,6 +19,7 @@ class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string filename);
   void rewind();
+  void pause(bool value=true);
   void update();
   void draw();
   bool isPlaying() {return (levelSettings->getLoop() || !movie->getIsMovieDone());}

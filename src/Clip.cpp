@@ -33,6 +33,7 @@ void Clip::setupMovie() {
 #endif
   movie->load(filename);
   movie->play();
+  pause();
 
   if (levelSettings->getLoop())
     movie->setLoopState(OF_LOOP_NORMAL);
@@ -47,6 +48,8 @@ float Clip::timeToPercentage(float fadeTime) {
 
 //-----------------------------------------------------------------------
 void Clip::update() {
+  
+  pause(false);
   
   movie->update();
 
@@ -88,4 +91,15 @@ int Clip::calcAlpha() {
 void Clip::rewind() {
   movie->setPosition(0);
   movie->play();
+}
+
+//-----------------------------------------------------------------------
+void Clip::pause(bool value) {
+  if (!movie->isPaused() && value) {
+    movie->setPaused(true);
+    cout << " Clip " << filename << " paused\n";
+  } else if (movie->isPaused() && !value) {
+    movie->setPaused(false);
+    cout << " Clip " << filename << " unpaused\n";
+  }
 }

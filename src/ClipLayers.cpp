@@ -30,6 +30,8 @@ void ClipLayers::update(int intensity) {
   
   if (isBaseLayerVisible())
     baseLayer->update();
+  else
+    baseLayer->pause();
 };
 
 //--------------------------------------------------------------
@@ -68,6 +70,7 @@ void ClipLayers::updateIntensity(int intensity) {
   }
   
   if (intensity > currentIntensity) {
+    delete topLayer;
     topLayer = new ClipLayer(intensity, levels->getRandomClip(intensity));
     currentIntensity = intensity;
   }

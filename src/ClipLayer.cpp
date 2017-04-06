@@ -14,6 +14,7 @@ ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
 
 //-----------------------------------------------------------------------
 ClipLayer::~ClipLayer() {
+  clip->pause();
   cout << "Destroyed layer for " << clip->getFilename() << endl;
 }
 
