@@ -20,14 +20,13 @@ public:
   virtual string getTrace();
   
 private:
-  void add(int intensity);
-  void deleteFinished();
-  void deleteHidden();
-  bool isBaseLayerVisible() {return list.size() == 0 || !(list.back()->isOpaque());}
+  bool isBaseLayerVisible();
+  void updateIntensity(int intensity);
 
   Levels *levels;
   ClipLayer *baseLayer;
-  vector<ClipLayer*> list;
+  ClipLayer *topLayer;
+  int currentIntensity;
   int clipsRotation;
 
 };
