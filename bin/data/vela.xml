@@ -53,6 +53,7 @@
     <zoomY>1.0</zoomY>
   </videoOutput>
   <display>
+    <framerate>25</framerate>
     <fullscreen>1</fullscreen>
     <showTrace>1</showTrace>
     <showHistory>0</showHistory>
