@@ -27,7 +27,7 @@ void CandleApp::setup(){
   ofHideCursor();
   
   ofSetVerticalSync(true);
-  ofSetFrameRate(50);
+  ofSetFrameRate(xmlStore.getFramerate());
   
   setFullscreen(xmlStore.getFullscreen());
   
