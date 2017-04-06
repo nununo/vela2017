@@ -46,6 +46,7 @@ public:
   bool getShowTrace()                {return (XML.getValue(xml_prefix + "display:showTrace", 0) == 1);}
   bool getShowHistory()              {return (XML.getValue(xml_prefix + "display:showHistory", 0) == 1);}
   bool getFullscreen()               {return (XML.getValue(xml_prefix + "display:fullscreen", 0) == 1);}
+  int getFramerate()                 {return XML.getValue(xml_prefix + "display:framerate", 25);}
   
   //bool getAutocalirate() {return (XML.getValue(xml_prefix + string("AUTOCALIBRATE"), 0) == 1);}
 
