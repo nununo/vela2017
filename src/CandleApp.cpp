@@ -103,8 +103,7 @@ void CandleApp::setupInputs() {
 
   if (xmlStore.getArduinoInputEnabled())
     multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoInputDevice(),
-                                              xmlStore.getArduinoInputMinValue(),
-                                              xmlStore.getArduinoInputMaxValue()) );
+                                              xmlStore.getArduinoInputSettings()));
   
   if (xmlStore.getAutoFlickerInputEnabled())
     multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
@@ -132,7 +131,6 @@ vector<LevelSettings*> CandleApp::buildLevelSettingsList() {
     list.push_back( new LevelSettings(xmlStore.getMovieFolder(i),
                                       xmlStore.getFadeInTime(i),
                                       xmlStore.getFadeOutTime(i),
-                                      xmlStore.getThreshold(i),
                                       xmlStore.getLoop(i)));
   return list;
 }

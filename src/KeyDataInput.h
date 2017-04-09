@@ -26,7 +26,6 @@ public:
 private:
   void registerKeyboardEvents();
   void unregisterKeyboardEvents();
-  blowIntensityType calcBlowIntensity(int key);
   
   bool bRegisteredEvents = false;
   blowIntensityType lastBlowIntensity;

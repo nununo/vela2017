@@ -14,18 +14,16 @@ using namespace std;
 
 class LevelSettings {
 public:
-  LevelSettings(string _movieFolder, float _fadeInTime, float _fadeOutTime, float _threshold, bool _loop);
+  LevelSettings(string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop);
   string getMovieFolder() {return movieFolder;}
   float getFadeInTime() {return fadeInTime;}
   float getFadeOutTime() {return fadeOutTime;}
-  float getThreshold() {return threshold;}
   bool getLoop() {return loop;}
   
 private:
   string movieFolder;
   float fadeInTime;
   float fadeOutTime;
-  float threshold;
   bool loop;
 };
 

@@ -1,2 +1,4 @@
 - Reimplement calibration
-- Implement two sensors input with Arduino
+- Implement multiple sensors in Arduino
+- Blow again on same intensity (ClipLayers.cpp)
+- History must get values from Arduino

@@ -10,29 +10,22 @@
 #include <iostream>
 #include "ofMain.h"
 #include <sstream>
+#include "Util.h"
 
 using namespace std;
-
-
-//--------------------------------------------------------------
-void InputIntensity::calcIntensity() {
-  lastBlowIntensity = dataInput->getBlowIntensity();
-};
 
 //--------------------------------------------------------------
 void InputIntensity::update() {
   dataInput->update();
-  calcIntensity();
+  lastBlowIntensity = dataInput->getBlowIntensity();
 }
 
 //--------------------------------------------------------------
 string InputIntensity::getTrace() {
   stringstream ss;
   
-//  ss << "InputLevel:\n"
-//         "  Thresholds:" + ofToString(threshold[THRESHOLD_1]) + " " + ofToString(threshold[THRESHOLD_2]) + " " + ofToString(threshold[THRESHOLD_3]) + "\n"
-//         "  Current intensity: " + ofToString(getIntensity()) + "\n"
-//         "  Current value: " << roundf(dataInput->getValue()*100)/100  << "\n";
+  ss << "InputLevel:\n"
+  "  Current intensity: " + Util::blowIntensityToString(lastBlowIntensity) + "\n";
   
   ss << dataInput->getTrace();
   

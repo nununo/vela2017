@@ -1,10 +1,13 @@
 #ifndef UTIL_H_INCLUDED
 #define UTIL_H_INCLUDED
 
-class Util {
-  public:
-    static float remap(float v, float inMin, float inMax, float outMin, float outMax);
-};
+#include "Constants.h"
+#include "ofMain.h"
 
+class Util {
+public:
+  static float remap(float v, float inMin, float inMax, float outMin, float outMax);
+  static string blowIntensityToString(blowIntensityType blowIntensity);
+};
 
 #endif // UTIL_H_INCLUDED

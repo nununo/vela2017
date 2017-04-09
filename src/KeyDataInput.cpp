@@ -13,37 +13,21 @@ blowIntensityType KeyDataInput::getBlowIntensity() {
   blowIntensityType tempBlowIntensity;
   
   tempBlowIntensity = lastBlowIntensity;
-  lastBlowIntensity = BLOW_INTENSITY_IDLE;
+  lastBlowIntensity = BLOW_INTENSITY_MIN;
   return tempBlowIntensity;
 }
-
-//--------------------------------------------------------------
-blowIntensityType KeyDataInput::calcBlowIntensity(int key) {
-  
-  switch (key) {
-    case '3':
-      return BLOW_INTENSITY_BLOWOUT;
-      break;
-      
-    case '2':
-      return BLOW_INTENSITY_HIGH;
-
-    case '1':
-      return BLOW_INTENSITY_LOW;
-    
-    default:
-      return BLOW_INTENSITY_IDLE;
-      break;
-  }
-};
 
 //--------------------------------------------------------------
 void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
   switch (e.key) {
     case '1':
+      lastBlowIntensity = BLOW_INTENSITY_LOW;
+      break;
     case '2':
+      lastBlowIntensity = BLOW_INTENSITY_HIGH;
+      break;
     case '3':
-      lastBlowIntensity = calcBlowIntensity(e.key);
+      lastBlowIntensity = BLOW_INTENSITY_BLOWOUT;
       break;
   };
 };
@@ -52,7 +36,7 @@ void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
 //--------------------------------------------------------------
 void KeyDataInput::registerKeyboardEvents() {
   if(!bRegisteredEvents) {
-    ofRegisterKeyEvents(this); // enable our class to listen to mouse events.
+    ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
     bRegisteredEvents = true;
   }
 };

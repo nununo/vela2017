@@ -11,22 +11,23 @@
 
 #include "ClipLayer.h"
 #include "Levels.h"
+#include "Constants.h"
 
 class ClipLayers: public ITrace {
 public:
   ClipLayers(Levels *levels, int _clipsRotation);
-  void update(int intensity);
+  void update(blowIntensityType intensity);
   void draw();
   virtual string getTrace();
   
 private:
   bool isBaseLayerVisible();
-  void updateIntensity(int intensity);
+  void updateIntensity(blowIntensityType intensity);
 
   Levels *levels;
   ClipLayer *baseLayer;
   ClipLayer *topLayer;
-  int currentIntensity;
+  blowIntensityType currentIntensity;
   int clipsRotation;
 
 };

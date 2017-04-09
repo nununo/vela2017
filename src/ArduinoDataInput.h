@@ -10,26 +10,25 @@
 #define ArduinoDataInput_h
 
 #include "IDataInput.h"
+#include "AnalogInputSettings.h"
 #include "ofMain.h"
 
 class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoDataInput(string _device, int _minValue, int _maxValue);
+  ArduinoDataInput(string _device, AnalogInputSettings *_settings);
   ~ArduinoDataInput() {};
   virtual void update();
-  virtual blowIntensityType getBlowIntensity();
+  virtual blowIntensityType getBlowIntensity() {return settings->getBlowIntensity(lastValue); lastValue=BLOW_INTENSITY_LOW;}
   virtual string getTrace();
   
 private:
   void setValue(int _value);
   
   ofSerial serial;
+  AnalogInputSettings *settings;
   string device;
   int lastValue;
-  int offset;
-  int minValue; // lower sensor limit below which values are ignored, to avoid strange values
-  int maxValue; // upper sensor limit beyond which values are ignored, to avoid strange values
-  
+  int offset;  
 };
 
 #endif /* ArduinoDataInput_h */

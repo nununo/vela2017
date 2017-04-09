@@ -4,45 +4,45 @@
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
       <fadeOutTime>0</fadeOutTime>
-      <threshold>0</threshold>
       <loop>1</loop>
     </level0>
     <level1>
       <movieFolder>media/1</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
-      <threshold>0.25</threshold>
       <loop>0</loop>
     </level1>
     <level2>
       <movieFolder>media/2</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
-      <threshold>0.50</threshold>
       <loop>0</loop>
     </level2>
     <level3>
       <movieFolder>media/3</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>2.00</fadeOutTime>
-      <threshold>0.75</threshold>
       <loop>0</loop>
     </level3>
   </levels>
-  <input>
+  <inputs>
   	<keyboard>
   	  <enabled>1</enabled>
   	</keyboard>
-	<arduino>
-      <enabled>0</enabled>
+    <arduino>
+      <enabled>1</enabled>
       <device>/dev/ttyUSB0</device>
-      <minValue>450</minValue>
-      <maxValue>600</maxValue>
+      <thresholds>
+        <min>450</min>
+        <low>500</low>
+        <high>550</high>
+        <blowOut>570</blowOut>
+        <max>600</max>
+      </thresholds>
     </arduino>
     <autoFlicker>
       <enabled>0</enabled>
       <minPeriod>30000</minPeriod>
-      <value>0.26</value>
    	</autoFlicker>
   </input>
   <videoOutput>

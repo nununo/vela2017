@@ -10,10 +10,9 @@
 #include <sstream>
 
 //--------------------------------------------------------------
-ArduinoDataInput::ArduinoDataInput(string _device, int _minValue, int _maxValue) {
-  minValue = _minValue;
-  maxValue = _maxValue;
-  lastValue = minValue;
+ArduinoDataInput::ArduinoDataInput(string _device, AnalogInputSettings *_settings) {
+  settings = _settings;
+  lastValue = settings->getThreshold(BLOW_INTENSITY_MIN);
   device = _device;
   serial.listDevices();
   serial.setup(_device, 9600);
@@ -21,6 +20,10 @@ ArduinoDataInput::ArduinoDataInput(string _device, int _minValue, int _maxValue)
 
 //--------------------------------------------------------------
 void ArduinoDataInput::update() {
+  
+  // Continue only if initialized
+  if (!serial.isInitialized())
+    return BLOW_INTENSITY_MIN;
   
   // we try to read 2 bytes
   
@@ -62,22 +65,17 @@ void ArduinoDataInput::update() {
 //--------------------------------------------------------------
 void ArduinoDataInput::setValue(int value) {
   
-  if (value < minValue || value > maxValue)
+  if (value < settings->getThreshold(BLOW_INTENSITY_MIN) || value > settings->getThreshold(BLOW_INTENSITY_MAX))
     return;
   
   lastValue = value;
 }
 
 //--------------------------------------------------------------
-blowIntensityType ArduinoDataInput::getBlowIntensity() {
-//  return ofMap(lastValue, minValue, maxValue, 0.0f, 1.0f); " XXX
-}
-
-//--------------------------------------------------------------
 string ArduinoDataInput::getTrace() {
   stringstream ss;
   
-  ss << "Arduino input device " << device << " min:" << minValue << " max:" << maxValue << " last:" << lastValue << "\n";
-  
+  ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << " last:" << lastValue << "\n";
+  ss << "    " << settings->getTrace();
   return ss.str();
 }

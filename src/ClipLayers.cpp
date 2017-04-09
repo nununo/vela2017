@@ -8,11 +8,12 @@
 
 #include "ClipLayers.h"
 #include <sstream>
+#include "Util.h"
 
 ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   levels = _levels;
   clipsRotation = _clipsRotation;
-  currentIntensity = 0;
+  currentIntensity = BLOW_INTENSITY_MIN;
   
   // Create base layer for level 0 (which will always loop)
   baseLayer = new ClipLayer(0, levels->getRandomClip(0));
@@ -21,9 +22,20 @@ ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
 }
 
 //--------------------------------------------------------------
-void ClipLayers::update(int intensity) {
+void ClipLayers::update(blowIntensityType intensity) {
 
-  updateIntensity(intensity);
+  // Delete top layer if it finished playing
+  if (topLayer && !topLayer->isVisible()) {
+    delete topLayer;
+    topLayer = NULL;
+    currentIntensity = BLOW_INTENSITY_MIN;
+  }
+  
+  if (intensity > currentIntensity) {
+    delete topLayer;
+    topLayer = new ClipLayer(intensity, levels->getRandomClip(intensity));
+    currentIntensity = intensity;
+  }
 
   if (topLayer)
     topLayer->update();
@@ -61,19 +73,7 @@ void ClipLayers::draw() {
 }
 
 //--------------------------------------------------------------
-void ClipLayers::updateIntensity(int intensity) {
-  
-  if (topLayer && !topLayer->isVisible()) {
-    delete topLayer;
-    topLayer = NULL;
-    currentIntensity = 0;
-  }
-  
-  if (intensity > currentIntensity) {
-    delete topLayer;
-    topLayer = new ClipLayer(intensity, levels->getRandomClip(intensity));
-    currentIntensity = intensity;
-  }
+void ClipLayers::updateIntensity(blowIntensityType intensity) {
 }
 
 //--------------------------------------------------------------
@@ -81,6 +81,7 @@ string ClipLayers::getTrace() {
   stringstream ss;
 
   ss << "  topLayer: " << (topLayer != NULL) << "\n";
+  ss << "  currentIntensity :" << Util::blowIntensityToString(currentIntensity) << "\n";
   ss << "  isBaseLayerVisible: " << isBaseLayerVisible()<< "\n";
   
   ss << baseLayer->getTrace();
