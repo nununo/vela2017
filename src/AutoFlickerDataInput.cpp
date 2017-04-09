@@ -11,9 +11,8 @@
 #include <sstream>
 
 //--------------------------------------------------------------
-AutoFlickerDataInput::AutoFlickerDataInput(int _minPeriod, float _flickerValue) {
+AutoFlickerDataInput::AutoFlickerDataInput(int _minPeriod) {
   minPeriod = _minPeriod;
-  flickerValue = _flickerValue;
   isFlickerTime = false;
   lastTime = ofGetElapsedTimeMillis();
 }
@@ -36,23 +35,19 @@ void AutoFlickerDataInput::update() {
 }
 
 //--------------------------------------------------------------
-float AutoFlickerDataInput::getValue() {
-  float value;
-  
+blowIntensityType AutoFlickerDataInput::getBlowIntensity() {
   if (isFlickerTime) {
     isFlickerTime = false;
-    value = flickerValue;
+    return BLOW_INTENSITY_LOW;
   } else
-    value = 0.0f;
-  
-  return value;
+    return BLOW_INTENSITY_IDLE;
 }
 
 //--------------------------------------------------------------
 string AutoFlickerDataInput::getTrace() {
   stringstream ss;
 
-  ss << "Auto Flicker input: min period: " << minPeriod << " value: " << flickerValue << " lastTime: " << lastTime << "\n";
+  ss << "Auto Flicker input: min period: " << minPeriod << " lastTime: " << lastTime << "\n";
 
   return ss.str();
 }

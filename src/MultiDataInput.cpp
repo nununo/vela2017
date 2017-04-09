@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------------
 void MultiDataInput::add(IDataInput *dataInput) {
   dataInputs.push_back(dataInput);
-};
+}
 
 //-----------------------------------------------------------------------
 void MultiDataInput::update() {
@@ -23,22 +23,22 @@ void MultiDataInput::update() {
 }
 
 //-----------------------------------------------------------------------
-float MultiDataInput::getValue() {
+blowIntensityType MultiDataInput::getBlowIntensity() {
   
-  float inputValue;
-  float maxValue = 0;
+  blowIntensityType eachIntensity;
+  blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
   
   vector<IDataInput*>::iterator it;
   
   for (it = dataInputs.begin(); it != dataInputs.end(); it++) {
-    inputValue = (*it)->getValue();
+    eachIntensity = (*it)->getBlowIntensity();
     
-    if (inputValue > maxValue )
-      maxValue = inputValue;
+    if (eachIntensity > maxIntensity )
+      maxIntensity = eachIntensity;
   }
   
-  return maxValue;
-};
+  return maxIntensity;
+}
 
 //-----------------------------------------------------------------------
 string MultiDataInput::getTrace() {

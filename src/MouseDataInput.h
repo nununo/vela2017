@@ -17,7 +17,7 @@ public:
   MouseDataInput() {registerMouseEvents();}
   ~MouseDataInput() {unregisterMouseEvents();}
   virtual void update() {};
-  virtual float getValue();
+  virtual blowIntensityType getBlowIntensity();
 
   // ITrace
   virtual string getTrace() {return "Mouse input\n";};

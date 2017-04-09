@@ -9,25 +9,30 @@
 #include "KeyDataInput.h"
 
 //--------------------------------------------------------------
-float KeyDataInput::getValue() {
-  int tempKey;
+blowIntensityType KeyDataInput::getBlowIntensity() {
+  blowIntensityType tempBlowIntensity;
   
-  tempKey = lastKey;
-  lastKey = 0;
+  tempBlowIntensity = lastBlowIntensity;
+  lastBlowIntensity = BLOW_INTENSITY_IDLE;
+  return tempBlowIntensity;
+}
 
-  switch (tempKey) {
+//--------------------------------------------------------------
+blowIntensityType KeyDataInput::calcBlowIntensity(int key) {
+  
+  switch (key) {
     case '3':
-      return 0.99f;
+      return BLOW_INTENSITY_BLOWOUT;
       break;
       
     case '2':
-      return 0.55f;
+      return BLOW_INTENSITY_HIGH;
 
     case '1':
-      return 0.3f;
+      return BLOW_INTENSITY_LOW;
     
     default:
-      return 0.0f;
+      return BLOW_INTENSITY_IDLE;
       break;
   }
 };
@@ -38,7 +43,7 @@ void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
     case '1':
     case '2':
     case '3':
-      lastKey = e.key;
+      lastBlowIntensity = calcBlowIntensity(e.key);
       break;
   };
 };

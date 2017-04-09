@@ -15,15 +15,20 @@ using namespace std;
 
 class MultiDataInput: public IDataInput {
 public:
-  virtual void update();
-  virtual float getValue();
   ~MultiDataInput() {dataInputs.clear();}; // XXX This probably leaks
+
+  // IDataInput
+  virtual void update();
+  virtual blowIntensityType getBlowIntensity();
+  
+  // ITrace
   virtual string getTrace();
+  
+  // Own
   void add(IDataInput *_dataInput);
 
 private:
   vector<IDataInput*> dataInputs;
-
 };
 
 #endif /* MultiDataInput_h */

@@ -37,8 +37,8 @@ void CandleApp::setup(){
 //--------------------------------------------------------------
 void CandleApp::update(){
   inputIntensity->update();
-  historyLayer.saveValue(inputIntensity->getValue());
-  clipLayers->update(inputIntensity->getIntensity());
+  historyLayer.saveValue(inputIntensity->getBlowIntensity());
+  clipLayers->update(inputIntensity->getBlowIntensity());
   traceLayer.update();
 }
 
@@ -64,15 +64,6 @@ void CandleApp::keyPressed  (int key){
       break;
     case 'h':
       historyLayer.setVisible(!historyLayer.isVisible());
-      break;
-//    case 'c':
-//      arduino.toggleAutocalibrate();
-      break;
-    case '+':
-      inputIntensity->offsetThresholds(0.01f);
-      break;
-    case '-':
-      inputIntensity->offsetThresholds(-0.01f);
       break;
   }
 }
@@ -116,13 +107,12 @@ void CandleApp::setupInputs() {
                                               xmlStore.getArduinoInputMaxValue()) );
   
   if (xmlStore.getAutoFlickerInputEnabled())
-    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod(),
-                                                  xmlStore.getAutoFlickerInputValue()) );
+    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
   
   //multiDataInput->add( new MouseDataInput() );
 
   inputIntensity =
-    new InputIntensity( multiDataInput, xmlStore.getThreshold(1), xmlStore.getThreshold(2), xmlStore.getThreshold(3) );
+    new InputIntensity(multiDataInput);
 
 }
 

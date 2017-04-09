@@ -9,10 +9,10 @@
 #include "MouseDataInput.h"
 
 //--------------------------------------------------------------
-float MouseDataInput::getValue() {
-  int mouseY = lastMouseY;
-  lastMouseY = 0;
-  return (float)mouseY / (float)ofGetScreenHeight();
+blowIntensityType MouseDataInput::getBlowIntensity() {
+//  int mouseY = lastMouseY;
+//  lastMouseY = 0;
+//  return (float)mouseY / (float)ofGetScreenHeight();
 };
 
 //--------------------------------------------------------------

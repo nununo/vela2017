@@ -17,11 +17,11 @@ public:
   ArduinoDataInput(string _device, int _minValue, int _maxValue);
   ~ArduinoDataInput() {};
   virtual void update();
-  virtual float getValue();
+  virtual blowIntensityType getBlowIntensity();
   virtual string getTrace();
   
 private:
-  void setValue(float _value);
+  void setValue(int _value);
   
   ofSerial serial;
   string device;

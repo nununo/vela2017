@@ -13,16 +13,19 @@
 
 class AutoFlickerDataInput: public IDataInput {
 public:
-  AutoFlickerDataInput(int _minPeriod, float _flickerValue);
-  virtual void update();
-  virtual float getValue();
-  virtual string getTrace();
+  AutoFlickerDataInput(int _minPeriod);
   ~AutoFlickerDataInput() {};
+
+  // IDataInput
+  virtual void update();
+  virtual blowIntensityType getBlowIntensity();
+
+  // ITrace
+  virtual string getTrace();
   
 private:
   int minPeriod;
   int lastTime;
-  float flickerValue;
   bool isFlickerTime;
 };
 

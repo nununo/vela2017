@@ -60,9 +60,7 @@ void ArduinoDataInput::update() {
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::setValue(float value) {
-  
-  //cout << "Arduino value: " << ofToString(value) << "\n";
+void ArduinoDataInput::setValue(int value) {
   
   if (value < minValue || value > maxValue)
     return;
@@ -71,8 +69,8 @@ void ArduinoDataInput::setValue(float value) {
 }
 
 //--------------------------------------------------------------
-float ArduinoDataInput::getValue() {
-  return ofMap(lastValue, minValue, maxValue, 0.0f, 1.0f);
+blowIntensityType ArduinoDataInput::getBlowIntensity() {
+//  return ofMap(lastValue, minValue, maxValue, 0.0f, 1.0f); " XXX
 }
 
 //--------------------------------------------------------------
