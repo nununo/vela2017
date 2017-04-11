@@ -12,48 +12,45 @@
 
 using namespace std;
 
-#define XML_PREFIX_SETTINGS "settings:"
-
 class XmlStore {
 
 public:
   bool setup(string filename);
   
-  string getMovieFolder(int i)       {
-    string s = xml_prefix + "levels:level" + ofToString(i) + ":movieFolder";
-    return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":movieFolder", "");
-  }
-  float getFadeInTime(int i)  {return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":fadeInTime", 0.0f);}
-  float getFadeOutTime(int i) {return XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":fadeOutTime", 0.0f);}
-  bool getLoop(int i)         {return (XML.getValue(xml_prefix + "levels:level" + ofToString(i) + ":loop", 0) == 1);}
-
-  int getVideoRotation()  {return XML.getValue(xml_prefix + "videoOutput:rotation", 180);}
-  float getVideoOffsetX() {return XML.getValue(xml_prefix + "videoOutput:offsetX", 0.0f);}
-  float getVideoOffsetY() {return XML.getValue(xml_prefix + "videoOutput:offsetY", 0.0f);}
-  float getVideoZoomX()   {return XML.getValue(xml_prefix + "videoOutput:zoomX", 1.0f);}
-  float getVideoZoomY()   {return XML.getValue(xml_prefix + "videoOutput:zoomY", 1.0f);}
+  string getMovieFolder(int i) {return XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":movieFolder", "");}
   
-  bool getArduinoInputEnabled()         {return (XML.getValue(xml_prefix + "inputs:arduino:enabled", 0) == 1);}
-  string getArduinoInputDevice()        {return XML.getValue(xml_prefix + "inputs:arduino:device", "?");}
-  AnalogInputSettings *getArduinoInputSettings();
+  float getFadeInTime(int i)  {return XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":fadeInTime", 0.0f);}
+  float getFadeOutTime(int i) {return XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":fadeOutTime", 0.0f);}
+  bool getLoop(int i)         {return (XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":loop", 0) == 1);}
+
+  int getVideoRotation()  {return XML.getValue(XML_PREFIX + "videoOutput:rotation", 180);}
+  float getVideoOffsetX() {return XML.getValue(XML_PREFIX + "videoOutput:offsetX", 0.0f);}
+  float getVideoOffsetY() {return XML.getValue(XML_PREFIX + "videoOutput:offsetY", 0.0f);}
+  float getVideoZoomX()   {return XML.getValue(XML_PREFIX + "videoOutput:zoomX", 1.0f);}
+  float getVideoZoomY()   {return XML.getValue(XML_PREFIX + "videoOutput:zoomY", 1.0f);}
   
-  bool getKeyboardInputEnabled() {return (XML.getValue(xml_prefix + "inputs:keyboard:enabled", 0) == 1);}
+  bool getArduinoInputEnabled(string arduinoName)         {return (XML.getValue(getArduinoXmlPath(arduinoName) + "enabled", 0) == 1);}
+  string getArduinoInputDevice(string arduinoName)        {return XML.getValue(getArduinoXmlPath(arduinoName) + "device", "?");}
+  AnalogInputSettings *getArduinoSensorInputSettings(string arduinoName, string sensorName);
 
-  bool getAutoFlickerInputEnabled()  {return (XML.getValue(xml_prefix + "inputs:autoFlicker:enabled", 0) == 1);}
-  int getAutoFlickerInputMinPeriod() {return XML.getValue(xml_prefix + "inputs:autoFlicker:minPeriod", 0);}
+  bool getKeyboardInputEnabled() {return (XML.getValue(XML_PREFIX + "inputs:keyboard:enabled", 0) == 1);}
 
-  bool getShowTrace()   {return (XML.getValue(xml_prefix + "display:showTrace", 0) == 1);}
-  bool getShowHistory() {return (XML.getValue(xml_prefix + "display:showHistory", 0) == 1);}
-  bool getFullscreen()  {return (XML.getValue(xml_prefix + "display:fullscreen", 0) == 1);}
-  int getFramerate()    {return XML.getValue(xml_prefix + "display:framerate", 25);}
+  bool getAutoFlickerInputEnabled()  {return (XML.getValue(XML_PREFIX + "inputs:autoFlicker:enabled", 0) == 1);}
+  int getAutoFlickerInputMinPeriod() {return XML.getValue(XML_PREFIX + "inputs:autoFlicker:minPeriod", 0);}
+
+  bool getShowTrace()   {return (XML.getValue(XML_PREFIX + "display:showTrace", 0) == 1);}
+  bool getShowHistory() {return (XML.getValue(XML_PREFIX + "display:showHistory", 0) == 1);}
+  bool getFullscreen()  {return (XML.getValue(XML_PREFIX + "display:fullscreen", 0) == 1);}
+  int getFramerate()    {return XML.getValue(XML_PREFIX + "display:framerate", 25);}
   
-  //bool getAutocalirate() {return (XML.getValue(xml_prefix + string("AUTOCALIBRATE"), 0) == 1);}
-
 private:
-  string filename;
-  string xml_prefix = XML_PREFIX_SETTINGS;
-  ofxXmlSettings XML;
-};
+  const string XML_PREFIX = "vela2017:";
 
+  string filename;
+  ofxXmlSettings XML;
+  
+  string getArduinoXmlPath(string arduinoName) {return XML_PREFIX + "inputs:arduinos:" + arduinoName + ":";}
+  string getArduinoSensorXmlPath(string arduinoName, string sensorName, blowIntensityType blowIntensity);
+};
 
 #endif // XMLSTORE_H_INCLUDED

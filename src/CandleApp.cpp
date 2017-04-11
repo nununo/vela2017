@@ -6,6 +6,13 @@
 #include "AutoFlickerDataInput.h"
 #include "SystemTrace.h"
 
+static const string ARDUINO_MAC = "mac";
+static const string ARDUINO_PI = "pi";
+
+static const string ARDUINO_SENSOR_LEFT = "left";
+static const string ARDUINO_SENSOR_RIGHT = "right";
+static const string ARDUINO_SENSOR_TOP = "top";
+
 //--------------------------------------------------------------
 void CandleApp::setup(){
 
@@ -95,16 +102,33 @@ void CandleApp::outputTraceInfo() {
 //--------------------------------------------------------------
 void CandleApp::setupInputs() {
   MultiDataInput *multiDataInput;
+  ArduinoDataInput *arduinoDataInput;
   
   multiDataInput = new MultiDataInput();
 
   if (xmlStore.getKeyboardInputEnabled())
     multiDataInput->add( new KeyDataInput() );
 
-  if (xmlStore.getArduinoInputEnabled())
-    multiDataInput->add( new ArduinoDataInput(xmlStore.getArduinoInputDevice(),
-                                              xmlStore.getArduinoInputSettings()));
-  
+  // Arduino 1 (Mac)
+  if (xmlStore.getArduinoInputEnabled(ARDUINO_MAC)) {
+    arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(ARDUINO_MAC),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_LEFT),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_RIGHT),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_TOP));
+    if (arduinoDataInput->isEnabled())
+      multiDataInput->add(arduinoDataInput);
+  }
+
+  // Arduino 2 (Raspberry PI)
+  if (xmlStore.getArduinoInputEnabled(ARDUINO_PI)) {
+    arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(ARDUINO_PI),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_LEFT),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_RIGHT),
+                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_TOP));
+  if (arduinoDataInput->isEnabled())
+    multiDataInput->add(arduinoDataInput);
+  }
+
   if (xmlStore.getAutoFlickerInputEnabled())
     multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
   

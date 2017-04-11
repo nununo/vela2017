@@ -13,10 +13,24 @@ bool XmlStore::setup(string _filename) {
 }
 
 //--------------------------------------------------------------
-AnalogInputSettings *XmlStore::getArduinoInputSettings() {
-  return new AnalogInputSettings(XML.getValue(xml_prefix + "inputs:arduino:thresholds:" + Util::blowIntensityToString(BLOW_INTENSITY_MIN), 0),
-                                 XML.getValue(xml_prefix + "inputs:arduino:thresholds:" + Util::blowIntensityToString(BLOW_INTENSITY_LOW), 0),
-                                 XML.getValue(xml_prefix + "inputs:arduino:thresholds:" + Util::blowIntensityToString(BLOW_INTENSITY_HIGH), 0),
-                                 XML.getValue(xml_prefix + "inputs:arduino:thresholds:" + Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT), 0),
-                                 XML.getValue(xml_prefix + "inputs:arduino:thresholds:" + Util::blowIntensityToString(BLOW_INTENSITY_MAX), 0));
+string XmlStore::getArduinoSensorXmlPath(string arduinoName, string sensorName, blowIntensityType blowIntensity) {
+  return getArduinoXmlPath(arduinoName) + "sensors:" + sensorName + ":" + Util::blowIntensityToString(blowIntensity);
+}
+
+//--------------------------------------------------------------
+AnalogInputSettings *XmlStore::getArduinoSensorInputSettings(string arduinoName, string sensorName) {
+  string test;
+  
+  test = XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_MIN), "-");
+  
+  if (test != "-")
+    return new AnalogInputSettings(
+      XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_MIN), 0),
+      XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_LOW), 0),
+      XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_HIGH), 0),
+      XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_BLOWOUT), 0),
+      XML.getValue(getArduinoSensorXmlPath(arduinoName, sensorName, BLOW_INTENSITY_MAX), 0));
+  else
+    return NULL;
+    
 }

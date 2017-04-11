@@ -13,22 +13,32 @@
 #include "AnalogInputSettings.h"
 #include "ofMain.h"
 
+
 class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoDataInput(string _device, AnalogInputSettings *_settings);
+  ArduinoDataInput(string _device, AnalogInputSettings *_settings1, AnalogInputSettings *_settings2, AnalogInputSettings *_settings3);
   ~ArduinoDataInput() {};
   virtual void update();
-  virtual blowIntensityType getBlowIntensity() {return settings->getBlowIntensity(lastValue); lastValue=BLOW_INTENSITY_LOW;}
+  virtual blowIntensityType getBlowIntensity() {return getMixedBlowIntensity();}
   virtual string getTrace();
+  bool isEnabled() {return serial.isInitialized();}
   
 private:
-  void setValue(int _value);
+  enum sensorIdType {
+    ARDUINO_SENSOR0=0,
+    ARDUINO_SENSOR1=1,
+    ARDUINO_SENSOR2=2
+  };
+
+  void setValue(sensorIdType sensorId, int _value);
+  string getSensorTrace(sensorIdType sensorIdy);
+  blowIntensityType getMixedBlowIntensity();
+  void setupSensor(sensorIdType sensorId, AnalogInputSettings *_settings);
   
   ofSerial serial;
-  AnalogInputSettings *settings;
   string device;
-  int lastValue;
-  int offset;  
+  AnalogInputSettings *settings[3];
+  int lastValue[3];
 };
 
 #endif /* ArduinoDataInput_h */

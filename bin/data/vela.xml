@@ -1,6 +1,6 @@
-<settings>
+<vela2017>
   <levels>
-  	<level0>
+    <level0>
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
       <fadeOutTime>0</fadeOutTime>
@@ -26,24 +26,41 @@
     </level3>
   </levels>
   <inputs>
-  	<keyboard>
-  	  <enabled>1</enabled>
-  	</keyboard>
-    <arduino>
+    <keyboard>
       <enabled>1</enabled>
-      <device>/dev/ttyUSB0</device>
-      <thresholds>
-        <min>450</min>
-        <low>500</low>
-        <high>550</high>
-        <blowOut>570</blowOut>
-        <max>600</max>
-      </thresholds>
-    </arduino>
+    </keyboard>
+    <arduinos>
+      <mac>
+        <enabled>1</enabled>
+        <device>cu.usbmodem1421</device>
+        <sensors>
+          <left>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </left>
+        </sensors>
+      </mac>
+      <pi>
+        <enabled>1</enabled>
+        <device>/dev/ttyUSB0</device>
+        <sensors>
+          <left>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </left>
+        </sensors>
+      </pi>
+    </arduinos>
     <autoFlicker>
       <enabled>0</enabled>
       <minPeriod>30000</minPeriod>
-   	</autoFlicker>
+    </autoFlicker>
   </input>
   <videoOutput>
     <rotation>180</rotation>
@@ -58,4 +75,4 @@
     <showTrace>1</showTrace>
     <showHistory>0</showHistory>
   </display>
-</settings>
+</vela2017>
