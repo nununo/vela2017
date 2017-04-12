@@ -1,69 +1,6 @@
 <vela2017>
-  <levels>
-    <level0>
-      <movieFolder>media/0</movieFolder>
-      <fadeInTime>0</fadeInTime>
-      <fadeOutTime>0</fadeOutTime>
-      <loop>1</loop>
-    </level0>
-    <level1>
-      <movieFolder>media/1</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
-      <fadeOutTime>0.50</fadeOutTime>
-      <loop>0</loop>
-    </level1>
-    <level2>
-      <movieFolder>media/2</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
-      <fadeOutTime>0.50</fadeOutTime>
-      <loop>0</loop>
-    </level2>
-    <level3>
-      <movieFolder>media/3</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
-      <fadeOutTime>2.00</fadeOutTime>
-      <loop>0</loop>
-    </level3>
-  </levels>
-  <inputs>
-    <keyboard>
-      <enabled>1</enabled>
-    </keyboard>
-    <arduinos>
-      <mac>
-        <enabled>1</enabled>
-        <device>cu.usbmodem1421</device>
-        <sensors>
-          <left>
-            <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
-            <max>1023</max>
-          </left>
-        </sensors>
-      </mac>
-      <pi>
-        <enabled>1</enabled>
-        <device>/dev/ttyUSB0</device>
-        <sensors>
-          <left>
-            <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
-            <max>1023</max>
-          </left>
-        </sensors>
-      </pi>
-    </arduinos>
-    <autoFlicker>
-      <enabled>0</enabled>
-      <minPeriod>30000</minPeriod>
-    </autoFlicker>
-  </input>
   <videoOutput>
-    <rotation>180</rotation>
+    <rotation>0</rotation>
     <offsetX>0.00</offsetX>
     <offsetY>0.00</offsetY>
     <zoomX>1.0</zoomX>
@@ -75,4 +12,96 @@
     <showTrace>1</showTrace>
     <showHistory>0</showHistory>
   </display>
+  <levels>
+    <level0>
+      <movieFolder>media/0</movieFolder>
+      <fadeInTime>0</fadeInTime>
+      <fadeOutTime>0</fadeOutTime>
+      <loop>1</loop>
+      <canRestart>0</canRestart>
+    </level0>
+    <level1>
+      <movieFolder>media/1</movieFolder>
+      <fadeInTime>0.15</fadeInTime>
+      <fadeOutTime>0.50</fadeOutTime>
+      <loop>0</loop>
+      <canRestart>1</canRestart>
+    </level1>
+    <level2>
+      <movieFolder>media/2</movieFolder>
+      <fadeInTime>0.15</fadeInTime>
+      <fadeOutTime>0.50</fadeOutTime>
+      <loop>0</loop>
+      <canRestart>1</canRestart>
+    </level2>
+    <level3>
+      <movieFolder>media/3</movieFolder>
+      <fadeInTime>0.15</fadeInTime>
+      <fadeOutTime>2.00</fadeOutTime>
+      <loop>0</loop>
+      <canRestart>0</canRestart>
+    </level3>
+  </levels>
+  <inputs>
+    <keyboard enabled="1">
+    </keyboard>
+    <arduinos>
+      <mac active="1">
+        <device>cu.usbmodem1411</device>
+        <sensors>
+          <left active="1">
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </left>
+          <right>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </right>
+          <top>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </top>
+        </sensors>
+      </mac>
+      <pi enabled="1">
+        <device>/dev/ttyUSB0</device>
+        <sensors>
+          <left enabled="1">
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </left>
+          <right>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </right>
+          <top>
+            <active>0</active>
+            <min>0</min>
+            <low>500</low>
+            <high>550</high>
+            <blowOut>570</blowOut>
+            <max>1023</max>
+          </top>
+        </sensors>
+      </pi>
+    </arduinos>
+    <autoFlicker enabled="0">
+      <minPeriod>30000</minPeriod>
+    </autoFlicker>
+  </input>
 </vela2017>

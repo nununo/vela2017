@@ -14,17 +14,12 @@
 
 class AnalogInputSettings : public ITrace {
 public:
-  AnalogInputSettings(float minValue,
+  AnalogInputSettings(string _name,
+                      float minValue,
                       float lowThreshold,
                       float highThreshold,
                       float blowOutThreshold,
-                      float maxValue) {
-    threshold[BLOW_INTENSITY_MIN] = minValue;
-    threshold[BLOW_INTENSITY_LOW] = lowThreshold;
-    threshold[BLOW_INTENSITY_HIGH] = highThreshold;
-    threshold[BLOW_INTENSITY_BLOWOUT] = blowOutThreshold;
-    threshold[BLOW_INTENSITY_MAX] = maxValue;
-  }
+                      float maxValue);
   float getThreshold(blowIntensityType blowIntensity) {return threshold[blowIntensity];}
   blowIntensityType getBlowIntensity(float value);
   
@@ -32,6 +27,7 @@ public:
   virtual string getTrace();
 
 private:
+  string name;
   float threshold[5];
   
 };

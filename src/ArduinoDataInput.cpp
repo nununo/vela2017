@@ -38,7 +38,7 @@ void ArduinoDataInput::update() {
   
   // Continue only if initialized
   if (!serial.isInitialized())
-    return BLOW_INTENSITY_MIN;
+    return;
   
   // we try to read 2 bytes
   

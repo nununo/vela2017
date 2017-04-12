@@ -19,6 +19,7 @@ public:
   virtual void drawAlgorithm();
   bool isOpaque() {return clip->isOpaque();}
   int getIntensity() {return intensity;}
+  bool getCanRestart() {return clip->getCanRestart();}
   
   // ITrace
   virtual string getTrace();

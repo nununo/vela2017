@@ -28,6 +28,7 @@ public:
   float getSpeed() {return movie->getSpeed();}
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
+  bool getCanRestart() {return levelSettings->getCanRestart();}
 
 private:
   float timeToPercentage(float time);

@@ -22,6 +22,7 @@ public:
   float getFadeInTime(int i)  {return XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":fadeInTime", 0.0f);}
   float getFadeOutTime(int i) {return XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":fadeOutTime", 0.0f);}
   bool getLoop(int i)         {return (XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":loop", 0) == 1);}
+  bool getCanRestart(int i)   {return (XML.getValue(XML_PREFIX + "levels:level" + ofToString(i) + ":canRestart", 0) == 1);}
 
   int getVideoRotation()  {return XML.getValue(XML_PREFIX + "videoOutput:rotation", 180);}
   float getVideoOffsetX() {return XML.getValue(XML_PREFIX + "videoOutput:offsetX", 0.0f);}
@@ -29,13 +30,14 @@ public:
   float getVideoZoomX()   {return XML.getValue(XML_PREFIX + "videoOutput:zoomX", 1.0f);}
   float getVideoZoomY()   {return XML.getValue(XML_PREFIX + "videoOutput:zoomY", 1.0f);}
   
-  bool getArduinoInputEnabled(string arduinoName)         {return (XML.getValue(getArduinoXmlPath(arduinoName) + "enabled", 0) == 1);}
-  string getArduinoInputDevice(string arduinoName)        {return XML.getValue(getArduinoXmlPath(arduinoName) + "device", "?");}
+  bool getArduinoInputEnabled(string arduinoName) {return XML.getAttribute(getArduinoXmlPath(arduinoName), "enabled", false);}
+
+  string getArduinoInputDevice(string arduinoName)        {return XML.getValue(getArduinoXmlPath(arduinoName) + ":device", "?");}
   AnalogInputSettings *getArduinoSensorInputSettings(string arduinoName, string sensorName);
 
-  bool getKeyboardInputEnabled() {return (XML.getValue(XML_PREFIX + "inputs:keyboard:enabled", 0) == 1);}
+  bool getKeyboardInputEnabled() {return XML.getAttribute(XML_PREFIX + "inputs:keyboard", "enabled", false);}
 
-  bool getAutoFlickerInputEnabled()  {return (XML.getValue(XML_PREFIX + "inputs:autoFlicker:enabled", 0) == 1);}
+  bool getAutoFlickerInputEnabled()  {return XML.getAttribute(XML_PREFIX + "inputs:autoFlicker", "enabled", false);}
   int getAutoFlickerInputMinPeriod() {return XML.getValue(XML_PREFIX + "inputs:autoFlicker:minPeriod", 0);}
 
   bool getShowTrace()   {return (XML.getValue(XML_PREFIX + "display:showTrace", 0) == 1);}
@@ -49,8 +51,9 @@ private:
   string filename;
   ofxXmlSettings XML;
   
-  string getArduinoXmlPath(string arduinoName) {return XML_PREFIX + "inputs:arduinos:" + arduinoName + ":";}
-  string getArduinoSensorXmlPath(string arduinoName, string sensorName, blowIntensityType blowIntensity);
+  string getArduinoXmlPath(string arduinoName) {return XML_PREFIX + "inputs:arduinos:" + arduinoName;}
+  string getArduinoSensorXmlPath(string arduinoName, string sensorName);
+  string getArduinoSensorIntensityXmlPath(string arduinoName, string sensorName, blowIntensityType blowIntensity);
 };
 
 #endif // XMLSTORE_H_INCLUDED

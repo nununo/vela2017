@@ -21,7 +21,10 @@ void CandleApp::setup(){
   xmlStore.setup(XML_FILENAME);
   
   Levels *levels =
-    new Levels(new ClipOutputSettings(xmlStore.getVideoOffsetX(), xmlStore.getVideoOffsetY(), xmlStore.getVideoZoomX(), xmlStore.getVideoZoomY()),
+    new Levels(new ClipOutputSettings(xmlStore.getVideoOffsetX(),
+                                      xmlStore.getVideoOffsetY(),
+                                      xmlStore.getVideoZoomX(),
+                                      xmlStore.getVideoZoomY()),
                buildLevelSettingsList());
 
   clipLayers = new ClipLayers(levels, xmlStore.getVideoRotation());
@@ -155,7 +158,8 @@ vector<LevelSettings*> CandleApp::buildLevelSettingsList() {
     list.push_back( new LevelSettings(xmlStore.getMovieFolder(i),
                                       xmlStore.getFadeInTime(i),
                                       xmlStore.getFadeOutTime(i),
-                                      xmlStore.getLoop(i)));
+                                      xmlStore.getLoop(i),
+                                      xmlStore.getCanRestart(i)));
   return list;
 }
 

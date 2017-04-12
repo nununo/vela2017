@@ -12,6 +12,21 @@ using namespace std;
 #include "ofMain.h"
 
 //--------------------------------------------------------------
+AnalogInputSettings::AnalogInputSettings(string _name,
+                                         float minValue,
+                                         float lowThreshold,
+                                         float highThreshold,
+                                         float blowOutThreshold,
+                                         float maxValue) {
+  name = _name;
+  threshold[BLOW_INTENSITY_MIN] = minValue;
+  threshold[BLOW_INTENSITY_LOW] = lowThreshold;
+  threshold[BLOW_INTENSITY_HIGH] = highThreshold;
+  threshold[BLOW_INTENSITY_BLOWOUT] = blowOutThreshold;
+  threshold[BLOW_INTENSITY_MAX] = maxValue;
+}
+
+//--------------------------------------------------------------
 blowIntensityType AnalogInputSettings::getBlowIntensity(float value) {
   if (value < getThreshold(BLOW_INTENSITY_LOW))
     return BLOW_INTENSITY_MIN;
@@ -30,7 +45,7 @@ blowIntensityType AnalogInputSettings::getBlowIntensity(float value) {
 string AnalogInputSettings::getTrace() {
   stringstream ss;
   
-  ss << "Thresholds: |";
+  ss << name << ": |";
   
   for(int i=0; i<5;i++)
     ss << roundf(getThreshold((blowIntensityType)i)*100)/100 << "|";
