@@ -1,7 +1,7 @@
-- AnalogInputSettings becomes AnalogInput
-- New method ArduinoDataInput.addAnalogInput()
+- AnalogInput could implement IDataInput
+- ArduinoDataInput can now inherit from MultiDataInput which would accept only AnalogInput as input
 - History gets AnalogInput in contructor
-
-- History must get values from Arduino
-- Reimplement calibration
+- Implement calibration and auto-calibration in AnalogInput
+- History could get values from any IDataInput
+- Add indent parameter to getTrace
 - Try omxPlayer
