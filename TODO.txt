@@ -1,3 +1,7 @@
+- AnalogInputSettings becomes AnalogInput
+- New method ArduinoDataInput.addAnalogInput()
+- History gets AnalogInput in contructor
+
 - History must get values from Arduino
 - Reimplement calibration
 - Try omxPlayer
