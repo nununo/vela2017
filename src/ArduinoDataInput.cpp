@@ -10,27 +10,17 @@
 #include <sstream>
 
 //--------------------------------------------------------------
-ArduinoDataInput::ArduinoDataInput(string _device,
-                                   AnalogInputSettings *settings0,
-                                   AnalogInputSettings *settings1=NULL,
-                                   AnalogInputSettings *settings2=NULL) {
-  
-  setupSensor(ARDUINO_SENSOR0, settings0);
-  setupSensor(ARDUINO_SENSOR1, settings1);
-  setupSensor(ARDUINO_SENSOR2, settings2);
-  
+ArduinoDataInput::ArduinoDataInput(string _device) {
+    
   device = _device;
   serial.listDevices();
   serial.setup(_device, 9600);
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::setupSensor(sensorIdType sensorId, AnalogInputSettings *_settings) {
-
-  settings[sensorId] = _settings;
-
-  if (settings[sensorId])
-    lastValue[sensorId] = settings[sensorId]->getThreshold(BLOW_INTENSITY_MIN);
+void ArduinoDataInput::addAnalogInput(AnalogInput *analogInput) {
+  if (analogInput)
+    analogInputs.push_back(analogInput);
 }
 
 //--------------------------------------------------------------
@@ -70,45 +60,24 @@ void ArduinoDataInput::update() {
     memcpy(bytesReadString, bytesReturned, 7);
     
     //we need to put the bytes back into an int
-    setValue(ARDUINO_SENSOR0, (unsigned char)bytesReadString[1] << 8 | (unsigned char)bytesReadString[0]);
-    setValue(ARDUINO_SENSOR1, (unsigned char)bytesReadString[3] << 8 | (unsigned char)bytesReadString[2]);
-    setValue(ARDUINO_SENSOR2, (unsigned char)bytesReadString[5] << 8 | (unsigned char)bytesReadString[4]);
+    vector<AnalogInput*>::iterator it;
+    int i=0;
+    for(it=analogInputs.begin() ; it < analogInputs.end(); it++,i=i+2)
+      (*it)->setValue((unsigned char)bytesReadString[i+1] << 8 | (unsigned char)bytesReadString[i]);
   }
 }
 
-//--------------------------------------------------------------
-void ArduinoDataInput::setValue(sensorIdType sensorId, int value) {
-  
-  if (!settings[sensorId] ||
-      value < settings[sensorId]->getThreshold(BLOW_INTENSITY_MIN) ||
-      value > settings[sensorId]->getThreshold(BLOW_INTENSITY_MAX))
-    return;
-  
-  lastValue[sensorId] = value;
-}
 
 //--------------------------------------------------------------
 blowIntensityType ArduinoDataInput::getBlowIntensity() {
   blowIntensityType blowIntensity = BLOW_INTENSITY_MIN;
-  blowIntensityType blowIntensityAux;
-  
-  for (int i=0;i<3;i++) {
-    if (settings[i]) {
-      blowIntensityAux = settings[i]->getBlowIntensity(lastValue[i]);
-      if (blowIntensityAux>blowIntensity)
-        blowIntensity = blowIntensityAux;
-    }
-  }
+
+  vector<AnalogInput*>::iterator it;
+  for(it=analogInputs.begin() ; it < analogInputs.end(); it++)
+    if ((*it)->getBlowIntensity()>blowIntensity)
+      blowIntensity = (*it)->getBlowIntensity();
   
   return blowIntensity;
-}
-
-//--------------------------------------------------------------
-string ArduinoDataInput::getSensorTrace(sensorIdType sensorId) {
-  if (settings[sensorId])
-    return "    " + settings[sensorId]->getTrace() + " last: " + ofToString(lastValue[sensorId]) + "\n";
-  else
-    return "";
 }
 
 //--------------------------------------------------------------
@@ -116,7 +85,10 @@ string ArduinoDataInput::getTrace() {
   stringstream ss;
   
   ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << "\n";
-  for (int i=0;i<3;i++)
-    ss << getSensorTrace((sensorIdType)i);
+
+  vector<AnalogInput*>::iterator it;
+  for(it=analogInputs.begin() ; it < analogInputs.end(); it++)
+    ss << (*it)->getTrace();
+
   return ss.str();
 }

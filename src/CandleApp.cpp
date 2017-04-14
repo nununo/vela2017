@@ -1,7 +1,5 @@
 #include "CandleApp.h"
-#include "MultiDataInput.h"
 #include "KeyDataInput.h"
-#include "MouseDataInput.h"
 #include "ArduinoDataInput.h"
 #include "AutoFlickerDataInput.h"
 #include "SystemTrace.h"
@@ -105,42 +103,49 @@ void CandleApp::outputTraceInfo() {
 //--------------------------------------------------------------
 void CandleApp::setupInputs() {
   MultiDataInput *multiDataInput;
-  ArduinoDataInput *arduinoDataInput;
   
   multiDataInput = new MultiDataInput();
 
-  if (xmlStore.getKeyboardInputEnabled())
-    multiDataInput->add( new KeyDataInput() );
-
-  // Arduino 1 (Mac)
-  if (xmlStore.getArduinoInputEnabled(ARDUINO_MAC)) {
-    arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(ARDUINO_MAC),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_LEFT),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_RIGHT),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_MAC, ARDUINO_SENSOR_TOP));
-    if (arduinoDataInput->isEnabled())
-      multiDataInput->add(arduinoDataInput);
-  }
-
-  // Arduino 2 (Raspberry PI)
-  if (xmlStore.getArduinoInputEnabled(ARDUINO_PI)) {
-    arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(ARDUINO_PI),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_LEFT),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_RIGHT),
-                                            xmlStore.getArduinoSensorInputSettings(ARDUINO_PI, ARDUINO_SENSOR_TOP));
-  if (arduinoDataInput->isEnabled())
-    multiDataInput->add(arduinoDataInput);
-  }
-
-  if (xmlStore.getAutoFlickerInputEnabled())
-    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
-  
-  //multiDataInput->add( new MouseDataInput() );
+  setupKeyboardInput(multiDataInput);
+  setupArduinoInput(multiDataInput, ARDUINO_MAC);
+  setupArduinoInput(multiDataInput, ARDUINO_PI);
 
   inputIntensity =
     new InputIntensity(multiDataInput);
 
 }
+
+//--------------------------------------------------------------
+void CandleApp::setupKeyboardInput(MultiDataInput *multiDataInput) {
+  if (xmlStore.getKeyboardInputEnabled())
+    multiDataInput->add( new KeyDataInput() );
+}
+
+//--------------------------------------------------------------
+void CandleApp::setupAutoFlickerInput(MultiDataInput *multiDataInput) {
+  if (xmlStore.getAutoFlickerInputEnabled())
+    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
+}
+
+//--------------------------------------------------------------
+void CandleApp::setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName) {
+  ArduinoDataInput *arduinoDataInput;
+  
+  if (!xmlStore.getArduinoInputEnabled(arduinoName))
+    return;
+  
+  arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(arduinoName));
+  
+  if (!arduinoDataInput->isEnabled())
+    return;
+  
+  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_LEFT));
+  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_RIGHT));
+  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_TOP));
+  
+  multiDataInput->add(arduinoDataInput);
+}
+
 
 //--------------------------------------------------------------
 void CandleApp::setupTrace() {

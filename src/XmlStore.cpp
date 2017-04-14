@@ -13,8 +13,8 @@ bool XmlStore::setup(string _filename) {
 }
 
 //--------------------------------------------------------------
-string XmlStore::getArduinoSensorIntensityXmlPath(string arduinoName, string sensorName, blowIntensityType blowIntensity) {
-  return getArduinoSensorXmlPath(arduinoName, sensorName) + ":" + Util::blowIntensityToString(blowIntensity);
+string XmlStore::getAnalogInputIntensityXmlPath(string sensorName, blowIntensityType blowIntensity) {
+  return XML_PREFIX + "analogInputs:" + sensorName + ":" + Util::blowIntensityToString(blowIntensity);
 }
 
 //--------------------------------------------------------------
@@ -23,16 +23,16 @@ string XmlStore::getArduinoSensorXmlPath(string arduinoName, string sensorName) 
 }
 
 //--------------------------------------------------------------
-AnalogInputSettings *XmlStore::getArduinoSensorInputSettings(string arduinoName, string sensorName) {
+AnalogInput *XmlStore::getAnalogInput(string sensorName) {
 
-  if (XML.getAttribute(getArduinoSensorXmlPath(arduinoName, sensorName), "enabled", false))
-    return new AnalogInputSettings(
+  if (XML.getAttribute(XML_PREFIX + "analogInputs:" + sensorName, "enabled", false))
+    return new AnalogInput(
       sensorName,
-      XML.getValue(getArduinoSensorIntensityXmlPath(arduinoName, sensorName, BLOW_INTENSITY_MIN), 0),
-      XML.getValue(getArduinoSensorIntensityXmlPath(arduinoName, sensorName, BLOW_INTENSITY_LOW), 0),
-      XML.getValue(getArduinoSensorIntensityXmlPath(arduinoName, sensorName, BLOW_INTENSITY_HIGH), 0),
-      XML.getValue(getArduinoSensorIntensityXmlPath(arduinoName, sensorName, BLOW_INTENSITY_BLOWOUT), 0),
-      XML.getValue(getArduinoSensorIntensityXmlPath(arduinoName, sensorName, BLOW_INTENSITY_MAX), 0));
+      XML.getValue(getAnalogInputIntensityXmlPath(sensorName, BLOW_INTENSITY_MIN), 0),
+      XML.getValue(getAnalogInputIntensityXmlPath(sensorName, BLOW_INTENSITY_LOW), 0),
+      XML.getValue(getAnalogInputIntensityXmlPath(sensorName, BLOW_INTENSITY_HIGH), 0),
+      XML.getValue(getAnalogInputIntensityXmlPath(sensorName, BLOW_INTENSITY_BLOWOUT), 0),
+      XML.getValue(getAnalogInputIntensityXmlPath(sensorName, BLOW_INTENSITY_MAX), 0));
   else
     return NULL;
 }

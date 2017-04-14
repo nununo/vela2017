@@ -48,59 +48,37 @@
     <arduinos>
       <mac enabled="1">
         <device>cu.usbmodem1421</device>
-        <sensors>
-          <left enabled="1">
-            <min>0</min>
-            <low>515</low>
-            <high>520</high>
-            <blowOut>530</blowOut>
-            <max>1023</max>
-          </left>
-          <right enabled="1">
-            <min>0</min>
-            <low>500</low>
-            <high>505</high>
-            <blowOut>510</blowOut>
-            <max>1023</max>
-          </right>
-          <top enabled="1">
-            <min>0</min>
-            <low>540</low>
-            <high>545</high>
-            <blowOut>555</blowOut>
-            <max>1023</max>
-          </top>
-        </sensors>
       </mac>
       <pi enabled="1">
         <device>/dev/ttyUSB0</device>
-        <sensors>
-          <left enabled="1">
-            <min>0</min>
-            <low>513</low>
-            <high>520</high>
-            <blowOut>530</blowOut>
-            <max>1023</max>
-          </left>
-          <right enabled="1">
-            <min>0</min>
-            <low>500</low>
-            <high>505</high>
-            <blowOut>510</blowOut>
-            <max>1023</max>
-          </right>
-          <top enabled="1">
-            <min>0</min>
-            <low>538</low>
-            <high>545</high>
-            <blowOut>555</blowOut>
-            <max>1023</max>
-          </top>
-        </sensors>
       </pi>
     </arduinos>
     <autoFlicker enabled="0">
       <minPeriod>30000</minPeriod>
     </autoFlicker>
   </inputs>
+  <analogInputs>
+    <left enabled="1">
+      <min>490</min>
+      <low>515</low>
+      <high>520</high>
+      <blowOut>530</blowOut>
+      <max>600</max>
+    </left>
+    <right enabled="1">
+      <min>490</min>
+      <low>500</low>
+      <high>505</high>
+      <blowOut>510</blowOut>
+      <max>600</max>
+    </right>
+    <top enabled="1">
+      <min>490</min>
+      <low>540</low>
+      <high>545</high>
+      <blowOut>555</blowOut>
+      <max>600</max>
+    </top>
+  </analogInputs>
+
 </vela2017>

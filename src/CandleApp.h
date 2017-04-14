@@ -8,6 +8,7 @@
 #include "Levels.h"
 #include "ClipLayers.h"
 #include "HistoryLayer.h"
+#include "MultiDataInput.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -26,6 +27,9 @@ class CandleApp : public ofBaseApp {
 		
 private:
   void setupInputs();
+  void setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName);
+  void setupKeyboardInput(MultiDataInput *multiDataInput);
+  void setupAutoFlickerInput(MultiDataInput *multiDataInput);
   void setupTrace();
   void outputLayerStatus();
   void setFullscreen(bool value);
