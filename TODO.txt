@@ -1,3 +1,4 @@
+- BUG: The movie keeps triggering if a IDataInput keeps returning thee same intensity. It can only return an intensity once, then it should return MIN. This can ben done in the IDataInput... keeping an intermediate value... This way IDataInput would stop being an interface
 - AnalogInput could implement IDataInput
 - ArduinoDataInput can now inherit from MultiDataInput which would accept only AnalogInput as input
 - History gets AnalogInput in contructor
