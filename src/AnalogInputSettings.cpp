@@ -48,9 +48,7 @@ string AnalogInputSettings::getTrace() {
   ss << name << ": |";
   
   for(int i=0; i<5;i++)
-    ss << roundf(getThreshold((blowIntensityType)i)*100)/100 << "|";
-  
-  ss << "\n";
+    ss << roundf(getThreshold((blowIntensityType)i)*100)/100 << "| ";
   
   return ss.str();
 }

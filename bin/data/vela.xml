@@ -46,28 +46,28 @@
     <keyboard enabled="1">
     </keyboard>
     <arduinos>
-      <mac active="1">
-        <device>cu.usbmodem1411</device>
+      <mac enabled="1">
+        <device>cu.usbmodem1421</device>
         <sensors>
-          <left active="1">
+          <left enabled="1">
             <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <low>515</low>
+            <high>520</high>
+            <blowOut>530</blowOut>
             <max>1023</max>
           </left>
-          <right>
+          <right enabled="1">
             <min>0</min>
             <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <high>505</high>
+            <blowOut>510</blowOut>
             <max>1023</max>
           </right>
-          <top>
+          <top enabled="1">
             <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <low>540</low>
+            <high>545</high>
+            <blowOut>555</blowOut>
             <max>1023</max>
           </top>
         </sensors>
@@ -77,24 +77,23 @@
         <sensors>
           <left enabled="1">
             <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <low>513</low>
+            <high>520</high>
+            <blowOut>530</blowOut>
             <max>1023</max>
           </left>
-          <right>
+          <right enabled="1">
             <min>0</min>
             <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <high>505</high>
+            <blowOut>510</blowOut>
             <max>1023</max>
           </right>
-          <top>
-            <active>0</active>
+          <top enabled="1">
             <min>0</min>
-            <low>500</low>
-            <high>550</high>
-            <blowOut>570</blowOut>
+            <low>538</low>
+            <high>545</high>
+            <blowOut>555</blowOut>
             <max>1023</max>
           </top>
         </sensors>
@@ -103,5 +102,5 @@
     <autoFlicker enabled="0">
       <minPeriod>30000</minPeriod>
     </autoFlicker>
-  </input>
+  </inputs>
 </vela2017>

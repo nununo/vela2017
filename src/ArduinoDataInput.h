@@ -19,7 +19,7 @@ public:
   ArduinoDataInput(string _device, AnalogInputSettings *_settings1, AnalogInputSettings *_settings2, AnalogInputSettings *_settings3);
   ~ArduinoDataInput() {};
   virtual void update();
-  virtual blowIntensityType getBlowIntensity() {return getMixedBlowIntensity();}
+  virtual blowIntensityType getBlowIntensity();
   virtual string getTrace();
   bool isEnabled() {return serial.isInitialized();}
   
@@ -29,16 +29,15 @@ private:
     ARDUINO_SENSOR1=1,
     ARDUINO_SENSOR2=2
   };
-
-  void setValue(sensorIdType sensorId, int _value);
-  string getSensorTrace(sensorIdType sensorIdy);
-  blowIntensityType getMixedBlowIntensity();
-  void setupSensor(sensorIdType sensorId, AnalogInputSettings *_settings);
   
   ofSerial serial;
   string device;
   AnalogInputSettings *settings[3];
   int lastValue[3];
+
+  void setValue(sensorIdType sensorId, int _value);
+  string getSensorTrace(sensorIdType sensorId);
+  void setupSensor(sensorIdType sensorId, AnalogInputSettings *_settings);
 };
 
 #endif /* ArduinoDataInput_h */
