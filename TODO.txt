@@ -6,3 +6,4 @@
 - History could get values from any IDataInput
 - Add indent parameter to getTrace
 - Try omxPlayer
+- Abstract Factory para IDataInput

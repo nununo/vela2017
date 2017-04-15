@@ -60,19 +60,19 @@
   <analogInputs>
     <left enabled="1">
       <min>490</min>
-      <low>515</low>
-      <high>520</high>
+      <low>522</low>
+      <high>524</high>
       <blowOut>530</blowOut>
       <max>600</max>
     </left>
-    <right enabled="1">
+    <right enabled="0">
       <min>490</min>
       <low>500</low>
       <high>505</high>
       <blowOut>510</blowOut>
       <max>600</max>
     </right>
-    <top enabled="1">
+    <top enabled="0">
       <min>490</min>
       <low>540</low>
       <high>545</high>
