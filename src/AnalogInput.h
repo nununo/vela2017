@@ -10,9 +10,9 @@
 #define AnalogInput_h
 
 #include "Constants.h"
-#include "ITrace.h"
+#include "IDataInput.h"
 
-class AnalogInput : public ITrace {
+class AnalogInput : public IDataInput {
 public:
   AnalogInput(string _name,
               float minValue,
@@ -21,11 +21,14 @@ public:
               float blowOutThreshold,
               float maxValue);
 
+  // IDataInput
+  virtual void update() {}
+  virtual blowIntensityType getBlowIntensity();
+
   // ITrace
   virtual string getTrace();
 
   float getThreshold(blowIntensityType blowIntensity) {return threshold[blowIntensity];}
-  blowIntensityType getBlowIntensity();
   void setValue(int _value);
 
 private:
