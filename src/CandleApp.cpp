@@ -1,5 +1,6 @@
 #include "CandleApp.h"
 #include "KeyDataInput.h"
+#include "MouseDataInput.h"
 #include "ArduinoDataInput.h"
 #include "AutoFlickerDataInput.h"
 #include "SystemTrace.h"
@@ -107,18 +108,23 @@ void CandleApp::setupInputs() {
   multiDataInput = new MultiDataInput();
 
   setupKeyboardInput(multiDataInput);
+  setupMouseInput(multiDataInput);
   setupArduinoInput(multiDataInput, ARDUINO_MAC);
   setupArduinoInput(multiDataInput, ARDUINO_PI);
 
-  inputIntensity =
-    new InputIntensity(multiDataInput);
-
+  inputIntensity = new InputIntensity(multiDataInput);
 }
 
 //--------------------------------------------------------------
 void CandleApp::setupKeyboardInput(MultiDataInput *multiDataInput) {
   if (xmlStore.getKeyboardInputEnabled())
     multiDataInput->add( new KeyDataInput() );
+}
+
+//--------------------------------------------------------------
+void CandleApp::setupMouseInput(MultiDataInput *multiDataInput) {
+  if (xmlStore.getMouseInputEnabled())
+    multiDataInput->add( new MouseDataInput() );
 }
 
 //--------------------------------------------------------------

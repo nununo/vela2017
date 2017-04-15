@@ -47,6 +47,9 @@ public:
   //Keyboard data input
   bool getKeyboardInputEnabled() {return XML.getAttribute(XML_PREFIX + "inputs:keyboard", "enabled", false);}
 
+  //Mouse data input
+  bool getMouseInputEnabled() {return XML.getAttribute(XML_PREFIX + "inputs:mouse", "enabled", false);}
+
   // Autoflicker data input
   bool getAutoFlickerInputEnabled()  {return XML.getAttribute(XML_PREFIX + "inputs:autoFlicker", "enabled", false);}
   int getAutoFlickerInputMinPeriod() {return XML.getValue(XML_PREFIX + "inputs:autoFlicker:minPeriod", 0);}

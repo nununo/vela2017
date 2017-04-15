@@ -43,8 +43,8 @@
     </level3>
   </levels>
   <inputs>
-    <keyboard enabled="1">
-    </keyboard>
+    <keyboard enabled="1"/>
+    <mouse enabled="1"/>
     <arduinos>
       <mac enabled="1">
         <device>cu.usbmodem1421</device>

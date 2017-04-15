@@ -29,6 +29,7 @@ private:
   void setupInputs();
   void setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName);
   void setupKeyboardInput(MultiDataInput *multiDataInput);
+  void setupMouseInput(MultiDataInput *multiDataInput);
   void setupAutoFlickerInput(MultiDataInput *multiDataInput);
   void setupTrace();
   void outputLayerStatus();

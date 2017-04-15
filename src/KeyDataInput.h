@@ -17,18 +17,18 @@ public:
   KeyDataInput() {registerKeyboardEvents();}
   ~KeyDataInput() {unregisterKeyboardEvents();}
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity();
+  virtual blowIntensityType getBlowIntensity() {return lastBlowIntensity;}
   virtual string getTrace() {return "Keyboard input: keys: 1, 2 or 3: " + ofToString(lastBlowIntensity) + "\n";}
 
   void keyPressed(ofKeyEventArgs &e);
-  void keyReleased(ofKeyEventArgs &e) {};
+  void keyReleased(ofKeyEventArgs &e);
 
 private:
   void registerKeyboardEvents();
   void unregisterKeyboardEvents();
   
   bool bRegisteredEvents = false;
-  blowIntensityType lastBlowIntensity;
+  blowIntensityType lastBlowIntensity = BLOW_INTENSITY_MIN;
 
 };
 

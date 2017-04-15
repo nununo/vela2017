@@ -9,15 +9,6 @@
 #include "KeyDataInput.h"
 
 //--------------------------------------------------------------
-blowIntensityType KeyDataInput::getBlowIntensity() {
-  blowIntensityType tempBlowIntensity;
-  
-  tempBlowIntensity = lastBlowIntensity;
-  lastBlowIntensity = BLOW_INTENSITY_MIN;
-  return tempBlowIntensity;
-}
-
-//--------------------------------------------------------------
 void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
   switch (e.key) {
     case '1':
@@ -32,6 +23,10 @@ void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
   };
 };
 
+//--------------------------------------------------------------
+void KeyDataInput::keyReleased(ofKeyEventArgs &e) {
+  lastBlowIntensity = BLOW_INTENSITY_MIN;
+}
 
 //--------------------------------------------------------------
 void KeyDataInput::registerKeyboardEvents() {

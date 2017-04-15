@@ -16,7 +16,14 @@ using namespace std;
 
 //--------------------------------------------------------------
 void InputIntensity::update() {
+
   dataInput->update();
+  
+  if (dataInput->getBlowIntensity() > lastBlowIntensity)
+    lastConvertedBlowIntensity = dataInput->getBlowIntensity();
+  else
+    lastConvertedBlowIntensity = BLOW_INTENSITY_MIN;
+  
   lastBlowIntensity = dataInput->getBlowIntensity();
 }
 
@@ -25,7 +32,8 @@ string InputIntensity::getTrace() {
   stringstream ss;
   
   ss << "InputLevel:\n"
-  "  Current intensity: " + Util::blowIntensityToString(lastBlowIntensity) + "\n";
+  "  Last read: " + Util::blowIntensityToString(lastBlowIntensity) +
+  " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) + "\n";
   
   ss << dataInput->getTrace();
   
