@@ -14,8 +14,8 @@ MouseDataInput::MouseDataInput() {
   analogDataInput =
     new AnalogDataInput("mouse",
                         0,
+                        ofGetScreenHeight(),
                         (float)ofGetScreenHeight()/4,
                         2*(float)ofGetScreenHeight()/4,
-                        3*(float)ofGetScreenHeight()/4,
-                        ofGetScreenHeight());
+                        3*(float)ofGetScreenHeight()/4);
 };

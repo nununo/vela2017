@@ -15,11 +15,11 @@
 class AnalogDataInput : public IDataInput {
 public:
   AnalogDataInput(string _name,
-              float minValue,
-              float lowThreshold,
-              float highThreshold,
-              float blowOutThreshold,
-              float maxValue);
+                  float minValue,
+                  float maxValue,
+                  float lowThreshold,
+                  float highThreshold,
+                  float blowOutThreshold);
 
   // IDataInput
   virtual void update() {}

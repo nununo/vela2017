@@ -15,10 +15,10 @@ KeyboardDataInput::KeyboardDataInput() {
 
   analogDataInput = new AnalogDataInput("keyboard",
                                         0,
+                                        4,
                                         1,
                                         2,
-                                        3,
-                                        4);
+                                        3);
 }
 
 //--------------------------------------------------------------
