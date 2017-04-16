@@ -9,36 +9,35 @@
 #include "KeyboardDataInput.h"
 
 //--------------------------------------------------------------
+KeyboardDataInput::KeyboardDataInput() {
+
+  ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
+
+  analogDataInput = new AnalogDataInput("keyboard",
+                                        0,
+                                        1,
+                                        2,
+                                        3,
+                                        4);
+}
+
+//--------------------------------------------------------------
 void KeyboardDataInput::keyPressed(ofKeyEventArgs &e) {
+  
   switch (e.key) {
     case '1':
-      lastBlowIntensity = BLOW_INTENSITY_LOW;
+      analogDataInput->setValue(1);
       break;
     case '2':
-      lastBlowIntensity = BLOW_INTENSITY_HIGH;
+      analogDataInput->setValue(2);
       break;
     case '3':
-      lastBlowIntensity = BLOW_INTENSITY_BLOWOUT;
+      analogDataInput->setValue(3);
       break;
   };
 };
 
 //--------------------------------------------------------------
 void KeyboardDataInput::keyReleased(ofKeyEventArgs &e) {
-  lastBlowIntensity = BLOW_INTENSITY_MIN;
+  analogDataInput->setValue(0);
 }
-
-//--------------------------------------------------------------
-void KeyboardDataInput::registerKeyboardEvents() {
-  if(!bRegisteredEvents) {
-    ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
-    bRegisteredEvents = true;
-  }
-};
-
-//--------------------------------------------------------------
-void KeyboardDataInput::unregisterKeyboardEvents() {
-  if(bRegisteredEvents)
-    ofUnregisterKeyEvents(this);
-  bRegisteredEvents = false;
-};

@@ -9,26 +9,26 @@
 #ifndef KeyboardDataInput_h
 #define KeyboardDataInput_h
 
-#include "IDataInput.h"
+#include "AnalogDataInput.h"
 #include "ofMain.h"
 
 class KeyboardDataInput: public IDataInput {
 public:
-  KeyboardDataInput() {registerKeyboardEvents();}
-  ~KeyboardDataInput() {unregisterKeyboardEvents();}
+  KeyboardDataInput();
+  ~KeyboardDataInput() {ofUnregisterKeyEvents(this);}
+  
+  //IDataInput
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity() {return lastBlowIntensity;}
-  virtual string getTrace() {return "Keyboard input: keys: 1, 2 or 3: " + ofToString(lastBlowIntensity) + "\n";}
+  virtual blowIntensityType getBlowIntensity() {return analogDataInput->getBlowIntensity();}
+  
+  //ITrace
+  virtual string getTrace() {return analogDataInput->getTrace();}
 
   void keyPressed(ofKeyEventArgs &e);
   void keyReleased(ofKeyEventArgs &e);
 
 private:
-  void registerKeyboardEvents();
-  void unregisterKeyboardEvents();
-  
-  bool bRegisteredEvents = false;
-  blowIntensityType lastBlowIntensity = BLOW_INTENSITY_MIN;
+  AnalogDataInput *analogDataInput;
 
 };
 
