@@ -13,8 +13,8 @@ float Util::remap(float v, float inMin, float inMax, float outMin, float outMax)
 //--------------------------------------------------------------
 string Util::blowIntensityToString(blowIntensityType blowIntensity) {
   switch (blowIntensity) {
-    case BLOW_INTENSITY_MIN:
-      return "min";
+    case BLOW_INTENSITY_IDLE:
+      return "idle";
       break;
     case BLOW_INTENSITY_LOW:
       return "low";
@@ -24,9 +24,6 @@ string Util::blowIntensityToString(blowIntensityType blowIntensity) {
       break;
     case BLOW_INTENSITY_BLOWOUT:
       return "blowOut";
-      break;
-    case BLOW_INTENSITY_MAX:
-      return "max";
       break;
     default:
       return "invalidIntensity";

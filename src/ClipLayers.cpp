@@ -13,7 +13,7 @@
 ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {
   levels = _levels;
   clipsRotation = _clipsRotation;
-  currentIntensity = BLOW_INTENSITY_MIN;
+  currentIntensity = BLOW_INTENSITY_IDLE;
   
   // Create base layer for level 0 (which will always loop)
   baseLayer = new ClipLayer(0, levels->getRandomClip(0));
@@ -28,10 +28,10 @@ void ClipLayers::update(blowIntensityType intensity) {
   if (topLayer && !topLayer->isVisible()) {
     delete topLayer;
     topLayer = NULL;
-    currentIntensity = BLOW_INTENSITY_MIN;
+    currentIntensity = BLOW_INTENSITY_IDLE;
   }
 
-  if (intensity > BLOW_INTENSITY_MIN && (!topLayer || topLayer->getCanRestart())) {
+  if (intensity > BLOW_INTENSITY_IDLE && (!topLayer || topLayer->getCanRestart())) {
     delete topLayer;
     topLayer = new ClipLayer(intensity, levels->getRandomClip(intensity));
     currentIntensity = intensity;

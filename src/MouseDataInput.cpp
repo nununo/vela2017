@@ -11,11 +11,9 @@
 
 //--------------------------------------------------------------
 MouseDataInput::MouseDataInput() {
-  valueInput =
-    new ValueInput("mouse",
-                        0,
-                        ofGetScreenHeight(),
-                        (float)ofGetScreenHeight()/4,
-                        2*(float)ofGetScreenHeight()/4,
-                        3*(float)ofGetScreenHeight()/4);
+  valueInput = new ValueInput("mouse",
+                              0,
+                              (float)ofGetScreenHeight()/4,
+                              2*(float)ofGetScreenHeight()/4,
+                              3*(float)ofGetScreenHeight()/4);
 };

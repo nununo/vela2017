@@ -13,8 +13,7 @@
 //--------------------------------------------------------------
 IDataInput* ValueInputFactory::create(ofXml *xml) {
   return new ValueInput(xml->getAttribute("name"),
-                             xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_MIN)),
-                             xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_MAX)),
+                             xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_IDLE)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT)));

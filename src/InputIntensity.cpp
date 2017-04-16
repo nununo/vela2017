@@ -22,7 +22,7 @@ void InputIntensity::update() {
   if (dataInput->getBlowIntensity() > lastBlowIntensity)
     lastConvertedBlowIntensity = dataInput->getBlowIntensity();
   else
-    lastConvertedBlowIntensity = BLOW_INTENSITY_MIN;
+    lastConvertedBlowIntensity = BLOW_INTENSITY_IDLE;
   
   lastBlowIntensity = dataInput->getBlowIntensity();
 }

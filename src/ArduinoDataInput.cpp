@@ -75,7 +75,7 @@ void ArduinoDataInput::update() {
 
 //--------------------------------------------------------------
 blowIntensityType ArduinoDataInput::getBlowIntensity() {
-  blowIntensityType blowIntensity = BLOW_INTENSITY_MIN;
+  blowIntensityType blowIntensity = BLOW_INTENSITY_IDLE;
 
   vector<ValueInput*>::iterator it;
   for(it=valueInputs.begin() ; it < valueInputs.end(); it++)

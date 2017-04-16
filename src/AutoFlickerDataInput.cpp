@@ -39,7 +39,7 @@ blowIntensityType AutoFlickerDataInput::getBlowIntensity() {
   if (isFlickerTime) {
     return BLOW_INTENSITY_LOW;
   } else
-    return BLOW_INTENSITY_MIN;
+    return BLOW_INTENSITY_IDLE;
 }
 
 //--------------------------------------------------------------

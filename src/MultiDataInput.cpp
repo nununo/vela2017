@@ -27,7 +27,7 @@ void MultiDataInput::update() {
 blowIntensityType MultiDataInput::getBlowIntensity() {
   
   blowIntensityType eachIntensity;
-  blowIntensityType maxIntensity = BLOW_INTENSITY_MIN;
+  blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
   
   vector<IDataInput*>::iterator it;
   

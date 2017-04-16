@@ -14,11 +14,10 @@ KeyboardDataInput::KeyboardDataInput() {
   ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
 
   valueInput = new ValueInput("keyboard",
-                                        0,
-                                        4,
-                                        1,
-                                        2,
-                                        3);
+                              0,
+                              1,
+                              2,
+                              3);
 }
 
 //--------------------------------------------------------------

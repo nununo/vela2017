@@ -13,7 +13,7 @@
 
 class InputIntensity: public ITrace {
 public:
-  InputIntensity( IDataInput *_dataInput) {dataInput=_dataInput; lastBlowIntensity=BLOW_INTENSITY_MIN;}
+  InputIntensity( IDataInput *_dataInput) {dataInput=_dataInput; lastBlowIntensity=BLOW_INTENSITY_IDLE;}
   blowIntensityType getBlowIntensity() {return lastConvertedBlowIntensity;}
   void update();
   
