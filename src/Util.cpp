@@ -30,3 +30,8 @@ string Util::blowIntensityToString(blowIntensityType blowIntensity) {
       break;
   }
 }
+
+//--------------------------------------------------------------
+bool Util::stringToBool(string str) {
+  return (str=="1" || str=="enabled" || str=="active" || str=="true" );
+}

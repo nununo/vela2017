@@ -7,37 +7,59 @@
 //
 
 #include "ValueInput.h"
+#include "ofMain.h"
+#include "Util.h"
 #include <sstream>
 using namespace std;
-#include "ofMain.h"
 
 //--------------------------------------------------------------
 ValueInput::ValueInput(string _name,
-                       float initialOffset,
+                       float _offset,
                        float lowThreshold,
                        float highThreshold,
-                       float blowOutThreshold) {
+                       float blowOutThreshold,
+                       bool _inverted) {
   name = _name;
-  setThreshold(BLOW_INTENSITY_LOW, lowThreshold);
-  setThreshold(BLOW_INTENSITY_HIGH, highThreshold);
-  setThreshold(BLOW_INTENSITY_BLOWOUT, blowOutThreshold);
-  lastValue = 0;
+  offset = _offset;
+  inverted = _inverted;
+
+  setThresholdOffset(BLOW_INTENSITY_IDLE, 0);
+  setThresholdOffset(BLOW_INTENSITY_LOW, lowThreshold-offset);
+  setThresholdOffset(BLOW_INTENSITY_HIGH, highThreshold-offset);
+  setThresholdOffset(BLOW_INTENSITY_BLOWOUT, blowOutThreshold-offset);
+  
+  lastValue = _offset;
 }
 
 //--------------------------------------------------------------
 blowIntensityType ValueInput::getBlowIntensity() {
   
-  if (lastValue < getThreshold(BLOW_INTENSITY_LOW))
-    return BLOW_INTENSITY_IDLE;
+  if (!inverted) {
+    if (lastValue < offset + getThresholdOffset(BLOW_INTENSITY_LOW))
+      return BLOW_INTENSITY_IDLE;
 
-  else if (lastValue < getThreshold(BLOW_INTENSITY_HIGH))
-    return BLOW_INTENSITY_LOW;
+    else if (lastValue < offset + getThresholdOffset(BLOW_INTENSITY_HIGH))
+      return BLOW_INTENSITY_LOW;
   
-  else if (lastValue < getThreshold(BLOW_INTENSITY_BLOWOUT))
-    return BLOW_INTENSITY_HIGH;
+    else if (lastValue < offset + getThresholdOffset(BLOW_INTENSITY_BLOWOUT))
+      return BLOW_INTENSITY_HIGH;
   
-  else
-    return BLOW_INTENSITY_BLOWOUT;
+    else
+      return BLOW_INTENSITY_BLOWOUT;
+    
+  } else {
+    if (lastValue > offset + getThresholdOffset(BLOW_INTENSITY_LOW))
+      return BLOW_INTENSITY_IDLE;
+    
+    else if (lastValue > offset + getThresholdOffset(BLOW_INTENSITY_HIGH))
+      return BLOW_INTENSITY_LOW;
+    
+    else if (lastValue > offset + getThresholdOffset(BLOW_INTENSITY_BLOWOUT))
+      return BLOW_INTENSITY_HIGH;
+    
+    else
+      return BLOW_INTENSITY_BLOWOUT;
+  }
 }
 
 //--------------------------------------------------------------
@@ -51,10 +73,10 @@ string ValueInput::getTrace() {
   
   ss << name << ": |";
   
-  for(int i=1; i<4;i++)
-    ss << roundf(getThreshold((blowIntensityType)i)*100)/100 << "| ";
+  for(int i=0; i<4;i++)
+    ss << roundf(getThresholdOffset((blowIntensityType)i)*100)/100 << "| ";
   
-  ss << "last: " << lastValue << "\n";
+  ss << "value: " << lastValue << " intensity: " << Util::blowIntensityToString(getBlowIntensity()) << "\n";
   
   return ss.str();
 }

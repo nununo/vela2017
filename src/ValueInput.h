@@ -15,10 +15,11 @@
 class ValueInput : public IDataInput {
 public:
   ValueInput(string _name,
-             float initialOffset,
+             float _offset,
              float lowThreshold,
              float highThreshold,
-             float blowOutThreshold);
+             float blowOutThreshold,
+             bool inverted=false);
 
   // IDataInput
   virtual void update() {}
@@ -27,15 +28,17 @@ public:
   // ITrace
   virtual string getTrace();
 
-  float getThreshold(blowIntensityType blowIntensity) {return threshold[blowIntensity-1];}
   void setValue(int _value);
 
 private:
   string name;
-  float threshold[3];
+  float thresholdOffset[4];
   float lastValue;
+  float offset;
+  bool inverted;
   
-  void setThreshold(blowIntensityType blowIntensity, float value) {threshold[blowIntensity-1]=value;}
+  float getThresholdOffset(blowIntensityType blowIntensity) {return thresholdOffset[blowIntensity];}
+  void setThresholdOffset(blowIntensityType blowIntensity, float value) {thresholdOffset[blowIntensity]=value;}
   
 };
 

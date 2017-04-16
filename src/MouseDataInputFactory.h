@@ -11,10 +11,11 @@
 
 #include "DataInputFactory.h"
 #include "MouseDataInput.h"
+#include "Util.h"
 
 class MouseDataInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml) {return new MouseDataInput();}
+  virtual IDataInput* create(ofXml *xml) {return new MouseDataInput(Util::stringToBool(xml->getAttribute("inverted")));}
 };
 
 #endif /* MouseDataInputFactory_h */
