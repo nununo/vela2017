@@ -76,9 +76,9 @@ void CandleApp::keyPressed  (int key){
 
 //--------------------------------------------------------------
 void CandleApp::setFullscreen(bool value) {
-  bFullscreen = value;
+  generalSettings->setIsFullscreen(value);
   
-  if (!bFullscreen){
+  if (!generalSettings->getIsFullscreen()){
     ofSetWindowShape(360,288); // (720,576);
     ofSetFullscreen(false);
     
@@ -87,7 +87,7 @@ void CandleApp::setFullscreen(bool value) {
     int screenH = ofGetScreenHeight();
     ofSetWindowPosition(screenW/2-300/2, screenH/2-300/2);
     
-  } else if (bFullscreen) {
+  } else {
     ofSetFullscreen(true);
   }
 }

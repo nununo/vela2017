@@ -28,7 +28,7 @@ private:
   void setupTrace();
   void outputLayerStatus();
   void setFullscreen(bool value);
-  void toggleFullscreen() {setFullscreen(!bFullscreen);}
+  void toggleFullscreen() {setFullscreen(!generalSettings->getIsFullscreen());}
   void outputTraceInfo();
   
   InputIntensity *inputIntensity;
@@ -36,5 +36,4 @@ private:
   TraceLayer traceLayer;
   HistoryLayer historyLayer;
   GeneralSettings *generalSettings;
-  bool bFullscreen;
 };

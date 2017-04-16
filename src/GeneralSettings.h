@@ -16,6 +16,9 @@ public:
   bool getIsFullscreen() {return isFullscreen;}
   bool getShowTrace() {return showTrace;}
   bool getShowHistory() {return showHistory;}
+  void setIsFullscreen(bool _isFullScreen) {isFullscreen=_isFullScreen;}
+  void setShowTrace(bool _showTrace) {showTrace=_showTrace;}
+  void setShowHistory(bool _showHistory) {showHistory=_showHistory;}
   
 private:
   int framerate;
