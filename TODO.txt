@@ -1,9 +1,9 @@
 - AnalogDataInput: Separate max/min from thresholds so that the inversion and calibration become simpler
 - ArduinoDataInput could inherit from MultiDataInput and only accept AnalogDataInput as input
 - Allow inverting sensor values
-- Consider implementing a damper
 - Implement calibration and auto-calibration in AnalogInput
 - History could get values from any IDataInput
 - Add indent parameter to getTrace
 - Try omxPlayer
 - Review clip output rotation/translation
+- Consider implementing a damper
