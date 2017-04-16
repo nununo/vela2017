@@ -16,7 +16,7 @@
 		7D42EEEA1EA300DB00383C3C /* ValueInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEE81EA300DB00383C3C /* ValueInputFactory.cpp */; };
 		7D42EEED1EA305DD00383C3C /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEEB1EA305DD00383C3C /* Config.cpp */; };
 		7D42EEF11EA315DF00383C3C /* GeneralSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */; };
-		7D58DF111EA286AC00BDFA7F /* MouseDataInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseDataInput.cpp */; };
+		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiDataInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiDataInput.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
 		7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */; };
@@ -78,7 +78,7 @@
 		7D42A3BD1E78C9C80097B54C /* InputIntensity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputIntensity.h; sourceTree = "<group>"; };
 		7D42EED71EA2BC3000383C3C /* DataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInputFactory.h; sourceTree = "<group>"; };
 		7D42EEDB1EA2E82800383C3C /* KeyboardDataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyboardDataInputFactory.h; sourceTree = "<group>"; };
-		7D42EEDE1EA2E93C00383C3C /* MouseDataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseDataInputFactory.h; sourceTree = "<group>"; };
+		7D42EEDE1EA2E93C00383C3C /* MouseInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInputFactory.h; sourceTree = "<group>"; };
 		7D42EEE01EA2E98600383C3C /* AutoFlickerDataInputFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AutoFlickerDataInputFactory.cpp; sourceTree = "<group>"; };
 		7D42EEE11EA2E98600383C3C /* AutoFlickerDataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoFlickerDataInputFactory.h; sourceTree = "<group>"; };
 		7D42EEE31EA2F45100383C3C /* DataInputFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataInputFactory.cpp; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneralSettings.cpp; sourceTree = "<group>"; };
 		7D42EEF01EA315DF00383C3C /* GeneralSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettings.h; sourceTree = "<group>"; };
 		7D5680B41E7F509400B739C3 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
-		7D58DF0F1EA286AC00BDFA7F /* MouseDataInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseDataInput.cpp; sourceTree = "<group>"; };
-		7D58DF101EA286AC00BDFA7F /* MouseDataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseDataInput.h; sourceTree = "<group>"; };
+		7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
+		7D58DF101EA286AC00BDFA7F /* MouseInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInput.h; sourceTree = "<group>"; };
 		7D60A9101E9961F3009FF4F2 /* MultiDataInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiDataInput.cpp; sourceTree = "<group>"; };
 		7D60A9111E9961F3009FF4F2 /* MultiDataInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiDataInput.h; sourceTree = "<group>"; };
 		7D7245AC1E7DA83F006E5653 /* Clip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clip.cpp; sourceTree = "<group>"; };
@@ -195,7 +195,7 @@
 				7D42EED71EA2BC3000383C3C /* DataInputFactory.h */,
 				7D42EEE31EA2F45100383C3C /* DataInputFactory.cpp */,
 				7D42EEDB1EA2E82800383C3C /* KeyboardDataInputFactory.h */,
-				7D42EEDE1EA2E93C00383C3C /* MouseDataInputFactory.h */,
+				7D42EEDE1EA2E93C00383C3C /* MouseInputFactory.h */,
 				7D42EEE01EA2E98600383C3C /* AutoFlickerDataInputFactory.cpp */,
 				7D42EEE11EA2E98600383C3C /* AutoFlickerDataInputFactory.h */,
 				7D42EEE51EA2F6BB00383C3C /* ArduinoDataInputFactory.cpp */,
@@ -259,8 +259,8 @@
 		7DB90F061E7B69F4000978EC /* inputs */ = {
 			isa = PBXGroup;
 			children = (
-				7D58DF0F1EA286AC00BDFA7F /* MouseDataInput.cpp */,
-				7D58DF101EA286AC00BDFA7F /* MouseDataInput.h */,
+				7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */,
+				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
 				7D60A9101E9961F3009FF4F2 /* MultiDataInput.cpp */,
 				7D60A9111E9961F3009FF4F2 /* MultiDataInput.h */,
 				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
@@ -433,7 +433,7 @@
 				7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */,
 				7D42EEF11EA315DF00383C3C /* GeneralSettings.cpp in Sources */,
 				7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */,
-				7D58DF111EA286AC00BDFA7F /* MouseDataInput.cpp in Sources */,
+				7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */,
 				7DB90EF91E7B4D16000978EC /* ArduinoDataInput.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyboardDataInput.cpp in Sources */,
 				7D7245BD1E7E4F92006E5653 /* HistoryLayer.cpp in Sources */,

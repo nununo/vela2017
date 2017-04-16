@@ -7,7 +7,7 @@
 //
 
 #include "DataInputFactory.h"
-#include "MouseDataInputFactory.h"
+#include "MouseInputFactory.h"
 #include "KeyboardDataInputFactory.h"
 #include "AutoFlickerDataInputFactory.h"
 #include "ArduinoDataInputFactory.h"
@@ -16,7 +16,7 @@
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   
   if (dataInputType == DataInputType::DATA_INPUT_MOUSE)
-    return new MouseDataInputFactory();
+    return new MouseInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_KEYBOARD)
     return new KeyboardDataInputFactory();

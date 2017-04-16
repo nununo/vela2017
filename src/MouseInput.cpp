@@ -1,16 +1,16 @@
 //
-//  MouseDataInput.cpp
+//  MouseInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 15/03/2017.
 //
 //
 
-#include "MouseDataInput.h"
+#include "MouseInput.h"
 #include "Util.h"
 
 //--------------------------------------------------------------
-MouseDataInput::MouseDataInput(bool inverted) {
+MouseInput::MouseInput(bool inverted) {
   if (!inverted)
     valueInput = new ValueInput("mouse",
                                 0,

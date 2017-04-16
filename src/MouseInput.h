@@ -1,21 +1,21 @@
 //
-//  MouseDataInput.h
+//  MouseInput.h
 //  vela2017
 //
 //  Created by Nuno on 15/03/2017.
 //
 //
 
-#ifndef MouseDataInput_h
-#define MouseDataInput_h
+#ifndef MouseInput_h
+#define MouseInput_h
 
 #include "ValueInput.h"
 #include "ofMain.h"
 
-class MouseDataInput: public IDataInput {
+class MouseInput: public IDataInput {
 public:
-  MouseDataInput(bool inverted=false);
-  ~MouseDataInput() {}
+  MouseInput(bool inverted=false);
+  ~MouseInput() {}
   
   // IDataInput
   virtual void update() {valueInput->setValue(ofGetScreenHeight()-ofGetMouseY());};
@@ -28,4 +28,4 @@ private:
   ValueInput *valueInput;
 };
 
-#endif /* MouseDataInput_h */
+#endif /* MouseInput_h */
