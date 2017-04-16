@@ -189,6 +189,23 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		7D42EEF21EA390CB00383C3C /* inputFactories */ = {
+			isa = PBXGroup;
+			children = (
+				7D42EED71EA2BC3000383C3C /* DataInputFactory.h */,
+				7D42EEE31EA2F45100383C3C /* DataInputFactory.cpp */,
+				7D42EEDB1EA2E82800383C3C /* KeyboardDataInputFactory.h */,
+				7D42EEDE1EA2E93C00383C3C /* MouseDataInputFactory.h */,
+				7D42EEE01EA2E98600383C3C /* AutoFlickerDataInputFactory.cpp */,
+				7D42EEE11EA2E98600383C3C /* AutoFlickerDataInputFactory.h */,
+				7D42EEE51EA2F6BB00383C3C /* ArduinoDataInputFactory.cpp */,
+				7D42EEE61EA2F6BB00383C3C /* ArduinoDataInputFactory.h */,
+				7D42EEE81EA300DB00383C3C /* AnalogDataInputFactory.cpp */,
+				7D42EEE91EA300DB00383C3C /* AnalogDataInputFactory.h */,
+			);
+			name = inputFactories;
+			sourceTree = "<group>";
+		};
 		7D7245B71E7DD327006E5653 /* clips */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,16 +274,6 @@
 				7DB90F041E7B6799000978EC /* AutoFlickerDataInput.h */,
 				7DABC4161E9AA759006BEB5F /* AnalogDataInput.h */,
 				7DABC4171E9AB847006BEB5F /* AnalogDataInput.cpp */,
-				7D42EED71EA2BC3000383C3C /* DataInputFactory.h */,
-				7D42EEE31EA2F45100383C3C /* DataInputFactory.cpp */,
-				7D42EEDB1EA2E82800383C3C /* KeyboardDataInputFactory.h */,
-				7D42EEDE1EA2E93C00383C3C /* MouseDataInputFactory.h */,
-				7D42EEE01EA2E98600383C3C /* AutoFlickerDataInputFactory.cpp */,
-				7D42EEE11EA2E98600383C3C /* AutoFlickerDataInputFactory.h */,
-				7D42EEE51EA2F6BB00383C3C /* ArduinoDataInputFactory.cpp */,
-				7D42EEE61EA2F6BB00383C3C /* ArduinoDataInputFactory.h */,
-				7D42EEE81EA300DB00383C3C /* AnalogDataInputFactory.cpp */,
-				7D42EEE91EA300DB00383C3C /* AnalogDataInputFactory.h */,
 			);
 			name = inputs;
 			sourceTree = "<group>";
@@ -307,6 +314,7 @@
 				7DB3F7DD1E8DD8F90025498A /* tools */,
 				7DB3F7DC1E8DD8B20025498A /* layers */,
 				7DB90F061E7B69F4000978EC /* inputs */,
+				7D42EEF21EA390CB00383C3C /* inputFactories */,
 				7D7245B71E7DD327006E5653 /* clips */,
 				7DAA8B491E77665F005385DD /* CandleApp.cpp */,
 				7DAA8B4A1E77665F005385DD /* CandleApp.h */,

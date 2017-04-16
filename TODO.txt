@@ -1,4 +1,3 @@
-- AutoFlicker not working
 - AnalogDataInput: Separate max/min from thresholds so that the inversion and calibration become simpler
 - ArduinoDataInput could inherit from MultiDataInput and only accept AnalogDataInput as input
 - Allow inverting sensor values

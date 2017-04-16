@@ -45,7 +45,7 @@
   <inputs>
     <input type="keyboard" enabled="1"/>
     <input type="mouse" enabled="0"/>
-    <input type="autoFlicker" enabled="0">
+    <input type="autoFlicker" enabled="1">
       <minPeriod>3000</minPeriod>
     </input>
     <input type="arduino" enabled="0">
