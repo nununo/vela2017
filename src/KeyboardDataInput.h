@@ -9,7 +9,7 @@
 #ifndef KeyboardDataInput_h
 #define KeyboardDataInput_h
 
-#include "AnalogDataInput.h"
+#include "ValueInput.h"
 #include "ofMain.h"
 
 class KeyboardDataInput: public IDataInput {
@@ -19,16 +19,16 @@ public:
   
   //IDataInput
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity() {return analogDataInput->getBlowIntensity();}
+  virtual blowIntensityType getBlowIntensity() {return valueInput->getBlowIntensity();}
   
   //ITrace
-  virtual string getTrace() {return analogDataInput->getTrace();}
+  virtual string getTrace() {return valueInput->getTrace();}
 
   void keyPressed(ofKeyEventArgs &e);
   void keyReleased(ofKeyEventArgs &e);
 
 private:
-  AnalogDataInput *analogDataInput;
+  ValueInput *valueInput;
 
 };
 

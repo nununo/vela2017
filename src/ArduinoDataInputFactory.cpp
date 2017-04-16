@@ -7,7 +7,7 @@
 //
 
 #include "ArduinoDataInputFactory.h"
-#include "AnalogDataInputFactory.h"
+#include "ValueInputFactory.h"
 
 //--------------------------------------------------------------
 IDataInput* ArduinoDataInputFactory::create(ofXml *xml) {
@@ -15,7 +15,7 @@ IDataInput* ArduinoDataInputFactory::create(ofXml *xml) {
   
   addDevices(arduinoDataInput, xml);
   if (arduinoDataInput->connect())
-    addAnalogDataInputs(arduinoDataInput, xml);
+    addValueInputs(arduinoDataInput, xml);
   
   return new ArduinoDataInput();
 }
@@ -37,9 +37,9 @@ void ArduinoDataInputFactory::addDevices(ArduinoDataInput *arduinoDataInput, ofX
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInputFactory::addAnalogDataInputs(ArduinoDataInput *arduinoDataInput, ofXml *xml) {
+void ArduinoDataInputFactory::addValueInputs(ArduinoDataInput *arduinoDataInput, ofXml *xml) {
   
-  AnalogDataInputFactory analogDataInputFactory;
+  ValueInputFactory valueInputFactory;
   if (!xml->setTo("analogInputs/analogInput[0]")) {
     ofLogError() << "XML position to analogInputs/analogInput[0] failed. Check XML";
     return NULL;
@@ -47,7 +47,7 @@ void ArduinoDataInputFactory::addAnalogDataInputs(ArduinoDataInput *arduinoDataI
   
   do {
     if (xml->getAttribute("enabled")=="1")
-      arduinoDataInput->addAnalogDataInput((AnalogDataInput*)(analogDataInputFactory.create(xml)));
+      arduinoDataInput->addValueInput((ValueInput*)(valueInputFactory.create(xml)));
   }
   while(xml->setToSibling());
   

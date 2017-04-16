@@ -18,7 +18,7 @@ public:
   
 private:
   void addDevices(ArduinoDataInput *arduinoDataInput, ofXml *xml);
-  void addAnalogDataInputs(ArduinoDataInput *arduinoDataInput, ofXml *xml);
+  void addValueInputs(ArduinoDataInput *arduinoDataInput, ofXml *xml);
 };
 
 #endif /* ArduinoDataInputFactory_h */

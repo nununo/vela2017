@@ -23,9 +23,9 @@ bool ArduinoDataInput::connect() {
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::addAnalogDataInput(AnalogDataInput *analogDataInput) {
-  if (analogDataInput)
-    analogDataInputs.push_back(analogDataInput);
+void ArduinoDataInput::addValueInput(ValueInput *valueInput) {
+  if (valueInput)
+    valueInputs.push_back(valueInput);
 }
 
 //--------------------------------------------------------------
@@ -65,9 +65,9 @@ void ArduinoDataInput::update() {
     memcpy(bytesReadString, bytesReturned, 7);
     
     //we need to put the bytes back into an int
-    vector<AnalogDataInput*>::iterator it;
+    vector<ValueInput*>::iterator it;
     int i=0;
-    for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++,i=i+2)
+    for(it=valueInputs.begin() ; it < valueInputs.end(); it++,i=i+2)
       (*it)->setValue((unsigned char)bytesReadString[i+1] << 8 | (unsigned char)bytesReadString[i]);
   }
 }
@@ -77,8 +77,8 @@ void ArduinoDataInput::update() {
 blowIntensityType ArduinoDataInput::getBlowIntensity() {
   blowIntensityType blowIntensity = BLOW_INTENSITY_MIN;
 
-  vector<AnalogDataInput*>::iterator it;
-  for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++)
+  vector<ValueInput*>::iterator it;
+  for(it=valueInputs.begin() ; it < valueInputs.end(); it++)
     if ((*it)->getBlowIntensity()>blowIntensity)
       blowIntensity = (*it)->getBlowIntensity();
   
@@ -91,8 +91,8 @@ string ArduinoDataInput::getTrace() {
   
   ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << "\n";
 
-  vector<AnalogDataInput*>::iterator it;
-  for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++)
+  vector<ValueInput*>::iterator it;
+  for(it=valueInputs.begin() ; it < valueInputs.end(); it++)
     ss << (*it)->getTrace();
 
   return ss.str();

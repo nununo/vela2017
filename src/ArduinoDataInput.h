@@ -10,7 +10,7 @@
 #define ArduinoDataInput_h
 
 #include "IDataInput.h"
-#include "AnalogDataInput.h"
+#include "ValueInput.h"
 #include "ofMain.h"
 
 
@@ -19,7 +19,7 @@ public:
   ~ArduinoDataInput() {};
   
   void addDevice(string device) {devices.push_back(device);}
-  void addAnalogDataInput(AnalogDataInput *analogDataInput);
+  void addValueInput(ValueInput *valueInput);
   bool connect();
   bool isEnabled() {return serial.isInitialized();}
   
@@ -32,7 +32,7 @@ public:
   
 private:
   vector<string> devices;
-  vector<AnalogDataInput*> analogDataInputs;
+  vector<ValueInput*> valueInputs;
   ofSerial serial;
   string device;
 };

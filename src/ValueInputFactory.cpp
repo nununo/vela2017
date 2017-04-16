@@ -1,18 +1,18 @@
 //
-//  AnalogDataInputFactory.cpp
+//  ValueInputFactory.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/04/2017.
 //
 //
 
-#include "AnalogDataInputFactory.h"
+#include "ValueInputFactory.h"
 #include "Util.h"
-#include "AnalogDataInput.h"
+#include "ValueInput.h"
 
 //--------------------------------------------------------------
-IDataInput* AnalogDataInputFactory::create(ofXml *xml) {
-  return new AnalogDataInput(xml->getAttribute("name"),
+IDataInput* ValueInputFactory::create(ofXml *xml) {
+  return new ValueInput(xml->getAttribute("name"),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_MIN)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_MAX)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),

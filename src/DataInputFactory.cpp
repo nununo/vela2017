@@ -11,7 +11,7 @@
 #include "KeyboardDataInputFactory.h"
 #include "AutoFlickerDataInputFactory.h"
 #include "ArduinoDataInputFactory.h"
-#include "AnalogDataInputFactory.h"
+#include "ValueInputFactory.h"
 
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   
@@ -28,7 +28,7 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
     return new ArduinoDataInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_ANALOG)
-    return new AnalogDataInputFactory();
+    return new ValueInputFactory();
   
   else {
     ofLogError() << "Invalid input type " << dataInputType;

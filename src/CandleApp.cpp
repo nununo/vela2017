@@ -109,9 +109,9 @@ void CandleApp::outputTraceInfo() {
 //  if (!arduinoDataInput->isEnabled())
 //    return;
 //  
-//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_LEFT));
-//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_RIGHT));
-//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_TOP));
+//  arduinoDataInput->addValueInput(xmlStore.getValueInput(ARDUINO_SENSOR_LEFT));
+//  arduinoDataInput->addValueInput(xmlStore.getValueInput(ARDUINO_SENSOR_RIGHT));
+//  arduinoDataInput->addValueInput(xmlStore.getValueInput(ARDUINO_SENSOR_TOP));
 //  
 //  multiDataInput->add(arduinoDataInput);
 //}
