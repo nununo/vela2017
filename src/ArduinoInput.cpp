@@ -1,16 +1,16 @@
 //
-//  ArduinoDataInput.cpp
+//  ArduinoInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "ArduinoDataInput.h"
+#include "ArduinoInput.h"
 #include <sstream>
 
 //--------------------------------------------------------------
-bool ArduinoDataInput::connect() {
+bool ArduinoInput::connect() {
   serial.listDevices();
   
   vector<string>::iterator it;
@@ -23,13 +23,13 @@ bool ArduinoDataInput::connect() {
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::addValueInput(ValueInput *valueInput) {
+void ArduinoInput::addValueInput(ValueInput *valueInput) {
   if (valueInput)
     valueInputs.push_back(valueInput);
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::update() {
+void ArduinoInput::update() {
   
   // Continue only if initialized
   if (!serial.isInitialized())
@@ -74,7 +74,7 @@ void ArduinoDataInput::update() {
 
 
 //--------------------------------------------------------------
-blowIntensityType ArduinoDataInput::getBlowIntensity() {
+blowIntensityType ArduinoInput::getBlowIntensity() {
   blowIntensityType blowIntensity = BLOW_INTENSITY_IDLE;
 
   vector<ValueInput*>::iterator it;
@@ -86,7 +86,7 @@ blowIntensityType ArduinoDataInput::getBlowIntensity() {
 }
 
 //--------------------------------------------------------------
-string ArduinoDataInput::getTrace() {
+string ArduinoInput::getTrace() {
   stringstream ss;
   
   ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << "\n";

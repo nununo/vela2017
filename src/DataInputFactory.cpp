@@ -10,7 +10,7 @@
 #include "MouseInputFactory.h"
 #include "KeyboardDataInputFactory.h"
 #include "AutoFlickerDataInputFactory.h"
-#include "ArduinoDataInputFactory.h"
+#include "ArduinoInputFactory.h"
 #include "ValueInputFactory.h"
 
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
@@ -25,7 +25,7 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
     return new AutoFlickerDataInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_ARDUINO)
-    return new ArduinoDataInputFactory();
+    return new ArduinoInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_ANALOG)
     return new ValueInputFactory();

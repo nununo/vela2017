@@ -1,27 +1,27 @@
 //
-//  ArduinoDataInputFactory.cpp
+//  ArduinoInputFactory.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/04/2017.
 //
 //
 
-#include "ArduinoDataInputFactory.h"
+#include "ArduinoInputFactory.h"
 #include "ValueInputFactory.h"
 
 //--------------------------------------------------------------
-IDataInput* ArduinoDataInputFactory::create(ofXml *xml) {
-  ArduinoDataInput *arduinoDataInput = new ArduinoDataInput();
+IDataInput* ArduinoInputFactory::create(ofXml *xml) {
+  ArduinoInput *arduinoInput = new ArduinoInput();
   
-  addDevices(arduinoDataInput, xml);
-  if (arduinoDataInput->connect())
-    addValueInputs(arduinoDataInput, xml);
+  addDevices(arduinoInput, xml);
+  if (arduinoInput->connect())
+    addValueInputs(arduinoInput, xml);
   
-  return new ArduinoDataInput();
+  return new ArduinoInput();
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInputFactory::addDevices(ArduinoDataInput *arduinoDataInput, ofXml *xml) {
+void ArduinoInputFactory::addDevices(ArduinoInput *arduinoInput, ofXml *xml) {
 
   if (!xml->setTo("devices/device[0]")) {
     ofLogError() << "XML position to devices/device[0] failed. Check XML";
@@ -29,7 +29,7 @@ void ArduinoDataInputFactory::addDevices(ArduinoDataInput *arduinoDataInput, ofX
   }
   
   do {
-    arduinoDataInput->addDevice(xml->getValue());
+    arduinoInput->addDevice(xml->getValue());
   }
   while(xml->setToSibling());
   
@@ -37,7 +37,7 @@ void ArduinoDataInputFactory::addDevices(ArduinoDataInput *arduinoDataInput, ofX
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInputFactory::addValueInputs(ArduinoDataInput *arduinoDataInput, ofXml *xml) {
+void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml) {
   
   ValueInputFactory valueInputFactory;
   if (!xml->setTo("analogInputs/analogInput[0]")) {
@@ -47,7 +47,7 @@ void ArduinoDataInputFactory::addValueInputs(ArduinoDataInput *arduinoDataInput,
   
   do {
     if (xml->getAttribute("enabled")=="1")
-      arduinoDataInput->addValueInput((ValueInput*)(valueInputFactory.create(xml)));
+      arduinoInput->addValueInput((ValueInput*)(valueInputFactory.create(xml)));
   }
   while(xml->setToSibling());
   

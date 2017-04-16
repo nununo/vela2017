@@ -1,22 +1,22 @@
 //
-//  ArduinoDataInput.h
+//  ArduinoInput.h
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#ifndef ArduinoDataInput_h
-#define ArduinoDataInput_h
+#ifndef ArduinoInput_h
+#define ArduinoInput_h
 
 #include "IDataInput.h"
 #include "ValueInput.h"
 #include "ofMain.h"
 
 
-class ArduinoDataInput: public IDataInput {
+class ArduinoInput: public IDataInput {
 public:
-  ~ArduinoDataInput() {};
+  ~ArduinoInput() {};
   
   void addDevice(string device) {devices.push_back(device);}
   void addValueInput(ValueInput *valueInput);
@@ -37,4 +37,4 @@ private:
   string device;
 };
 
-#endif /* ArduinoDataInput_h */
+#endif /* ArduinoInput_h */
