@@ -10,12 +10,10 @@
 #define AnalogDataInputFactory_h
 
 #include "DataInputFactory.h"
-#include "AnalogDataInput.h"
 
 class AnalogDataInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml) {return createTyped(xml);}
-  AnalogDataInput* createTyped(ofXml *xml);
+  virtual IDataInput* create(ofXml *xml);
 };
 
 #endif /* AnalogDataInputFactory_h */

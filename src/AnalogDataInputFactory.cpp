@@ -8,9 +8,10 @@
 
 #include "AnalogDataInputFactory.h"
 #include "Util.h"
+#include "AnalogDataInput.h"
 
 //--------------------------------------------------------------
-AnalogDataInput* AnalogDataInputFactory::createTyped(ofXml *xml) {
+IDataInput* AnalogDataInputFactory::create(ofXml *xml) {
   return new AnalogDataInput(xml->getAttribute("name"),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_MIN)),
                              xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),

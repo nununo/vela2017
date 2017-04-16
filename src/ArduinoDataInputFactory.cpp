@@ -47,7 +47,7 @@ void ArduinoDataInputFactory::addAnalogDataInputs(ArduinoDataInput *arduinoDataI
   
   do {
     if (xml->getAttribute("enabled")=="1")
-      arduinoDataInput->addAnalogDataInput(analogDataInputFactory.createTyped(xml));
+      arduinoDataInput->addAnalogDataInput((AnalogDataInput*)(analogDataInputFactory.create(xml)));
   }
   while(xml->setToSibling());
   
