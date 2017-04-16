@@ -44,11 +44,11 @@
   </levels>
   <inputs>
     <input type="keyboard" enabled="1"/>
-    <input type="mouse" enabled="0"/>
+    <input type="mouse" enabled="1"/>
     <input type="autoFlicker" enabled="0">
       <minPeriod>3000</minPeriod>
     </input>
-    <input type="arduino" enabled="1">
+    <input type="arduino" enabled="0">
       <devices>
         <device name="mac">cu.usbmodem1421</device>
         <device name="pi">/dev/ttyUSB0</device>
