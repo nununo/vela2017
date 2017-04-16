@@ -1,15 +1,15 @@
 //
-//  KeyboardDataInput.cpp
+//  KeyboardInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "KeyboardDataInput.h"
+#include "KeyboardInput.h"
 
 //--------------------------------------------------------------
-KeyboardDataInput::KeyboardDataInput() {
+KeyboardInput::KeyboardInput() {
 
   ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
 
@@ -21,7 +21,7 @@ KeyboardDataInput::KeyboardDataInput() {
 }
 
 //--------------------------------------------------------------
-void KeyboardDataInput::keyPressed(ofKeyEventArgs &e) {
+void KeyboardInput::keyPressed(ofKeyEventArgs &e) {
   
   switch (e.key) {
     case '1':
@@ -37,6 +37,6 @@ void KeyboardDataInput::keyPressed(ofKeyEventArgs &e) {
 };
 
 //--------------------------------------------------------------
-void KeyboardDataInput::keyReleased(ofKeyEventArgs &e) {
+void KeyboardInput::keyReleased(ofKeyEventArgs &e) {
   valueInput->setValue(0);
 }

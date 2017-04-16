@@ -1,21 +1,21 @@
 //
-//  KeyboardDataInput.h
+//  KeyboardInput.h
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#ifndef KeyboardDataInput_h
-#define KeyboardDataInput_h
+#ifndef KeyboardInput_h
+#define KeyboardInput_h
 
 #include "ValueInput.h"
 #include "ofMain.h"
 
-class KeyboardDataInput: public IDataInput {
+class KeyboardInput: public IDataInput {
 public:
-  KeyboardDataInput();
-  ~KeyboardDataInput() {ofUnregisterKeyEvents(this);}
+  KeyboardInput();
+  ~KeyboardInput() {ofUnregisterKeyEvents(this);}
   
   //IDataInput
   virtual void update() {}
@@ -32,4 +32,4 @@ private:
 
 };
 
-#endif /* KeyboardDataInput_h */
+#endif /* KeyboardInput_h */
