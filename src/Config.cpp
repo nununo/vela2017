@@ -7,7 +7,7 @@
 //
 
 #include "Config.h"
-#include "MultiDataInput.h"
+#include "MultiInput.h"
 #include "DataInputFactory.h"
 
 //--------------------------------------------------------------
@@ -25,24 +25,24 @@ bool Config::setup(string filename) {
 //--------------------------------------------------------------
 IDataInput* Config::createDataInputs() {
   
-  MultiDataInput *multiDataInput;
+  MultiInput *multiInput;
   
   if (!xml.setTo("inputs/input[0]")) {
     ofLogError() << "XML position to /vela2017/inputs/input[0] failed. Check XML";
     return NULL;
   }
   
-  multiDataInput = new MultiDataInput();
+  multiInput = new MultiInput();
   
   do {
     if (isEnabled())
-      multiDataInput->add(DataInputFactory::createFactory(xml.getAttribute("type"))->create(&xml));
+      multiInput->add(DataInputFactory::createFactory(xml.getAttribute("type"))->create(&xml));
   }
   while(xml.setToSibling());
   
   xml.setToParent(2);
   
-  return multiDataInput;
+  return multiInput;
 }
 
 //--------------------------------------------------------------

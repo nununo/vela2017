@@ -1,21 +1,21 @@
 //
-//  MultiDataInput.h
+//  MultiInput.h
 //  vela2017
 //
 //  Created by Nuno on 17/03/2017.
 //
 //
 
-#ifndef MultiDataInput_h
-#define MultiDataInput_h
+#ifndef MultiInput_h
+#define MultiInput_h
 
 #include "IDataInput.h"
 #include <vector>
 using namespace std;
 
-class MultiDataInput: public IDataInput {
+class MultiInput: public IDataInput {
 public:
-  ~MultiDataInput() {dataInputs.clear();}; // XXX This probably leaks
+  ~MultiInput() {dataInputs.clear();}; // XXX This probably leaks
 
   // IDataInput
   virtual void update();
@@ -31,4 +31,4 @@ private:
   vector<IDataInput*> dataInputs;
 };
 
-#endif /* MultiDataInput_h */
+#endif /* MultiInput_h */

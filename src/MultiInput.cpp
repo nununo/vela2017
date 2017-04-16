@@ -1,22 +1,22 @@
 //
-//  MultiDataInput.cpp
+//  MultiInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 17/03/2017.
 //
 //
 
-#include "MultiDataInput.h"
+#include "MultiInput.h"
 #include <sstream>
 
 //-----------------------------------------------------------------------
-void MultiDataInput::add(IDataInput *dataInput) {
+void MultiInput::add(IDataInput *dataInput) {
   if (dataInput)
     dataInputs.push_back(dataInput);
 }
 
 //-----------------------------------------------------------------------
-void MultiDataInput::update() {
+void MultiInput::update() {
   vector<IDataInput*>::iterator it;
     
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
@@ -24,7 +24,7 @@ void MultiDataInput::update() {
 }
 
 //-----------------------------------------------------------------------
-blowIntensityType MultiDataInput::getBlowIntensity() {
+blowIntensityType MultiInput::getBlowIntensity() {
   
   blowIntensityType eachIntensity;
   blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
@@ -42,10 +42,10 @@ blowIntensityType MultiDataInput::getBlowIntensity() {
 }
 
 //-----------------------------------------------------------------------
-string MultiDataInput::getTrace() {
+string MultiInput::getTrace() {
   stringstream ss;
   
-  ss << "MultiDataInput:\n";
+  ss << "MultiInput:\n";
 
   vector<IDataInput*>::iterator it;
 

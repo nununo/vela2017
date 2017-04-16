@@ -98,7 +98,7 @@ void CandleApp::outputTraceInfo() {
 }
 
 ////--------------------------------------------------------------
-//void CandleApp::setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName) {
+//void CandleApp::setupArduinoInput(MultiInput *multiInput, string arduinoName) {
 //  ArduinoDataInput *arduinoDataInput;
 //  
 //  if (!xmlStore.getArduinoInputEnabled(arduinoName))
@@ -113,7 +113,7 @@ void CandleApp::outputTraceInfo() {
 //  arduinoDataInput->addValueInput(xmlStore.getValueInput(ARDUINO_SENSOR_RIGHT));
 //  arduinoDataInput->addValueInput(xmlStore.getValueInput(ARDUINO_SENSOR_TOP));
 //  
-//  multiDataInput->add(arduinoDataInput);
+//  multiInput->add(arduinoDataInput);
 //}
 
 
