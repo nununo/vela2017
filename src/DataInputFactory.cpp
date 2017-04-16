@@ -9,7 +9,7 @@
 #include "DataInputFactory.h"
 #include "MouseInputFactory.h"
 #include "KeyboardInputFactory.h"
-#include "AutoFlickerDataInputFactory.h"
+#include "AutoFlickerInputFactory.h"
 #include "ArduinoInputFactory.h"
 #include "ValueInputFactory.h"
 
@@ -22,7 +22,7 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
     return new KeyboardInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_AUTO_FLICKER)
-    return new AutoFlickerDataInputFactory();
+    return new AutoFlickerInputFactory();
   
   else if (dataInputType == DataInputType::DATA_INPUT_ARDUINO)
     return new ArduinoInputFactory();

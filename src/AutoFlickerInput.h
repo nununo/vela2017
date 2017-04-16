@@ -1,20 +1,20 @@
 //
-//  AutoFlickerDataInput.h
+//  AutoFlickerInput.h
 //  vela2017
 //
 //  Created by Nuno on 17/03/2017.
 //
 //
 
-#ifndef AutoFlickerDataInput_h
-#define AutoFlickerDataInput_h
+#ifndef AutoFlickerInput_h
+#define AutoFlickerInput_h
 
 #include "IDataInput.h"
 
-class AutoFlickerDataInput: public IDataInput {
+class AutoFlickerInput: public IDataInput {
 public:
-  AutoFlickerDataInput(int _minPeriod);
-  ~AutoFlickerDataInput() {};
+  AutoFlickerInput(int _minPeriod);
+  ~AutoFlickerInput() {};
 
   // IDataInput
   virtual void update();
@@ -29,4 +29,4 @@ private:
   bool isFlickerTime;
 };
 
-#endif /* AutoFlickerDataInput_h */
+#endif /* AutoFlickerInput_h */
