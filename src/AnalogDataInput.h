@@ -6,15 +6,15 @@
 //
 //
 
-#ifndef AnalogInput_h
-#define AnalogInput_h
+#ifndef AnalogDataInput_h
+#define AnalogDataInput_h
 
 #include "Constants.h"
 #include "IDataInput.h"
 
-class AnalogInput : public IDataInput {
+class AnalogDataInput : public IDataInput {
 public:
-  AnalogInput(string _name,
+  AnalogDataInput(string _name,
               float minValue,
               float lowThreshold,
               float highThreshold,

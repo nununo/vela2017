@@ -1,14 +1,13 @@
 #pragma once
 
 #include "ofMain.h"
-#include "XmlStore.h"
 #include "Util.h"
 #include "TraceLayer.h"
 #include "InputIntensity.h"
 #include "Levels.h"
 #include "ClipLayers.h"
 #include "HistoryLayer.h"
-#include "MultiDataInput.h"
+#include "GeneralSettings.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -26,23 +25,16 @@ class CandleApp : public ofBaseApp {
 		void mousePressed(int x, int y, int button) {};
 		
 private:
-  void setupInputs();
-  void setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName);
-  void setupKeyboardInput(MultiDataInput *multiDataInput);
-  void setupMouseInput(MultiDataInput *multiDataInput);
-  void setupAutoFlickerInput(MultiDataInput *multiDataInput);
   void setupTrace();
   void outputLayerStatus();
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!bFullscreen);}
   void outputTraceInfo();
-  vector<LevelSettings*> buildLevelSettingsList();
   
-  XmlStore xmlStore;
   InputIntensity *inputIntensity;
   ClipLayers *clipLayers;
   TraceLayer traceLayer;
   HistoryLayer historyLayer;
-  int previousIntensity;
+  GeneralSettings *generalSettings;
   bool bFullscreen;
 };

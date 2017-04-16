@@ -6,18 +6,18 @@
 //
 //
 
-#include "AnalogInput.h"
+#include "AnalogDataInput.h"
 #include <sstream>
 using namespace std;
 #include "ofMain.h"
 
 //--------------------------------------------------------------
-AnalogInput::AnalogInput(string _name,
-                         float minValue,
-                         float lowThreshold,
-                         float highThreshold,
-                         float blowOutThreshold,
-                         float maxValue) {
+AnalogDataInput::AnalogDataInput(string _name,
+                             float minValue,
+                             float lowThreshold,
+                             float highThreshold,
+                             float blowOutThreshold,
+                             float maxValue) {
   name = _name;
   threshold[BLOW_INTENSITY_MIN] = minValue;
   threshold[BLOW_INTENSITY_LOW] = lowThreshold;
@@ -28,7 +28,7 @@ AnalogInput::AnalogInput(string _name,
 }
 
 //--------------------------------------------------------------
-blowIntensityType AnalogInput::getBlowIntensity() {
+blowIntensityType AnalogDataInput::getBlowIntensity() {
   
   if (lastValue < getThreshold(BLOW_INTENSITY_LOW))
     return BLOW_INTENSITY_MIN;
@@ -44,7 +44,7 @@ blowIntensityType AnalogInput::getBlowIntensity() {
 }
 
 //--------------------------------------------------------------
-void AnalogInput::setValue(int value) {
+void AnalogDataInput::setValue(int value) {
   
   if (value < threshold[BLOW_INTENSITY_MIN] ||
       value > threshold[BLOW_INTENSITY_MAX] )
@@ -54,7 +54,7 @@ void AnalogInput::setValue(int value) {
 }
 
 //--------------------------------------------------------------
-string AnalogInput::getTrace() {
+string AnalogDataInput::getTrace() {
   stringstream ss;
   
   ss << name << ": |";

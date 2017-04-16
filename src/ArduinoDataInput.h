@@ -10,16 +10,17 @@
 #define ArduinoDataInput_h
 
 #include "IDataInput.h"
-#include "AnalogInput.h"
+#include "AnalogDataInput.h"
 #include "ofMain.h"
 
 
 class ArduinoDataInput: public IDataInput {
 public:
-  ArduinoDataInput(string _device);
   ~ArduinoDataInput() {};
   
-  void addAnalogInput(AnalogInput *analogInput);
+  void addDevice(string device) {devices.push_back(device);}
+  void addAnalogDataInput(AnalogDataInput *analogDataInput);
+  bool connect();
   bool isEnabled() {return serial.isInitialized();}
   
   //IDataInput
@@ -30,7 +31,8 @@ public:
   virtual string getTrace();
   
 private:
-  vector<AnalogInput*> analogInputs;
+  vector<string> devices;
+  vector<AnalogDataInput*> analogDataInputs;
   ofSerial serial;
   string device;
 };

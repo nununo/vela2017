@@ -1,15 +1,15 @@
 //
-//  KeyDataInput.cpp
+//  KeyboardDataInput.cpp
 //  vela2017
 //
 //  Created by Nuno on 16/03/2017.
 //
 //
 
-#include "KeyDataInput.h"
+#include "KeyboardDataInput.h"
 
 //--------------------------------------------------------------
-void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
+void KeyboardDataInput::keyPressed(ofKeyEventArgs &e) {
   switch (e.key) {
     case '1':
       lastBlowIntensity = BLOW_INTENSITY_LOW;
@@ -24,12 +24,12 @@ void KeyDataInput::keyPressed(ofKeyEventArgs &e) {
 };
 
 //--------------------------------------------------------------
-void KeyDataInput::keyReleased(ofKeyEventArgs &e) {
+void KeyboardDataInput::keyReleased(ofKeyEventArgs &e) {
   lastBlowIntensity = BLOW_INTENSITY_MIN;
 }
 
 //--------------------------------------------------------------
-void KeyDataInput::registerKeyboardEvents() {
+void KeyboardDataInput::registerKeyboardEvents() {
   if(!bRegisteredEvents) {
     ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
     bRegisteredEvents = true;
@@ -37,7 +37,7 @@ void KeyDataInput::registerKeyboardEvents() {
 };
 
 //--------------------------------------------------------------
-void KeyDataInput::unregisterKeyboardEvents() {
+void KeyboardDataInput::unregisterKeyboardEvents() {
   if(bRegisteredEvents)
     ofUnregisterKeyEvents(this);
   bRegisteredEvents = false;

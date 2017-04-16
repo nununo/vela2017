@@ -10,17 +10,22 @@
 #include <sstream>
 
 //--------------------------------------------------------------
-ArduinoDataInput::ArduinoDataInput(string _device) {
-    
-  device = _device;
+bool ArduinoDataInput::connect() {
   serial.listDevices();
-  serial.setup(_device, 9600);
+  
+  vector<string>::iterator it;
+  for(it=devices.begin() ; it < devices.end(); it++)
+    if (serial.setup((*it),9600)) {
+      device = (*it);
+      return true;
+    }
+  return false;
 }
 
 //--------------------------------------------------------------
-void ArduinoDataInput::addAnalogInput(AnalogInput *analogInput) {
-  if (analogInput)
-    analogInputs.push_back(analogInput);
+void ArduinoDataInput::addAnalogDataInput(AnalogDataInput *analogDataInput) {
+  if (analogDataInput)
+    analogDataInputs.push_back(analogDataInput);
 }
 
 //--------------------------------------------------------------
@@ -60,9 +65,9 @@ void ArduinoDataInput::update() {
     memcpy(bytesReadString, bytesReturned, 7);
     
     //we need to put the bytes back into an int
-    vector<AnalogInput*>::iterator it;
+    vector<AnalogDataInput*>::iterator it;
     int i=0;
-    for(it=analogInputs.begin() ; it < analogInputs.end(); it++,i=i+2)
+    for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++,i=i+2)
       (*it)->setValue((unsigned char)bytesReadString[i+1] << 8 | (unsigned char)bytesReadString[i]);
   }
 }
@@ -72,8 +77,8 @@ void ArduinoDataInput::update() {
 blowIntensityType ArduinoDataInput::getBlowIntensity() {
   blowIntensityType blowIntensity = BLOW_INTENSITY_MIN;
 
-  vector<AnalogInput*>::iterator it;
-  for(it=analogInputs.begin() ; it < analogInputs.end(); it++)
+  vector<AnalogDataInput*>::iterator it;
+  for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++)
     if ((*it)->getBlowIntensity()>blowIntensity)
       blowIntensity = (*it)->getBlowIntensity();
   
@@ -86,8 +91,8 @@ string ArduinoDataInput::getTrace() {
   
   ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << "\n";
 
-  vector<AnalogInput*>::iterator it;
-  for(it=analogInputs.begin() ; it < analogInputs.end(); it++)
+  vector<AnalogDataInput*>::iterator it;
+  for(it=analogDataInputs.begin() ; it < analogDataInputs.end(); it++)
     ss << (*it)->getTrace();
 
   return ss.str();

@@ -1,11 +1,10 @@
-- Separate max/min from thresholds so that the inversion and calibration become simpler
+- AutoFlicker not working
+- AnalogDataInput: Separate max/min from thresholds so that the inversion and calibration become simpler
+- ArduinoDataInput could inherit from MultiDataInput and only accept AnalogDataInput as input
 - Allow inverting sensor values
 - Consider implementing a damper
-- AnalogInput could implement IDataInput
-- ArduinoDataInput can now inherit from MultiDataInput which would accept only AnalogInput as input
-- History gets AnalogInput in contructor
 - Implement calibration and auto-calibration in AnalogInput
 - History could get values from any IDataInput
 - Add indent parameter to getTrace
 - Try omxPlayer
-- Abstract Factory para IDataInput
+- Review clip output rotation/translation

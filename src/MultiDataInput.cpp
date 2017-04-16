@@ -11,7 +11,8 @@
 
 //-----------------------------------------------------------------------
 void MultiDataInput::add(IDataInput *dataInput) {
-  dataInputs.push_back(dataInput);
+  if (dataInput)
+    dataInputs.push_back(dataInput);
 }
 
 //-----------------------------------------------------------------------

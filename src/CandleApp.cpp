@@ -1,9 +1,6 @@
 #include "CandleApp.h"
-#include "KeyDataInput.h"
-#include "MouseDataInput.h"
-#include "ArduinoDataInput.h"
-#include "AutoFlickerDataInput.h"
 #include "SystemTrace.h"
+#include "Config.h"
 
 static const string ARDUINO_MAC = "mac";
 static const string ARDUINO_PI = "pi";
@@ -14,31 +11,30 @@ static const string ARDUINO_SENSOR_TOP = "top";
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
-
-  previousIntensity = 0;
   
-  xmlStore.setup(XML_FILENAME);
+  Config config;
   
-  Levels *levels =
-    new Levels(new ClipOutputSettings(xmlStore.getVideoOffsetX(),
-                                      xmlStore.getVideoOffsetY(),
-                                      xmlStore.getVideoZoomX(),
-                                      xmlStore.getVideoZoomY()),
-               buildLevelSettingsList());
-
-  clipLayers = new ClipLayers(levels, xmlStore.getVideoRotation());
+  config.setup(XML_FILENAME);
   
-  historyLayer.setVisible(xmlStore.getShowHistory());
+  generalSettings = config.createGeneralSettings();
+  
+  ClipOutputSettings *clipOutputSettings = config.createClipOutputSettings();
 
-  setupInputs();
+  clipLayers = new ClipLayers(new Levels(clipOutputSettings, config.createLevelSettingsList()),
+                              clipOutputSettings->getRotation());
+  
+  historyLayer.setVisible(generalSettings->getShowHistory());
+
+  inputIntensity = new InputIntensity(config.createDataInputs());
+
   setupTrace();
 
   ofHideCursor();
   
   ofSetVerticalSync(true);
-  ofSetFrameRate(xmlStore.getFramerate());
+  ofSetFrameRate(generalSettings->getFramerate());
   
-  setFullscreen(xmlStore.getFullscreen());
+  setFullscreen(generalSettings->getIsFullscreen());
   
   ofBackground(0, 0, 0);
 }
@@ -101,77 +97,33 @@ void CandleApp::outputTraceInfo() {
   cout << traceLayer.getText();
 }
 
-//--------------------------------------------------------------
-void CandleApp::setupInputs() {
-  MultiDataInput *multiDataInput;
-  
-  multiDataInput = new MultiDataInput();
-
-  setupKeyboardInput(multiDataInput);
-  setupMouseInput(multiDataInput);
-  setupArduinoInput(multiDataInput, ARDUINO_MAC);
-  setupArduinoInput(multiDataInput, ARDUINO_PI);
-
-  inputIntensity = new InputIntensity(multiDataInput);
-}
-
-//--------------------------------------------------------------
-void CandleApp::setupKeyboardInput(MultiDataInput *multiDataInput) {
-  if (xmlStore.getKeyboardInputEnabled())
-    multiDataInput->add( new KeyDataInput() );
-}
-
-//--------------------------------------------------------------
-void CandleApp::setupMouseInput(MultiDataInput *multiDataInput) {
-  if (xmlStore.getMouseInputEnabled())
-    multiDataInput->add( new MouseDataInput() );
-}
-
-//--------------------------------------------------------------
-void CandleApp::setupAutoFlickerInput(MultiDataInput *multiDataInput) {
-  if (xmlStore.getAutoFlickerInputEnabled())
-    multiDataInput->add( new AutoFlickerDataInput(xmlStore.getAutoFlickerInputMinPeriod()) );
-}
-
-//--------------------------------------------------------------
-void CandleApp::setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName) {
-  ArduinoDataInput *arduinoDataInput;
-  
-  if (!xmlStore.getArduinoInputEnabled(arduinoName))
-    return;
-  
-  arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(arduinoName));
-  
-  if (!arduinoDataInput->isEnabled())
-    return;
-  
-  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_LEFT));
-  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_RIGHT));
-  arduinoDataInput->addAnalogInput(xmlStore.getAnalogInput(ARDUINO_SENSOR_TOP));
-  
-  multiDataInput->add(arduinoDataInput);
-}
+////--------------------------------------------------------------
+//void CandleApp::setupArduinoInput(MultiDataInput *multiDataInput, string arduinoName) {
+//  ArduinoDataInput *arduinoDataInput;
+//  
+//  if (!xmlStore.getArduinoInputEnabled(arduinoName))
+//    return;
+//  
+//  arduinoDataInput = new ArduinoDataInput(xmlStore.getArduinoInputDevice(arduinoName));
+//  
+//  if (!arduinoDataInput->isEnabled())
+//    return;
+//  
+//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_LEFT));
+//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_RIGHT));
+//  arduinoDataInput->addAnalogDataInput(xmlStore.getAnalogDataInput(ARDUINO_SENSOR_TOP));
+//  
+//  multiDataInput->add(arduinoDataInput);
+//}
 
 
 //--------------------------------------------------------------
 void CandleApp::setupTrace() {
-  traceLayer.setVisible(xmlStore.getShowTrace());
+  traceLayer.setVisible(generalSettings->getShowTrace());
   traceLayer.add( new SystemTrace() );
   traceLayer.add(inputIntensity);
   traceLayer.add(clipLayers);
 }
 
-//--------------------------------------------------------------
-vector<LevelSettings*> CandleApp::buildLevelSettingsList() {
-  vector<LevelSettings*> list;
-  
-  for (int i=0; i<4; i++)
-    list.push_back( new LevelSettings(xmlStore.getMovieFolder(i),
-                                      xmlStore.getFadeInTime(i),
-                                      xmlStore.getFadeOutTime(i),
-                                      xmlStore.getLoop(i),
-                                      xmlStore.getCanRestart(i)));
-  return list;
-}
 
 

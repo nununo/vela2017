@@ -1,84 +1,82 @@
 <vela2017>
-  <videoOutput>
+  <general>
+    <framerate>25</framerate>
+    <fullscreen>1</fullscreen>
+    <showTrace>1</showTrace>
+    <showHistory>0</showHistory>
+  </general>
+  <clipOutput>
     <rotation>0</rotation>
     <offsetX>0.00</offsetX>
     <offsetY>0.00</offsetY>
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
-  </videoOutput>
-  <display>
-    <framerate>25</framerate>
-    <fullscreen>1</fullscreen>
-    <showTrace>1</showTrace>
-    <showHistory>0</showHistory>
-  </display>
+  </clipOutput>
   <levels>
-    <level0>
+    <level>
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
       <fadeOutTime>0</fadeOutTime>
       <loop>1</loop>
       <canRestart>0</canRestart>
-    </level0>
-    <level1>
+    </level>
+    <level>
       <movieFolder>media/1</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
-    </level1>
-    <level2>
+    </level>
+    <level>
       <movieFolder>media/2</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
-    </level2>
-    <level3>
+    </level>
+    <level>
       <movieFolder>media/3</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>2.00</fadeOutTime>
       <loop>0</loop>
       <canRestart>0</canRestart>
-    </level3>
+    </level>
   </levels>
   <inputs>
-    <keyboard enabled="1"/>
-    <mouse enabled="1"/>
-    <arduinos>
-      <mac enabled="1">
-        <device>cu.usbmodem1421</device>
-      </mac>
-      <pi enabled="1">
-        <device>/dev/ttyUSB0</device>
-      </pi>
-    </arduinos>
-    <autoFlicker enabled="0">
-      <minPeriod>30000</minPeriod>
-    </autoFlicker>
+    <input type="keyboard" enabled="1"/>
+    <input type="mouse" enabled="0"/>
+    <input type="autoFlicker" enabled="0">
+      <minPeriod>3000</minPeriod>
+    </input>
+    <input type="arduino" enabled="1">
+      <devices>
+        <device name="mac">cu.usbmodem1421</device>
+        <device name="pi">/dev/ttyUSB0</device>
+      </devices>
+      <analogInputs>
+        <analogInput name="left" enabled="1">
+          <min>490</min>
+          <low>522</low>
+          <high>524</high>
+          <blowOut>530</blowOut>
+          <max>600</max>
+        </analogInput>
+        <analogInput name="right" enabled="0">
+          <min>490</min>
+          <low>500</low>
+          <high>505</high>
+          <blowOut>510</blowOut>
+          <max>600</max>
+        </analogInput>
+        <analogInput name="top" enabled="0">
+          <min>490</min>
+          <low>540</low>
+          <high>545</high>
+          <blowOut>555</blowOut>
+          <max>600</max>
+        </analogInput>
+      </analogInputs>
+    </input>
   </inputs>
-  <analogInputs>
-    <left enabled="1">
-      <min>490</min>
-      <low>522</low>
-      <high>524</high>
-      <blowOut>530</blowOut>
-      <max>600</max>
-    </left>
-    <right enabled="0">
-      <min>490</min>
-      <low>500</low>
-      <high>505</high>
-      <blowOut>510</blowOut>
-      <max>600</max>
-    </right>
-    <top enabled="0">
-      <min>490</min>
-      <low>540</low>
-      <high>545</high>
-      <blowOut>555</blowOut>
-      <max>600</max>
-    </top>
-  </analogInputs>
 
 </vela2017>
