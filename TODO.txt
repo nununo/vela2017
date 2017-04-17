@@ -1,7 +1,8 @@
-- ArduinoDataInput could inherit from MultiDataInput and only accept ValueInput as input
-- Implement calibration and auto-calibration in AnalogInput
 - History could get values from any IDataInput
 - Add indent parameter to getTrace
 - Try omxPlayer
 - Review clip output rotation/translation
+
 - Consider implementing a damper
+
+- ArduinoDataInput could inherit from MultiDataInput and only accept ValueInput as input

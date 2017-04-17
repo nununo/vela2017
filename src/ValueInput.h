@@ -11,15 +11,16 @@
 
 #include "Constants.h"
 #include "IDataInput.h"
+#include "Calibration.h"
 
 class ValueInput : public IDataInput {
 public:
   ValueInput(string _name,
-             float _offset,
              float lowThreshold,
              float highThreshold,
              float blowOutThreshold,
-             bool inverted=false);
+             bool inverted,
+             bool calibrated);
 
   // IDataInput
   virtual void update() {}
@@ -34,8 +35,9 @@ private:
   string name;
   float thresholdOffset[4];
   float lastValue;
-  float offset;
   bool inverted;
+  bool calibrated;
+  Calibration calibration;
   
   float getThresholdOffset(blowIntensityType blowIntensity) {return thresholdOffset[blowIntensity];}
   void setThresholdOffset(blowIntensityType blowIntensity, float value) {thresholdOffset[blowIntensity]=value;}

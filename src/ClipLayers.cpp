@@ -7,7 +7,6 @@
 //
 
 #include "ClipLayers.h"
-#include <sstream>
 #include "Util.h"
 
 ClipLayers::ClipLayers(Levels *_levels, int _clipsRotation) {

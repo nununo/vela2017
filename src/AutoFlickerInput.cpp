@@ -8,7 +8,6 @@
 
 #include "AutoFlickerInput.h"
 #include "ofMain.h"
-#include <sstream>
 
 //--------------------------------------------------------------
 AutoFlickerInput::AutoFlickerInput(int _minPeriod) {
@@ -29,7 +28,8 @@ void AutoFlickerInput::update() {
 
       lastTime = timeNow;
 
-      cout << "Autoflicker: " << lastTime << " " << timeNow << "..." << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod << endl;
+      ofLogNotice() << "Autoflicker: " << lastTime << " " << timeNow << "..."
+                    << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod << endl;
     }
   }
 }

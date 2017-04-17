@@ -14,7 +14,7 @@
 
 class MouseInput: public IDataInput {
 public:
-  MouseInput(bool inverted=false);
+  MouseInput(bool inverted, bool calibrated);
   ~MouseInput() {}
   
   // IDataInput

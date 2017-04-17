@@ -7,12 +7,7 @@
 //
 
 #include "InputIntensity.h"
-#include <iostream>
-#include "ofMain.h"
-#include <sstream>
 #include "Util.h"
-
-using namespace std;
 
 //--------------------------------------------------------------
 void InputIntensity::update() {

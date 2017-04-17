@@ -2,7 +2,6 @@
 #define CLIPLAYER_H_INCLUDED
 
 #include "ofMain.h"
-#include <string>
 #include "Clip.h"
 #include "Layer.h"
 #include "ITrace.h"

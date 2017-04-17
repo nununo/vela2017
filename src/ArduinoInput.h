@@ -13,7 +13,6 @@
 #include "ValueInput.h"
 #include "ofMain.h"
 
-
 class ArduinoInput: public IDataInput {
 public:
   ~ArduinoInput() {};

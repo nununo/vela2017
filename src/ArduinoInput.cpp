@@ -7,7 +7,6 @@
 //
 
 #include "ArduinoInput.h"
-#include <sstream>
 
 //--------------------------------------------------------------
 bool ArduinoInput::connect() {

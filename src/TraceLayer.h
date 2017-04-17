@@ -1,3 +1,11 @@
+//
+//  TraceLayer.h
+//  vela2017
+//
+//  Created by Nuno on 19/03/2017.
+//
+//
+
 #ifndef TRACELAYER_H_INCLUDED
 #define TRACELAYER_H_INCLUDED
 

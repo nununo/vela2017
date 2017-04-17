@@ -13,9 +13,9 @@
 //--------------------------------------------------------------
 IDataInput* ValueInputFactory::create(ofXml *xml) {
   return new ValueInput(xml->getAttribute("name"),
-                        xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_IDLE)),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT)),
-                        Util::stringToBool(xml->getAttribute("inverted")));
+                        Util::stringToBool(xml->getAttribute("inverted")),
+                        Util::stringToBool(xml->getAttribute("calibrated")));
 }

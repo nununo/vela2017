@@ -15,7 +15,8 @@
 
 class MouseInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml) {return new MouseInput(Util::stringToBool(xml->getAttribute("inverted")));}
+  virtual IDataInput* create(ofXml *xml) {return new MouseInput(Util::stringToBool(xml->getAttribute("inverted")),
+                                                                Util::stringToBool(xml->getAttribute("calibrated")));}
 };
 
 #endif /* MouseInputFactory_h */

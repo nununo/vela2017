@@ -1,3 +1,11 @@
+//
+//  Util.h
+//  vela2017
+//
+//  Created by Nuno on 31/03/2017.
+//
+//
+
 #ifndef UTIL_H_INCLUDED
 #define UTIL_H_INCLUDED
 
