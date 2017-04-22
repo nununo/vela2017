@@ -42,6 +42,11 @@
       <canRestart>0</canRestart>
     </level>
   </levels>
+  <calibration>
+    <historySize>100</historySize>
+    <excentricSize>25</excentricSize>
+    <skipSize>1</skipSize>
+  </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
     <input type="mouse" enabled="1" inverted="0" calibrated="1"/>

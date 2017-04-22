@@ -13,6 +13,8 @@
 #include "IDataInput.h"
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
+#include "CalibrationSettings.h"
+#include "Calibration.h"
 #include "LevelSettings.h"
 
 class Config {
@@ -22,6 +24,7 @@ public:
   IDataInput* createDataInputs();
   ClipOutputSettings* createClipOutputSettings();
   GeneralSettings* createGeneralSettings();
+  CalibrationSettings *createCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();
 
 private:

@@ -17,10 +17,12 @@ ValueInput::ValueInput(string _name,
                        float highThreshold,
                        float blowOutThreshold,
                        bool _inverted,
-                       bool _calibrated) {
+                       CalibrationSettings* calibrationSettings) {
   name = _name;
   inverted = _inverted;
-  calibrated = _calibrated;
+  
+  if (calibrationSettings)
+    calibration = new Calibration(calibrationSettings);
 
   setThresholdOffset(BLOW_INTENSITY_IDLE, 0);
   setThresholdOffset(BLOW_INTENSITY_LOW, lowThreshold);
@@ -65,8 +67,8 @@ blowIntensityType ValueInput::getBlowIntensity() {
 void ValueInput::setValue(int value) {
   lastValue = value;
   
-  if (calibrated)
-    setThresholdOffset(BLOW_INTENSITY_IDLE, calibration.getOffset(value));
+  if (calibration)
+    setThresholdOffset(BLOW_INTENSITY_IDLE, calibration->getOffset(value));
 }
 
 //--------------------------------------------------------------

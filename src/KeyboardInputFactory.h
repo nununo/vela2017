@@ -14,7 +14,7 @@
 
 class KeyboardInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml) {return new KeyboardInput();}
+  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL) {return new KeyboardInput();}
 };
 
 #endif /* KeyboardInputFactory_h */

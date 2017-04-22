@@ -13,7 +13,7 @@
 
 class AutoFlickerInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml);
+  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
 };
 
 #endif /* AutoFlickerInputFactory_h */

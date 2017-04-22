@@ -14,11 +14,11 @@
 
 class ArduinoInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml);
+  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
   
 private:
   void addDevices(ArduinoInput *arduinoInput, ofXml *xml);
-  void addValueInputs(ArduinoInput *arduinoInput, ofXml *xml);
+  void addValueInputs(ArduinoInput *arduinoInput, ofXml *xml, CalibrationSettings *calibrationSettings);
 };
 
 #endif /* ArduinoInputFactory_h */

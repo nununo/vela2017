@@ -20,7 +20,7 @@ public:
              float highThreshold,
              float blowOutThreshold,
              bool inverted,
-             bool calibrated);
+             CalibrationSettings* calibrationSettings=NULL);
 
   // IDataInput
   virtual void update() {}
@@ -36,8 +36,7 @@ private:
   float thresholdOffset[4];
   float lastValue;
   bool inverted;
-  bool calibrated;
-  Calibration calibration;
+  Calibration *calibration=NULL;
   
   float getThresholdOffset(blowIntensityType blowIntensity) {return thresholdOffset[blowIntensity];}
   void setThresholdOffset(blowIntensityType blowIntensity, float value) {thresholdOffset[blowIntensity]=value;}

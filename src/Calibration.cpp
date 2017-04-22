@@ -10,6 +10,13 @@
 #include "ofMain.h"
 
 //--------------------------------------------------------------
+Calibration::Calibration(CalibrationSettings *_settings) {
+  settings = _settings;
+  
+  history = new float[settings->getHistorySize()];
+}
+
+//--------------------------------------------------------------
 float Calibration::getOffset(float value) {
 
   if (isSamplingTime()) {
@@ -30,7 +37,7 @@ bool Calibration::isSamplingTime() {
   // This allows for:
   // - longer calibration cycles without keeping a very long array
   // - lower excentricity since we won't store all values for peak moments
-  stepCounter = ((stepCounter + 1) % CALIBRATION_STEP_SIZE);
+  stepCounter = ((stepCounter + 1) % settings->getSkipSize());
   return stepCounter == 0;
 }
 
@@ -39,7 +46,7 @@ bool Calibration::isCalibrationTime() {
   
   // We only calibrate when the sample array is full of new data
   // This avoids constant CPU effort
-  index = ((index + 1) % CALIBRATION_HISTORY_SIZE);
+  index = ((index + 1) % settings->getHistorySize());
   return index == 0;
 }
 
@@ -54,23 +61,23 @@ void Calibration::calcCalibratedZero() {
 float Calibration::getAverage() {
   float sum=0;
 
-  for (int i=0; i<CALIBRATION_HISTORY_SIZE; i++)
+  for (int i=0; i<settings->getHistorySize(); i++)
     sum += history[i];
   
-  return sum / CALIBRATION_HISTORY_SIZE;
+  return sum / settings->getHistorySize();
 }
 
 //--------------------------------------------------------------
 float Calibration::getMaxAcceptedDistance(float average) {
   
-  float distance[CALIBRATION_HISTORY_SIZE];
+  float distance[settings->getHistorySize()];
 
-  for (int i=0; i<CALIBRATION_HISTORY_SIZE; i++)
+  for (int i=0; i<settings->getHistorySize(); i++)
     distance[i] = abs(average-history[i]);
 
-  sort(distance, distance + CALIBRATION_HISTORY_SIZE);
+  sort(distance, distance + settings->getHistorySize());
 
-  return distance[CALIBRATION_HISTORY_SIZE-CALIBRATION_EXCENTRIC_SIZE];
+  return distance[settings->getHistorySize()-settings->getExcentricSize()];
 }
 
 //--------------------------------------------------------------
@@ -78,7 +85,7 @@ void Calibration::removeExcentric() {
   float average = getAverage();
   float maxAcceptedDistance = getMaxAcceptedDistance(average);
   
-  for (int i=0; i<CALIBRATION_HISTORY_SIZE; i++)
+  for (int i=0; i<settings->getHistorySize(); i++)
     if (abs(history[i]-average) > maxAcceptedDistance)
       history[i] = average;
 }

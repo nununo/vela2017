@@ -34,6 +34,7 @@ private:
   vector<ValueInput*> valueInputs;
   ofSerial serial;
   string device;
+  Calibration *calibration;
 };
 
 #endif /* ArduinoInput_h */

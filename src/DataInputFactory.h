@@ -9,8 +9,9 @@
 #ifndef DataInputFactory_h
 #define DataInputFactory_h
 
-#include "ofxXmlSettings.h"
+#include "ofMain.h"
 #include "IDataInput.h"
+#include "CalibrationSettings.h"
 
 namespace DataInputType {
   const string DATA_INPUT_KEYBOARD = "keyboard";
@@ -23,7 +24,7 @@ namespace DataInputType {
 class DataInputFactory {
 public:
   
-  virtual IDataInput* create(ofXml *xml) = 0;
+  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL) = 0;
   
   static DataInputFactory* createFactory(string dataInputType);
 };

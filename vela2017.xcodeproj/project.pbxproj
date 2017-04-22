@@ -22,6 +22,7 @@
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
 		7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */; };
 		7D7245BD1E7E4F92006E5653 /* HistoryLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245BB1E7E4F92006E5653 /* HistoryLayer.cpp */; };
+		7D8B87DE1EA5485800A5201D /* CalibrationSettingsFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8B87DC1EA5485800A5201D /* CalibrationSettingsFactory.cpp */; };
 		7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B491E77665F005385DD /* CandleApp.cpp */; };
 		7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B4D1E7767C6005385DD /* Util.cpp */; };
 		7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* TraceLayer.cpp */; };
@@ -105,6 +106,9 @@
 		7D7245B91E7E0FDF006E5653 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
 		7D7245BB1E7E4F92006E5653 /* HistoryLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HistoryLayer.cpp; sourceTree = "<group>"; };
 		7D7245BC1E7E4F92006E5653 /* HistoryLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryLayer.h; sourceTree = "<group>"; };
+		7D8B87DC1EA5485800A5201D /* CalibrationSettingsFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalibrationSettingsFactory.cpp; sourceTree = "<group>"; };
+		7D8B87DD1EA5485800A5201D /* CalibrationSettingsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationSettingsFactory.h; sourceTree = "<group>"; };
+		7D8B87E01EA5527D00A5201D /* CalibrationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationSettings.h; sourceTree = "<group>"; };
 		7D8CC4911E97EA0800730725 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7DAA8B491E77665F005385DD /* CandleApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CandleApp.cpp; sourceTree = "<group>"; };
 		7DAA8B4A1E77665F005385DD /* CandleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleApp.h; sourceTree = "<group>"; };
@@ -257,6 +261,9 @@
 				7D42EEF01EA315DF00383C3C /* GeneralSettings.h */,
 				7D6AE47D1EA3F6A400617C31 /* Calibration.cpp */,
 				7D6AE47E1EA3F6A400617C31 /* Calibration.h */,
+				7D8B87DC1EA5485800A5201D /* CalibrationSettingsFactory.cpp */,
+				7D8B87DD1EA5485800A5201D /* CalibrationSettingsFactory.h */,
+				7D8B87E01EA5527D00A5201D /* CalibrationSettings.h */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -431,6 +438,7 @@
 				7DB3F7DB1E8DD1C90025498A /* SystemTrace.cpp in Sources */,
 				7DAA8B611E776C62005385DD /* Clips.cpp in Sources */,
 				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
+				7D8B87DE1EA5485800A5201D /* CalibrationSettingsFactory.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
 				7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */,

@@ -17,7 +17,6 @@ KeyboardInput::KeyboardInput() {
                               1,
                               2,
                               3,
-                              false,
                               false);
 }
 

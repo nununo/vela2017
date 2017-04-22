@@ -10,10 +10,11 @@
 #define ValueInputFactory_h
 
 #include "DataInputFactory.h"
+#include "CalibrationSettings.h"
 
 class ValueInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml);
+  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
 };
 
 #endif /* ValueInputFactory_h */

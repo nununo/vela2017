@@ -10,12 +10,12 @@
 #include "ValueInputFactory.h"
 
 //--------------------------------------------------------------
-IDataInput* ArduinoInputFactory::create(ofXml *xml) {
+IDataInput* ArduinoInputFactory::create(ofXml *xml, CalibrationSettings *calibrationSettings) {
   ArduinoInput *arduinoInput = new ArduinoInput();
   
   addDevices(arduinoInput, xml);
   if (arduinoInput->connect())
-    addValueInputs(arduinoInput, xml);
+    addValueInputs(arduinoInput, xml, calibrationSettings);
   
   return new ArduinoInput();
 }
@@ -37,7 +37,7 @@ void ArduinoInputFactory::addDevices(ArduinoInput *arduinoInput, ofXml *xml) {
 }
 
 //--------------------------------------------------------------
-void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml) {
+void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml, CalibrationSettings *calibrationSettings) {
   
   ValueInputFactory valueInputFactory;
   if (!xml->setTo("analogInputs/analogInput[0]")) {
@@ -47,7 +47,7 @@ void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml)
   
   do {
     if (xml->getAttribute("enabled")=="1")
-      arduinoInput->addValueInput((ValueInput*)(valueInputFactory.create(xml)));
+      arduinoInput->addValueInput((ValueInput*)(valueInputFactory.create(xml, calibrationSettings)));
   }
   while(xml->setToSibling());
   

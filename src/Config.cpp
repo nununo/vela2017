@@ -27,6 +27,8 @@ IDataInput* Config::createDataInputs() {
   
   MultiInput *multiInput;
   
+  CalibrationSettings *calibrationSettings = createCalibrationSettings();
+  
   if (!xml.setTo("inputs/input[0]")) {
     ofLogError() << "XML position to /vela2017/inputs/input[0] failed. Check XML";
     return NULL;
@@ -36,7 +38,7 @@ IDataInput* Config::createDataInputs() {
   
   do {
     if (isEnabled())
-      multiInput->add(DataInputFactory::createFactory(xml.getAttribute("type"))->create(&xml));
+      multiInput->add(DataInputFactory::createFactory(xml.getAttribute("type"))->create(&xml, calibrationSettings));
   }
   while(xml.setToSibling());
   
@@ -82,6 +84,24 @@ GeneralSettings* Config::createGeneralSettings() {
   xml.setToParent();
   
   return generalSettings;
+}
+
+//--------------------------------------------------------------
+CalibrationSettings* Config::createCalibrationSettings() {
+  
+  if (!xml.setTo("calibration")) {
+    ofLogError() << "XML position to /vela2017/calibration failed. Check XML";
+    return NULL;
+  }
+  
+  CalibrationSettings *calibrationSettings =
+  new CalibrationSettings(xml.getIntValue("historySize"),
+                      xml.getBoolValue("excentricSize"),
+                      xml.getBoolValue("skipSize"));
+  
+  xml.setToParent();
+  
+  return calibrationSettings;
 }
 
 //--------------------------------------------------------------
