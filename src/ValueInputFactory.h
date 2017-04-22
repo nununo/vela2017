@@ -14,7 +14,7 @@
 
 class ValueInputFactory : public DataInputFactory {
 public:
-  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
+  virtual IDataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings);
 };
 
 #endif /* ValueInputFactory_h */

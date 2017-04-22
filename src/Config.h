@@ -16,6 +16,7 @@
 #include "CalibrationSettings.h"
 #include "Calibration.h"
 #include "LevelSettings.h"
+#include "Util.h"
 
 class Config {
 public:
@@ -30,7 +31,7 @@ public:
 private:
   ofXml xml;
   
-  bool isEnabled() {return (xml.getAttribute("enabled")=="1");}
+  bool isEnabled() {return Util::stringToBool(xml.getAttribute("enabled"));}
 };
 
 #endif /* Config_h */

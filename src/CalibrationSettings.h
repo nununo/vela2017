@@ -9,7 +9,9 @@
 #ifndef CalibrationSettings_h
 #define CalibrationSettings_h
 
-class CalibrationSettings {
+#include "ITrace.h"
+
+class CalibrationSettings : ITrace {
 public:
   CalibrationSettings(int _historySize, int _excentricSize, int _skipSize) {
     historySize = _historySize;
@@ -19,6 +21,8 @@ public:
   int getHistorySize() {return historySize;}
   int getExcentricSize() {return excentricSize;}
   int getSkipSize() {return skipSize;}
+  
+  string getTrace();
 
 private:
   int historySize;

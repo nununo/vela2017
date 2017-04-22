@@ -89,3 +89,10 @@ void Calibration::removeExcentric() {
     if (abs(history[i]-average) > maxAcceptedDistance)
       history[i] = average;
 }
+
+//--------------------------------------------------------------
+string Calibration::getTrace() {
+  stringstream ss;
+  ss  << "calibrated: " << settings->getTrace() << "(" << roundf((float)index/(float)settings->getHistorySize()*10)/10 << ")";
+  return ss.str();
+}

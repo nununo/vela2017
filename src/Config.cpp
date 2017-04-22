@@ -96,8 +96,8 @@ CalibrationSettings* Config::createCalibrationSettings() {
   
   CalibrationSettings *calibrationSettings =
   new CalibrationSettings(xml.getIntValue("historySize"),
-                      xml.getBoolValue("excentricSize"),
-                      xml.getBoolValue("skipSize"));
+                      xml.getIntValue("excentricSize"),
+                      xml.getIntValue("skipSize"));
   
   xml.setToParent();
   

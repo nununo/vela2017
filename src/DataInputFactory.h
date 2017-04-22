@@ -22,11 +22,14 @@ namespace DataInputType {
 }
 
 class DataInputFactory {
-public:
-  
-  virtual IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL) = 0;
+public:  
+  IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
   
   static DataInputFactory* createFactory(string dataInputType);
+
+private:
+  virtual IDataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings) = 0;
+
 };
 
 

@@ -81,7 +81,10 @@ string ValueInput::getTrace() {
 
   for(int i=1; i<4;i++)
     ss << roundf((getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset((blowIntensityType)i))*100)/100 << "| ";
-  
+
+  if (calibration)
+    ss << calibration->getTrace() << " ";
+
   ss << "value: " << roundf((lastValue)*100)/100 << " intensity: " << Util::blowIntensityToString(getBlowIntensity()) << "\n";
   
   return ss.str();

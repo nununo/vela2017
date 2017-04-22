@@ -10,12 +10,15 @@
 #define Calibration_h
 
 #include "CalibrationSettings.h"
+#include "ITrace.h"
 
-class Calibration {
+class Calibration : ITrace {
 public:
   Calibration(CalibrationSettings *_settings);
   ~Calibration() { delete [] history;}
   float getOffset(float value);
+  
+  string getTrace();
 
 private:
   CalibrationSettings *settings;

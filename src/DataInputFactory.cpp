@@ -13,6 +13,7 @@
 #include "ArduinoInputFactory.h"
 #include "ValueInputFactory.h"
 
+//--------------------------------------------------------------
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   
   if (dataInputType == DataInputType::DATA_INPUT_MOUSE)
@@ -37,3 +38,12 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   
 }
 
+//--------------------------------------------------------------
+IDataInput* DataInputFactory::create(ofXml *xml, CalibrationSettings *_calibrationSettings) {
+  CalibrationSettings *calibrationSettings = NULL;
+  
+  if (Util::stringToBool(xml->getAttribute("calibrated")))
+    calibrationSettings = _calibrationSettings;
+  
+  return createAux(xml, calibrationSettings);
+}
