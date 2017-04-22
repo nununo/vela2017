@@ -29,7 +29,7 @@ void AutoFlickerInput::update() {
       lastTime = timeNow;
 
       ofLogNotice() << "Autoflicker: " << lastTime << " " << timeNow << "..."
-                    << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod << endl;
+                    << timeNow - lastTime << "..." << minPeriod + ofRandomuf() * minPeriod;
     }
   }
 }

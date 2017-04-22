@@ -13,7 +13,7 @@
 Levels::Levels(ClipOutputSettings *clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
 
   for (int i=0; i<4; i++) {
-    cout << "Loading level " << i << "\n";
+    ofLogNotice() << "Loading level " << i;
     levels.push_back(new Clips(clipOutputSettings, levelSettingsList[i]));
   }
 };

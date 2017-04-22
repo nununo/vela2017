@@ -20,7 +20,6 @@ Calibration::Calibration(CalibrationSettings *_settings) {
 float Calibration::getOffset(float value) {
 
   if (isSamplingTime()) {
-    ofLogNotice() << "Sampling time. Index: " << index << "\n";
     history[index] = value;
     
     if (isCalibrationTime())

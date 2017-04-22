@@ -9,13 +9,13 @@ ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
   
   setVisible(true);
 
-  cout << "Created layer for " << clip->getFilename() << endl;
+  ofLogNotice() << "Created layer for " << clip->getFilename();
 }
 
 //-----------------------------------------------------------------------
 ClipLayer::~ClipLayer() {
   clip->pause();
-  cout << "Destroyed layer for " << clip->getFilename() << endl;
+  ofLogNotice() << "Destroyed layer for " << clip->getFilename();
 }
 
 //-----------------------------------------------------------------------

@@ -86,7 +86,7 @@ void CandleApp::setFullscreen(bool value) {
 
 //--------------------------------------------------------------
 void CandleApp::outputTraceInfo() {
-  cout << traceLayer.getText();
+  ofLogNotice() << traceLayer.getText();
 }
 
 //--------------------------------------------------------------

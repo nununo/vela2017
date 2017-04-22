@@ -97,9 +97,9 @@ void Clip::rewind() {
 void Clip::pause(bool value) {
   if (!movie->isPaused() && value) {
     movie->setPaused(true);
-    cout << " Clip " << filename << " paused\n";
+    ofLogNotice() << " Clip " << filename << " paused";
   } else if (movie->isPaused() && !value) {
     movie->setPaused(false);
-    cout << " Clip " << filename << " unpaused\n";
+    ofLogNotice() << " Clip " << filename << " unpaused";
   }
 }
