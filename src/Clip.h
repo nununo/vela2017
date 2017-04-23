@@ -25,7 +25,6 @@ public:
   bool isPlaying() {return (levelSettings->getLoop() || !movie->getIsMovieDone());}
   string getFilename() {return filename;};
   float getPosition() {return movie->getPosition();}
-  float getSpeed() {return movie->getSpeed();}
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
   bool getCanRestart() {return levelSettings->getCanRestart();}
