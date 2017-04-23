@@ -16,10 +16,13 @@ bool Config::setup(string filename) {
   file.open(filename); // open a file
   ofBuffer buffer = file.readToBuffer(); // read to a buffer
   
-  if (!xml.loadFromBuffer( buffer.getText() ))
+  if (!xml.loadFromBuffer( buffer.getText() )) {
     ofLogError() << "Error loading XML file"; // now get the buffer as a string and make XML
-  
+    return false;
+  }
+
   xml.setTo("vela2017");
+  return true;
 }
 
 //--------------------------------------------------------------
