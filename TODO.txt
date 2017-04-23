@@ -1,8 +1,7 @@
 - History could get values from any IDataInput
 - Add indent parameter to getTrace
-- Try omxPlayer
+- Try omxPlayer in RPI
 - Review clip output rotation/translation
-- Config.createLevelSettingsList shouldn't it be returning a pointer instead of a vector?
 
 - Consider implementing a damper
 
