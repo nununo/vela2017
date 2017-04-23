@@ -28,3 +28,7 @@ xcuserdata/
 *.mov
 bin/data/media/
 bin/data/media*
+
+##Apple shit
+.Apple*
+.DS_Store
