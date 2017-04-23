@@ -25,7 +25,7 @@ void ArduinoInputFactory::addDevices(ArduinoInput *arduinoInput, ofXml *xml) {
 
   if (!xml->setTo("devices/device[0]")) {
     ofLogError() << "XML position to devices/device[0] failed. Check XML";
-    return NULL;
+    return;
   }
   
   do {
@@ -42,7 +42,7 @@ void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml,
   ValueInputFactory valueInputFactory;
   if (!xml->setTo("analogInputs/analogInput[0]")) {
     ofLogError() << "XML position to analogInputs/analogInput[0] failed. Check XML";
-    return NULL;
+    return;
   }
   
   do {
