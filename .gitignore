@@ -25,7 +25,6 @@ xcuserdata/
 
 ## Inside bin/
 *.app
-bin/data/media/
 bin/data/media*
 bin/libs/
 bin/readMe.txt
