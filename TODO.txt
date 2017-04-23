@@ -2,6 +2,7 @@
 - Add indent parameter to getTrace
 - Try omxPlayer
 - Review clip output rotation/translation
+- Config.createLevelSettingsList shouldn't it be returning a pointer instead of a vector?
 
 - Consider implementing a damper
 
