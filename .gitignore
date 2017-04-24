@@ -28,7 +28,7 @@ xcuserdata/
 bin/data/media*
 bin/libs/
 bin/readMe.txt
-bin/vela2017
+bin/vela2017*
 
 ##Apple shit
 .Apple*
