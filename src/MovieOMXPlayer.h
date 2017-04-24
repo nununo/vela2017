@@ -12,24 +12,25 @@
 #ifdef TARGET_RASPBERRY_PI
 
 #include "ofxOMXPlayer.h"
+#include "IMovie.h"
 
 class MovieOMXPlayer: public IMovie {
 public:
-  MovieOfVideoPlayer(string filename);
+  MovieOMXPlayer(string filename);
   virtual string getFilename() {return filename;}
-  virtual bool isFinished() {return movie->getIsMovieDone();}
-  virtual float getPosition() {return movie->getPosition();}
-  virtual float getDuration() {return movie->getDuration();}
-  virtual void rewind() {movie->setPosition(0); movie->play();}
-  virtual void update() {movie->update();}
-  virtual void draw(float x, float y, float width, float height) {movie->draw(x, y, width, height);}
-  virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
-  virtual bool isPaused() {return movie->isPaused();}
+  virtual bool isFinished() {return !movie.isPlaying();}
+  virtual float getPosition() {return ((float)movie.getCurrentFrame())/(float)movie.getTotalNumFrames();}
+  virtual float getDuration() {return movie.getDurationInSeconds();}
+  virtual void rewind() {movie.restartMovie();}
+  virtual void update() {}
+  virtual void draw(float x, float y, float width, float height) {movie.draw(x, y, width, height);}
+  virtual void setPaused(bool pause=true) {movie.setPaused(pause);}
+  virtual bool isPaused() {return movie.isPaused();}
   virtual void setLoop(bool loop);
   
 private:
   string filename;
-  ofxOMXPlayer *movie;
+  ofxOMXPlayer movie;
 };
 
 #endif

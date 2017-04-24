@@ -12,8 +12,8 @@
 
 //--------------------------------------------------------------
 MovieOMXPlayer::MovieOMXPlayer(string _filename) {
-  
-  filename = _filename;
+
+  filename = ofToDataPath(_filename, true);
 
   //Somewhat like ofFboSettings we may have a lot of options so this is the current model
   ofxOMXPlayerSettings settings;
@@ -23,17 +23,16 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename) {
   settings.enableLooping = true;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
   //settings.doFlipTexture = true;		//default false
-  
-  //so either pass in the settings
-  omxPlayer.setup(settings);
+
+  movie.setup(settings);
 }
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::setLoop(bool loop) {
   if (loop)
-    movie->setLoopState(OF_LOOP_NORMAL);
+    movie.enableLooping();
   else
-    movie->setLoopState(OF_LOOP_NONE);
+    movie.disableLooping();
 }
 
 #endif
