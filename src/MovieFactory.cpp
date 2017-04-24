@@ -8,11 +8,12 @@
 
 #include "MovieFactory.h"
 #include "MovieOfVideoPlayer.h"
+#include "MovieOMXPlayer.h"
 
 IMovie* MovieFactory::create(string filename) {
 
 #ifdef TARGET_RASPBERRY_PI
-  return new MovieOfVideoPlayer(filename);
+  return new MovieOMXPlayer(filename);
 #else
   return new MovieOfVideoPlayer(filename);
 #endif
