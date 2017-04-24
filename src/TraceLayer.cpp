@@ -28,13 +28,13 @@ void TraceLayer::update() {
 
 //--------------------------------------------------------------
 void TraceLayer::drawAlgorithm() {
-  
+
   float v = 0.05 * (float)ofGetWidth();
   glTranslatef(v, v, 0);
 
-  ofSetHexColor(0x00FF00);
+  //xofSetHexColor(0x00FF00);
   font.drawString(text, 0, 0);
-  
+
   glTranslatef(-v, -v, 0);
 
 }
