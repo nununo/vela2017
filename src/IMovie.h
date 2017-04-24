@@ -24,7 +24,6 @@ public:
   virtual void draw(float x, float y, float width, float height, int alpha) = 0;
   virtual void setPaused(bool pause=true) = 0;
   virtual bool isPaused() = 0;
-  virtual void setLoop(bool loop) = 0;
 };
 
 #endif /* IMovie_h */

@@ -17,7 +17,6 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSetting
   movie = _movie;
   
   pause();
-  movie->setLoop(levelSettings->getLoop());
   
   fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());

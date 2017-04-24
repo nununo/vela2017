@@ -13,7 +13,7 @@
 
 class MovieOfVideoPlayer: public IMovie {
 public:
-  MovieOfVideoPlayer(string filename);
+  MovieOfVideoPlayer(string filename, bool loop);
   virtual string getFilename() {return filename;}
   virtual bool isFinished() {return movie->getIsMovieDone();}
   virtual float getPosition() {return movie->getPosition();}
@@ -23,9 +23,10 @@ public:
   virtual void draw(float x, float y, float width, float height, int alpha);
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
-  virtual void setLoop(bool loop);
 
 private:
+  void setLoop(bool loop);
+  
   string filename;
   ofVideoPlayer *movie;
 };

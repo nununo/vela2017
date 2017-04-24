@@ -13,7 +13,7 @@
 
 class MovieFactory {
 public:
-  static IMovie* create(string filename);
+  static IMovie* create(string filename, bool loop);
 };
 
 #endif /* MovieFactory_h */
