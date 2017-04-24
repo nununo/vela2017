@@ -29,7 +29,7 @@ void Clips::buildClipList(ClipOutputSettings *clipOutputSettings, LevelSettings 
   
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
-    list.push_back(new Clip(clipOutputSettings, levelSettings, MovieFactory::create(oDir.getPath(i))));
+    list.push_back(new Clip(clipOutputSettings, levelSettings, MovieFactory::create(oDir.getPath(i), levelSettings->getLoop())));
     ofLogNotice() << "Loaded movie " << oDir.getPath(i);
   }
 }

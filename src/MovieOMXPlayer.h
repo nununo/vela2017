@@ -26,7 +26,6 @@ public:
   virtual void draw(float x, float y, float width, float height, int alpha);
   virtual void setPaused(bool pause=true) {movie.setPaused(pause);}
   virtual bool isPaused() {return movie.isPaused();}
-  virtual void setLoop(bool loop);
   
 private:
   string filename;

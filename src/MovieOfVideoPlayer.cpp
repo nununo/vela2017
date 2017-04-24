@@ -9,7 +9,7 @@
 #include "MovieOfVideoPlayer.h"
 
 //--------------------------------------------------------------
-MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename) {
+MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
 
   filename = _filename;
   
@@ -21,6 +21,7 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename) {
 
   movie->load(filename);
   movie->play();
+  setLoop(loop);
 }
 
 //--------------------------------------------------------------

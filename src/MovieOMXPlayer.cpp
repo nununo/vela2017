@@ -11,7 +11,7 @@
 #include "MovieOMXPlayer.h"
 
 //--------------------------------------------------------------
-MovieOMXPlayer::MovieOMXPlayer(string _filename) {
+MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
 
   filename = ofToDataPath(_filename, true);
 
@@ -20,19 +20,11 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename) {
   settings.videoPath = filename;
   settings.useHDMIForAudio = true;	//default true
   settings.enableTexture = true;		//default true
-  settings.enableLooping = true;		//default true
+  settings.enableLooping = loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
   //settings.doFlipTexture = true;		//default false
 
   movie.setup(settings);
-}
-
-//--------------------------------------------------------------
-void MovieOMXPlayer::setLoop(bool loop) {
-  if (loop)
-    movie.enableLooping();
-  else
-    movie.disableLooping();
 }
 
 //--------------------------------------------------------------
@@ -43,7 +35,8 @@ void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha
   else
     ofEnableAlphaBlending();
 
-  ofSetHexColor(0xFFFFFF);
+  ofSetColor(ofColor::white);
+  
   movie.setAlpha(alpha);
   movie.draw(x, y, width, height);
   

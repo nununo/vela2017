@@ -31,8 +31,9 @@ void TraceLayer::drawAlgorithm() {
 
   float v = 0.05 * (float)ofGetWidth();
   glTranslatef(v, v, 0);
+  
+  ofSetColor(ofColor::white);
 
-  //xofSetHexColor(0x00FF00);
   font.drawString(text, 0, 0);
 
   glTranslatef(-v, -v, 0);
