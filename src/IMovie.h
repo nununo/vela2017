@@ -23,6 +23,7 @@ public:
   virtual void setPaused(bool pause=true) = 0;
   virtual bool isPaused() = 0;
   virtual void setLoop(bool loop) = 0;
+  virtual void setAlpha(int alpha) =0;
 };
 
 #endif /* IMovie_h */

@@ -24,6 +24,7 @@ public:
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
   virtual void setLoop(bool loop);
+  virtual void setAlpha(int alpha) {}
 
 private:
   string filename;
