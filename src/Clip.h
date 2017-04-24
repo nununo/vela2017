@@ -14,8 +14,6 @@
 #include "LevelSettings.h"
 #include "IMovie.h"
 
-#define ALPHA_MAX 255
-
 class Clip {
 public:
   Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie *movie);

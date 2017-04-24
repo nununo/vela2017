@@ -37,8 +37,16 @@ void MovieOMXPlayer::setLoop(bool loop) {
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha) {
+
+  if (alpha == ALPHA_MAX)
+    ofDisableAlphaBlending();
+  else
+    ofEnableAlphaBlending();
+
   movie.setAlpha(alpha);
   movie.draw(x, y, width, height);
+  
+  ofDisableAlphaBlending();
 }
 
 #endif

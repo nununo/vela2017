@@ -43,20 +43,11 @@ void Clip::update() {
 //-----------------------------------------------------------------------
 void Clip::draw() {
   
-  if (getAlpha() == ALPHA_MAX)
-  {
-    ofDisableAlphaBlending();
-    ofSetHexColor(0xFFFFFF);
-  } else {
-    ofEnableAlphaBlending();
-    ofSetColor(255, 255, 255, getAlpha());
-  }
   movie->draw(clipOutputSettings->getOffsetX(),
               clipOutputSettings->getOffsetY(),
               ofGetWidth()*clipOutputSettings->getZoomX(),
               ofGetHeight()*clipOutputSettings->getZoomY(),
               getAlpha());
-  ofDisableAlphaBlending();
 }
 
 

@@ -11,6 +11,8 @@
 
 #include "ofMain.h"
 
+#define ALPHA_MAX 255
+
 class IMovie {
 public:
   virtual string getFilename() = 0;

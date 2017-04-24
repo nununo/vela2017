@@ -30,3 +30,19 @@ void MovieOfVideoPlayer::setLoop(bool loop) {
   else
     movie->setLoopState(OF_LOOP_NONE);
 }
+
+//--------------------------------------------------------------
+void MovieOfVideoPlayer::draw(float x, float y, float width, float height, int alpha) {
+  if (alpha == ALPHA_MAX)
+  {
+    ofDisableAlphaBlending();
+    ofSetHexColor(0xFFFFFF);
+  } else {
+    ofEnableAlphaBlending();
+    ofSetColor(255, 255, 255, alpha);
+  }
+  
+  movie->draw(x, y, width, height);
+  
+  ofDisableAlphaBlending();
+}
