@@ -16,6 +16,8 @@
 		7D42EEEA1EA300DB00383C3C /* ValueInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEE81EA300DB00383C3C /* ValueInputFactory.cpp */; };
 		7D42EEED1EA305DD00383C3C /* Config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEEB1EA305DD00383C3C /* Config.cpp */; };
 		7D42EEF11EA315DF00383C3C /* GeneralSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */; };
+		7D4C8CA41EAD7212009076C4 /* MovieOfVideoPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */; };
+		7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */; };
 		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */; };
 		7D6AE47F1EA3F6A400617C31 /* Calibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE47D1EA3F6A400617C31 /* Calibration.cpp */; };
@@ -94,6 +96,11 @@
 		7D42EEEC1EA305DD00383C3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneralSettings.cpp; sourceTree = "<group>"; };
 		7D42EEF01EA315DF00383C3C /* GeneralSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettings.h; sourceTree = "<group>"; };
+		7D4C8CA11EAD70A1009076C4 /* IMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMovie.h; sourceTree = "<group>"; };
+		7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOfVideoPlayer.cpp; sourceTree = "<group>"; };
+		7D4C8CA31EAD7212009076C4 /* MovieOfVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieOfVideoPlayer.h; sourceTree = "<group>"; };
+		7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieFactory.cpp; sourceTree = "<group>"; };
+		7D4C8CA61EAD7619009076C4 /* MovieFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieFactory.h; sourceTree = "<group>"; };
 		7D5680B41E7F509400B739C3 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
 		7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
 		7D58DF101EA286AC00BDFA7F /* MouseInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInput.h; sourceTree = "<group>"; };
@@ -231,6 +238,11 @@
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
 				7D0A2A071E9452E100637568 /* LevelSettings.cpp */,
 				7D0A2A081E9452E100637568 /* LevelSettings.h */,
+				7D4C8CA11EAD70A1009076C4 /* IMovie.h */,
+				7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */,
+				7D4C8CA31EAD7212009076C4 /* MovieOfVideoPlayer.h */,
+				7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */,
+				7D4C8CA61EAD7619009076C4 /* MovieFactory.h */,
 			);
 			name = clips;
 			sourceTree = "<group>";
@@ -455,12 +467,14 @@
 				7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */,
 				7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */,
 				7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */,
+				7D4C8CA41EAD7212009076C4 /* MovieOfVideoPlayer.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */,
 				7D7245BD1E7E4F92006E5653 /* HistoryLayer.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */,
 				7D42EEE41EA2F45100383C3C /* DataInputFactory.cpp in Sources */,
 				EF25968535CD7F4428AC8DB7 /* tinyxmlerror.cpp in Sources */,
 				7DA246DC1EABBAB70077EB85 /* CalibrationSettings.cpp in Sources */,
+				7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */,
 				7D42EEEA1EA300DB00383C3C /* ValueInputFactory.cpp in Sources */,
 				7DB90EF61E7B4885000978EC /* ClipLayers.cpp in Sources */,
 				7D6AE47F1EA3F6A400617C31 /* Calibration.cpp in Sources */,

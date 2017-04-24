@@ -1,4 +1,5 @@
 #include "Clips.h"
+#include "MovieFactory.h"
 
 #define OF_ADDON_USING_OFXDIRLIST
 
@@ -28,7 +29,7 @@ void Clips::buildClipList(ClipOutputSettings *clipOutputSettings, LevelSettings 
   
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
-    list.push_back(new Clip(clipOutputSettings, levelSettings, oDir.getPath(i)));
+    list.push_back(new Clip(clipOutputSettings, levelSettings, MovieFactory::create(oDir.getPath(i))));
     ofLogNotice() << "Loaded movie " << oDir.getPath(i);
   }
 }

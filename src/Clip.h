@@ -12,18 +12,19 @@
 #include "ofMain.h"
 #include "ClipOutputSettings.h"
 #include "LevelSettings.h"
+#include "IMovie.h"
 
 #define ALPHA_MAX 255
 
 class Clip {
 public:
-  Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string filename);
-  void rewind();
+  Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie *movie);
+  void rewind() {movie->rewind();}
   void pause(bool value=true);
   void update();
   void draw();
-  bool isPlaying() {return (levelSettings->getLoop() || !movie->getIsMovieDone());}
-  string getFilename() {return filename;};
+  bool isPlaying() {return (levelSettings->getLoop() || !movie->isFinished());}
+  string getFilename() {return movie->getFilename();};
   float getPosition() {return movie->getPosition();}
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
@@ -32,12 +33,10 @@ public:
 private:
   float timeToPercentage(float time);
   int calcAlpha();
-  void setupMovie();
-
-  ofVideoPlayer *movie;
+  
+  IMovie *movie;
   ClipOutputSettings *clipOutputSettings;
   LevelSettings *levelSettings;
-  string filename;
   float fadeInPercentage;                 // Fade in percentage converted from fade in time
   float fadeOutPercentage;                // Fade out percentage converted from fade out time
   int alpha;                              // Alpha channel

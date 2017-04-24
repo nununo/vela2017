@@ -10,36 +10,20 @@
 #include "Util.h"
 
 //-----------------------------------------------------------------------
-Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, string _filename) {
+Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie* _movie) {
   
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
-  filename = _filename;
-
-  setupMovie();
-
+  movie = _movie;
+  
+  pause();
+  movie->setLoop(levelSettings->getLoop());
+  
   fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
 
   alpha = 0;
   }
-
-//-----------------------------------------------------------------------
-void Clip::setupMovie() {
-
-  movie = new ofVideoPlayer();
-#ifdef TARGET_RASPBERRY_PI
-  movie->setPixelFormat(OF_PIXELS_NATIVE);
-#endif
-  movie->load(filename);
-  movie->play();
-  pause();
-
-  if (levelSettings->getLoop())
-    movie->setLoopState(OF_LOOP_NORMAL);
-  else
-    movie->setLoopState(OF_LOOP_NONE);
-}
 
 //-----------------------------------------------------------------------
 float Clip::timeToPercentage(float fadeTime) {
@@ -88,18 +72,12 @@ int Clip::calcAlpha() {
 }
 
 //-----------------------------------------------------------------------
-void Clip::rewind() {
-  movie->setPosition(0);
-  movie->play();
-}
-
-//-----------------------------------------------------------------------
 void Clip::pause(bool value) {
   if (!movie->isPaused() && value) {
     movie->setPaused(true);
-    ofLogNotice() << " Clip " << filename << " paused";
+    ofLogNotice() << " Clip " << movie->getFilename() << " paused";
   } else if (movie->isPaused() && !value) {
     movie->setPaused(false);
-    ofLogNotice() << " Clip " << filename << " unpaused";
+    ofLogNotice() << " Clip " << movie->getFilename() << " unpaused";
   }
 }
