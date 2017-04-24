@@ -43,6 +43,7 @@ void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha
   else
     ofEnableAlphaBlending();
 
+  ofSetHexColor(0xFFFFFF);
   movie.setAlpha(alpha);
   movie.draw(x, y, width, height);
   
