@@ -35,4 +35,10 @@ void MovieOMXPlayer::setLoop(bool loop) {
     movie.disableLooping();
 }
 
+//--------------------------------------------------------------
+void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha) {
+  movie.setAlpha(alpha);
+  movie.draw(x, y, width, height);
+}
+
 #endif

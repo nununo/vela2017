@@ -54,7 +54,8 @@ void Clip::draw() {
   movie->draw(clipOutputSettings->getOffsetX(),
               clipOutputSettings->getOffsetY(),
               ofGetWidth()*clipOutputSettings->getZoomX(),
-              ofGetHeight()*clipOutputSettings->getZoomY());
+              ofGetHeight()*clipOutputSettings->getZoomY(),
+              getAlpha());
   ofDisableAlphaBlending();
 }
 

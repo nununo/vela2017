@@ -19,11 +19,10 @@ public:
   virtual float getDuration() = 0;
   virtual void rewind() = 0;
   virtual void update() = 0;
-  virtual void draw(float x, float y, float width, float height) = 0;
+  virtual void draw(float x, float y, float width, float height, int alpha) = 0;
   virtual void setPaused(bool pause=true) = 0;
   virtual bool isPaused() = 0;
   virtual void setLoop(bool loop) = 0;
-  virtual void setAlpha(int alpha) =0;
 };
 
 #endif /* IMovie_h */
