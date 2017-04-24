@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */; };
 		7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A2A071E9452E100637568 /* LevelSettings.cpp */; };
+		7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */; };
 		7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */; };
 		7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEE01EA2E98600383C3C /* AutoFlickerInputFactory.cpp */; };
 		7D42EEE41EA2F45100383C3C /* DataInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEE31EA2F45100383C3C /* DataInputFactory.cpp */; };
@@ -39,11 +39,8 @@
 		7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */; };
 		7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */; };
 		7DFE1C381E79D14B003ECE97 /* Levels.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DFE1C361E79D14B003ECE97 /* Levels.cpp */; };
-		7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F9A033F7A5413E686F440ADA /* ofxXmlSettings.cpp */; };
 		E4328149138ABC9F0047C5CB /* openFrameworksDebug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4328148138ABC890047C5CB /* openFrameworksDebug.a */; };
 		E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E4B69E1D0A3A1BDC003C02F2 /* main.cpp */; };
-		EF25968535CD7F4428AC8DB7 /* tinyxmlerror.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B99B0AE67CE173DCBA83489C /* tinyxmlerror.cpp */; };
-		F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DBD067AB819324DDE5AD1384 /* tinyxml.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +76,8 @@
 		6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 		7D0A2A071E9452E100637568 /* LevelSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSettings.cpp; sourceTree = "<group>"; };
 		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
+		7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOMXPlayer.cpp; sourceTree = "<group>"; };
+		7D11675B1EAD7D8E00098A21 /* MovieOMXPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieOMXPlayer.h; sourceTree = "<group>"; };
 		7D42A3B31E78BAA60097B54C /* IDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDataInput.h; sourceTree = "<group>"; };
 		7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputIntensity.cpp; sourceTree = "<group>"; };
 		7D42A3BD1E78C9C80097B54C /* InputIntensity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputIntensity.h; sourceTree = "<group>"; };
@@ -241,6 +240,8 @@
 				7D4C8CA11EAD70A1009076C4 /* IMovie.h */,
 				7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */,
 				7D4C8CA31EAD7212009076C4 /* MovieOfVideoPlayer.h */,
+				7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */,
+				7D11675B1EAD7D8E00098A21 /* MovieOMXPlayer.h */,
 				7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */,
 				7D4C8CA61EAD7619009076C4 /* MovieFactory.h */,
 			);
@@ -453,11 +454,10 @@
 				7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */,
 				7D42EEED1EA305DD00383C3C /* Config.cpp in Sources */,
 				7DA246DA1EABB5000077EB85 /* MouseInputFactory.cpp in Sources */,
-				7F71DC15C14848047E74BACE /* ofxXmlSettings.cpp in Sources */,
 				7DB3F7DB1E8DD1C90025498A /* SystemTrace.cpp in Sources */,
 				7DAA8B611E776C62005385DD /* Clips.cpp in Sources */,
-				F4AB8FB96030819DD310BB43 /* tinyxml.cpp in Sources */,
 				7D8B87DE1EA5485800A5201D /* CalibrationSettingsFactory.cpp in Sources */,
+				7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,
 				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
 				7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */,
@@ -472,7 +472,6 @@
 				7D7245BD1E7E4F92006E5653 /* HistoryLayer.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */,
 				7D42EEE41EA2F45100383C3C /* DataInputFactory.cpp in Sources */,
-				EF25968535CD7F4428AC8DB7 /* tinyxmlerror.cpp in Sources */,
 				7DA246DC1EABBAB70077EB85 /* CalibrationSettings.cpp in Sources */,
 				7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */,
 				7D42EEEA1EA300DB00383C3C /* ValueInputFactory.cpp in Sources */,
@@ -483,7 +482,6 @@
 				7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */,
 				7D42EEE71EA2F6BB00383C3C /* ArduinoInputFactory.cpp in Sources */,
 				7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */,
-				2FCF75D245698076F92EA589 /* tinyxmlparser.cpp in Sources */,
 				7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,8 +519,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/src,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/libs,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				ONLY_ACTIVE_ARCH = YES;
@@ -539,7 +537,7 @@
 			baseConfigurationReference = E4EB6923138AFD0F00A09F29 /* Project.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(SRCROOT)/bin/";
-				COPY_PHASE_STRIP = YES;
+				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
 				GCC_AUTO_VECTORIZATION = YES;
 				GCC_ENABLE_SSE3_EXTENSIONS = YES;
@@ -557,8 +555,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/src,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/libs,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/src,
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
 				OTHER_CPLUSPLUSFLAGS = (
@@ -586,8 +584,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/src,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/libs,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/src,
 				);
 				ICON = "$(ICON_NAME_DEBUG)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";
@@ -615,8 +613,8 @@
 				HEADER_SEARCH_PATHS = (
 					"$(OF_CORE_HEADERS)",
 					src,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs,
-					../../of_v0.9.8_osx_release/addons/ofxXmlSettings/src,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/libs,
+					../../of_v0.9.8_osx_release/addons/ofxOMXPlayer/src,
 				);
 				ICON = "$(ICON_NAME_RELEASE)";
 				ICON_FILE = "$(ICON_FILE_PATH)$(ICON)";

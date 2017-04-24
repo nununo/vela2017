@@ -1,17 +1,19 @@
 //
-//  MovieOfVideoPlayer.h
+//  MovieOMXPlayer.h
 //  vela2017
 //
 //  Created by Nuno on 24/04/2017.
 //
 //
 
-#ifndef MovieOfVideoPlayer_h
-#define MovieOfVideoPlayer_h
+#ifndef MovieOMXPlayer_h
+#define MovieOMXPlayer_h
 
-#include "IMovie.h"
+#ifdef TARGET_RASPBERRY_PI
 
-class MovieOfVideoPlayer: public IMovie {
+#include "ofxOMXPlayer.h"
+
+class MovieOMXPlayer: public IMovie {
 public:
   MovieOfVideoPlayer(string filename);
   virtual string getFilename() {return filename;}
@@ -24,11 +26,12 @@ public:
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
   virtual void setLoop(bool loop);
-
+  
 private:
   string filename;
-  ofVideoPlayer *movie;
+  ofxOMXPlayer *movie;
 };
 
+#endif
 
-#endif /* MovieOfVideoPlayer_h */
+#endif /* MovieOMXPlayer_h */
