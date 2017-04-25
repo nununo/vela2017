@@ -39,11 +39,11 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
 }
 
 //--------------------------------------------------------------
-DataInput* DataInputFactory::create(ofXml *xml, CalibrationSettings *_calibrationSettings) {
+DataInput* DataInputFactory::create(ofXml *xml, CalibrationSettings *_calibrationSettings, string namePrefix) {
   CalibrationSettings *calibrationSettings = NULL;
   
   if (Util::stringToBool(xml->getAttribute("calibrated")))
     calibrationSettings = _calibrationSettings;
   
-  return createAux(xml, calibrationSettings);
+  return createAux(xml, calibrationSettings, namePrefix);
 }

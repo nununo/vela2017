@@ -11,9 +11,14 @@
 #include "ValueInput.h"
 
 //--------------------------------------------------------------
-DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix) {
   
-  return new ValueInput(xml->getAttribute("name"),
+  string name = xml->getAttribute("name");
+  
+  if (namePrefix!="")
+    name = namePrefix + "." + name;
+  
+  return new ValueInput(name,
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT)),

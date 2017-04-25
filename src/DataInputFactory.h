@@ -23,12 +23,12 @@ namespace DataInputType {
 
 class DataInputFactory {
 public:  
-  DataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
+  DataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix="");
   
   static DataInputFactory* createFactory(string dataInputType);
 
 private:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings) = 0;
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix) = 0;
 
 };
 

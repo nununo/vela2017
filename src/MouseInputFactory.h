@@ -15,7 +15,7 @@
 
 class MouseInputFactory : public DataInputFactory {
 public:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings);
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix);
 };
 
 #endif /* MouseInputFactory_h */
