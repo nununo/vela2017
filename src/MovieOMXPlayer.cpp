@@ -32,7 +32,7 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::update() {
-  if (!loop && !isPaused() && getPosition()>0.8f && getPosition()==lastPosition) {
+  if (!loop && !isPaused() && getPosition()>0.8f && (getPosition()==lastPosition || getPosition()>1)) {
     finished = true;
   }
   lastPosition = getPosition();
