@@ -4,9 +4,9 @@
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-Clips::Clips(ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
+Clips::Clips(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
 
-  buildClipList(clipOutputSettings, levelSettings);
+  buildClipList(generalSettings, clipOutputSettings, levelSettings);
   
   // initialize random seed
   srand(time(NULL));
@@ -21,7 +21,7 @@ Clip *Clips::getRandomClip() {
 }
 
 //-----------------------------------------------------------------------
-void Clips::buildClipList(ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
+void Clips::buildClipList(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
 
   ofDirectory oDir;
   
@@ -29,7 +29,7 @@ void Clips::buildClipList(ClipOutputSettings *clipOutputSettings, LevelSettings 
   
   // Load movies into vector
   for(int i = 0; i < nFiles; i++){
-    list.push_back(new Clip(clipOutputSettings, levelSettings, MovieFactory::create(oDir.getPath(i), levelSettings->getLoop())));
+    list.push_back(new Clip(clipOutputSettings, levelSettings, MovieFactory::create(oDir.getPath(i), levelSettings->getLoop(), generalSettings)));
     ofLogNotice() << "Loaded movie " << oDir.getPath(i);
   }
 }

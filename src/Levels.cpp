@@ -10,11 +10,11 @@
 #include "Clips.h"
 
 //--------------------------------------------------------------
-Levels::Levels(ClipOutputSettings *clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
+Levels::Levels(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
 
   for (int i=0; i<4; i++) {
     ofLogNotice() << "Loading level " << i;
-    levels.push_back(new Clips(clipOutputSettings, levelSettingsList[i]));
+    levels.push_back(new Clips(generalSettings, clipOutputSettings, levelSettingsList[i]));
   }
 };
 

@@ -10,10 +10,11 @@
 #define MovieFactory_h
 
 #include "IMovie.h"
+#include "GeneralSettings.h"
 
 class MovieFactory {
 public:
-  static IMovie* create(string filename, bool loop);
+  static IMovie* create(string filename, bool loop, GeneralSettings *generalSettings);
 };
 
 #endif /* MovieFactory_h */

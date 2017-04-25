@@ -11,20 +11,21 @@
 
 class GeneralSettings {
 public:
-  GeneralSettings(int framerate, bool isFullscreen, bool showTrace, bool showHistory);
+  GeneralSettings(int framerate, bool isFullscreen, bool showTrace, bool showHistory, bool useOmxPlayer);
   int getFramerate() {return framerate;}
   bool getIsFullscreen() {return isFullscreen;}
   bool getShowTrace() {return showTrace;}
   bool getShowHistory() {return showHistory;}
+  bool getUseOmxPlayer() {return useOmxPlayer;}
   void setIsFullscreen(bool _isFullScreen) {isFullscreen=_isFullScreen;}
   void setShowTrace(bool _showTrace) {showTrace=_showTrace;}
   void setShowHistory(bool _showHistory) {showHistory=_showHistory;}
-  
 private:
   int framerate;
   bool isFullscreen;
   bool showTrace;
   bool showHistory;
+  bool useOmxPlayer;
 };
 
 #endif /* GeneralSettings_h */

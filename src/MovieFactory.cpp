@@ -10,10 +10,13 @@
 #include "MovieOfVideoPlayer.h"
 #include "MovieOMXPlayer.h"
 
-IMovie* MovieFactory::create(string filename, bool loop) {
+IMovie* MovieFactory::create(string filename, bool loop, GeneralSettings *generalSettings) {
 
 #ifdef TARGET_RASPBERRY_PI
-  return new MovieOMXPlayer(filename, loop);
+  if (generalSettings->getUseOmxPlayer())
+    return new MovieOMXPlayer(filename, loop);
+  else
+    return new MovieOfVideoPlayer(filename, loop);
 #else
   return new MovieOfVideoPlayer(filename, loop);
 #endif
