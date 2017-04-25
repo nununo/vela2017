@@ -21,7 +21,7 @@ public:
   virtual bool isFinished() {return finished;}
   virtual float getPosition() {return ((float)movie.getCurrentFrame())/(float)movie.getTotalNumFrames();}
   virtual float getDuration() {return movie.getDurationInSeconds();}
-  virtual void rewind() {movie.restartMovie();}
+  virtual void rewind() {finished=false; lastPosition=-1; movie.restartMovie();}
   virtual void update();
   virtual void draw(float x, float y, float width, float height);
   virtual void setPaused(bool pause=true) {movie.setPaused(pause);}
