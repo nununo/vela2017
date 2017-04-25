@@ -83,7 +83,7 @@ GeneralSettings* Config::createGeneralSettings() {
                         xml.getBoolValue("fullscreen"),
                         xml.getBoolValue("showTrace"),
                         xml.getBoolValue("showHistory"),
-                        xml.getBoolValue("userOmxPlayer"));
+                        xml.getBoolValue("useOmxPlayer"));
   
   xml.setToParent();
   
