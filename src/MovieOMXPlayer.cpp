@@ -11,7 +11,7 @@
 #include "MovieOMXPlayer.h"
 
 //--------------------------------------------------------------
-MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
+MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 
   filename = ofToDataPath(_filename, true);
 
@@ -27,11 +27,12 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
   
   lastPosition = -1;
   finished = false;
+  loop = _loop;
 }
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::update() {
-  if (getPosition() == lastPosition) {
+  if (!loop && !isPaused() && getPosition() == lastPosition) {
     finished = true;
   }
   lastPosition = getPosition();

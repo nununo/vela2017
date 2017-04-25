@@ -16,7 +16,7 @@
 
 class MovieOMXPlayer: public IMovie {
 public:
-  MovieOMXPlayer(string filename, bool loop);
+  MovieOMXPlayer(string filename, bool _loop);
   virtual string getFilename() {return filename;}
   virtual bool isFinished() {return finished;}
   virtual float getPosition() {return ((float)movie.getCurrentFrame())/(float)movie.getTotalNumFrames();}
@@ -31,6 +31,7 @@ private:
   string filename;
   float lastPosition;
   bool finished;
+  bool loop;
   ofxOMXPlayer movie;
 };
 
