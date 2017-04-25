@@ -17,9 +17,9 @@ TraceLayer::TraceLayer() {
 //--------------------------------------------------------------
 void TraceLayer::update() {
   stringstream ss;
-  
+
   vector<ITrace*>::iterator it;
-  
+
   for (it = list.begin(); it != list.end(); it++)
     ss << (*it)->getTrace();
 
@@ -31,8 +31,8 @@ void TraceLayer::drawAlgorithm() {
 
   float v = 0.05 * (float)ofGetWidth();
   glTranslatef(v, v, 0);
-  
-  ofSetColor(ofColor::white);
+
+  //ofSetColor(ofColor::white);
 
   font.drawString(text, 0, 0);
 

@@ -19,10 +19,10 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
   ofxOMXPlayerSettings settings;
   settings.videoPath = filename;
   settings.useHDMIForAudio = true;	//default true
-  settings.enableTexture = true;		//default true
+  settings.enableTexture = false;		//default true
   settings.enableLooping = loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
-  //settings.doFlipTexture = true;		//default false
+
 
   movie.setup(settings);
 }
@@ -35,11 +35,11 @@ void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha
   else
     ofEnableAlphaBlending();
 
-  ofSetColor(ofColor::white);
-  
+  //ofSetColor(ofColor::white);
+
   movie.setAlpha(alpha);
   movie.draw(x, y, width, height);
-  
+
   ofDisableAlphaBlending();
 }
 

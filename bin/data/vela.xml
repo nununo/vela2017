@@ -51,7 +51,7 @@
   <inputs>
     <input type="keyboard" enabled="1"/>
     <input type="mouse" enabled="0" inverted="0" calibrated="1"/>
-    <input type="autoFlicker" enabled="0">
+    <input type="autoFlicker" enabled="1">
       <minPeriod>10000</minPeriod>
     </input>
     <input type="arduino" enabled="0" calibrated="1">
