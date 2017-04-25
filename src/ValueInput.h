@@ -12,6 +12,7 @@
 #include "Constants.h"
 #include "DataInput.h"
 #include "Calibration.h"
+#include "NameFloatEventArgs.h"
 
 class ValueInput : public DataInput {
 public:
@@ -31,6 +32,9 @@ public:
 
   void setValue(int _value);
 
+  // Event
+  static ofEvent<NameFloatEventArgs> newValue;
+
 private:
   float thresholdOffset[4];
   float lastValue;
@@ -39,6 +43,7 @@ private:
   
   float getThresholdOffset(blowIntensityType blowIntensity) {return thresholdOffset[blowIntensity];}
   void setThresholdOffset(blowIntensityType blowIntensity, float value) {thresholdOffset[blowIntensity]=value;}
+  void broadcastNewValueEvent();
   
 };
 

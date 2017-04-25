@@ -11,6 +11,9 @@
 #include <sstream>
 using namespace std;
 
+// the static event, or any static variable, must be initialized outside of the class definition.
+ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();
+
 //--------------------------------------------------------------
 ValueInput::ValueInput(string name,
                        float lowThreshold,
@@ -68,6 +71,14 @@ void ValueInput::setValue(int value) {
   
   if (calibration)
     setThresholdOffset(BLOW_INTENSITY_IDLE, calibration->getOffset(value));
+  
+  broadcastNewValueEvent();
+}
+
+//--------------------------------------------------------------
+void ValueInput::broadcastNewValueEvent() {
+  NameFloatEventArgs evenArgs = NameFloatEventArgs(getName(), lastValue);
+  ofNotifyEvent(newValue, evenArgs);
 }
 
 //--------------------------------------------------------------
