@@ -17,7 +17,7 @@ IDataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *cali
   if (arduinoInput->connect())
     addValueInputs(arduinoInput, xml, calibrationSettings);
   
-  return new ArduinoInput();
+  return arduinoInput;
 }
 
 //--------------------------------------------------------------
