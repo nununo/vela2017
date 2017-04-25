@@ -20,9 +20,9 @@ Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSetting
   
   fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
-
-  alpha = 0;
-  }
+  
+  alpha=0;
+}
 
 //-----------------------------------------------------------------------
 float Clip::timeToPercentage(float fadeTime) {
@@ -35,18 +35,16 @@ void Clip::update() {
   pause(false);
   
   movie->update();
-
   alpha = calcAlpha();
+  movie->setAlpha(alpha);
 }
 
 //-----------------------------------------------------------------------
 void Clip::draw() {
-  
   movie->draw(clipOutputSettings->getOffsetX(),
               clipOutputSettings->getOffsetY(),
               ofGetWidth()*clipOutputSettings->getZoomX(),
-              ofGetHeight()*clipOutputSettings->getZoomY(),
-              getAlpha());
+              ofGetHeight()*clipOutputSettings->getZoomY());
 }
 
 

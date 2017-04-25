@@ -28,8 +28,8 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
 }
 
 //--------------------------------------------------------------
-void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha) {
-
+void MovieOMXPlayer::draw(float x, float y, float width, float height) {
+/*
   if (alpha == ALPHA_MAX)
     ofDisableAlphaBlending();
   else
@@ -41,6 +41,7 @@ void MovieOMXPlayer::draw(float x, float y, float width, float height, int alpha
   movie.draw(x, y, width, height);
 
   ofDisableAlphaBlending();
+*/
 }
 
 #endif
