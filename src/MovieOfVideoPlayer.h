@@ -20,7 +20,7 @@ public:
   virtual float getDuration() {return movie->getDuration();}
   virtual void rewind() {movie->setPosition(0); movie->play();}
   virtual void update() {movie->update();}
-  virtual void draw(float x, float y, float width, float height, int alpha);
+  virtual void draw(float x, float y, float width, float height);
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
 
