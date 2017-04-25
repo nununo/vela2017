@@ -28,6 +28,8 @@ public:
   virtual bool isPaused() {return movie.isPaused();}
   
 private:
+  void calcFinished();
+  
   string filename;
   float lastPosition;
   bool finished;

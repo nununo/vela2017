@@ -9,7 +9,7 @@
 #include "MouseInput.h"
 
 //--------------------------------------------------------------
-MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) {
+MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) : DataInput("mouse") {
   if (!inverted)
     valueInput = new ValueInput("mouse",
                                 1*(float)ofGetScreenHeight()/4,

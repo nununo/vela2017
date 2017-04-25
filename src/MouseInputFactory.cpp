@@ -8,7 +8,7 @@
 
 #include "MouseInputFactory.h"
 
-IDataInput* MouseInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+DataInput* MouseInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
   
   return new MouseInput(Util::stringToBool(xml->getAttribute("inverted")), calibrationSettings);
 }

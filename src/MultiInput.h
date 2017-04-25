@@ -9,15 +9,16 @@
 #ifndef MultiInput_h
 #define MultiInput_h
 
-#include "IDataInput.h"
+#include "DataInput.h"
 #include <vector>
 using namespace std;
 
-class MultiInput: public IDataInput {
+class MultiInput: public DataInput {
 public:
+  MultiInput() : DataInput("multi") {}
   ~MultiInput() {dataInputs.clear();}; // XXX This probably leaks
 
-  // IDataInput
+  // DataInput
   virtual void update();
   virtual blowIntensityType getBlowIntensity();
   
@@ -25,10 +26,10 @@ public:
   virtual string getTrace();
   
   // Own
-  void add(IDataInput *_dataInput);
+  void add(DataInput *_dataInput);
 
 private:
-  vector<IDataInput*> dataInputs;
+  vector<DataInput*> dataInputs;
 };
 
 #endif /* MultiInput_h */

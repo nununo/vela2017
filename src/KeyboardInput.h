@@ -12,12 +12,12 @@
 #include "ValueInput.h"
 #include "ofMain.h"
 
-class KeyboardInput: public IDataInput {
+class KeyboardInput: public DataInput {
 public:
   KeyboardInput();
   ~KeyboardInput() {ofUnregisterKeyEvents(this);}
   
-  //IDataInput
+  //DataInput
   virtual void update() {}
   virtual blowIntensityType getBlowIntensity() {return valueInput->getBlowIntensity();}
   

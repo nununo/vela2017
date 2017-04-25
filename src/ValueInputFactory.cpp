@@ -11,7 +11,7 @@
 #include "ValueInput.h"
 
 //--------------------------------------------------------------
-IDataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
   
   return new ValueInput(xml->getAttribute("name"),
                         xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),

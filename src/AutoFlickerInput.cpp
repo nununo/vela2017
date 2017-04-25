@@ -10,7 +10,7 @@
 #include "ofMain.h"
 
 //--------------------------------------------------------------
-AutoFlickerInput::AutoFlickerInput(int _minPeriod) {
+AutoFlickerInput::AutoFlickerInput(int _minPeriod) : DataInput("autoFlicker") {
   minPeriod = _minPeriod;
   isFlickerTime = false;
   lastTime = ofGetElapsedTimeMillis();
@@ -46,7 +46,7 @@ blowIntensityType AutoFlickerInput::getBlowIntensity() {
 string AutoFlickerInput::getTrace() {
   stringstream ss;
 
-  ss << "Auto Flicker input: min period: " << minPeriod << " lastTime: " << lastTime << "\n";
+  ss << getName() << ": min period: " << minPeriod << " lastTime: " << lastTime << "\n";
 
   return ss.str();
 }

@@ -2,7 +2,7 @@
   <general>
     <framerate>25</framerate>
     <fullscreen>1</fullscreen>
-    <showTrace>0</showTrace>
+    <showTrace>1</showTrace>
     <showHistory>0</showHistory>
     <useOmxPlayer>1</useOmxPlayer>
   </general>
@@ -50,11 +50,11 @@
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
-    <input type="mouse" enabled="0" inverted="0" calibrated="1"/>
-    <input type="autoFlicker" enabled="0">
+    <input type="mouse" enabled="1" inverted="0" calibrated="1"/>
+    <input type="autoFlicker" enabled="1">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" enabled="0" calibrated="1">
+    <input type="arduino" enabled="1" calibrated="1">
       <devices>
         <device name="mac">cu.usbmodem1421</device>
         <device name="pi">/dev/ttyUSB0</device>

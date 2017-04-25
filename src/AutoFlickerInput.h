@@ -9,14 +9,14 @@
 #ifndef AutoFlickerInput_h
 #define AutoFlickerInput_h
 
-#include "IDataInput.h"
+#include "DataInput.h"
 
-class AutoFlickerInput: public IDataInput {
+class AutoFlickerInput: public DataInput {
 public:
   AutoFlickerInput(int _minPeriod);
   ~AutoFlickerInput() {};
 
-  // IDataInput
+  // DataInput
   virtual void update();
   virtual blowIntensityType getBlowIntensity();
 

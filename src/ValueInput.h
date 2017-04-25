@@ -10,19 +10,19 @@
 #define ValueInput_h
 
 #include "Constants.h"
-#include "IDataInput.h"
+#include "DataInput.h"
 #include "Calibration.h"
 
-class ValueInput : public IDataInput {
+class ValueInput : public DataInput {
 public:
-  ValueInput(string _name,
+  ValueInput(string name,
              float lowThreshold,
              float highThreshold,
              float blowOutThreshold,
              bool inverted,
              CalibrationSettings* calibrationSettings=NULL);
 
-  // IDataInput
+  // DataInput
   virtual void update() {}
   virtual blowIntensityType getBlowIntensity();
 
@@ -32,7 +32,6 @@ public:
   void setValue(int _value);
 
 private:
-  string name;
   float thresholdOffset[4];
   float lastValue;
   bool inverted;

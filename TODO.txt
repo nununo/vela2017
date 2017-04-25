@@ -1,4 +1,4 @@
-- History could get values from any IDataInput (Observer pattern) (ofEvent?)
+- History could get values from any DataInput (Observer pattern) (ofEvent?)
 - Add indent parameter to getTrace
 - Try omxPlayer in RPI
 - Review clip output rotation/translation

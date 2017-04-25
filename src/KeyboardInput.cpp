@@ -9,11 +9,11 @@
 #include "KeyboardInput.h"
 
 //--------------------------------------------------------------
-KeyboardInput::KeyboardInput() {
+KeyboardInput::KeyboardInput() : DataInput("keyboard") {
 
   ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
 
-  valueInput = new ValueInput("keyboard",
+  valueInput = new ValueInput(getName(),
                               1,
                               2,
                               3,

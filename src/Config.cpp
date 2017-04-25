@@ -26,7 +26,7 @@ bool Config::setup(string filename) {
 }
 
 //--------------------------------------------------------------
-IDataInput* Config::createDataInputs() {
+DataInput* Config::createDataInputs() {
   
   MultiInput *multiInput;
   

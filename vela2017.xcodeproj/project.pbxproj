@@ -78,7 +78,7 @@
 		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
 		7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOMXPlayer.cpp; sourceTree = "<group>"; };
 		7D11675B1EAD7D8E00098A21 /* MovieOMXPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieOMXPlayer.h; sourceTree = "<group>"; };
-		7D42A3B31E78BAA60097B54C /* IDataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IDataInput.h; sourceTree = "<group>"; };
+		7D42A3B31E78BAA60097B54C /* DataInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataInput.h; sourceTree = "<group>"; };
 		7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputIntensity.cpp; sourceTree = "<group>"; };
 		7D42A3BD1E78C9C80097B54C /* InputIntensity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputIntensity.h; sourceTree = "<group>"; };
 		7D42EED71EA2BC3000383C3C /* DataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataInputFactory.h; sourceTree = "<group>"; };
@@ -294,7 +294,7 @@
 				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
 				7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */,
 				7D60A9111E9961F3009FF4F2 /* MultiInput.h */,
-				7D42A3B31E78BAA60097B54C /* IDataInput.h */,
+				7D42A3B31E78BAA60097B54C /* DataInput.h */,
 				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
 				7D42A3BD1E78C9C80097B54C /* InputIntensity.h */,
 				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,

@@ -10,14 +10,14 @@
 #include <sstream>
 
 //-----------------------------------------------------------------------
-void MultiInput::add(IDataInput *dataInput) {
+void MultiInput::add(DataInput *dataInput) {
   if (dataInput)
     dataInputs.push_back(dataInput);
 }
 
 //-----------------------------------------------------------------------
 void MultiInput::update() {
-  vector<IDataInput*>::iterator it;
+  vector<DataInput*>::iterator it;
     
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
     (*it)->update();
@@ -29,7 +29,7 @@ blowIntensityType MultiInput::getBlowIntensity() {
   blowIntensityType eachIntensity;
   blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
   
-  vector<IDataInput*>::iterator it;
+  vector<DataInput*>::iterator it;
   
   for (it = dataInputs.begin(); it != dataInputs.end(); it++) {
     eachIntensity = (*it)->getBlowIntensity();
@@ -45,9 +45,9 @@ blowIntensityType MultiInput::getBlowIntensity() {
 string MultiInput::getTrace() {
   stringstream ss;
   
-  ss << "MultiInput:\n";
+  ss << getName() << endl;
 
-  vector<IDataInput*>::iterator it;
+  vector<DataInput*>::iterator it;
 
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
     ss << "  " << (*it)->getTrace();

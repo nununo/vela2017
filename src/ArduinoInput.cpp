@@ -88,7 +88,7 @@ blowIntensityType ArduinoInput::getBlowIntensity() {
 string ArduinoInput::getTrace() {
   stringstream ss;
   
-  ss << "Arduino input device " << device << " initialized: " << serial.isInitialized() << "\n";
+  ss << getName() << ": " << device << " initialized: " << serial.isInitialized() << "\n";
 
   vector<ValueInput*>::iterator it;
   for(it=valueInputs.begin() ; it < valueInputs.end(); it++)

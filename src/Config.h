@@ -10,7 +10,7 @@
 #define Config_h
 
 #include "ofMain.h"
-#include "IDataInput.h"
+#include "DataInput.h"
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
 #include "CalibrationSettings.h"
@@ -22,7 +22,7 @@ class Config {
 public:
   bool setup(string filename);
   
-  IDataInput* createDataInputs();
+  DataInput* createDataInputs();
   ClipOutputSettings* createClipOutputSettings();
   GeneralSettings* createGeneralSettings();
   CalibrationSettings *createCalibrationSettings();

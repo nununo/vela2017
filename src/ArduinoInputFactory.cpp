@@ -10,7 +10,7 @@
 #include "ValueInputFactory.h"
 
 //--------------------------------------------------------------
-IDataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
   ArduinoInput *arduinoInput = new ArduinoInput();
   
   addDevices(arduinoInput, xml);

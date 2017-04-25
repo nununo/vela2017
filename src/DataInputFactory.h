@@ -10,7 +10,7 @@
 #define DataInputFactory_h
 
 #include "ofMain.h"
-#include "IDataInput.h"
+#include "DataInput.h"
 #include "CalibrationSettings.h"
 
 namespace DataInputType {
@@ -23,12 +23,12 @@ namespace DataInputType {
 
 class DataInputFactory {
 public:  
-  IDataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
+  DataInput* create(ofXml *xml, CalibrationSettings *calibrationSettings=NULL);
   
   static DataInputFactory* createFactory(string dataInputType);
 
 private:
-  virtual IDataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings) = 0;
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings) = 0;
 
 };
 

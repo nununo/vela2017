@@ -9,12 +9,13 @@
 #ifndef ArduinoInput_h
 #define ArduinoInput_h
 
-#include "IDataInput.h"
+#include "DataInput.h"
 #include "ValueInput.h"
 #include "ofMain.h"
 
-class ArduinoInput: public IDataInput {
+class ArduinoInput: public DataInput {
 public:
+  ArduinoInput() : DataInput("arduino") {}
   ~ArduinoInput() {};
   
   void addDevice(string device) {devices.push_back(device);}
@@ -22,7 +23,7 @@ public:
   bool connect();
   bool isEnabled() {return serial.isInitialized();}
   
-  //IDataInput
+  //DataInput
   virtual void update();
   virtual blowIntensityType getBlowIntensity();
 

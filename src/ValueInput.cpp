@@ -12,13 +12,12 @@
 using namespace std;
 
 //--------------------------------------------------------------
-ValueInput::ValueInput(string _name,
+ValueInput::ValueInput(string name,
                        float lowThreshold,
                        float highThreshold,
                        float blowOutThreshold,
                        bool _inverted,
-                       CalibrationSettings* calibrationSettings) {
-  name = _name;
+                       CalibrationSettings* calibrationSettings) : DataInput(name) {
   inverted = _inverted;
   
   if (calibrationSettings)
@@ -75,7 +74,7 @@ void ValueInput::setValue(int value) {
 string ValueInput::getTrace() {
   stringstream ss;
   
-  ss << name << ": |";
+  ss << getName() << ": |";
   
   ss << roundf((getThresholdOffset(BLOW_INTENSITY_IDLE))*100)/100 << "| ";
 

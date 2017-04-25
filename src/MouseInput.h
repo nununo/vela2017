@@ -12,12 +12,12 @@
 #include "ValueInput.h"
 #include "ofMain.h"
 
-class MouseInput: public IDataInput {
+class MouseInput: public DataInput {
 public:
   MouseInput(bool inverted, CalibrationSettings *calibrationSettings);
   ~MouseInput() {}
   
-  // IDataInput
+  // DataInput
   virtual void update() {valueInput->setValue(ofGetScreenHeight()-ofGetMouseY());};
   virtual blowIntensityType getBlowIntensity() {return valueInput->getBlowIntensity();}
 
