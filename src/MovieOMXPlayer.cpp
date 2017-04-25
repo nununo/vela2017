@@ -40,9 +40,6 @@ void MovieOMXPlayer::update() {
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::draw(float x, float y, float width, float height) {
-
-  if (finished)
-    return;
   
   ofPushStyle();
   
