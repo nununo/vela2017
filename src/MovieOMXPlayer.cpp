@@ -19,7 +19,7 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
   ofxOMXPlayerSettings settings;
   settings.videoPath = filename;
   settings.useHDMIForAudio = true;	//default true
-  settings.enableTexture = false;		//default true
+  settings.enableTexture = true;		//default true
   settings.enableLooping = loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
 
@@ -29,19 +29,21 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::draw(float x, float y, float width, float height) {
-/*
+
+  ofPushStyle();
+  
   if (alpha == ALPHA_MAX)
     ofDisableAlphaBlending();
   else
     ofEnableAlphaBlending();
 
-  //ofSetColor(ofColor::white);
+  ofSetColor(255,255,255,alpha);
 
-  movie.setAlpha(alpha);
   movie.draw(x, y, width, height);
 
   ofDisableAlphaBlending();
-*/
+  
+  ofPopStyle();
 }
 
 #endif
