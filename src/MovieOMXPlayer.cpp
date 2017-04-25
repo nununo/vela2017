@@ -23,13 +23,26 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool loop) {
   settings.enableLooping = loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
 
-
   movie.setup(settings);
+  
+  lastPosition = -1;
+  finished = false;
+}
+
+//--------------------------------------------------------------
+void MovieOMXPlayer::update() {
+  if (getPosition() == lastPosition) {
+    finished = true;
+  }
+  lastPosition = getPosition();
 }
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::draw(float x, float y, float width, float height) {
 
+  if (finished)
+    return;
+  
   ofPushStyle();
   
   if (getAlpha() == ALPHA_MAX)
