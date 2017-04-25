@@ -11,16 +11,16 @@
 
 //-----------------------------------------------------------------------
 Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie* _movie) {
-  
+
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
   movie = _movie;
-  
+
   pause();
-  
+
   fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
-  
+
   alpha=0;
 }
 
@@ -31,9 +31,9 @@ float Clip::timeToPercentage(float fadeTime) {
 
 //-----------------------------------------------------------------------
 void Clip::update() {
-  
+
   pause(false);
-  
+
   movie->update();
   alpha = calcAlpha();
   movie->setAlpha(alpha);
