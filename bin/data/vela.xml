@@ -60,26 +60,20 @@
         <device name="pi">/dev/ttyUSB0</device>
       </devices>
       <analogInputs>
-        <analogInput name="left" enabled="1">
-          <min>490</min>
-          <low>522</low>
-          <high>524</high>
-          <blowOut>530</blowOut>
-          <max>600</max>
+        <analogInput name="left" enabled="1" inverted="1" calibrated="1">
+          <low>2</low>
+          <high>7</high>
+          <blowOut>15</blowOut>
         </analogInput>
-        <analogInput name="right" enabled="0">
-          <min>490</min>
-          <low>500</low>
-          <high>505</high>
-          <blowOut>510</blowOut>
-          <max>600</max>
+        <analogInput name="right" enabled="0" inverted="1" calibrated="1">
+          <low>5</low>
+          <high>15</high>
+          <blowOut>30</blowOut>
         </analogInput>
-        <analogInput name="top" enabled="0">
-          <min>490</min>
-          <low>540</low>
-          <high>545</high>
-          <blowOut>555</blowOut>
-          <max>600</max>
+        <analogInput name="top" enabled="0" inverted="1" calibrated="1">
+          <low>5</low>
+          <high>15</high>
+          <blowOut>30</blowOut>
         </analogInput>
       </analogInputs>
     </input>

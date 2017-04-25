@@ -25,9 +25,9 @@ ValueInput::ValueInput(string _name,
     calibration = new Calibration(calibrationSettings);
 
   setThresholdOffset(BLOW_INTENSITY_IDLE, 0);
-  setThresholdOffset(BLOW_INTENSITY_LOW, lowThreshold);
-  setThresholdOffset(BLOW_INTENSITY_HIGH, highThreshold);
-  setThresholdOffset(BLOW_INTENSITY_BLOWOUT, blowOutThreshold);
+  setThresholdOffset(BLOW_INTENSITY_LOW, (inverted?-lowThreshold:lowThreshold));
+  setThresholdOffset(BLOW_INTENSITY_HIGH, (inverted?-highThreshold:highThreshold));
+  setThresholdOffset(BLOW_INTENSITY_BLOWOUT, (inverted?-blowOutThreshold:blowOutThreshold));
   
   lastValue = 0;
 }
