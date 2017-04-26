@@ -9,6 +9,7 @@
 #include "SystemTrace.h"
 #include "ofMain.h"
 
+//--------------------------------------------------------------
 string SystemTrace::getTrace() {
   stringstream ss;
   

@@ -10,12 +10,11 @@
 #define ITrace_h
 
 #include <string>
-using namespace std;
 
 class ITrace {
 public:
   virtual ~ITrace() {}
-  virtual string getTrace() = 0;
+  virtual std::string getTrace() = 0;
 };
 
 #endif /* ITrace_h */

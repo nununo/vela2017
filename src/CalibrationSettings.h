@@ -22,7 +22,7 @@ public:
   int getExcentricSize() {return excentricSize;}
   int getSkipSize() {return skipSize;}
   
-  string getTrace();
+  std::string getTrace();
 
 private:
   int historySize;

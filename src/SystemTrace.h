@@ -13,7 +13,7 @@
 
 class SystemTrace : public ITrace {
   ~SystemTrace() {};
-  virtual string getTrace();
+  virtual std::string getTrace();
 };
 
 #endif /* SystemTrace_h */

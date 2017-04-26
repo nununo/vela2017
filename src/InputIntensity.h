@@ -18,7 +18,7 @@ public:
   void update();
   
   // ITrace
-  virtual string getTrace();
+  virtual std::string getTrace();
   
 private:
   DataInput *dataInput;

@@ -6,8 +6,6 @@
 #include "Layer.h"
 #include "ITrace.h"
 
-using namespace std;
-
 class ClipLayer: public Layer, public ITrace {
 
 public:
@@ -15,18 +13,20 @@ public:
   virtual ~ClipLayer();
   void update();
   void pause(bool value=true) {clip->pause(value);}
-  virtual void drawAlgorithm();
   bool isOpaque() {return clip->isOpaque();}
   int getIntensity() {return intensity;}
   bool getCanRestart() {return clip->getCanRestart();}
   
   // ITrace
   virtual string getTrace();
+
+protected:
+  virtual void drawAlgorithm();
   
 private:
   float getPosition() {return clip->getPosition();}
   float getAlpha() {return clip->getAlpha();}
-  string getFilename() {return clip->getFilename();}
+  std::string getFilename() {return clip->getFilename();}
 
   Clip *clip;
   int intensity;

@@ -18,7 +18,7 @@ public:
   ~Calibration() { delete [] history;}
   float getOffset(float value);
   
-  string getTrace();
+  std::string getTrace();
 
 private:
   CalibrationSettings *settings;

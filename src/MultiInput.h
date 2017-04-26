@@ -11,7 +11,6 @@
 
 #include "DataInput.h"
 #include <vector>
-using namespace std;
 
 class MultiInput: public DataInput {
 public:
@@ -23,13 +22,13 @@ public:
   virtual blowIntensityType getBlowIntensity();
   
   // ITrace
-  virtual string getTrace();
+  virtual std::string getTrace();
   
   // Own
   void add(DataInput *_dataInput);
 
 private:
-  vector<DataInput*> dataInputs;
+  std::vector<DataInput*> dataInputs;
 };
 
 #endif /* MultiInput_h */

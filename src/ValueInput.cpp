@@ -9,7 +9,6 @@
 #include "ValueInput.h"
 #include "Util.h"
 #include <sstream>
-using namespace std;
 
 // the static event, or any static variable, must be initialized outside of the class definition.
 ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();

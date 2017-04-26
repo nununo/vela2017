@@ -8,10 +8,9 @@
 
 #include "CalibrationSettings.h"
 #include <sstream>
-using namespace std;
 
-string CalibrationSettings::getTrace() {
-  stringstream ss;
+std::string CalibrationSettings::getTrace() {
+  std::stringstream ss;
   ss  << " (" << getHistorySize() << "," << getExcentricSize() << "," << getSkipSize() << ") ";
   return ss.str();
 }

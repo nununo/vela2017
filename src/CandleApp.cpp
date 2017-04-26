@@ -16,7 +16,8 @@ void CandleApp::setup(){
   clipLayers = new ClipLayers(new Levels(generalSettings, clipOutputSettings, config.createLevelSettingsList()),
                               clipOutputSettings->getRotation());
   
-  historyLayer.setVisible(generalSettings->getShowHistory());
+  valueHistoriesLayer = new ValueHistoriesLayer(100); // XXX
+  valueHistoriesLayer->setVisible(generalSettings->getShowHistory());
 
   inputIntensity = new InputIntensity(config.createDataInputs());
 
@@ -35,7 +36,6 @@ void CandleApp::setup(){
 //--------------------------------------------------------------
 void CandleApp::update(){
   inputIntensity->update();
-  historyLayer.saveValue(inputIntensity->getBlowIntensity());
   clipLayers->update(inputIntensity->getBlowIntensity());
   traceLayer.update();
 }
@@ -44,7 +44,7 @@ void CandleApp::update(){
 void CandleApp::draw(){
   clipLayers->draw();
   traceLayer.draw();
-  historyLayer.draw();
+  valueHistoriesLayer->draw();
 }
 
 //--------------------------------------------------------------
@@ -61,7 +61,7 @@ void CandleApp::keyPressed  (int key){
       outputTraceInfo();
       break;
     case 'h':
-      historyLayer.setVisible(!historyLayer.isVisible());
+      valueHistoriesLayer->setVisible(!valueHistoriesLayer->isVisible());
       break;
   }
 }
@@ -96,6 +96,3 @@ void CandleApp::setupTrace() {
   traceLayer.add(inputIntensity);
   traceLayer.add(clipLayers);
 }
-
-
-

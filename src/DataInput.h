@@ -14,14 +14,14 @@
 
 class DataInput : public ITrace {
 public:
-  DataInput(string _name) {name=_name;}
+  DataInput(std::string _name) {name=_name;}
   virtual ~DataInput() {}
   virtual void update() = 0;
   virtual blowIntensityType getBlowIntensity() = 0;
-  string getName() {return name;}
+  std::string getName() {return name;}
 
 private:
-  string name;
+  std::string name;
 };
 
 #endif /* DataInput_h */

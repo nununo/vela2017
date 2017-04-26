@@ -10,19 +10,18 @@
 #define LevelSettings_h
 
 #include <string>
-using namespace std;
 
 class LevelSettings {
 public:
-  LevelSettings(string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop, bool _canRestart);
-  string getMovieFolder() {return movieFolder;}
+  LevelSettings(std::string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop, bool _canRestart);
+  std::string getMovieFolder() {return movieFolder;}
   float getFadeInTime() {return fadeInTime;}
   float getFadeOutTime() {return fadeOutTime;}
   bool getLoop() {return loop;}
   bool getCanRestart() {return canRestart;}
   
 private:
-  string movieFolder;
+  std::string movieFolder;
   float fadeInTime;
   float fadeOutTime;
   bool loop;

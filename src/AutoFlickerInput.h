@@ -21,7 +21,7 @@ public:
   virtual blowIntensityType getBlowIntensity();
 
   // ITrace
-  virtual string getTrace();
+  virtual std::string getTrace();
   
 private:
   int minPeriod;

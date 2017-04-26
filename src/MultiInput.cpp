@@ -17,7 +17,7 @@ void MultiInput::add(DataInput *dataInput) {
 
 //-----------------------------------------------------------------------
 void MultiInput::update() {
-  vector<DataInput*>::iterator it;
+  std::vector<DataInput*>::iterator it;
     
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
     (*it)->update();
@@ -29,7 +29,7 @@ blowIntensityType MultiInput::getBlowIntensity() {
   blowIntensityType eachIntensity;
   blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
   
-  vector<DataInput*>::iterator it;
+  std::vector<DataInput*>::iterator it;
   
   for (it = dataInputs.begin(); it != dataInputs.end(); it++) {
     eachIntensity = (*it)->getBlowIntensity();
@@ -42,12 +42,12 @@ blowIntensityType MultiInput::getBlowIntensity() {
 }
 
 //-----------------------------------------------------------------------
-string MultiInput::getTrace() {
-  stringstream ss;
+std::string MultiInput::getTrace() {
+  std::stringstream ss;
   
-  ss << getName() << endl;
+  ss << getName() << std::endl;
 
-  vector<DataInput*>::iterator it;
+  std::vector<DataInput*>::iterator it;
 
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
     ss << "  " << (*it)->getTrace();

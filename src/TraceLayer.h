@@ -17,10 +17,12 @@ class TraceLayer : public Layer {
 public:
   TraceLayer();
   void add(ITrace *trace) {list.push_back(trace);}
-  void drawAlgorithm();
   void update();
   string getText() {return text;}
-  
+
+protected:
+  void drawAlgorithm();
+
 private:
   ofTrueTypeFont font;
   string text;
