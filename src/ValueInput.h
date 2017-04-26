@@ -11,17 +11,14 @@
 
 #include "Constants.h"
 #include "DataInput.h"
-#include "Calibration.h"
 #include "NameFloatEventArgs.h"
+#include "Thresholds.h"
 
 class ValueInput : public DataInput {
 public:
   ValueInput(string name,
-             float lowThreshold,
-             float highThreshold,
-             float blowOutThreshold,
-             bool inverted,
-             CalibrationSettings* calibrationSettings=NULL);
+             Thresholds thresholds,
+             bool inverted);
 
   // DataInput
   virtual void update() {}
@@ -31,18 +28,16 @@ public:
   virtual string getTrace();
 
   void setValue(int _value);
+  Thresholds* getThresholds() {return &thresholds;}
 
   // Event
   static ofEvent<NameFloatEventArgs> newValue;
 
 private:
-  float thresholdOffset[4];
+  Thresholds thresholds;
   float lastValue;
   bool inverted;
-  Calibration *calibration=NULL;
   
-  float getThresholdOffset(blowIntensityType blowIntensity) {return thresholdOffset[blowIntensity];}
-  void setThresholdOffset(blowIntensityType blowIntensity, float value) {thresholdOffset[blowIntensity]=value;}
   void broadcastNewValueEvent();
   
 };

@@ -19,9 +19,8 @@ DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibra
     name = namePrefix + "." + name;
   
   return new ValueInput(name,
-                        xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
-                        xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
-                        xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT)),
-                        Util::stringToBool(xml->getAttribute("inverted")),
-                        calibrationSettings);
+                        Thresholds(xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
+                                   xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
+                                   xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT))),
+                        Util::stringToBool(xml->getAttribute("inverted")));
 }

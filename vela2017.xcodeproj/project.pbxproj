@@ -20,7 +20,6 @@
 		7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */; };
 		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */; };
-		7D6AE47F1EA3F6A400617C31 /* Calibration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D6AE47D1EA3F6A400617C31 /* Calibration.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
 		7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */; };
 		7D8B87DE1EA5485800A5201D /* CalibrationSettingsFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D8B87DC1EA5485800A5201D /* CalibrationSettingsFactory.cpp */; };
@@ -37,6 +36,7 @@
 		7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */; };
 		7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */; };
 		7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */; };
+		7DB94A611EB14CF1008ADD74 /* CalibratedValueInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */; };
 		7DE285411EB00CE1005C3777 /* ValueHistories.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2853F1EB00CE1005C3777 /* ValueHistories.cpp */; };
 		7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE285421EB01506005C3777 /* ValueHistoriesLayer.cpp */; };
 		7DE285471EB01B3B005C3777 /* ValueHistoryLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE285451EB01B3B005C3777 /* ValueHistoryLayer.cpp */; };
@@ -109,8 +109,6 @@
 		7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFloatEventArgs.h; sourceTree = "<group>"; };
 		7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiInput.cpp; sourceTree = "<group>"; };
 		7D60A9111E9961F3009FF4F2 /* MultiInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiInput.h; sourceTree = "<group>"; };
-		7D6AE47D1EA3F6A400617C31 /* Calibration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Calibration.cpp; sourceTree = "<group>"; };
-		7D6AE47E1EA3F6A400617C31 /* Calibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Calibration.h; sourceTree = "<group>"; };
 		7D7245AC1E7DA83F006E5653 /* Clip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clip.cpp; sourceTree = "<group>"; };
 		7D7245AD1E7DA83F006E5653 /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClipOutputSettings.cpp; sourceTree = "<group>"; };
@@ -146,6 +144,8 @@
 		7DB90F041E7B6799000978EC /* AutoFlickerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoFlickerInput.h; sourceTree = "<group>"; };
 		7DB94A5D1EB146D6008ADD74 /* ThresholdsEventArgs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThresholdsEventArgs.h; sourceTree = "<group>"; };
 		7DB94A5E1EB14754008ADD74 /* Thresholds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Thresholds.h; sourceTree = "<group>"; };
+		7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalibratedValueInput.cpp; sourceTree = "<group>"; };
+		7DB94A601EB14CF1008ADD74 /* CalibratedValueInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibratedValueInput.h; sourceTree = "<group>"; };
 		7DE2853F1EB00CE1005C3777 /* ValueHistories.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueHistories.cpp; sourceTree = "<group>"; };
 		7DE285401EB00CE1005C3777 /* ValueHistories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueHistories.h; sourceTree = "<group>"; };
 		7DE285421EB01506005C3777 /* ValueHistoriesLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueHistoriesLayer.cpp; sourceTree = "<group>"; };
@@ -291,8 +291,6 @@
 				7D42EEEC1EA305DD00383C3C /* Config.h */,
 				7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */,
 				7D42EEF01EA315DF00383C3C /* GeneralSettings.h */,
-				7D6AE47D1EA3F6A400617C31 /* Calibration.cpp */,
-				7D6AE47E1EA3F6A400617C31 /* Calibration.h */,
 				7D8B87DC1EA5485800A5201D /* CalibrationSettingsFactory.cpp */,
 				7D8B87DD1EA5485800A5201D /* CalibrationSettingsFactory.h */,
 				7DA246DB1EABBAB70077EB85 /* CalibrationSettings.cpp */,
@@ -324,8 +322,10 @@
 				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
 				7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */,
 				7DB90F041E7B6799000978EC /* AutoFlickerInput.h */,
-				7DABC4161E9AA759006BEB5F /* ValueInput.h */,
 				7DABC4171E9AB847006BEB5F /* ValueInput.cpp */,
+				7DABC4161E9AA759006BEB5F /* ValueInput.h */,
+				7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */,
+				7DB94A601EB14CF1008ADD74 /* CalibratedValueInput.h */,
 			);
 			name = inputs;
 			sourceTree = "<group>";
@@ -491,6 +491,7 @@
 				7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */,
 				7DB90EF91E7B4D16000978EC /* ArduinoInput.cpp in Sources */,
 				7D4C8CA41EAD7212009076C4 /* MovieOfVideoPlayer.cpp in Sources */,
+				7DB94A611EB14CF1008ADD74 /* CalibratedValueInput.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */,
 				7D42EEE41EA2F45100383C3C /* DataInputFactory.cpp in Sources */,
@@ -498,7 +499,6 @@
 				7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */,
 				7D42EEEA1EA300DB00383C3C /* ValueInputFactory.cpp in Sources */,
 				7DB90EF61E7B4885000978EC /* ClipLayers.cpp in Sources */,
-				7D6AE47F1EA3F6A400617C31 /* Calibration.cpp in Sources */,
 				7DE2854A1EB021D8005C3777 /* ValueHistory.cpp in Sources */,
 				7D7245B61E7DCDE7006E5653 /* ClipOutputSettings.cpp in Sources */,
 				7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */,

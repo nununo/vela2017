@@ -9,7 +9,7 @@
 #ifndef MouseInput_h
 #define MouseInput_h
 
-#include "ValueInput.h"
+#include "CalibratedValueInput.h"
 #include "ofMain.h"
 
 class MouseInput: public DataInput {
@@ -18,14 +18,14 @@ public:
   ~MouseInput() {}
   
   // DataInput
-  virtual void update() {valueInput->setValue(ofGetScreenHeight()-ofGetMouseY());};
-  virtual blowIntensityType getBlowIntensity() {return valueInput->getBlowIntensity();}
+  virtual void update() {calibratedValueInput->setValue(ofGetScreenHeight()-ofGetMouseY());};
+  virtual blowIntensityType getBlowIntensity() {return calibratedValueInput->getBlowIntensity();}
 
   // ITrace
-  virtual string getTrace() {return valueInput->getTrace();}
+  virtual string getTrace() {return calibratedValueInput->getTrace();}
 
 private:
-  ValueInput *valueInput;
+  CalibratedValueInput *calibratedValueInput;
 };
 
 #endif /* MouseInput_h */

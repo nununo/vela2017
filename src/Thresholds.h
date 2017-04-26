@@ -12,22 +12,25 @@
 class Thresholds {
   
 public:
-  Thresholds(float _zero, float _low, float _high, float _blowOut) {
-    zero = _zero;
+  Thresholds() : Thresholds(0,0,0) {}
+  Thresholds(float _low, float _high, float _blowOut, float _offset=0) {
     low = _low;
     high = _high;
     blowOut = _blowOut;
+    offset = _offset;
   }
-  float zero() {return zero;}
-  float low() {return low;}
-  float high() {return high;}
-  float blowOut() {return blowOut;}
   
+  float getLow() {return low+offset;}
+  float getHigh() {return high+offset;}
+  float getBlowOut() {return blowOut+offset;}
+  float getOffset() {return offset;}
+  float setOffset(float _offset) {offset=_offset;}
+
 private:
-  float zero=0;
-  float low=0;
-  float high=0;
-  float blowOut=0;
+  float low;
+  float high;
+  float blowOut;
+  float offset;
 };
 
 #endif /* Thresholds_h */

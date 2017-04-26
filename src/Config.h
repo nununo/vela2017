@@ -14,7 +14,6 @@
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
 #include "CalibrationSettings.h"
-#include "Calibration.h"
 #include "LevelSettings.h"
 #include "Util.h"
 

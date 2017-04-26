@@ -15,20 +15,11 @@ ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>()
 
 //--------------------------------------------------------------
 ValueInput::ValueInput(string name,
-                       float lowThreshold,
-                       float highThreshold,
-                       float blowOutThreshold,
-                       bool _inverted,
-                       CalibrationSettings* calibrationSettings) : DataInput(name) {
+                       Thresholds _thresholds,
+                       bool _inverted) : DataInput(name) {
   inverted = _inverted;
-  
-  if (calibrationSettings)
-    calibration = new Calibration(calibrationSettings);
 
-  setThresholdOffset(BLOW_INTENSITY_IDLE, 0);
-  setThresholdOffset(BLOW_INTENSITY_LOW, (inverted?-lowThreshold:lowThreshold));
-  setThresholdOffset(BLOW_INTENSITY_HIGH, (inverted?-highThreshold:highThreshold));
-  setThresholdOffset(BLOW_INTENSITY_BLOWOUT, (inverted?-blowOutThreshold:blowOutThreshold));
+  thresholds = _thresholds;
   
   lastValue = 0;
 }
@@ -37,26 +28,26 @@ ValueInput::ValueInput(string name,
 blowIntensityType ValueInput::getBlowIntensity() {
   
   if (!inverted) {
-    if (lastValue < getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_LOW))
+    if (lastValue < thresholds.getLow())
       return BLOW_INTENSITY_IDLE;
 
-    else if (lastValue < getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_HIGH))
+    else if (lastValue < thresholds.getHigh())
       return BLOW_INTENSITY_LOW;
   
-    else if (lastValue < getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_BLOWOUT))
+    else if (lastValue < thresholds.getBlowOut())
       return BLOW_INTENSITY_HIGH;
   
     else
       return BLOW_INTENSITY_BLOWOUT;
     
   } else {
-    if (lastValue > getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_LOW))
+    if (lastValue > thresholds.getLow())
       return BLOW_INTENSITY_IDLE;
     
-    else if (lastValue > getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_HIGH))
+    else if (lastValue > thresholds.getHigh())
       return BLOW_INTENSITY_LOW;
     
-    else if (lastValue > getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset(BLOW_INTENSITY_BLOWOUT))
+    else if (lastValue > thresholds.getBlowOut())
       return BLOW_INTENSITY_HIGH;
     
     else
@@ -67,10 +58,7 @@ blowIntensityType ValueInput::getBlowIntensity() {
 //--------------------------------------------------------------
 void ValueInput::setValue(int value) {
   lastValue = value;
-  
-  if (calibration)
-    setThresholdOffset(BLOW_INTENSITY_IDLE, calibration->getOffset(value));
-  
+ 
   broadcastNewValueEvent();
 }
 
@@ -86,13 +74,11 @@ string ValueInput::getTrace() {
   
   ss << getName() << ": |";
   
-  ss << roundf((getThresholdOffset(BLOW_INTENSITY_IDLE))*100)/100 << "| ";
+  ss << roundf(thresholds.getOffset()*100)/100 << "| ";
 
-  for(int i=1; i<4;i++)
-    ss << roundf((getThresholdOffset(BLOW_INTENSITY_IDLE) + getThresholdOffset((blowIntensityType)i))*100)/100 << "| ";
-
-  if (calibration)
-    ss << calibration->getTrace() << " ";
+  ss << roundf(thresholds.getLow()*100)/100 << "| ";
+  ss << roundf(thresholds.getHigh()*100)/100 << "| ";
+  ss << roundf(thresholds.getBlowOut()*100)/100 << "| ";
 
   ss << "value: " << roundf((lastValue)*100)/100 << " intensity: " << Util::blowIntensityToString(getBlowIntensity()) << "\n";
   

@@ -11,17 +11,19 @@
 //--------------------------------------------------------------
 MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) : DataInput("mouse") {
   if (!inverted)
-    valueInput = new ValueInput("mouse",
-                                1*(float)ofGetScreenHeight()/4,
-                                2*(float)ofGetScreenHeight()/4,
-                                3*(float)ofGetScreenHeight()/4,
-                                false,
-                                calibrationSettings);
+    calibratedValueInput =
+      new CalibratedValueInput("mouse",
+                               Thresholds(1*(float)ofGetScreenHeight()/4,
+                                          2*(float)ofGetScreenHeight()/4,
+                                          3*(float)ofGetScreenHeight()/4),
+                               false,
+                               calibrationSettings);
   else
-    valueInput = new ValueInput("mouseInverted",
-                                3*(float)ofGetScreenHeight()/4,
-                                2*(float)ofGetScreenHeight()/4,
-                                1*(float)ofGetScreenHeight()/4,
-                                true,
-                                calibrationSettings);
+    calibratedValueInput =
+      new CalibratedValueInput("mouseInverted",
+                               Thresholds(3*(float)ofGetScreenHeight()/4,
+                                          2*(float)ofGetScreenHeight()/4,
+                                          1*(float)ofGetScreenHeight()/4),
+                               true,
+                               calibrationSettings);
 };
