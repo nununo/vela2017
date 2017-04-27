@@ -25,7 +25,6 @@ protected:
 private:
   void onNewValue(NameFloatEventArgs &e);
   void drawHistory(string name);
-  ofColor getColor(int i);
 
   ValueHistories *valueHistories;
 };

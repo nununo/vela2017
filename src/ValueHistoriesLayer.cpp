@@ -33,38 +33,8 @@ void ValueHistoriesLayer::drawAlgorithm() {
 
   int i=0;
   for ( auto it = keys.begin(); it != keys.end(); ++it ) {
-    ValueHistoryLayer layer = ValueHistoryLayer(valueHistories->getHistory((*it)), getColor(i));
+    ValueHistoryLayer layer = ValueHistoryLayer(valueHistories->getHistory((*it)));
     layer.draw();
     i++;
-  }
-}
-
-//--------------------------------------------------------------
-ofColor ValueHistoriesLayer::getColor(int i) {
-  switch (i) {
-    case 0:
-      return ofColor::blue;
-      break;
-    case 1:
-      return ofColor::green;
-      break;
-    case 2:
-      return ofColor::red;
-      break;
-    case 3:
-      return ofColor::brown;
-      break;
-    case 4:
-      return ofColor::pink;
-      break;
-    case 5:
-      return ofColor::cyan;
-      break;
-    case 6:
-      return ofColor::fuchsia;
-      break;
-    default:
-      return ofColor::white;
-      break;
   }
 }

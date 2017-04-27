@@ -15,10 +15,6 @@ void ValueHistoryLayer::drawAlgorithm() {
   int i=0;
   float lastValue=0;
   
-  ofPushStyle();
-  
-  ofSetColor(color);
-  
   deque<float> values = valueHistory->getValues();
   for (deque<float>::iterator it = values.begin(); it!=values.end(); ++it) {
     if (i>0)
@@ -27,5 +23,4 @@ void ValueHistoryLayer::drawAlgorithm() {
     i++;
   }
   
-  ofPopStyle();
 }

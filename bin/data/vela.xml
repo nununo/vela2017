@@ -1,9 +1,9 @@
 <vela2017>
   <general>
-    <framerate>25</framerate>
+    <framerate>50</framerate>
     <fullscreen>1</fullscreen>
     <showTrace>1</showTrace>
-    <showHistory>0</showHistory>
+    <showHistory>1</showHistory>
     <useOmxPlayer>1</useOmxPlayer>
   </general>
   <clipOutput>
@@ -46,7 +46,7 @@
   <calibration>
     <historySize>100</historySize>
     <excentricSize>25</excentricSize>
-    <skipSize>1</skipSize>
+    <skipSize>10</skipSize>
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>

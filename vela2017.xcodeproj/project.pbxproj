@@ -310,24 +310,24 @@
 		7DB90F061E7B69F4000978EC /* inputs */ = {
 			isa = PBXGroup;
 			children = (
-				7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */,
-				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
-				7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */,
-				7D60A9111E9961F3009FF4F2 /* MultiInput.h */,
-				7D42A3B31E78BAA60097B54C /* DataInput.h */,
-				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
 				7D42A3BD1E78C9C80097B54C /* InputIntensity.h */,
-				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
-				7DB90EF81E7B4D16000978EC /* ArduinoInput.h */,
-				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
-				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
+				7D42A3B31E78BAA60097B54C /* DataInput.h */,
 				7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */,
 				7DB90F041E7B6799000978EC /* AutoFlickerInput.h */,
+				7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */,
+				7DB94A681EB1627B008ADD74 /* ThresholdsDataInput.h */,
 				7DABC4171E9AB847006BEB5F /* ValueInput.cpp */,
 				7DABC4161E9AA759006BEB5F /* ValueInput.h */,
 				7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */,
 				7DB94A601EB14CF1008ADD74 /* CalibratedValueInput.h */,
-				7DB94A681EB1627B008ADD74 /* ThresholdsDataInput.h */,
+				7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */,
+				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
+				7D60A9111E9961F3009FF4F2 /* MultiInput.h */,
+				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
+				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
+				7DB90EF81E7B4D16000978EC /* ArduinoInput.h */,
+				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
+				7DB90EFE1E7B5D32000978EC /* KeyboardInput.h */,
 			);
 			name = inputs;
 			sourceTree = "<group>";

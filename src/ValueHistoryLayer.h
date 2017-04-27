@@ -14,13 +14,12 @@
 
 class ValueHistoryLayer : public Layer {
 public:
-  ValueHistoryLayer(ValueHistory *_valueHistory, ofColor _color) {valueHistory=_valueHistory; color = _color;}
+  ValueHistoryLayer(ValueHistory *_valueHistory) {valueHistory=_valueHistory;}
 
 protected:
   void drawAlgorithm();
 
 private:
-  ofColor color;
   ValueHistory *valueHistory;
   
 };
