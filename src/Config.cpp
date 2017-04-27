@@ -81,8 +81,6 @@ GeneralSettings* Config::createGeneralSettings() {
   GeneralSettings *generalSettings =
     new GeneralSettings(xml.getIntValue("framerate"),
                         xml.getBoolValue("fullscreen"),
-                        xml.getBoolValue("showTrace"),
-                        xml.getBoolValue("showHistory"),
                         xml.getBoolValue("useOmxPlayer"));
   
   xml.setToParent();

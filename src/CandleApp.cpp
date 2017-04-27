@@ -17,7 +17,6 @@ void CandleApp::setup(){
                               clipOutputSettings->getRotation());
   
   valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), 100);
-  valueHistoriesLayer->setVisible(generalSettings->getShowHistory());
 
   inputIntensity = new InputIntensity(config.createDataInputs());
 
