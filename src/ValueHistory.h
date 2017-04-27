@@ -12,7 +12,7 @@
 #include <deque>
 #include "Thresholds.h"
 
-#define VALUEHISTORY_DEFAULT_SIZE 100
+#define VALUEHISTORY_DEFAULT_SIZE 200
 
 class ValueHistory {
 public:
@@ -23,6 +23,7 @@ public:
   std::deque<float> getValues() {return values;}
 
   static void setSize(int _bufferSize) {bufferSize=_bufferSize;}
+  static int getSize() {return bufferSize;}
 
 private:
   static int bufferSize;

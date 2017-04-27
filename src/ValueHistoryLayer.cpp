@@ -15,17 +15,19 @@ void ValueHistoryLayer::drawAlgorithm() {
   int i=0;
   float lastValue=0;
   
+  // Threshold lines
   ofPushStyle();
   ofEnableAlphaBlending();
-  ofSetColor(255,255,255,50);
+  ofSetColor(255,255,255,100);
   
-  ofDrawLine(0, height-valueHistory->getThresholds().getLow(), 100, height-valueHistory->getThresholds().getLow());
-  ofDrawLine(0, height-valueHistory->getThresholds().getHigh(), 100, height-valueHistory->getThresholds().getHigh());
-  ofDrawLine(0, height-valueHistory->getThresholds().getBlowOut(), 100, height-valueHistory->getThresholds().getBlowOut());
+  ofDrawLine(0, height-valueHistory->getThresholds().getLow(), ValueHistory::getSize(), height-valueHistory->getThresholds().getLow());
+  ofDrawLine(0, height-valueHistory->getThresholds().getHigh(), ValueHistory::getSize(), height-valueHistory->getThresholds().getHigh());
+  ofDrawLine(0, height-valueHistory->getThresholds().getBlowOut(), ValueHistory::getSize(), height-valueHistory->getThresholds().getBlowOut());
   
   ofPopStyle();
   ofDisableAlphaBlending();
 
+  // Value history
   deque<float> values = valueHistory->getValues();
   for (deque<float>::iterator it = values.begin(); it!=values.end(); ++it) {
     if (i>0)
