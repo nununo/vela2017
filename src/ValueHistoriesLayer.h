@@ -12,6 +12,7 @@
 #include "Layer.h"
 #include "ValueHistories.h"
 #include "NameFloatEventArgs.h"
+#include "ThresholdsEventArgs.h"
 
 class ValueHistoriesLayer : public Layer {
 
@@ -24,8 +25,10 @@ protected:
 
 private:
   void onNewValue(NameFloatEventArgs &e);
+  void onThresholdsCalibrated(ThresholdsEventArgs &e);
   void drawHistory(string name);
 
+  Thresholds thresholds;
   ValueHistories *valueHistories;
 };
 

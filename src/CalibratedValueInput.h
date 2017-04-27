@@ -11,6 +11,7 @@
 
 #include "ValueInput.h"
 #include "CalibrationSettings.h"
+#include "ThresholdsEventArgs.h"
 
 class CalibratedValueInput : public ThresholdsDataInput {
 public:
@@ -35,13 +36,17 @@ public:
   // ThresholdDataInput
   virtual void setValue(float value);
   virtual Thresholds* const getThresholds() {return valueInput->getThresholds();};
-  
+
+  // Event
+  static ofEvent<ThresholdsEventArgs> thresholdsCalibrated;
+
 private:
   float getAverage();
   float getMaxAcceptedDistance(float average);
   void removeExcentric();
   void calcOffset();
   void sampleValue(float value);
+  void broadcastThresholdsCalibratedEvent();
 
   ValueInput *valueInput;
   CalibrationSettings *settings;

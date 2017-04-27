@@ -8,6 +8,9 @@
 
 #include "CalibratedValueInput.h"
 
+// the static event, or any static variable, must be initialized outside of the class definition.
+ofEvent<ThresholdsEventArgs> CalibratedValueInput::thresholdsCalibrated = ofEvent<ThresholdsEventArgs>();
+
 //--------------------------------------------------------------
 CalibratedValueInput::CalibratedValueInput(string name,
                                            Thresholds thresholds,
@@ -52,8 +55,13 @@ void CalibratedValueInput::sampleValue(float value) {
 
 //--------------------------------------------------------------
 void CalibratedValueInput::calcOffset() {
+  
   removeExcentric();
+  
   valueInput->getThresholds()->setOffset(getAverage());
+
+  broadcastThresholdsCalibratedEvent();
+  
   ofLogNotice() << "Calibrating. Result: " << valueInput->getThresholds()->getOffset();
 }
 
@@ -68,7 +76,7 @@ float CalibratedValueInput::getAverage() {
 }
 
 //--------------------------------------------------------------
-float CalibratedValueInput::getMaxAcceptedDistance(float average) {
+float CalibratedValueInput::getMaxAcceptedDistance(const float average) {
   
   float distance[settings->getBufferSize()];
   
@@ -90,6 +98,11 @@ void CalibratedValueInput::removeExcentric() {
       buffer[i] = average;
 }
 
+//--------------------------------------------------------------
+void CalibratedValueInput::broadcastThresholdsCalibratedEvent() {
+  ThresholdsEventArgs evenArgs = ThresholdsEventArgs(getName(), *getThresholds());
+  ofNotifyEvent(thresholdsCalibrated, evenArgs);
+}
 //--------------------------------------------------------------
 /*string CalibratedValueInput::getTrace() {
   stringstream ss;

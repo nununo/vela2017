@@ -18,6 +18,7 @@ class ValueHistories {
 public:
   ValueHistories(int bufferSize) {ValueHistory::setSize(bufferSize);}
   void addValue(std::string name, float value) {getHistory(name)->addValue(value);}
+  void setThresholds(std::string name, Thresholds thresholds) {getHistory(name)->setThresholds(thresholds);}
   ValueHistory* getHistory(std::string name) {return &histories[name];}
   std::vector<std::string> getKeys();
 

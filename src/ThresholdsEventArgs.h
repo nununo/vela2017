@@ -16,7 +16,7 @@
 class ThresholdsEventArgs : public ofEventArgs {
   
 public:
-  ThresholdEventArgs(string _name, Thresholds _thresholds) {name=_name; thresholds=_thresholds;}
+  ThresholdsEventArgs(string _name, Thresholds _thresholds) {name=_name; thresholds=_thresholds;}
   string getName() {return name;}
   Thresholds getThresholds() {return thresholds;}
   
