@@ -29,7 +29,7 @@ private:
   void setupInfoLayer(Config *config);
   void outputLayerStatus();
   void setFullscreen(bool value);
-  void toggleFullscreen() {setFullscreen(!generalSettings->getIsFullscreen());}
+  void toggleFullscreen() {setFullscreen(!generalSettings.getIsFullscreen());}
   void outputTraceInfo();
   void setupValueHistory();
   
@@ -37,5 +37,5 @@ private:
   InfoLayer *infoLayer;
   ValueHistoriesLayer *valueHistoriesLayer;
   ClipLayers *clipLayers;
-  GeneralSettings *generalSettings;
+  GeneralSettings generalSettings;
 };

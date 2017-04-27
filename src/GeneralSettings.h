@@ -11,6 +11,7 @@
 
 class GeneralSettings {
 public:
+  GeneralSettings() : GeneralSettings(25,true,true) {}
   GeneralSettings(int framerate, bool isFullscreen, bool useOmxPlayer);
   int getFramerate() {return framerate;}
   bool getIsFullscreen() {return isFullscreen;}

@@ -10,7 +10,7 @@
 #include "Clips.h"
 
 //--------------------------------------------------------------
-Levels::Levels(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
+Levels::Levels(GeneralSettings generalSettings, ClipOutputSettings *clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
 
   for (int i=0; i<4; i++) {
     ofLogNotice() << "Loading level " << i;

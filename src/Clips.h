@@ -7,13 +7,13 @@
 class Clips {
 
 public:
-  Clips(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings);
+  Clips(GeneralSettings generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings);
   Clip *getRandomClip();
 
   vector<Clip*> list;
 
 private:
-  void buildClipList(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings);
+  void buildClipList(GeneralSettings generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings);
 };
 
 #endif // CLIPS_H_INCLUDED

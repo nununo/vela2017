@@ -4,7 +4,7 @@
 #define OF_ADDON_USING_OFXDIRLIST
 
 //-----------------------------------------------------------------------
-Clips::Clips(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
+Clips::Clips(GeneralSettings generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
 
   buildClipList(generalSettings, clipOutputSettings, levelSettings);
 
@@ -21,7 +21,7 @@ Clip *Clips::getRandomClip() {
 }
 
 //-----------------------------------------------------------------------
-void Clips::buildClipList(GeneralSettings *generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
+void Clips::buildClipList(GeneralSettings generalSettings, ClipOutputSettings *clipOutputSettings, LevelSettings *levelSettings) {
 
   ofDirectory oDir;
 

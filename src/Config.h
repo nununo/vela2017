@@ -24,7 +24,7 @@ public:
   
   DataInput* createDataInputs();
   ClipOutputSettings* createClipOutputSettings();
-  GeneralSettings* createGeneralSettings();
+  GeneralSettings getGeneralSettings();
   CalibrationSettings *createCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();
   LayerSettings getLayerSettings(string type);

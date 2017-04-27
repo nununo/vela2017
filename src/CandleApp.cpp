@@ -8,7 +8,7 @@ void CandleApp::setup(){
   
   config.setup(XML_FILENAME);
   
-  generalSettings = config.createGeneralSettings();
+  generalSettings = config.getGeneralSettings();
   
   ClipOutputSettings *clipOutputSettings = config.createClipOutputSettings();
 
@@ -25,9 +25,9 @@ void CandleApp::setup(){
   ofHideCursor();
   
   ofSetVerticalSync(true);
-  ofSetFrameRate(generalSettings->getFramerate());
+  ofSetFrameRate(generalSettings.getFramerate());
   
-  setFullscreen(generalSettings->getIsFullscreen());
+  setFullscreen(generalSettings.getIsFullscreen());
   
   ofBackground(0, 0, 0);
 }
@@ -67,9 +67,9 @@ void CandleApp::keyPressed  (int key){
 
 //--------------------------------------------------------------
 void CandleApp::setFullscreen(bool value) {
-  generalSettings->setIsFullscreen(value);
+  generalSettings.setIsFullscreen(value);
   
-  if (!generalSettings->getIsFullscreen()){
+  if (!generalSettings.getIsFullscreen()){
     ofSetWindowShape(360,288); // (720,576);
     ofSetFullscreen(false);
     

@@ -69,17 +69,17 @@ ClipOutputSettings* Config::createClipOutputSettings() {
 }
 
 //--------------------------------------------------------------
-GeneralSettings* Config::createGeneralSettings() {
+GeneralSettings Config::getGeneralSettings() {
+  GeneralSettings generalSettings;
   
   if (!xml.setTo("general")) {
     ofLogError() << "XML position to /vela2017/general failed. Check XML";
-    return NULL;
+    return generalSettings;
   }
   
-  GeneralSettings *generalSettings =
-    new GeneralSettings(xml.getIntValue("framerate"),
-                        xml.getBoolValue("fullscreen"),
-                        xml.getBoolValue("useOmxPlayer"));
+  generalSettings = GeneralSettings(xml.getIntValue("framerate"),
+                                     xml.getBoolValue("fullscreen"),
+                                     xml.getBoolValue("useOmxPlayer"));
   
   xml.setToParent();
   

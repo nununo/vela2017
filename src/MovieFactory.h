@@ -14,7 +14,7 @@
 
 class MovieFactory {
 public:
-  static IMovie* create(string filename, bool loop, GeneralSettings *generalSettings);
+  static IMovie* create(string filename, bool loop, GeneralSettings generalSettings);
 };
 
 #endif /* MovieFactory_h */
