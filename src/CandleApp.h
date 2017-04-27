@@ -8,6 +8,7 @@
 #include "ClipLayers.h"
 #include "ValueHistoriesLayer.h"
 #include "GeneralSettings.h"
+#include "Config.h"
 
 #define XML_FILENAME "vela.xml"
 
@@ -25,7 +26,7 @@ class CandleApp : public ofBaseApp {
 		void mousePressed(int x, int y, int button) {};
 		
 private:
-  void setupTrace();
+  void setupTraceLayer(Config *config);
   void outputLayerStatus();
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!generalSettings->getIsFullscreen());}
@@ -33,8 +34,8 @@ private:
   void setupValueHistory();
   
   InputIntensity *inputIntensity;
-  ClipLayers *clipLayers;
-  TraceLayer traceLayer;
-  GeneralSettings *generalSettings;
+  TraceLayer *traceLayer;
   ValueHistoriesLayer *valueHistoriesLayer;
+  ClipLayers *clipLayers;
+  GeneralSettings *generalSettings;
 };

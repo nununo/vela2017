@@ -8,10 +8,9 @@
 
 #include "ValueHistoriesLayer.h"
 #include "CalibratedValueInput.h"
-#include "ValueHistoryLayer.h"
 
 //--------------------------------------------------------------
-ValueHistoriesLayer::ValueHistoriesLayer(int bufferSize) {
+ValueHistoriesLayer::ValueHistoriesLayer(LayerSettings settings, int bufferSize) : Layer(settings) {
   valueHistories = new ValueHistories(bufferSize);
 
   ofAddListener(ValueInput::newValue , this, &ValueHistoriesLayer::onNewValue);
@@ -40,10 +39,35 @@ void ValueHistoriesLayer::onThresholdsCalibrated(ThresholdsEventArgs &e) {
 void ValueHistoriesLayer::drawAlgorithm() {
   vector<string> keys = valueHistories->getKeys();
   
+  for (auto it = keys.begin(); it != keys.end(); ++it )
+    drawHistory(valueHistories->getHistory((*it)));
+}
+
+//--------------------------------------------------------------
+void ValueHistoriesLayer::drawHistory(ValueHistory* history) {
+  
+  int height = ofGetScreenHeight();
   int i=0;
-  for ( auto it = keys.begin(); it != keys.end(); ++it ) {
-    ValueHistoryLayer layer = ValueHistoryLayer(valueHistories->getHistory((*it)));
-    layer.draw();
+  float lastValue=0;
+  
+  // Threshold lines
+  ofPushStyle();
+  ofEnableAlphaBlending();
+  ofSetColor(255,255,255,100);
+  
+  ofDrawLine(0, height-history->getThresholds().getLow(), ValueHistory::getSize(), height-history->getThresholds().getLow());
+  ofDrawLine(0, height-history->getThresholds().getHigh(), ValueHistory::getSize(), height-history->getThresholds().getHigh());
+  ofDrawLine(0, height-history->getThresholds().getBlowOut(), ValueHistory::getSize(), height-history->getThresholds().getBlowOut());
+  
+  ofPopStyle();
+  ofDisableAlphaBlending();
+  
+  // Value history
+  deque<float> values = history->getValues();
+  for (deque<float>::iterator it = values.begin(); it!=values.end(); ++it) {
+    if (i>0)
+      ofDrawLine(i, height-lastValue, i+1, height-(*it));
+    lastValue = (*it);
     i++;
   }
   

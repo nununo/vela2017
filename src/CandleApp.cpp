@@ -1,6 +1,5 @@
 #include "CandleApp.h"
 #include "SystemTrace.h"
-#include "Config.h"
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
@@ -16,12 +15,12 @@ void CandleApp::setup(){
   clipLayers = new ClipLayers(new Levels(generalSettings, clipOutputSettings, config.createLevelSettingsList()),
                               clipOutputSettings->getRotation());
   
-  valueHistoriesLayer = new ValueHistoriesLayer(100); // XXX
+  valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), 100);
   valueHistoriesLayer->setVisible(generalSettings->getShowHistory());
 
   inputIntensity = new InputIntensity(config.createDataInputs());
 
-  setupTrace();
+  setupTraceLayer(&config);
 
   ofHideCursor();
   
@@ -37,13 +36,13 @@ void CandleApp::setup(){
 void CandleApp::update(){
   inputIntensity->update();
   clipLayers->update(inputIntensity->getBlowIntensity());
-  traceLayer.update();
+  traceLayer->update();
 }
 
 //--------------------------------------------------------------
 void CandleApp::draw(){
   clipLayers->draw();
-  traceLayer.draw();
+  traceLayer->draw();
   valueHistoriesLayer->draw();
 }
 
@@ -55,7 +54,7 @@ void CandleApp::keyPressed  (int key){
       toggleFullscreen();
       break;
     case 't':
-      traceLayer.setVisible(!traceLayer.isVisible());
+      traceLayer->setVisible(!traceLayer->isVisible());
       break;
     case 'd':
       outputTraceInfo();
@@ -86,13 +85,14 @@ void CandleApp::setFullscreen(bool value) {
 
 //--------------------------------------------------------------
 void CandleApp::outputTraceInfo() {
-  ofLogNotice() << traceLayer.getText();
+  ofLogNotice() << traceLayer->getText();
 }
 
 //--------------------------------------------------------------
-void CandleApp::setupTrace() {
-  traceLayer.setVisible(generalSettings->getShowTrace());
-  traceLayer.add( new SystemTrace() );
-  traceLayer.add(inputIntensity);
-  traceLayer.add(clipLayers);
+void CandleApp::setupTraceLayer(Config *config) {
+  
+  traceLayer = new TraceLayer(config->getLayerSettings("info"));
+  traceLayer->add( new SystemTrace() );
+  traceLayer->add(inputIntensity);
+  traceLayer->add(clipLayers);
 }

@@ -15,7 +15,8 @@
 class TraceLayer : public Layer {
   
 public:
-  TraceLayer();
+  TraceLayer(LayerSettings settings);
+  
   void add(ITrace *trace) {list.push_back(trace);}
   void update();
   string getText() {return text;}

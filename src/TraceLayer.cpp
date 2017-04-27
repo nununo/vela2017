@@ -9,9 +9,8 @@
 #include "TraceLayer.h"
 
 //--------------------------------------------------------------
-TraceLayer::TraceLayer() {
+TraceLayer::TraceLayer(LayerSettings settings) : Layer(settings) {
 	font.load("frabk.ttf",10);
-  visible = true;
 }
 
 //--------------------------------------------------------------

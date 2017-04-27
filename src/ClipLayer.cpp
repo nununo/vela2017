@@ -1,7 +1,7 @@
 #include "ClipLayer.h"
 
 //-----------------------------------------------------------------------
-ClipLayer::ClipLayer(int _intensity, Clip *_clip) {
+ClipLayer::ClipLayer(int _intensity, Clip *_clip) : Layer() {
   clip = _clip;
   intensity = _intensity;
   

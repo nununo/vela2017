@@ -130,3 +130,24 @@ vector<LevelSettings*> Config::createLevelSettingsList() {
   
   return list;
 }
+
+//--------------------------------------------------------------
+LayerSettings Config::getLayerSettings(string type) {
+  
+  LayerSettings layerSettings;
+  string path;
+  
+  path = "layers/layer[@type='" + type + "']";
+  if (!xml.setTo(path)) {
+    ofLogError() << "XML position to " << path << " failed. Check XML";
+    return layerSettings;
+  }
+  
+  layerSettings = LayerSettings(Util::stringToBool(xml.getAttribute("visible")),
+                                ofPoint(std::stoi(xml.getAttribute("offsetX")),
+                                        std::stoi(xml.getAttribute("offsetY"))));
+  
+  xml.setToParent(2);
+  
+  return layerSettings;
+}

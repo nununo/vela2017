@@ -17,7 +17,7 @@
 class ValueHistoriesLayer : public Layer {
 
 public:
-  ValueHistoriesLayer(int bufferSize);
+  ValueHistoriesLayer(LayerSettings settings, int bufferSize);
   ~ValueHistoriesLayer();
 
 protected:
@@ -26,7 +26,7 @@ protected:
 private:
   void onNewValue(NameFloatEventArgs &e);
   void onThresholdsCalibrated(ThresholdsEventArgs &e);
-  void drawHistory(string name);
+  void drawHistory(ValueHistory* history);
 
   Thresholds thresholds;
   ValueHistories *valueHistories;

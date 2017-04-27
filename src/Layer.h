@@ -10,20 +10,23 @@
 #define Layer_h
 
 #include "ofMain.h"
+#include "LayerSettings.h"
 
 class Layer {
 
 public:
-  Layer() {setVisible(true);}
-  virtual ~Layer() {};
-  void draw() {if (isVisible()) drawAlgorithm();}
-  virtual void setVisible(bool _visible) {visible = _visible;}
-  virtual bool isVisible() {return visible;}
+  Layer() : Layer(LayerSettings()) {}
+  Layer(LayerSettings _settings) {settings=_settings;}
+  ~Layer() {};
+  void draw();
+  void setVisible(bool visible) {settings.setVisible(visible);}
+  bool isVisible() {return settings.getVisible();}
   
 protected:
   virtual void drawAlgorithm() = 0;
 
-  bool visible;
+private:
+  LayerSettings settings;
 };
 
 #endif /* Layer_h */

@@ -15,6 +15,7 @@
 #include "GeneralSettings.h"
 #include "CalibrationSettings.h"
 #include "LevelSettings.h"
+#include "LayerSettings.h"
 #include "Util.h"
 
 class Config {
@@ -26,6 +27,7 @@ public:
   GeneralSettings* createGeneralSettings();
   CalibrationSettings *createCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();
+  LayerSettings getLayerSettings(string type);
 
 private:
   ofXml xml;
