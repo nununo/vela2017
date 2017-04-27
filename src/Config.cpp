@@ -105,8 +105,8 @@ CalibrationSettings* Config::createCalibrationSettings() {
 }
 
 //--------------------------------------------------------------
-vector<LevelSettings> Config::getLevelSettingsList() {
-  vector<LevelSettings> list;
+vector<LevelSettings*> Config::createLevelSettingsList() {
+  vector<LevelSettings*> list;
 
   if (!xml.setTo("levels/level[0]")) {
     ofLogError() << "XML position to /vela2017/levels/level[0] failed. Check XML";
@@ -114,11 +114,11 @@ vector<LevelSettings> Config::getLevelSettingsList() {
   }
 
   do {
-    list.push_back(LevelSettings(xml.getValue("movieFolder"),
-                                 xml.getFloatValue("fadeInTime"),
-                                 xml.getFloatValue("fadeOutTime"),
-                                 xml.getBoolValue("loop"),
-                                 xml.getBoolValue("canRestart")));
+    list.push_back(new LevelSettings(xml.getValue("movieFolder"),
+                                     xml.getFloatValue("fadeInTime"),
+                                     xml.getFloatValue("fadeOutTime"),
+                                     xml.getBoolValue("loop"),
+                                     xml.getBoolValue("canRestart")));
   }
   while(xml.setToSibling());
 

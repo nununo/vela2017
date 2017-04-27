@@ -26,7 +26,7 @@ public:
   ClipOutputSettings getClipOutputSettings();
   GeneralSettings getGeneralSettings();
   CalibrationSettings *createCalibrationSettings();
-  vector<LevelSettings> getLevelSettingsList();
+  vector<LevelSettings*> createLevelSettingsList();
   LayerSettings getLayerSettings(string type);
 
 private:
