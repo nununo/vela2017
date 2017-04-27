@@ -9,7 +9,7 @@
 #include "Util.h"
 
 //--------------------------------------------------------------
-float Util::remap(float v, float inMin, float inMax, float outMin, float outMax) {
+float Util::remap(const float v, const float inMin, const float inMax, const float outMin, const float outMax) {
   float aux =  1 - ((inMax - v) / (inMax - inMin));
   if (aux < 0)
     aux = 0;
@@ -19,7 +19,7 @@ float Util::remap(float v, float inMin, float inMax, float outMin, float outMax)
 }
 
 //--------------------------------------------------------------
-string Util::blowIntensityToString(blowIntensityType blowIntensity) {
+string Util::blowIntensityToString(const blowIntensityType blowIntensity) {
   switch (blowIntensity) {
     case BLOW_INTENSITY_IDLE:
       return "idle";
@@ -40,6 +40,6 @@ string Util::blowIntensityToString(blowIntensityType blowIntensity) {
 }
 
 //--------------------------------------------------------------
-bool Util::stringToBool(string str) {
+bool Util::stringToBool(const string str) {
   return (str=="1" || str=="enabled" || str=="active" || str=="true" );
 }

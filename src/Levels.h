@@ -14,8 +14,8 @@
 class Levels{
   
 public:
-  Levels(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, vector<LevelSettings*> levelSettingsList);
-  Clip *getRandomClip(int level);
+  Levels(const GeneralSettings generalSettings, const ClipOutputSettings clipOutputSettings, const vector<LevelSettings*> levelSettingsList);
+  Clip *getRandomClip(const int level);
   
 private:  
   vector<Clips*> levels;

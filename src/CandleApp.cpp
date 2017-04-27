@@ -1,5 +1,5 @@
 #include "CandleApp.h"
-#include "SystemTrace.h"
+#include "SystemInfo.h"
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
@@ -94,7 +94,7 @@ void CandleApp::outputTraceInfo() {
 void CandleApp::setupInfoLayer(Config *config) {
   
   infoLayer = new InfoLayer(config->getLayerSettings("info"));
-  infoLayer->add( new SystemTrace() );
+  infoLayer->add( new SystemInfo() );
   infoLayer->add(inputIntensity);
   infoLayer->add(clipLayers);
 }

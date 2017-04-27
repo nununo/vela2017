@@ -1,16 +1,16 @@
 //
-//  SystemTrace.cpp
+//  SystemInfo.cpp
 //  vela2017
 //
 //  Created by Nuno on 31/03/2017.
 //
 //
 
-#include "SystemTrace.h"
+#include "SystemInfo.h"
 #include "ofMain.h"
 
 //--------------------------------------------------------------
-string SystemTrace::getTrace() {
+string SystemInfo::getTrace() {
   stringstream ss;
   
   ss << "System info: "

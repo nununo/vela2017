@@ -10,7 +10,7 @@
 #include "Clips.h"
 
 //--------------------------------------------------------------
-Levels::Levels(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, vector<LevelSettings*> levelSettingsList) {
+Levels::Levels(const GeneralSettings generalSettings, const ClipOutputSettings clipOutputSettings, const vector<LevelSettings*> levelSettingsList) {
 
   for (int i=0; i<4; i++) {
     ofLogNotice() << "Loading level " << i;
@@ -19,6 +19,6 @@ Levels::Levels(GeneralSettings generalSettings, ClipOutputSettings clipOutputSet
 };
 
 //--------------------------------------------------------------
-Clip *Levels::getRandomClip(int level) {
+Clip *Levels::getRandomClip(const int level) {
   return levels[level]->getRandomClip();
 };
