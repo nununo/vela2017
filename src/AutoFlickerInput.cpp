@@ -7,13 +7,20 @@
 //
 
 #include "AutoFlickerInput.h"
-#include "ofMain.h"
+#include "InputIntensity.h"
 
 //--------------------------------------------------------------
 AutoFlickerInput::AutoFlickerInput(int _minPeriod) : DataInput("autoFlicker") {
   minPeriod = _minPeriod;
   isFlickerTime = false;
   lastTime = ofGetElapsedTimeMillis();
+  
+  ofAddListener(InputIntensity::blowIntensityChanged , this, &AutoFlickerInput::onBlowIntensityChanged);
+}
+
+//--------------------------------------------------------------
+AutoFlickerInput::~AutoFlickerInput()  {
+  ofRemoveListener(InputIntensity::blowIntensityChanged, this, &AutoFlickerInput::onBlowIntensityChanged);
 }
 
 //--------------------------------------------------------------
@@ -40,6 +47,15 @@ BlowIntensity AutoFlickerInput::getBlowIntensity() {
     return BlowIntensity::LOW;
   } else
     return BlowIntensity::IDLE;
+}
+
+//--------------------------------------------------------------
+void AutoFlickerInput::onBlowIntensityChanged(BlowIntensity &e) {
+  // Since there was activity from the inputs, we restart the timer
+  int timeNow = ofGetElapsedTimeMillis();
+  if (timeNow - lastTime > 100) // To avoid resetting itself since the autoflicker intensity will also trigger this event
+    lastTime = timeNow;
+  
 }
 
 //--------------------------------------------------------------
