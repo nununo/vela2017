@@ -2,14 +2,10 @@
   <general>
     <framerate>50</framerate>
     <fullscreen>1</fullscreen>
-    <showTrace>1</showTrace>
-    <showHistory>1</showHistory>
     <useOmxPlayer>1</useOmxPlayer>
   </general>
   <clipOutput>
     <rotation>0</rotation>
-    <offsetX>0.00</offsetX>
-    <offsetY>0.00</offsetY>
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
   </clipOutput>
@@ -81,4 +77,4 @@
   <layers>
   	<layer offsetX="20" offsetY="20" type="info" visible="1"></layer>
   	<layer offsetX="0" offsetY="0" type="history" visible="1"></layer>
-  	<layer offsetX="100" offsetY="100" type="clip" visible="1"></layer></layers></vela2017>
+  	<layer offsetX="0" offsetY="0" type="clip" visible="1"></layer></layers></vela2017>

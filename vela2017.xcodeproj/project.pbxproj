@@ -111,7 +111,6 @@
 		7D7245B41E7DCDE7006E5653 /* ClipOutputSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClipOutputSettings.cpp; sourceTree = "<group>"; };
 		7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipOutputSettings.h; sourceTree = "<group>"; };
 		7D7245B91E7E0FDF006E5653 /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
-		7D8B87DD1EA5485800A5201D /* CalibrationSettingsFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationSettingsFactory.h; sourceTree = "<group>"; };
 		7D8B87E01EA5527D00A5201D /* CalibrationSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalibrationSettings.h; sourceTree = "<group>"; };
 		7D8CC4911E97EA0800730725 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		7DA246D91EABB5000077EB85 /* MouseInputFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInputFactory.cpp; sourceTree = "<group>"; };
@@ -290,7 +289,6 @@
 				7D42EEEC1EA305DD00383C3C /* Config.h */,
 				7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */,
 				7D42EEF01EA315DF00383C3C /* GeneralSettings.h */,
-				7D8B87DD1EA5485800A5201D /* CalibrationSettingsFactory.h */,
 				7DA246DB1EABBAB70077EB85 /* CalibrationSettings.cpp */,
 				7D8B87E01EA5527D00A5201D /* CalibrationSettings.h */,
 				7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */,
