@@ -10,15 +10,17 @@
 #define ValueInput_h
 
 #include "Constants.h"
-#include "DataInput.h"
+#include "ThresholdsDataInput.h"
 #include "NameFloatEventArgs.h"
-#include "Thresholds.h"
 
-class ValueInput : public DataInput {
+class ValueInput : public ThresholdsDataInput {
 public:
   ValueInput(string name,
-             Thresholds thresholds,
-             bool inverted);
+             Thresholds _thresholds,
+             bool _inverted) : ThresholdsDataInput(name) {
+    thresholds=_thresholds;
+    inverted=_inverted;
+    lastValue=0;};
 
   // DataInput
   virtual void update() {}
@@ -27,8 +29,9 @@ public:
   // ITrace
   virtual string getTrace();
 
-  void setValue(int _value);
-  Thresholds* getThresholds() {return &thresholds;}
+  // ThresholdsDataInput
+  virtual void setValue(float _value);
+  virtual Thresholds* const getThresholds() {return &thresholds;}
 
   // Event
   static ofEvent<NameFloatEventArgs> newValue;

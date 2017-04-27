@@ -10,7 +10,7 @@
 #define ArduinoInput_h
 
 #include "DataInput.h"
-#include "ValueInput.h"
+#include "ThresholdsDataInput.h"
 #include "ofMain.h"
 
 class ArduinoInput: public DataInput {
@@ -19,7 +19,7 @@ public:
   ~ArduinoInput() {};
   
   void addDevice(string device) {devices.push_back(device);}
-  void addValueInput(ValueInput *valueInput);
+  void addInput(ThresholdsDataInput *input);
   bool connect();
   bool isEnabled() {return serial.isInitialized();}
   
@@ -32,7 +32,7 @@ public:
   
 private:
   vector<string> devices;
-  vector<ValueInput*> valueInputs;
+  vector<ThresholdsDataInput*> inputs;
   ofSerial serial;
   string device;
 };

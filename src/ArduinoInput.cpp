@@ -22,9 +22,9 @@ bool ArduinoInput::connect() {
 }
 
 //--------------------------------------------------------------
-void ArduinoInput::addValueInput(ValueInput *valueInput) {
-  if (valueInput)
-    valueInputs.push_back(valueInput);
+void ArduinoInput::addInput(ThresholdsDataInput *input) {
+  if (input)
+    inputs.push_back(input);
 }
 
 //--------------------------------------------------------------
@@ -64,9 +64,9 @@ void ArduinoInput::update() {
     memcpy(bytesReadString, bytesReturned, 7);
     
     //we need to put the bytes back into an int
-    vector<ValueInput*>::iterator it;
+    vector<ThresholdsDataInput*>::iterator it;
     int i=0;
-    for(it=valueInputs.begin() ; it < valueInputs.end(); it++,i=i+2)
+    for(it=inputs.begin() ; it < inputs.end(); it++,i=i+2)
       (*it)->setValue((unsigned char)bytesReadString[i+1] << 8 | (unsigned char)bytesReadString[i]);
   }
 }
@@ -76,8 +76,8 @@ void ArduinoInput::update() {
 blowIntensityType ArduinoInput::getBlowIntensity() {
   blowIntensityType blowIntensity = BLOW_INTENSITY_IDLE;
 
-  vector<ValueInput*>::iterator it;
-  for(it=valueInputs.begin() ; it < valueInputs.end(); it++)
+  vector<ThresholdsDataInput*>::iterator it;
+  for(it=inputs.begin() ; it < inputs.end(); it++)
     if ((*it)->getBlowIntensity()>blowIntensity)
       blowIntensity = (*it)->getBlowIntensity();
   
@@ -90,8 +90,8 @@ string ArduinoInput::getTrace() {
   
   ss << getName() << ": " << device << " initialized: " << serial.isInitialized() << "\n";
 
-  vector<ValueInput*>::iterator it;
-  for(it=valueInputs.begin() ; it < valueInputs.end(); it++)
+  vector<ThresholdsDataInput*>::iterator it;
+  for(it=inputs.begin() ; it < inputs.end(); it++)
     ss << (*it)->getTrace();
 
   return ss.str();

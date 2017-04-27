@@ -7,7 +7,7 @@
 //
 
 #include "ArduinoInputFactory.h"
-#include "ValueInputFactory.h"
+#include "ThresholdsDataInputFactory.h"
 
 //--------------------------------------------------------------
 DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix) {
@@ -39,7 +39,7 @@ void ArduinoInputFactory::addDevices(ArduinoInput *arduinoInput, ofXml *xml) {
 //--------------------------------------------------------------
 void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml, CalibrationSettings *calibrationSettings) {
   
-  ValueInputFactory valueInputFactory;
+  ThresholdsDataInputFactory factory;
   if (!xml->setTo("analogInputs/analogInput[0]")) {
     ofLogError() << "XML position to analogInputs/analogInput[0] failed. Check XML";
     return;
@@ -47,7 +47,7 @@ void ArduinoInputFactory::addValueInputs(ArduinoInput *arduinoInput, ofXml *xml,
   
   do {
     if (xml->getAttribute("enabled")=="1")
-      arduinoInput->addValueInput((ValueInput*)(valueInputFactory.create(xml, calibrationSettings, arduinoInput->getName())));
+      arduinoInput->addInput((ThresholdsDataInput*)(factory.create(xml, calibrationSettings, arduinoInput->getName())));
   }
   while(xml->setToSibling());
   

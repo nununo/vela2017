@@ -12,13 +12,18 @@
 #include "ValueInput.h"
 #include "CalibrationSettings.h"
 
-class CalibratedValueInput : public DataInput {
+class CalibratedValueInput : public ThresholdsDataInput {
 public:
   CalibratedValueInput(string name,
                        Thresholds thresholds,
                        bool inverted,
                        CalibrationSettings* calibrationSettings=NULL);
-  ~CalibratedValueInput() { delete [] history;}
+  ~CalibratedValueInput() {
+    delete valueInput;
+    valueInput=NULL;
+    delete [] history;
+    history=NULL;
+  }
 
   // DataInput
   virtual void update() {valueInput->update();}
@@ -27,7 +32,9 @@ public:
   // ITrace
   virtual string getTrace() {return valueInput->getTrace();}
   
-  void setValue(float value);
+  // ThresholdDataInput
+  virtual void setValue(float value);
+  virtual Thresholds* const getThresholds() {return valueInput->getThresholds();};
   
 private:
   float getAverage();

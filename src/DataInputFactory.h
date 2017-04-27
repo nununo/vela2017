@@ -18,7 +18,7 @@ namespace DataInputType {
   const string DATA_INPUT_MOUSE = "mouse";
   const string DATA_INPUT_AUTO_FLICKER = "autoFlicker";
   const string DATA_INPUT_ARDUINO = "arduino";
-  const string DATA_INPUT_ANALOG = "analog";
+  const string DATA_INPUT_THRESHOLD = "threshold";
 }
 
 class DataInputFactory {

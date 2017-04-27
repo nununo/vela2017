@@ -11,7 +11,7 @@
 #include "KeyboardInputFactory.h"
 #include "AutoFlickerInputFactory.h"
 #include "ArduinoInputFactory.h"
-#include "ValueInputFactory.h"
+#include "ThresholdsDataInputFactory.h"
 
 //--------------------------------------------------------------
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
@@ -28,14 +28,13 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   else if (dataInputType == DataInputType::DATA_INPUT_ARDUINO)
     return new ArduinoInputFactory();
   
-  else if (dataInputType == DataInputType::DATA_INPUT_ANALOG)
-    return new ValueInputFactory();
+  else if (dataInputType == DataInputType::DATA_INPUT_THRESHOLD)
+    return new ThresholdsDataInputFactory();
   
   else {
     ofLogError() << "Invalid input type " << dataInputType;
     return NULL;
   }
-  
 }
 
 //--------------------------------------------------------------

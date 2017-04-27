@@ -14,40 +14,29 @@
 ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();
 
 //--------------------------------------------------------------
-ValueInput::ValueInput(string name,
-                       Thresholds _thresholds,
-                       bool _inverted) : DataInput(name) {
-  inverted = _inverted;
-
-  thresholds = _thresholds;
-  
-  lastValue = 0;
-}
-
-//--------------------------------------------------------------
 blowIntensityType ValueInput::getBlowIntensity() {
   
   if (!inverted) {
-    if (lastValue < thresholds.getLow())
+    if (lastValue < getThresholds()->getLow())
       return BLOW_INTENSITY_IDLE;
 
-    else if (lastValue < thresholds.getHigh())
+    else if (lastValue < getThresholds()->getHigh())
       return BLOW_INTENSITY_LOW;
   
-    else if (lastValue < thresholds.getBlowOut())
+    else if (lastValue < getThresholds()->getBlowOut())
       return BLOW_INTENSITY_HIGH;
   
     else
       return BLOW_INTENSITY_BLOWOUT;
     
   } else {
-    if (lastValue > thresholds.getLow())
+    if (lastValue > getThresholds()->getLow())
       return BLOW_INTENSITY_IDLE;
     
-    else if (lastValue > thresholds.getHigh())
+    else if (lastValue > getThresholds()->getHigh())
       return BLOW_INTENSITY_LOW;
     
-    else if (lastValue > thresholds.getBlowOut())
+    else if (lastValue > getThresholds()->getBlowOut())
       return BLOW_INTENSITY_HIGH;
     
     else
@@ -56,7 +45,7 @@ blowIntensityType ValueInput::getBlowIntensity() {
 }
 
 //--------------------------------------------------------------
-void ValueInput::setValue(int value) {
+void ValueInput::setValue(float value) {
   lastValue = value;
  
   broadcastNewValueEvent();
@@ -74,11 +63,11 @@ string ValueInput::getTrace() {
   
   ss << getName() << ": |";
   
-  ss << roundf(thresholds.getOffset()*100)/100 << "| ";
+  ss << roundf(getThresholds()->getOffset()*100)/100 << "| ";
 
-  ss << roundf(thresholds.getLow()*100)/100 << "| ";
-  ss << roundf(thresholds.getHigh()*100)/100 << "| ";
-  ss << roundf(thresholds.getBlowOut()*100)/100 << "| ";
+  ss << roundf(getThresholds()->getLow()*100)/100 << "| ";
+  ss << roundf(getThresholds()->getHigh()*100)/100 << "| ";
+  ss << roundf(getThresholds()->getBlowOut()*100)/100 << "| ";
 
   ss << "value: " << roundf((lastValue)*100)/100 << " intensity: " << Util::blowIntensityToString(getBlowIntensity()) << "\n";
   

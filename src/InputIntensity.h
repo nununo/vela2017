@@ -13,7 +13,7 @@
 
 class InputIntensity: public ITrace {
 public:
-  InputIntensity(DataInput *_dataInput) {dataInput=_dataInput; lastBlowIntensity=BLOW_INTENSITY_IDLE;}
+  InputIntensity(DataInput *_input) {input=_input; lastBlowIntensity=BLOW_INTENSITY_IDLE;}
   blowIntensityType getBlowIntensity() {return lastConvertedBlowIntensity;}
   void update();
   
@@ -21,7 +21,7 @@ public:
   virtual std::string getTrace();
   
 private:
-  DataInput *dataInput;
+  DataInput *input;
   blowIntensityType lastBlowIntensity;
   blowIntensityType lastConvertedBlowIntensity;
 };

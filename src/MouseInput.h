@@ -9,23 +9,30 @@
 #ifndef MouseInput_h
 #define MouseInput_h
 
-#include "CalibratedValueInput.h"
 #include "ofMain.h"
+#include "ThresholdsDataInput.h"
+#include "CalibrationSettings.h"
 
 class MouseInput: public DataInput {
 public:
   MouseInput(bool inverted, CalibrationSettings *calibrationSettings);
-  ~MouseInput() {}
+  ~MouseInput() {
+    delete input;
+    input=NULL;
+  }
   
   // DataInput
-  virtual void update() {calibratedValueInput->setValue(ofGetScreenHeight()-ofGetMouseY());};
-  virtual blowIntensityType getBlowIntensity() {return calibratedValueInput->getBlowIntensity();}
+  virtual void update() {input->setValue(ofGetScreenHeight()-ofGetMouseY());};
+  virtual blowIntensityType getBlowIntensity() {return input->getBlowIntensity();}
 
   // ITrace
-  virtual string getTrace() {return calibratedValueInput->getTrace();}
+  virtual string getTrace() {return input->getTrace();}
 
 private:
-  CalibratedValueInput *calibratedValueInput;
+  Thresholds getThresholds(bool inverted);
+  string buildName(bool inverted, bool calibrated);
+  
+  ThresholdsDataInput *input;
 };
 
 #endif /* MouseInput_h */

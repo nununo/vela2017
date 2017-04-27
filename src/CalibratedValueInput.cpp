@@ -12,7 +12,7 @@
 CalibratedValueInput::CalibratedValueInput(string name,
                                            Thresholds thresholds,
                                            bool inverted,
-                                           CalibrationSettings* _settings) : DataInput(name) {
+                                           CalibrationSettings* _settings) : ThresholdsDataInput(name) {
   
   valueInput = new ValueInput(name, thresholds, inverted);
   

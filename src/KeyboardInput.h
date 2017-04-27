@@ -15,20 +15,24 @@
 class KeyboardInput: public DataInput {
 public:
   KeyboardInput();
-  ~KeyboardInput() {ofUnregisterKeyEvents(this);}
+  ~KeyboardInput() {
+    ofUnregisterKeyEvents(this);
+    delete input;
+    input=NULL;
+  }
   
   //DataInput
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity() {return valueInput->getBlowIntensity();}
+  virtual blowIntensityType getBlowIntensity() {return input->getBlowIntensity();}
   
   //ITrace
-  virtual string getTrace() {return valueInput->getTrace();}
+  virtual string getTrace() {return input->getTrace();}
 
   void keyPressed(ofKeyEventArgs &e);
   void keyReleased(ofKeyEventArgs &e);
 
 private:
-  ValueInput *valueInput;
+  ThresholdsDataInput *input;
 
 };
 

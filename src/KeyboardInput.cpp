@@ -13,9 +13,9 @@ KeyboardInput::KeyboardInput() : DataInput("keyboard") {
 
   ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
 
-  valueInput = new ValueInput(getName(),
-                              Thresholds(1,2,3),
-                              false);
+  input = new ValueInput(getName(),
+                         Thresholds(1,2,3),
+                         false);
 }
 
 //--------------------------------------------------------------
@@ -23,18 +23,18 @@ void KeyboardInput::keyPressed(ofKeyEventArgs &e) {
   
   switch (e.key) {
     case '1':
-      valueInput->setValue(1);
+      input->setValue(1);
       break;
     case '2':
-      valueInput->setValue(2);
+      input->setValue(2);
       break;
     case '3':
-      valueInput->setValue(3);
+      input->setValue(3);
       break;
   };
 };
 
 //--------------------------------------------------------------
 void KeyboardInput::keyReleased(ofKeyEventArgs &e) {
-  valueInput->setValue(0);
+  input->setValue(0);
 }

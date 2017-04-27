@@ -12,14 +12,14 @@
 //--------------------------------------------------------------
 void InputIntensity::update() {
 
-  dataInput->update();
+  input->update();
   
-  if (dataInput->getBlowIntensity() > lastBlowIntensity)
-    lastConvertedBlowIntensity = dataInput->getBlowIntensity();
+  if (input->getBlowIntensity() > lastBlowIntensity)
+    lastConvertedBlowIntensity = input->getBlowIntensity();
   else
     lastConvertedBlowIntensity = BLOW_INTENSITY_IDLE;
   
-  lastBlowIntensity = dataInput->getBlowIntensity();
+  lastBlowIntensity = input->getBlowIntensity();
 }
 
 //--------------------------------------------------------------
@@ -30,7 +30,7 @@ string InputIntensity::getTrace() {
   "  Last read: " + Util::blowIntensityToString(lastBlowIntensity) +
   " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) + "\n";
   
-  ss << dataInput->getTrace();
+  ss << input->getTrace();
   
   return ss.str();
   
