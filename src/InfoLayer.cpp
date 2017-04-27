@@ -1,20 +1,20 @@
 //
-//  TraceLayer.cpp
+//  InfoLayer.cpp
 //  vela2017
 //
 //  Created by Nuno on 19/03/2017.
 //
 //
 
-#include "TraceLayer.h"
+#include "InfoLayer.h"
 
 //--------------------------------------------------------------
-TraceLayer::TraceLayer(LayerSettings settings) : Layer(settings) {
+InfoLayer::InfoLayer(LayerSettings settings) : Layer(settings) {
 	font.load("frabk.ttf",10);
 }
 
 //--------------------------------------------------------------
-void TraceLayer::update() {
+void InfoLayer::update() {
   stringstream ss;
 
   vector<ITrace*>::iterator it;
@@ -26,7 +26,7 @@ void TraceLayer::update() {
 }
 
 //--------------------------------------------------------------
-void TraceLayer::drawAlgorithm() {
+void InfoLayer::drawAlgorithm() {
 
   float v = 0.05 * (float)ofGetWidth();
   

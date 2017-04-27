@@ -20,7 +20,7 @@ void CandleApp::setup(){
 
   inputIntensity = new InputIntensity(config.createDataInputs());
 
-  setupTraceLayer(&config);
+  setupInfoLayer(&config);
 
   ofHideCursor();
   
@@ -36,13 +36,13 @@ void CandleApp::setup(){
 void CandleApp::update(){
   inputIntensity->update();
   clipLayers->update(inputIntensity->getBlowIntensity());
-  traceLayer->update();
+  infoLayer->update();
 }
 
 //--------------------------------------------------------------
 void CandleApp::draw(){
   clipLayers->draw();
-  traceLayer->draw();
+  infoLayer->draw();
   valueHistoriesLayer->draw();
 }
 
@@ -54,7 +54,7 @@ void CandleApp::keyPressed  (int key){
       toggleFullscreen();
       break;
     case 't':
-      traceLayer->setVisible(!traceLayer->isVisible());
+      infoLayer->setVisible(!infoLayer->isVisible());
       break;
     case 'd':
       outputTraceInfo();
@@ -85,14 +85,14 @@ void CandleApp::setFullscreen(bool value) {
 
 //--------------------------------------------------------------
 void CandleApp::outputTraceInfo() {
-  ofLogNotice() << traceLayer->getText();
+  ofLogNotice() << infoLayer->getText();
 }
 
 //--------------------------------------------------------------
-void CandleApp::setupTraceLayer(Config *config) {
+void CandleApp::setupInfoLayer(Config *config) {
   
-  traceLayer = new TraceLayer(config->getLayerSettings("info"));
-  traceLayer->add( new SystemTrace() );
-  traceLayer->add(inputIntensity);
-  traceLayer->add(clipLayers);
+  infoLayer = new InfoLayer(config->getLayerSettings("info"));
+  infoLayer->add( new SystemTrace() );
+  infoLayer->add(inputIntensity);
+  infoLayer->add(clipLayers);
 }

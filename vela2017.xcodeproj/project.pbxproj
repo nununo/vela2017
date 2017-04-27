@@ -25,7 +25,7 @@
 		7DA246DC1EABBAB70077EB85 /* CalibrationSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA246DB1EABBAB70077EB85 /* CalibrationSettings.cpp */; };
 		7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B491E77665F005385DD /* CandleApp.cpp */; };
 		7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B4D1E7767C6005385DD /* Util.cpp */; };
-		7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* TraceLayer.cpp */; };
+		7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* InfoLayer.cpp */; };
 		7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */; };
 		7DAA8B611E776C62005385DD /* Clips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* Clips.cpp */; };
 		7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC4171E9AB847006BEB5F /* ValueInput.cpp */; };
@@ -120,8 +120,8 @@
 		7DAA8B4A1E77665F005385DD /* CandleApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CandleApp.h; sourceTree = "<group>"; };
 		7DAA8B4D1E7767C6005385DD /* Util.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Util.cpp; sourceTree = "<group>"; };
 		7DAA8B4E1E7767C6005385DD /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
-		7DAA8B561E776875005385DD /* TraceLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TraceLayer.cpp; sourceTree = "<group>"; };
-		7DAA8B571E776875005385DD /* TraceLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TraceLayer.h; sourceTree = "<group>"; };
+		7DAA8B561E776875005385DD /* InfoLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InfoLayer.cpp; sourceTree = "<group>"; };
+		7DAA8B571E776875005385DD /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
 		7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClipLayer.cpp; sourceTree = "<group>"; };
 		7DAA8B5B1E776AD4005385DD /* ClipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipLayer.h; sourceTree = "<group>"; };
 		7DAA8B5F1E776C62005385DD /* Clips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clips.cpp; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 				7DAA8B5B1E776AD4005385DD /* ClipLayer.h */,
 				7DB90EF41E7B4885000978EC /* ClipLayers.cpp */,
 				7DB90EF51E7B4885000978EC /* ClipLayers.h */,
-				7DAA8B561E776875005385DD /* TraceLayer.cpp */,
-				7DAA8B571E776875005385DD /* TraceLayer.h */,
+				7DAA8B561E776875005385DD /* InfoLayer.cpp */,
+				7DAA8B571E776875005385DD /* InfoLayer.h */,
 				7DE285421EB01506005C3777 /* ValueHistoriesLayer.cpp */,
 				7DE285431EB01506005C3777 /* ValueHistoriesLayer.h */,
 			);
@@ -480,7 +480,7 @@
 				7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */,
 				7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,
-				7DAA8B581E776875005385DD /* TraceLayer.cpp in Sources */,
+				7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */,
 				7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */,
 				7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */,
 				7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */,

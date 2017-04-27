@@ -2,7 +2,7 @@
 
 #include "ofMain.h"
 #include "Util.h"
-#include "TraceLayer.h"
+#include "InfoLayer.h"
 #include "InputIntensity.h"
 #include "Levels.h"
 #include "ClipLayers.h"
@@ -26,7 +26,7 @@ class CandleApp : public ofBaseApp {
 		void mousePressed(int x, int y, int button) {};
 		
 private:
-  void setupTraceLayer(Config *config);
+  void setupInfoLayer(Config *config);
   void outputLayerStatus();
   void setFullscreen(bool value);
   void toggleFullscreen() {setFullscreen(!generalSettings->getIsFullscreen());}
@@ -34,7 +34,7 @@ private:
   void setupValueHistory();
   
   InputIntensity *inputIntensity;
-  TraceLayer *traceLayer;
+  InfoLayer *infoLayer;
   ValueHistoriesLayer *valueHistoriesLayer;
   ClipLayers *clipLayers;
   GeneralSettings *generalSettings;
