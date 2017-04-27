@@ -19,9 +19,9 @@ void ValueHistoryLayer::drawAlgorithm() {
   ofEnableAlphaBlending();
   ofSetColor(255,255,255,50);
   
-  ofDrawLine(0, ofGetHeight()-valueHistory->getThresholds().getLow(), 100, ofGetHeight()-valueHistory->getThresholds().getLow());
-  ofDrawLine(0, ofGetHeight()-valueHistory->getThresholds().getHigh(), 100, ofGetHeight()-valueHistory->getThresholds().getHigh());
-  ofDrawLine(0, ofGetHeight()-valueHistory->getThresholds().getBlowOut(), 100, ofGetHeight()-valueHistory->getThresholds().getBlowOut());
+  ofDrawLine(0, height-valueHistory->getThresholds().getLow(), 100, height-valueHistory->getThresholds().getLow());
+  ofDrawLine(0, height-valueHistory->getThresholds().getHigh(), 100, height-valueHistory->getThresholds().getHigh());
+  ofDrawLine(0, height-valueHistory->getThresholds().getBlowOut(), 100, height-valueHistory->getThresholds().getBlowOut());
   
   ofPopStyle();
   ofDisableAlphaBlending();
@@ -29,7 +29,7 @@ void ValueHistoryLayer::drawAlgorithm() {
   deque<float> values = valueHistory->getValues();
   for (deque<float>::iterator it = values.begin(); it!=values.end(); ++it) {
     if (i>0)
-      //ofDrawLine(i, ofGetHeight()-lastValue, i+1, ofGetHeight()-(*it));
+      ofDrawLine(i, height-lastValue, i+1, height-(*it));
     lastValue = (*it);
     i++;
   }
