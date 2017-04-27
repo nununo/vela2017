@@ -18,7 +18,7 @@ CalibratedValueInput::CalibratedValueInput(string name,
   
   settings = _settings;
   
-  history = new float[settings->getHistorySize()];
+  buffer = new float[settings->getBufferSize()];
 
 }
 
@@ -40,9 +40,9 @@ void CalibratedValueInput::sampleValue(float value) {
   stepCounter = ((stepCounter + 1) % settings->getSkipSize());
 
   if (stepCounter==0) {
-    history[index] = value;
+    buffer[index] = value;
 
-    index = ((index + 1) % settings->getHistorySize());
+    index = ((index + 1) % settings->getBufferSize());
 
     // We only calibrate when the sample array is full of new data to save CPU
     if (index==0)
@@ -61,23 +61,23 @@ void CalibratedValueInput::calcOffset() {
 float CalibratedValueInput::getAverage() {
   float sum=0;
   
-  for (int i=0; i<settings->getHistorySize(); i++)
-    sum += history[i];
+  for (int i=0; i<settings->getBufferSize(); i++)
+    sum += buffer[i];
   
-  return sum / settings->getHistorySize();
+  return sum / settings->getBufferSize();
 }
 
 //--------------------------------------------------------------
 float CalibratedValueInput::getMaxAcceptedDistance(float average) {
   
-  float distance[settings->getHistorySize()];
+  float distance[settings->getBufferSize()];
   
-  for (int i=0; i<settings->getHistorySize(); i++)
-    distance[i] = abs(average-history[i]);
+  for (int i=0; i<settings->getBufferSize(); i++)
+    distance[i] = abs(average-buffer[i]);
   
-  sort(distance, distance + settings->getHistorySize());
+  sort(distance, distance + settings->getBufferSize());
   
-  return distance[settings->getHistorySize()-settings->getExcentricSize()];
+  return distance[settings->getBufferSize()-settings->getExcentricSize()];
 }
 
 //--------------------------------------------------------------
@@ -85,15 +85,15 @@ void CalibratedValueInput::removeExcentric() {
   float average = getAverage();
   float maxAcceptedDistance = getMaxAcceptedDistance(average);
   
-  for (int i=0; i<settings->getHistorySize(); i++)
-    if (abs(history[i]-average) > maxAcceptedDistance)
-      history[i] = average;
+  for (int i=0; i<settings->getBufferSize(); i++)
+    if (abs(buffer[i]-average) > maxAcceptedDistance)
+      buffer[i] = average;
 }
 
 //--------------------------------------------------------------
 /*string CalibratedValueInput::getTrace() {
   stringstream ss;
-  ss  << "calibrated: " << settings->getTrace() << "(" << roundf((float)index/(float)settings->getHistorySize()*10)/10 << ")";
+  ss  << "calibrated: " << settings->getTrace() << "(" << roundf((float)index/(float)settings->getBufferSize()*10)/10 << ")";
   return ss.str();
 }*/
 

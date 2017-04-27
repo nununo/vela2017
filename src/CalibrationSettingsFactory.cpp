@@ -11,7 +11,7 @@
 //--------------------------------------------------------------
 CalibrationSettings* CalibrationSettingsFactory::create(ofXml *xml) {
 
-  return new CalibrationSettings(xml->getIntValue("historySize"),
+  return new CalibrationSettings(xml->getIntValue("bufferSize"),
                                 xml->getIntValue("excentricSize"),
                                 xml->getIntValue("skipSize"));
 

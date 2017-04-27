@@ -11,6 +11,6 @@
 
 std::string CalibrationSettings::getTrace() {
   std::stringstream ss;
-  ss  << " (" << getHistorySize() << "," << getExcentricSize() << "," << getSkipSize() << ") ";
+  ss  << " (" << getBufferSize() << "," << getExcentricSize() << "," << getSkipSize() << ") ";
   return ss.str();
 }

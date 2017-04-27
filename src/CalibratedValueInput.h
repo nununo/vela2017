@@ -21,8 +21,8 @@ public:
   ~CalibratedValueInput() {
     delete valueInput;
     valueInput=NULL;
-    delete [] history;
-    history=NULL;
+    delete [] buffer;
+    buffer=NULL;
   }
 
   // DataInput
@@ -46,7 +46,7 @@ private:
   ValueInput *valueInput;
   CalibrationSettings *settings;
 
-  float *history;
+  float *buffer;
   
   int index = 0;
   int stepCounter = 0;
