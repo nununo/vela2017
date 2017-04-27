@@ -12,6 +12,7 @@
 class ClipOutputSettings {
   
 public:
+  ClipOutputSettings() : ClipOutputSettings(1,1,0) {}
   ClipOutputSettings(float zoomX, float zoomY, float rotation);
   float getZoomX() {return zoomX;};
   float getZoomY() {return zoomY;};

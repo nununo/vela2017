@@ -10,7 +10,7 @@
 #include "Util.h"
 
 //-----------------------------------------------------------------------
-Clip::Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie* _movie) {
+Clip::Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, IMovie* _movie) {
 
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
@@ -43,8 +43,8 @@ void Clip::update() {
 void Clip::draw() {
   movie->draw(0,
               0,
-              ofGetWidth()*clipOutputSettings->getZoomX(),
-              ofGetHeight()*clipOutputSettings->getZoomY());
+              ofGetWidth()*clipOutputSettings.getZoomX(),
+              ofGetHeight()*clipOutputSettings.getZoomY());
 }
 
 

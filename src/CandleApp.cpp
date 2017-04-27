@@ -10,11 +10,13 @@ void CandleApp::setup(){
   
   generalSettings = config.getGeneralSettings();
   
-  ClipOutputSettings *clipOutputSettings = config.createClipOutputSettings();
-
+  ClipOutputSettings clipOutputSettings = config.getClipOutputSettings();
+  
   clipLayers = new ClipLayers(config.getLayerSettings("clip"),
-                              new Levels(generalSettings, clipOutputSettings, config.createLevelSettingsList()),
-                              clipOutputSettings->getRotation());
+                              new Levels(generalSettings,
+                                         clipOutputSettings,
+                                         config.createLevelSettingsList()),
+                              clipOutputSettings.getRotation());
   
   valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), 100);
 

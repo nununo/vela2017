@@ -16,7 +16,7 @@
 
 class Clip {
 public:
-  Clip(ClipOutputSettings *_clipOutputSettings, LevelSettings *_levelSettings, IMovie *movie);
+  Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, IMovie *movie);
   void rewind() {movie->rewind();}
   void pause(bool value=true);
   void update();
@@ -33,7 +33,7 @@ private:
   int calcAlpha();
   
   IMovie *movie;
-  ClipOutputSettings *clipOutputSettings;
+  ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
   float fadeInPercentage;                 // Fade in percentage converted from fade in time
   float fadeOutPercentage;                // Fade out percentage converted from fade out time

@@ -23,7 +23,7 @@ public:
   bool setup(string filename);
   
   DataInput* createDataInputs();
-  ClipOutputSettings* createClipOutputSettings();
+  ClipOutputSettings getClipOutputSettings();
   GeneralSettings getGeneralSettings();
   CalibrationSettings *createCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();

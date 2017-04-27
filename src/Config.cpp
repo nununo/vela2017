@@ -51,17 +51,17 @@ DataInput* Config::createDataInputs() {
 }
 
 //--------------------------------------------------------------
-ClipOutputSettings* Config::createClipOutputSettings() {
-
+ClipOutputSettings Config::getClipOutputSettings() {
+  ClipOutputSettings clipOutputSettings;
+  
   if (!xml.setTo("clipOutput")) {
     ofLogError() << "XML position to /vela2017/videoOutput failed. Check XML";
-    return NULL;
+    return clipOutputSettings;
   }
 
-  ClipOutputSettings *clipOutputSettings =
-    new ClipOutputSettings(xml.getFloatValue("zoomX"),
-                           xml.getFloatValue("zoomY"),
-                           xml.getFloatValue("rotation"));
+  clipOutputSettings = ClipOutputSettings(xml.getFloatValue("zoomX"),
+                                          xml.getFloatValue("zoomY"),
+                                          xml.getFloatValue("rotation"));
   
   xml.setToParent();
   
