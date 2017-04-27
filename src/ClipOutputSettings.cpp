@@ -9,9 +9,7 @@
 #include "ClipOutputSettings.h"
 
 //--------------------------------------------------------------
-ClipOutputSettings::ClipOutputSettings(float _offsetX, float _offsetY, float _zoomX, float _zoomY, float _rotation) {
-  offsetX = _offsetX;
-  offsetY = _offsetY;
+ClipOutputSettings::ClipOutputSettings(float _zoomX, float _zoomY, float _rotation) {
   zoomX = _zoomX;
   zoomY = _zoomY;
   rotation = _rotation;

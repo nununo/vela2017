@@ -41,8 +41,8 @@ void Clip::update() {
 
 //-----------------------------------------------------------------------
 void Clip::draw() {
-  movie->draw(clipOutputSettings->getOffsetX(),
-              clipOutputSettings->getOffsetY(),
+  movie->draw(0,
+              0,
               ofGetWidth()*clipOutputSettings->getZoomX(),
               ofGetHeight()*clipOutputSettings->getZoomY());
 }

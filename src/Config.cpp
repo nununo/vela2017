@@ -59,9 +59,7 @@ ClipOutputSettings* Config::createClipOutputSettings() {
   }
 
   ClipOutputSettings *clipOutputSettings =
-    new ClipOutputSettings(xml.getIntValue("offsetX"),
-                           xml.getIntValue("offsetY"),
-                           xml.getFloatValue("zoomX"),
+    new ClipOutputSettings(xml.getFloatValue("zoomX"),
                            xml.getFloatValue("zoomY"),
                            xml.getFloatValue("rotation"));
   
