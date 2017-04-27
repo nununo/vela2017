@@ -9,7 +9,7 @@
 class ClipLayer: public Layer, public ITrace {
 
 public:
-  ClipLayer(int _intensity, Clip *_clip);
+  ClipLayer(LayerSettings layerSettings, int _intensity, Clip *_clip);
   virtual ~ClipLayer();
   void update();
   void pause(bool value=true) {clip->pause(value);}

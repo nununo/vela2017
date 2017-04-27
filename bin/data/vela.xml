@@ -80,4 +80,5 @@
   </inputs>
   <layers>
   	<layer offsetX="20" offsetY="20" type="info" visible="1"></layer>
-  	<layer offsetX="0" offsetY="0" type="history" visible="1"></layer></layers></vela2017>
+  	<layer offsetX="0" offsetY="0" type="history" visible="1"></layer>
+  	<layer offsetX="100" offsetY="100" type="clip" visible="1"></layer></layers></vela2017>

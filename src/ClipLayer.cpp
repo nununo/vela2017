@@ -1,14 +1,12 @@
 #include "ClipLayer.h"
 
 //-----------------------------------------------------------------------
-ClipLayer::ClipLayer(int _intensity, Clip *_clip) : Layer() {
+ClipLayer::ClipLayer(LayerSettings layerSettings, int _intensity, Clip *_clip) : Layer(layerSettings) {
   clip = _clip;
   intensity = _intensity;
   
   clip->rewind();
   
-  setVisible(true);
-
   ofLogNotice() << "Created layer for " << clip->getFilename();
 }
 
