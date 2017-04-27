@@ -19,18 +19,18 @@ float Util::remap(const float v, const float inMin, const float inMax, const flo
 }
 
 //--------------------------------------------------------------
-string Util::blowIntensityToString(const blowIntensityType blowIntensity) {
+string Util::blowIntensityToString(const BlowIntensity blowIntensity) {
   switch (blowIntensity) {
-    case BLOW_INTENSITY_IDLE:
+    case BlowIntensity::IDLE:
       return "idle";
       break;
-    case BLOW_INTENSITY_LOW:
+    case BlowIntensity::LOW:
       return "low";
       break;
-    case BLOW_INTENSITY_HIGH:
+    case BlowIntensity::HIGH:
       return "high";
       break;
-    case BLOW_INTENSITY_BLOWOUT:
+    case BlowIntensity::BLOWOUT:
       return "blowOut";
       break;
     default:
@@ -38,7 +38,28 @@ string Util::blowIntensityToString(const blowIntensityType blowIntensity) {
       break;
   }
 }
-
+/*
+//--------------------------------------------------------------
+int Util::blowIntensityToInt(const BlowIntensity blowIntensity) {
+  switch (blowIntensity) {
+    case BlowIntensity::IDLE:
+      return 0;
+      break;
+    case BlowIntensity::LOW:
+      return 1;
+      break;
+    case BlowIntensity::HIGH:
+      return 2;
+      break;
+    case BlowIntensity::BLOWOUT:
+      return "blowOut";
+      break;
+    default:
+      return "invalidIntensity";
+      break;
+  }
+}
+*/
 //--------------------------------------------------------------
 bool Util::stringToBool(const string str) {
   return (str=="1" || str=="enabled" || str=="active" || str=="true" );

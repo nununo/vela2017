@@ -19,6 +19,6 @@ Levels::Levels(const GeneralSettings generalSettings, const ClipOutputSettings c
 };
 
 //--------------------------------------------------------------
-Clip *Levels::getRandomClip(const int level) {
-  return levels[level]->getRandomClip();
+Clip *Levels::getRandomClip(const BlowIntensity blowIntensity) {
+  return levels[(int)blowIntensity]->getRandomClip();
 };

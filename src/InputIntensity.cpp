@@ -9,17 +9,33 @@
 #include "InputIntensity.h"
 #include "Util.h"
 
+// the static event, or any static variable, must be initialized outside of the class definition.
+ofEvent<BlowIntensity> InputIntensity::blowIntensityChanged = ofEvent<BlowIntensity>();
+
 //--------------------------------------------------------------
 void InputIntensity::update() {
-
   input->update();
+  setBlowIntensity(input->getBlowIntensity());
+}
+
+//--------------------------------------------------------------
+void InputIntensity::setBlowIntensity(BlowIntensity newBlowIntensity) {
+  BlowIntensity newConvertedBlowIntensity;
+  BlowIntensity lastConvertedBlowIntensityCopy;
   
-  if (input->getBlowIntensity() > lastBlowIntensity)
-    lastConvertedBlowIntensity = input->getBlowIntensity();
+  if (newBlowIntensity > lastBlowIntensity)
+    newConvertedBlowIntensity = input->getBlowIntensity();
   else
-    lastConvertedBlowIntensity = BLOW_INTENSITY_IDLE;
+    newConvertedBlowIntensity = BlowIntensity::IDLE;
   
-  lastBlowIntensity = input->getBlowIntensity();
+  lastBlowIntensity = newBlowIntensity;
+
+  lastConvertedBlowIntensityCopy = lastConvertedBlowIntensity;
+  lastConvertedBlowIntensity = newConvertedBlowIntensity;
+  
+  if (newConvertedBlowIntensity != lastConvertedBlowIntensityCopy) {
+    broadcastBlowIntensityChangedEvent();
+  }
 }
 
 //--------------------------------------------------------------
@@ -33,5 +49,9 @@ string InputIntensity::getTrace() {
   ss << input->getTrace();
   
   return ss.str();
-  
 };
+
+//--------------------------------------------------------------
+void InputIntensity::broadcastBlowIntensityChangedEvent() {
+  ofNotifyEvent(blowIntensityChanged, lastConvertedBlowIntensity);
+}

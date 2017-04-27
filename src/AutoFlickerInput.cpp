@@ -35,11 +35,11 @@ void AutoFlickerInput::update() {
 }
 
 //--------------------------------------------------------------
-blowIntensityType AutoFlickerInput::getBlowIntensity() {
+BlowIntensity AutoFlickerInput::getBlowIntensity() {
   if (isFlickerTime) {
-    return BLOW_INTENSITY_LOW;
+    return BlowIntensity::LOW;
   } else
-    return BLOW_INTENSITY_IDLE;
+    return BlowIntensity::IDLE;
 }
 
 //--------------------------------------------------------------

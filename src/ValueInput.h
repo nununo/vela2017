@@ -9,7 +9,7 @@
 #ifndef ValueInput_h
 #define ValueInput_h
 
-#include "Constants.h"
+#include "BlowIntensity.h"
 #include "ThresholdsDataInput.h"
 #include "NameFloatEventArgs.h"
 
@@ -24,7 +24,7 @@ public:
 
   // DataInput
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity();
+  virtual BlowIntensity getBlowIntensity();
 
   // ITrace
   virtual string getTrace();
@@ -37,12 +37,11 @@ public:
   static ofEvent<NameFloatEventArgs> newValue;
 
 private:
+  void broadcastNewValueEvent();
+
   Thresholds thresholds;
   float lastValue;
   bool inverted;
-  
-  void broadcastNewValueEvent();
-  
 };
 
 #endif /* AnalogInputSettings_h */

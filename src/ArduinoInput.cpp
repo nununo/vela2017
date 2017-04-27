@@ -73,8 +73,8 @@ void ArduinoInput::update() {
 
 
 //--------------------------------------------------------------
-blowIntensityType ArduinoInput::getBlowIntensity() {
-  blowIntensityType blowIntensity = BLOW_INTENSITY_IDLE;
+BlowIntensity ArduinoInput::getBlowIntensity() {
+  BlowIntensity blowIntensity = BlowIntensity::IDLE;
 
   vector<ThresholdsDataInput*>::iterator it;
   for(it=inputs.begin() ; it < inputs.end(); it++)

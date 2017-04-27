@@ -10,12 +10,13 @@
 #define Levels_h
 
 #include "Clips.h"
+#include "BlowIntensity.h"
 
 class Levels{
   
 public:
   Levels(const GeneralSettings generalSettings, const ClipOutputSettings clipOutputSettings, const vector<LevelSettings*> levelSettingsList);
-  Clip *getRandomClip(const int level);
+  Clip *getRandomClip(const BlowIntensity blowIntensity);
   
 private:  
   vector<Clips*> levels;

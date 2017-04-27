@@ -9,13 +9,14 @@
 #ifndef UTIL_H_INCLUDED
 #define UTIL_H_INCLUDED
 
-#include "Constants.h"
+#include "BlowIntensity.h"
 #include "ofMain.h"
 
 class Util {
 public:
   static float remap(const float v, const float inMin, const float inMax, const float outMin, const float outMax);
-  static string blowIntensityToString(const blowIntensityType blowIntensity);
+  static string blowIntensityToString(const BlowIntensity blowIntensity);
+  //static int blowIntensityToInt(const BlowIntensity blowIntensity);
   static bool stringToBool(const string str);
 };
 

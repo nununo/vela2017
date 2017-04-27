@@ -18,7 +18,7 @@ public:
 
   // DataInput
   virtual void update();
-  virtual blowIntensityType getBlowIntensity();
+  virtual BlowIntensity getBlowIntensity();
 
   // ITrace
   virtual std::string getTrace();

@@ -24,10 +24,10 @@ void MultiInput::update() {
 }
 
 //-----------------------------------------------------------------------
-blowIntensityType MultiInput::getBlowIntensity() {
+BlowIntensity MultiInput::getBlowIntensity() {
   
-  blowIntensityType eachIntensity;
-  blowIntensityType maxIntensity = BLOW_INTENSITY_IDLE;
+  BlowIntensity eachIntensity;
+  BlowIntensity maxIntensity = BlowIntensity::IDLE;
   
   std::vector<DataInput*>::iterator it;
   

@@ -5,16 +5,17 @@
 #include "Clip.h"
 #include "Layer.h"
 #include "ITrace.h"
+#include "BlowIntensity.h"
 
 class ClipLayer: public Layer, public ITrace {
 
 public:
-  ClipLayer(LayerSettings layerSettings, int _intensity, Clip *_clip);
+  ClipLayer(LayerSettings layerSettings, BlowIntensity _intensity, Clip *_clip);
   virtual ~ClipLayer();
   void update();
   void pause(bool value=true) {clip->pause(value);}
   bool isOpaque() {return clip->isOpaque();}
-  int getIntensity() {return intensity;}
+  BlowIntensity getIntensity() {return intensity;}
   bool getCanRestart() {return clip->getCanRestart();}
   
   // ITrace
@@ -29,7 +30,7 @@ private:
   std::string getFilename() {return clip->getFilename();}
 
   Clip *clip;
-  int intensity;
+  BlowIntensity intensity;
 };
 
 #endif // CLIPLAYER_H_INCLUDED

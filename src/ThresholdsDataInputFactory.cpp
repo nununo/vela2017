@@ -22,9 +22,9 @@ DataInput* ThresholdsDataInputFactory::createAux(ofXml *xml, CalibrationSettings
   if (namePrefix!="")
     name = namePrefix + "." + name;
   
-  thresholds = Thresholds(xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_LOW)),
-                          xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_HIGH)),
-                          xml->getFloatValue(Util::blowIntensityToString(BLOW_INTENSITY_BLOWOUT)));
+  thresholds = Thresholds(xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::LOW)),
+                          xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::HIGH)),
+                          xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::BLOWOUT)));
   
   inverted = Util::stringToBool(xml->getAttribute("inverted"));
   

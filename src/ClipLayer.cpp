@@ -1,7 +1,7 @@
 #include "ClipLayer.h"
 
 //-----------------------------------------------------------------------
-ClipLayer::ClipLayer(LayerSettings layerSettings, int _intensity, Clip *_clip) : Layer(layerSettings) {
+ClipLayer::ClipLayer(LayerSettings layerSettings, BlowIntensity _intensity, Clip *_clip) : Layer(layerSettings) {
   clip = _clip;
   intensity = _intensity;
   
@@ -35,7 +35,7 @@ void ClipLayer::drawAlgorithm() {
 string ClipLayer::getTrace() {
   stringstream ss;
   
-    ss << "  " << getIntensity() << " "
+    ss << "  " << (int)getIntensity() << " "
     << "Filename: " << getFilename() << "\n"
     << "    Position: " << roundf(getPosition()*100)/100 << " "
     << "Alpha: " << getAlpha() << "\n"

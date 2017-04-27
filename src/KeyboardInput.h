@@ -23,7 +23,7 @@ public:
   
   //DataInput
   virtual void update() {}
-  virtual blowIntensityType getBlowIntensity() {return input->getBlowIntensity();}
+  virtual BlowIntensity getBlowIntensity() {return input->getBlowIntensity();}
   
   //ITrace
   virtual string getTrace() {return input->getTrace();}

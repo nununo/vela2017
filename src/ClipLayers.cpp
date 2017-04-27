@@ -13,25 +13,25 @@ ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels, int _clips
   layerSettings = _layerSettings;
   levels = _levels;
   clipsRotation = _clipsRotation;
-  currentIntensity = BLOW_INTENSITY_IDLE;
+  currentIntensity = BlowIntensity::IDLE;
   
   // Create base layer for level 0 (which will always loop)
-  baseLayer = new ClipLayer(layerSettings, 0, levels->getRandomClip(0));
+  baseLayer = new ClipLayer(layerSettings, BlowIntensity::IDLE, levels->getRandomClip(BlowIntensity::IDLE));
 
   topLayer = NULL;
 }
 
 //--------------------------------------------------------------
-void ClipLayers::update(blowIntensityType intensity) {
+void ClipLayers::update(BlowIntensity intensity) {
 
   // Delete top layer if it finished playing
   if (topLayer && !topLayer->isVisible()) {
     delete topLayer;
     topLayer = NULL;
-    currentIntensity = BLOW_INTENSITY_IDLE;
+    currentIntensity = BlowIntensity::IDLE;
   }
 
-  if (intensity > BLOW_INTENSITY_IDLE && (!topLayer || topLayer->getCanRestart())) {
+  if (intensity > BlowIntensity::IDLE && (!topLayer || topLayer->getCanRestart())) {
     delete topLayer;
     topLayer = new ClipLayer(layerSettings, intensity, levels->getRandomClip(intensity));
     currentIntensity = intensity;
@@ -70,10 +70,6 @@ void ClipLayers::draw() {
     glTranslatef(ofGetWidth(), ofGetHeight(), 0);
     glRotatef(-clipsRotation, 0, 0, 1);
   }
-}
-
-//--------------------------------------------------------------
-void ClipLayers::updateIntensity(blowIntensityType intensity) {
 }
 
 //--------------------------------------------------------------
