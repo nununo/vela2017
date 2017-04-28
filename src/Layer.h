@@ -16,16 +16,19 @@ class Layer {
 
 public:
   Layer() : Layer(LayerSettings()) {}
-  Layer(LayerSettings _settings) {settings=_settings;}
+  Layer(LayerSettings _settings);
   ~Layer() {};
   void draw();
   void setVisible(bool visible) {settings.setVisible(visible);}
   bool isVisible() {return settings.getVisible();}
-  
+
 protected:
   virtual void drawAlgorithm() = 0;
-
+  ofPoint getSize();
+  
 private:
+  bool isLandscape();
+  
   LayerSettings settings;
 };
 

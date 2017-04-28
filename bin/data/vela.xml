@@ -75,20 +75,20 @@
     </input>
   </inputs>
   <layers>
-  	<layer type="info" visible="1">
-      <offsetX>100</offsetX>
+  	<layer type="info" visible="0">
+      <offsetX>20</offsetX>
       <offsetY>20</offsetY> 
       <rotation>0</rotation>
     </layer>
-  	<layer type="history" visible="1">
+  	<layer type="history" visible="0">
       <offsetX>0</offsetX>
       <offsetY>0</offsetY>
       <rotation>0</rotation>
     </layer>
     <layer type="clip" visible="1">
       <offsetX>0</offsetX>
-      <offsetY>100</offsetY>
-      <rotation>0</rotation>
+      <offsetY>0</offsetY>
+      <rotation>180</rotation>
     </layer>
   </layers>
 </vela2017>

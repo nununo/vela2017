@@ -3,13 +3,15 @@
 
 //--------------------------------------------------------------
 void CandleApp::setup(){
-  
+
   Config config;
   
   config.setup(XML_FILENAME);
   
   generalSettings = config.getGeneralSettings();
-  
+
+  setFullscreen(generalSettings.getIsFullscreen());
+
   ClipOutputSettings clipOutputSettings = config.getClipOutputSettings();
   
   clipLayers = new ClipLayers(config.getLayerSettings("clip"),
@@ -27,8 +29,6 @@ void CandleApp::setup(){
   
   ofSetVerticalSync(true);
   ofSetFrameRate(generalSettings.getFramerate());
-  
-  setFullscreen(generalSettings.getIsFullscreen());
   
   ofBackground(0, 0, 0);
 }
