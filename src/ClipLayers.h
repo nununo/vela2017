@@ -16,7 +16,7 @@
 
 class ClipLayers: public ITrace {
 public:
-  ClipLayers(LayerSettings layerSettings, Levels *levels, int _clipsRotation);
+  ClipLayers(LayerSettings layerSettings, Levels *levels);
   void update(BlowIntensity intensity);
   void draw();
   virtual string getTrace();
@@ -29,7 +29,6 @@ private:
   ClipLayer *baseLayer;
   ClipLayer *topLayer;
   BlowIntensity currentIntensity;
-  int clipsRotation;
 
 };
 

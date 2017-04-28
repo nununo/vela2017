@@ -12,16 +12,17 @@
 class ClipOutputSettings {
   
 public:
-  ClipOutputSettings() : ClipOutputSettings(1,1,0) {}
-  ClipOutputSettings(float zoomX, float zoomY, float rotation);
+  ClipOutputSettings() : ClipOutputSettings(1,1) {}
+  ClipOutputSettings(float _zoomX, float _zoomY) {
+    zoomX = _zoomX;
+    zoomY = _zoomY;
+  }
   float getZoomX() {return zoomX;};
   float getZoomY() {return zoomY;};
-  float getRotation() {return rotation;}
   
 private:
   float zoomX;
   float zoomY;
-  float rotation;
 };
 
 #endif /* ClipOutputSettings_hpp */

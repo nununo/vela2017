@@ -6,7 +6,6 @@
     <historyBufferSize>300</historyBufferSize>
   </general>
   <clipOutput>
-    <rotation>0</rotation>
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
   </clipOutput>
@@ -76,7 +75,20 @@
     </input>
   </inputs>
   <layers>
-  	<layer offsetX="20" offsetY="20" type="info" visible="1"></layer>
-  	<layer offsetX="0" offsetY="0" type="history" visible="1"></layer>
-  <layer offsetX="0" offsetY="0" type="clip" visible="1"></layer></layers>
- </vela2017>
+  	<layer type="info" visible="1">
+      <offsetX>100</offsetX>
+      <offsetY>20</offsetY> 
+      <rotation>0</rotation>
+    </layer>
+  	<layer type="history" visible="1">
+      <offsetX>0</offsetX>
+      <offsetY>0</offsetY>
+      <rotation>0</rotation>
+    </layer>
+    <layer type="clip" visible="1">
+      <offsetX>0</offsetX>
+      <offsetY>100</offsetY>
+      <rotation>0</rotation>
+    </layer>
+  </layers>
+</vela2017>

@@ -60,8 +60,7 @@ ClipOutputSettings Config::getClipOutputSettings() {
   }
 
   clipOutputSettings = ClipOutputSettings(xml.getFloatValue("zoomX"),
-                                          xml.getFloatValue("zoomY"),
-                                          xml.getFloatValue("rotation"));
+                                          xml.getFloatValue("zoomY"));
   
   xml.setToParent();
   
@@ -141,8 +140,9 @@ LayerSettings Config::getLayerSettings(string type) {
   }
   
   layerSettings = LayerSettings(Util::stringToBool(xml.getAttribute("visible")),
-                                ofPoint(std::stoi(xml.getAttribute("offsetX")),
-                                        std::stoi(xml.getAttribute("offsetY"))));
+                                ofPoint(xml.getIntValue("offsetX"),
+                                        xml.getIntValue("offsetY")),
+                                xml.getFloatValue("rotation"));
   
   xml.setToParent(2);
   

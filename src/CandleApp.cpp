@@ -15,8 +15,7 @@ void CandleApp::setup(){
   clipLayers = new ClipLayers(config.getLayerSettings("clip"),
                               new Levels(generalSettings,
                                          clipOutputSettings,
-                                         config.createLevelSettingsList()),
-                              clipOutputSettings.getRotation());
+                                         config.createLevelSettingsList()));
   
   valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), generalSettings.getHistoryBufferSize());
 

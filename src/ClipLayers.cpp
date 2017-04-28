@@ -9,10 +9,9 @@
 #include "ClipLayers.h"
 #include "Util.h"
 
-ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels, int _clipsRotation) {
+ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels) {
   layerSettings = _layerSettings;
   levels = _levels;
-  clipsRotation = _clipsRotation;
   currentIntensity = BlowIntensity::IDLE;
   
   // Create base layer for level 0 (which will always loop)
@@ -53,23 +52,11 @@ bool ClipLayers::isBaseLayerVisible() {
 //--------------------------------------------------------------
 void ClipLayers::draw() {
   
-  // Rotate clips
-  if (clipsRotation != 0) {
-    glRotatef(clipsRotation, 0, 0, 1);
-    glTranslatef(-ofGetWidth(), -ofGetHeight(), 0);
-  }
-  
   if (isBaseLayerVisible())
     baseLayer->draw();
   
   if (topLayer)
     topLayer->draw();
-  
-  // Reset rotation
-  if (clipsRotation != 0) {
-    glTranslatef(ofGetWidth(), ofGetHeight(), 0);
-    glRotatef(-clipsRotation, 0, 0, 1);
-  }
 }
 
 //--------------------------------------------------------------
