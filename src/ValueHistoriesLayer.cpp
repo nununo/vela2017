@@ -54,7 +54,7 @@ void ValueHistoriesLayer::drawAlgorithm() {
 //--------------------------------------------------------------
 void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
   
-  int height = ofGetScreenHeight();
+  int height = getSize().y;
   float lastValue=0;
   float min;
   float max;
@@ -73,7 +73,6 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
   ofDrawLine(0, height-history->getThresholds().getHigh(), ValueHistory::getSize(), height-history->getThresholds().getHigh());
   ofDrawLine(0, height-history->getThresholds().getBlowOut(), ValueHistory::getSize(), height-history->getThresholds().getBlowOut());
   
-  
   // Value history
   ofSetColor(ofColor::white);
 
@@ -89,8 +88,7 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
     lastValue = (*it);
     i++;
   }
-  cout << "i=" << i << " min=" << min << " max=" << max << endl;
-
+  
   // Draw name
   font.drawString(name, 0, height-min-2);
 

@@ -14,15 +14,9 @@ Layer::Layer(LayerSettings _settings) {
 }
 
 //--------------------------------------------------------------
-bool Layer::isLandscape() {
-  return (settings.getRotation()>=-45 && settings.getRotation()<=45) ||
-          (settings.getRotation()>=135 && settings.getRotation()<=225);
-}
-
-//--------------------------------------------------------------
 ofPoint Layer::getSize() {
   ofPoint size;
-  if (isLandscape()) {
+   if (!settings.isPortraitMode()) {
     size.x = ofGetWidth();
     size.y = ofGetHeight();
   } else {
@@ -36,12 +30,18 @@ ofPoint Layer::getSize() {
 void Layer::draw() {
   
   if (isVisible()) {
+  
     ofPushMatrix();
     
-    if (settings.getRotation()!=0) {
-      ofTranslate((float)getSize().x/2, (float)getSize().y/2, 0);
-      ofRotateZ(settings.getRotation());
-      ofTranslate(-(float)getSize().x/2, -(float)getSize().y/2, 0);
+    if (settings.isRotated180()) {
+      ofTranslate(ofGetWidth()/2, ofGetHeight()/2, 0);
+      ofRotateZ(180);
+      ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2, 0);
+    }
+    
+    if (settings.isPortraitMode()) {
+      ofTranslate(ofGetWidth(),0);
+      ofRotateZ(90);
     }
     
     ofTranslate(settings.getOffset().x, settings.getOffset().y);

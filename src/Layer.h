@@ -26,9 +26,6 @@ protected:
   virtual void drawAlgorithm() = 0;
   ofPoint getSize();
   
-private:
-  bool isLandscape();
-  
   LayerSettings settings;
 };
 

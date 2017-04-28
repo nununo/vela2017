@@ -77,9 +77,9 @@ GeneralSettings Config::getGeneralSettings() {
   }
   
   generalSettings = GeneralSettings(xml.getIntValue("framerate"),
-                                     xml.getBoolValue("fullscreen"),
-                                     xml.getBoolValue("useOmxPlayer"),
-                                     xml.getIntValue("historyBufferSize"));
+                                    xml.getBoolValue("fullscreen"),
+                                    xml.getBoolValue("useOmxPlayer"),
+                                    xml.getIntValue("historyBufferSize"));
   
   xml.setToParent();
   
@@ -142,7 +142,8 @@ LayerSettings Config::getLayerSettings(string type) {
   layerSettings = LayerSettings(Util::stringToBool(xml.getAttribute("visible")),
                                 ofPoint(xml.getIntValue("offsetX"),
                                         xml.getIntValue("offsetY")),
-                                xml.getFloatValue("rotation"));
+                                xml.getBoolValue("rotated180"),
+                                xml.getFloatValue("portraitMode"));
   
   xml.setToParent(2);
   

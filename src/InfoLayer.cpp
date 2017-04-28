@@ -29,10 +29,12 @@ void InfoLayer::update() {
 void InfoLayer::drawAlgorithm() {
   
   ofPushStyle();
-  
+  ofPushMatrix();
   ofSetColor(ofColor::white);
 
+  ofTranslate(10, 20);
   font.drawString(text, 0, 0);
 
+  ofPopMatrix();
   ofPopStyle();
 }
