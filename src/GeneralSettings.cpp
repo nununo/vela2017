@@ -9,9 +9,10 @@
 #include "GeneralSettings.h"
 
 //--------------------------------------------------------------
-GeneralSettings::GeneralSettings(int _framerate, bool _isFullscreen, bool _useOmxPlayer) {
+GeneralSettings::GeneralSettings(int _framerate, bool _isFullscreen, bool _useOmxPlayer, int _historyBufferSize) {
   framerate = _framerate;
   isFullscreen = _isFullscreen;
   useOmxPlayer = _useOmxPlayer;
+  historyBufferSize = _historyBufferSize;
   
 }

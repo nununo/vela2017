@@ -26,10 +26,11 @@ protected:
 private:
   void onNewValue(NameFloatEventArgs &e);
   void onThresholdsCalibrated(ThresholdsEventArgs &e);
-  void drawHistory(ValueHistory* history);
+  void drawHistory(string name, ValueHistory* history);
 
   Thresholds thresholds;
   ValueHistories *valueHistories;
-};
+  ofTrueTypeFont font;
+ };
 
 #endif /* ValueHistoriesLayer_h */

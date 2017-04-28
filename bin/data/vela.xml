@@ -3,6 +3,7 @@
     <framerate>50</framerate>
     <fullscreen>1</fullscreen>
     <useOmxPlayer>1</useOmxPlayer>
+    <historyBufferSize>300</historyBufferSize>
   </general>
   <clipOutput>
     <rotation>0</rotation>
@@ -47,7 +48,7 @@
   <inputs>
     <input type="keyboard" enabled="1"/>
     <input type="mouse" enabled="1" inverted="0" calibrated="1"/>
-    <input type="autoFlicker" enabled="1">
+    <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
     <input type="arduino" enabled="0" calibrated="1">
@@ -77,4 +78,5 @@
   <layers>
   	<layer offsetX="20" offsetY="20" type="info" visible="1"></layer>
   	<layer offsetX="0" offsetY="0" type="history" visible="1"></layer>
-  	<layer offsetX="0" offsetY="0" type="clip" visible="1"></layer></layers></vela2017>
+  <layer offsetX="0" offsetY="0" type="clip" visible="1"></layer></layers>
+ </vela2017>

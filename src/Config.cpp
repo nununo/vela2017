@@ -79,7 +79,8 @@ GeneralSettings Config::getGeneralSettings() {
   
   generalSettings = GeneralSettings(xml.getIntValue("framerate"),
                                      xml.getBoolValue("fullscreen"),
-                                     xml.getBoolValue("useOmxPlayer"));
+                                     xml.getBoolValue("useOmxPlayer"),
+                                     xml.getIntValue("historyBufferSize"));
   
   xml.setToParent();
   

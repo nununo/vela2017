@@ -12,11 +12,8 @@
 #include <deque>
 #include "Thresholds.h"
 
-#define VALUEHISTORY_DEFAULT_SIZE 200
-
 class ValueHistory {
 public:
-  ValueHistory() {bufferSize = VALUEHISTORY_DEFAULT_SIZE;}
   void addValue(float value);
   void setThresholds(Thresholds _thresholds) {thresholds=_thresholds;}
   Thresholds getThresholds() {return thresholds;}
@@ -24,6 +21,7 @@ public:
 
   static void setSize(int _bufferSize) {bufferSize=_bufferSize;}
   static int getSize() {return bufferSize;}
+  static const int BUFFER_SIZE_DEFAULT = 200;
 
 private:
   static int bufferSize;

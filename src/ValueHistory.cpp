@@ -8,7 +8,7 @@
 
 #include "ValueHistory.h"
 
-int ValueHistory::bufferSize;
+int ValueHistory::bufferSize = ValueHistory::BUFFER_SIZE_DEFAULT;
 
 //--------------------------------------------------------------
 void ValueHistory::addValue(float value) {

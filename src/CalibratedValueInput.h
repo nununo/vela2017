@@ -18,7 +18,7 @@ public:
   CalibratedValueInput(string name,
                        Thresholds thresholds,
                        bool inverted,
-                       CalibrationSettings* calibrationSettings=NULL);
+                       CalibrationSettings* calibrationSettings);
   ~CalibratedValueInput() {
     delete valueInput;
     valueInput=NULL;
