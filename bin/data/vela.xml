@@ -3,7 +3,6 @@
     <framerate>50</framerate>
     <fullscreen>1</fullscreen>
     <useOmxPlayer>1</useOmxPlayer>
-    <historyBufferSize>300</historyBufferSize>
   </general>
   <history>
     <bufferSize>300</bufferSize>
