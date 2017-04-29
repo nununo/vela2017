@@ -1,7 +1,4 @@
-- History could get values from any DataInput (Observer pattern) (ofEvent?)
 - Add indent parameter to getTrace
-- Review clip output rotation/translation
-- Autoflicker timer reset whenever a trigger happens (it should happen when the candle is idle for some time)
 - XML Schema
 
 - Consider implementing a damper
