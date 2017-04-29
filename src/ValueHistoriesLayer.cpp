@@ -49,7 +49,7 @@ ofVec2f ValueHistoriesLayer::getHistoryMinMax(const ValueHistory* history) {
 
 //--------------------------------------------------------------
 float ValueHistoriesLayer::mapHeight(ofVec2f minMax, float value) {
-  return historySettings.getChartHeight() - ofMap(value, minMax.x, minMax.y, 0, historySettings.getChartHeight(), true);
+  return historySettings.getChartHeight()-ofMap(value, minMax.x, minMax.y, 5, historySettings.getChartHeight()-5, true);
 }
 
 //--------------------------------------------------------------
@@ -115,7 +115,7 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
   ofSetColor(255,255,255,100);
   ofNoFill();
   ofSetLineWidth(3);
-  ofDrawRectangle(-3, 0, HistorySettings::getBufferSize()+6, 500);
+  ofDrawRectangle(-3, 0, HistorySettings::getBufferSize()+6, historySettings.getChartHeight());
 
   ofPopStyle();
   ofDisableAlphaBlending();
