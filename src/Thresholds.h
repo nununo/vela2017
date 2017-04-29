@@ -22,6 +22,7 @@ public:
   float getOffset() {return offset;}
   float setOffset(float _offset) {offset=_offset;}
   BlowIntensity getBlowIntensity(float value);
+  bool isInverted() {return inverted;}
 
 private:
   float offset=0;

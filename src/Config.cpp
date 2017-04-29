@@ -78,12 +78,28 @@ GeneralSettings Config::getGeneralSettings() {
   
   generalSettings = GeneralSettings(xml.getIntValue("framerate"),
                                     xml.getBoolValue("fullscreen"),
-                                    xml.getBoolValue("useOmxPlayer"),
-                                    xml.getIntValue("historyBufferSize"));
+                                    xml.getBoolValue("useOmxPlayer"));
   
   xml.setToParent();
   
   return generalSettings;
+}
+
+//--------------------------------------------------------------
+HistorySettings Config::getHistorySettings() {
+  HistorySettings historySettings;
+  
+  if (!xml.setTo("history")) {
+    ofLogError() << "XML position to /vela2017/history failed. Check XML";
+    return historySettings;
+  }
+  
+  historySettings = HistorySettings(xml.getIntValue("bufferSize"),
+                                    xml.getIntValue("chartHeight"));
+  
+  xml.setToParent();
+  
+  return historySettings;
 }
 
 //--------------------------------------------------------------

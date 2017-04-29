@@ -16,15 +16,10 @@ class ValueHistory {
 public:
   void addValue(float value);
   void setThresholds(Thresholds _thresholds) {thresholds=_thresholds;}
-  Thresholds getThresholds() {return thresholds;}
-  std::deque<float> getValues() {return values;}
-
-  static void setSize(int _bufferSize) {bufferSize=_bufferSize;}
-  static int getSize() {return bufferSize;}
-  static const int BUFFER_SIZE_DEFAULT = 200;
+  Thresholds getThresholds() const {return thresholds;}
+  std::deque<float> getValues() const {return values;}
 
 private:
-  static int bufferSize;
   Thresholds thresholds;
   std::deque<float> values;
 };

@@ -14,6 +14,7 @@
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
 #include "CalibrationSettings.h"
+#include "HistorySettings.h"
 #include "LevelSettings.h"
 #include "LayerSettings.h"
 #include "Util.h"
@@ -28,6 +29,7 @@ public:
   CalibrationSettings *createCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();
   LayerSettings getLayerSettings(string type);
+  HistorySettings getHistorySettings();
 
 private:
   ofXml xml;

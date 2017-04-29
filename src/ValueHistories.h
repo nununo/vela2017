@@ -13,16 +13,22 @@
 #include <unordered_map>
 #include <vector>
 #include "ValueHistory.h"
+#include "ThresholdsEventArgs.h"
+#include "NameFloatEventArgs.h"
 
 class ValueHistories {
 public:
-  ValueHistories(int bufferSize) {ValueHistory::setSize(bufferSize);}
+  ValueHistories();
+  ~ValueHistories();
   void addValue(std::string name, float value) {getHistory(name)->addValue(value);}
   void setThresholds(std::string name, Thresholds thresholds) {getHistory(name)->setThresholds(thresholds);}
   ValueHistory* getHistory(std::string name) {return &histories[name];}
   std::vector<std::string> getKeys();
 
 private:
+  void onThresholdsCalibrated(ThresholdsEventArgs &e);
+  void onNewValue(NameFloatEventArgs &e);
+
   std::unordered_map<std::string, ValueHistory> histories;
 };
 

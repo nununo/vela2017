@@ -5,6 +5,10 @@
     <useOmxPlayer>1</useOmxPlayer>
     <historyBufferSize>300</historyBufferSize>
   </general>
+  <history>
+    <bufferSize>300</bufferSize>
+    <chartHeight>300</chartHeight>
+  </history>
   <clipOutput>
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
@@ -46,7 +50,7 @@
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
-    <input type="mouse" enabled="0" inverted="0" calibrated="1">
+    <input type="mouse" enabled="1" inverted="0" calibrated="1">
       <low>100</low>
       <high>200</high>
       <blowOut>300</blowOut>
@@ -87,7 +91,7 @@
     </layer>
   	<layer type="history" visible="1">
       <offsetX>0</offsetX>
-      <offsetY>0</offsetY>
+      <offsetY>400</offsetY>
       <rotated180>0</rotated180>
       <portraitMode>0</portraitMode>
     </layer>

@@ -13,18 +13,16 @@
 
 class GeneralSettings {
 public:
-  GeneralSettings() : GeneralSettings(25,true,true, ValueHistory::BUFFER_SIZE_DEFAULT) {}
-  GeneralSettings(int framerate, bool isFullscreen, bool useOmxPlayer, int historyBufferSize);
+  GeneralSettings() : GeneralSettings(25,true,true) {}
+  GeneralSettings(int framerate, bool isFullscreen, bool useOmxPlayer);
   int getFramerate() {return framerate;}
   bool getIsFullscreen() {return isFullscreen;}
   bool getUseOmxPlayer() {return useOmxPlayer;}
-  int getHistoryBufferSize() {return historyBufferSize;}
   void setIsFullscreen(bool _isFullScreen) {isFullscreen=_isFullScreen;}
 private:
   int framerate;
   bool isFullscreen;
   bool useOmxPlayer;
-  int historyBufferSize;
 };
 
 #endif /* GeneralSettings_h */

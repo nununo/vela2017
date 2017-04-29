@@ -7,13 +7,12 @@
 //
 
 #include "ValueHistory.h"
-
-int ValueHistory::bufferSize = ValueHistory::BUFFER_SIZE_DEFAULT;
+#include "HistorySettings.h"
 
 //--------------------------------------------------------------
 void ValueHistory::addValue(float value) {
   values.push_back(value);
   
-  if (values.size() > ValueHistory::bufferSize)
+  if (values.size() > HistorySettings::getBufferSize())
     values.pop_front();
 }

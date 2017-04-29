@@ -13,24 +13,27 @@
 #include "ValueHistories.h"
 #include "NameFloatEventArgs.h"
 #include "ThresholdsEventArgs.h"
+#include "HistorySettings.h"
 
 class ValueHistoriesLayer : public Layer {
 
 public:
-  ValueHistoriesLayer(LayerSettings settings, int bufferSize);
+  ValueHistoriesLayer(LayerSettings layerSettings, HistorySettings historySettings);
   ~ValueHistoriesLayer();
 
 protected:
   void drawAlgorithm();
 
 private:
-  void onNewValue(NameFloatEventArgs &e);
-  void onThresholdsCalibrated(ThresholdsEventArgs &e);
   void drawHistory(string name, ValueHistory* history);
+  ofVec2f getHistoryMinMax(const ValueHistory* history);
+  float mapHeight(ofVec2f minMax, float value);
+  void drawLine(ofVec2f minMax, ValueHistory *history, float value);
 
+  HistorySettings historySettings;
   Thresholds thresholds;
   ValueHistories *valueHistories;
   ofTrueTypeFont font;
- };
+};
 
 #endif /* ValueHistoriesLayer_h */
