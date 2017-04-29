@@ -14,8 +14,7 @@ KeyboardInput::KeyboardInput() : DataInput("keyboard") {
   ofRegisterKeyEvents(this); // enable our class to listen to keyboard events.
 
   input = new ValueInput(getName(),
-                         Thresholds(1,2,3),
-                         false);
+                         Thresholds(1,2,3,false));
 }
 
 //--------------------------------------------------------------

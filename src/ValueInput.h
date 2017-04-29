@@ -15,16 +15,13 @@
 
 class ValueInput : public ThresholdsDataInput {
 public:
-  ValueInput(string name,
-             Thresholds _thresholds,
-             bool _inverted) : ThresholdsDataInput(name) {
+  ValueInput(string name, Thresholds _thresholds) : ThresholdsDataInput(name) {
     thresholds=_thresholds;
-    inverted=_inverted;
     lastValue=0;};
 
   // DataInput
   virtual void update() {}
-  virtual BlowIntensity getBlowIntensity();
+  virtual BlowIntensity getBlowIntensity() {return thresholds.getBlowIntensity(lastValue);}
 
   // ITrace
   virtual string getTrace();
@@ -41,7 +38,6 @@ private:
 
   Thresholds thresholds;
   float lastValue;
-  bool inverted;
 };
 
 #endif /* AnalogInputSettings_h */

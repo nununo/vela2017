@@ -19,6 +19,7 @@
 		7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */; };
 		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */; };
+		7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D65E7B71EB4E5F40087018A /* Thresholds.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
 		7DA246DA1EABB5000077EB85 /* MouseInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA246D91EABB5000077EB85 /* MouseInputFactory.cpp */; };
 		7DA246DC1EABBAB70077EB85 /* CalibrationSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DA246DB1EABBAB70077EB85 /* CalibrationSettings.cpp */; };
@@ -105,6 +106,7 @@
 		7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFloatEventArgs.h; sourceTree = "<group>"; };
 		7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiInput.cpp; sourceTree = "<group>"; };
 		7D60A9111E9961F3009FF4F2 /* MultiInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiInput.h; sourceTree = "<group>"; };
+		7D65E7B71EB4E5F40087018A /* Thresholds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Thresholds.cpp; sourceTree = "<group>"; };
 		7D7245AC1E7DA83F006E5653 /* Clip.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clip.cpp; sourceTree = "<group>"; };
 		7D7245AD1E7DA83F006E5653 /* Clip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clip.h; sourceTree = "<group>"; };
 		7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipOutputSettings.h; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				7DE285491EB021D8005C3777 /* ValueHistory.h */,
 				7DB94A5D1EB146D6008ADD74 /* ThresholdsEventArgs.h */,
 				7DB94A5E1EB14754008ADD74 /* Thresholds.h */,
+				7D65E7B71EB4E5F40087018A /* Thresholds.cpp */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				7DB3F7DB1E8DD1C90025498A /* SystemInfo.cpp in Sources */,
 				7DAA8B611E776C62005385DD /* Clips.cpp in Sources */,
 				7DE285411EB00CE1005C3777 /* ValueHistories.cpp in Sources */,
+				7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */,
 				7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */,
 				7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,

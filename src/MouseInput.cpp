@@ -16,12 +16,9 @@ MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) 
   if (calibrationSettings)
     input = new CalibratedValueInput(buildName(inverted, true),
                                      getThresholds(inverted),
-                                     inverted,
                                      calibrationSettings);
   else
-    input = new ValueInput(buildName(inverted, false),
-                           getThresholds(inverted),
-                           inverted);
+    input = new ValueInput(buildName(inverted, false), getThresholds(inverted));
 };
 
 //--------------------------------------------------------------
@@ -31,11 +28,13 @@ Thresholds MouseInput::getThresholds(bool inverted) {
   if (!inverted)
     thresholds = Thresholds(1*(float)ofGetScreenHeight()/4,
                             2*(float)ofGetScreenHeight()/4,
-                            3*(float)ofGetScreenHeight()/4);
+                            3*(float)ofGetScreenHeight()/4,
+                            false);
   else
     thresholds = Thresholds(3*(float)ofGetScreenHeight()/4,
                             2*(float)ofGetScreenHeight()/4,
-                            1*(float)ofGetScreenHeight()/4);
+                            1*(float)ofGetScreenHeight()/4,
+                            true);
   
   return thresholds;
 }

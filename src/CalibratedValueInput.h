@@ -17,7 +17,6 @@ class CalibratedValueInput : public ThresholdsDataInput {
 public:
   CalibratedValueInput(string name,
                        Thresholds thresholds,
-                       bool inverted,
                        CalibrationSettings* calibrationSettings);
   ~CalibratedValueInput() {
     delete valueInput;

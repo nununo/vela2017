@@ -14,37 +14,6 @@
 ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();
 
 //--------------------------------------------------------------
-BlowIntensity ValueInput::getBlowIntensity() {
-  
-  if (!inverted) {
-    if (lastValue < getThresholds()->getLow())
-      return BlowIntensity::IDLE;
-
-    else if (lastValue < getThresholds()->getHigh())
-      return BlowIntensity::LOW;
-  
-    else if (lastValue < getThresholds()->getBlowOut())
-      return BlowIntensity::HIGH;
-  
-    else
-      return BlowIntensity::BLOWOUT;
-    
-  } else {
-    if (lastValue > getThresholds()->getLow())
-      return BlowIntensity::IDLE;
-    
-    else if (lastValue > getThresholds()->getHigh())
-      return BlowIntensity::LOW;
-    
-    else if (lastValue > getThresholds()->getBlowOut())
-      return BlowIntensity::HIGH;
-    
-    else
-      return BlowIntensity::BLOWOUT;
-  }
-}
-
-//--------------------------------------------------------------
 void ValueInput::setValue(float value) {
   lastValue = value;
  

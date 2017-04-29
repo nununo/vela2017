@@ -46,13 +46,17 @@
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
-    <input type="mouse" enabled="1" inverted="0" calibrated="1"/>
+    <input type="mouse" enabled="0" inverted="0" calibrated="1">
+      <low>100</low>
+      <high>200</high>
+      <blowOut>300</blowOut>
+    </input>
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" enabled="0" calibrated="1">
+    <input type="arduino" enabled="1" calibrated="1">
       <devices>
-        <device name="mac">cu.usbmodem1421</device>
+        <device name="mac">cu.usbmodem1411</device>
         <device name="pi">/dev/ttyUSB0</device>
       </devices>
       <analogInputs>
@@ -67,7 +71,7 @@
           <blowOut>30</blowOut>
         </analogInput>
         <analogInput name="top" enabled="0" inverted="1" calibrated="1">
-          <low>5</low>
+          <low>-5</low>
           <high>15</high>
           <blowOut>30</blowOut>
         </analogInput>
@@ -81,13 +85,13 @@
       <rotated180>0</rotated180>
       <portraitMode>0</portraitMode>
     </layer>
-  	<layer type="history" visible="0">
+  	<layer type="history" visible="1">
       <offsetX>0</offsetX>
       <offsetY>0</offsetY>
       <rotated180>0</rotated180>
       <portraitMode>0</portraitMode>
     </layer>
-    <layer type="clip" visible="0">
+    <layer type="clip" visible="1">
       <offsetX>0</offsetX>
       <offsetY>0</offsetY>
       <rotated180>0</rotated180>

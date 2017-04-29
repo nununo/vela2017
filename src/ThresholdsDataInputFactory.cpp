@@ -21,20 +21,16 @@ DataInput* ThresholdsDataInputFactory::createAux(ofXml *xml, CalibrationSettings
   name = xml->getAttribute("name");
   if (namePrefix!="")
     name = namePrefix + "." + name;
+
+  inverted = Util::stringToBool(xml->getAttribute("inverted"));
   
   thresholds = Thresholds(xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::LOW)),
                           xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::HIGH)),
-                          xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::BLOWOUT)));
-  
-  inverted = Util::stringToBool(xml->getAttribute("inverted"));
+                          xml->getFloatValue(Util::blowIntensityToString(BlowIntensity::BLOWOUT)),
+                          inverted);
   
   if (calibrationSettings)
-    return new CalibratedValueInput(name,
-                                    thresholds,
-                                    inverted,
-                                    calibrationSettings);
+    return new CalibratedValueInput(name, thresholds, calibrationSettings);
   else
-    return new ValueInput(name,
-                          thresholds,
-                          inverted);
+    return new ValueInput(name, thresholds);
 }
