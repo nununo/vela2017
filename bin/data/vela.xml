@@ -45,7 +45,7 @@
   <calibration>
     <bufferSize>100</bufferSize>
     <excentricSize>25</excentricSize>
-    <skipSize>5</skipSize>
+    <skipSize>1</skipSize>
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
@@ -64,7 +64,7 @@
       </devices>
       <analogInputs>
         <analogInput name="left" enabled="1" inverted="1" calibrated="1">
-          <low>2</low>
+          <low>3</low>
           <high>7</high>
           <blowOut>15</blowOut>
         </analogInput>

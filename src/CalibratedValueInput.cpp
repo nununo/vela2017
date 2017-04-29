@@ -48,12 +48,12 @@ void CalibratedValueInput::sampleValue(float value) {
 
     // We only calibrate when the sample array is full of new data to save CPU
     if (index==0)
-      calcOffset();
+      calibrateOffset();
   }
 }
 
 //--------------------------------------------------------------
-void CalibratedValueInput::calcOffset() {
+void CalibratedValueInput::calibrateOffset() {
   
   removeExcentric();
   

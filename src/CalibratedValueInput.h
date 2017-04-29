@@ -43,7 +43,7 @@ private:
   float getAverage();
   float getMaxAcceptedDistance(float average);
   void removeExcentric();
-  void calcOffset();
+  void calibrateOffset();
   void sampleValue(float value);
   void broadcastThresholdsCalibratedEvent();
 

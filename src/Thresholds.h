@@ -20,7 +20,7 @@ public:
   float getHigh() {return high+offset;}
   float getBlowOut() {return blowOut+offset;}
   float getOffset() {return offset;}
-  float setOffset(float _offset) {offset=_offset;}
+  void setOffset(float _offset) {offset=_offset;}
   BlowIntensity getBlowIntensity(float value);
   bool isInverted() {return inverted;}
 
