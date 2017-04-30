@@ -12,29 +12,24 @@
 #include "DataInput.h"
 #include "ThresholdsDataInput.h"
 #include "ofMain.h"
+#include "Arduino.h"
 
 class ArduinoInput: public DataInput {
 public:
-  ArduinoInput() : DataInput("arduino") {}
+  ArduinoInput(string name, int inputId, ThresholdsDataInput *input);
   ~ArduinoInput() {};
-  
-  void addDevice(string device) {devices.push_back(device);}
-  void addInput(ThresholdsDataInput *input);
-  bool connect();
-  bool isEnabled() {return serial.isInitialized();}
   
   //DataInput
   virtual void update();
-  virtual BlowIntensity getBlowIntensity();
+  virtual BlowIntensity getBlowIntensity() {return input->getBlowIntensity();}
 
   //ITrace
   virtual string getTrace();
   
 private:
-  vector<string> devices;
-  vector<ThresholdsDataInput*> inputs;
-  ofSerial serial;
-  string device;
+  Arduino *arduino;
+  ThresholdsDataInput *input;
+  int inputId;
 };
 
 #endif /* ArduinoInput_h */

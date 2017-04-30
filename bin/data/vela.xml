@@ -12,6 +12,10 @@
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
   </clipOutput>
+  <arduino>
+    <device name="mac">cu.usbmodem1411</device>
+    <device name="pi">/dev/ttyUSB0</device>
+  </arduino>
   <levels>
     <level>
       <movieFolder>media/0</movieFolder>
@@ -57,28 +61,20 @@
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" enabled="1" calibrated="1">
-      <devices>
-        <device name="mac">cu.usbmodem1411</device>
-        <device name="pi">/dev/ttyUSB0</device>
-      </devices>
-      <analogInputs>
-        <analogInput name="left" enabled="1" inverted="1" calibrated="1">
-          <low>3</low>
-          <high>7</high>
-          <blowOut>15</blowOut>
-        </analogInput>
-        <analogInput name="right" enabled="0" inverted="1" calibrated="1">
-          <low>5</low>
-          <high>15</high>
-          <blowOut>30</blowOut>
-        </analogInput>
-        <analogInput name="top" enabled="0" inverted="1" calibrated="1">
-          <low>-5</low>
-          <high>15</high>
-          <blowOut>30</blowOut>
-        </analogInput>
-      </analogInputs>
+    <input type="arduino" name="arduino.left" id="0" enabled="1" inverted="1" calibrated="1">
+      <low>3</low>
+      <high>7</high>
+      <blowOut>15</blowOut>
+    </input>
+    <input type="arduino" name="arduino.right" id="1" enabled="0" inverted="1" calibrated="1">
+      <low>5</low>
+      <high>15</high>
+      <blowOut>30</blowOut>
+    </input>
+    <input type="arduino" name="arduino.top" id="2" enabled="0" inverted="1" calibrated="1">
+      <low>-5</low>
+      <high>15</high>
+      <blowOut>30</blowOut>
     </input>
   </inputs>
   <layers>

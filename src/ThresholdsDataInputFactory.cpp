@@ -12,15 +12,13 @@
 #include "CalibratedValueInput.h"
 
 //--------------------------------------------------------------
-DataInput* ThresholdsDataInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix) {
+DataInput* ThresholdsDataInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
   
   Thresholds thresholds;
   string name;
   bool inverted;
   
   name = xml->getAttribute("name");
-  if (namePrefix!="")
-    name = namePrefix + "." + name;
 
   inverted = Util::stringToBool(xml->getAttribute("inverted"));
   

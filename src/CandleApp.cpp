@@ -21,6 +21,9 @@ void CandleApp::setup(){
   
   valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), config.getHistorySettings());
 
+  arduino = &Arduino::getInstance();
+  arduino->setup(config.getArduinoSettings());
+  
   inputIntensity = new InputIntensity(config.createDataInputs());
 
   setupInfoLayer(&config);
@@ -35,6 +38,7 @@ void CandleApp::setup(){
 
 //--------------------------------------------------------------
 void CandleApp::update(){
+  arduino->update();
   inputIntensity->update();
   clipLayers->update(inputIntensity->getBlowIntensity());
   infoLayer->update();
@@ -94,6 +98,7 @@ void CandleApp::setupInfoLayer(Config *config) {
   
   infoLayer = new InfoLayer(config->getLayerSettings("info"));
   infoLayer->add( new SystemInfo() );
+  infoLayer->add(arduino);
   infoLayer->add(inputIntensity);
   infoLayer->add(clipLayers);
 }

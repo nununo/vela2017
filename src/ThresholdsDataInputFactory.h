@@ -14,7 +14,7 @@
 
 class ThresholdsDataInputFactory : public DataInputFactory {
 public:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings, string namePrefix);
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings);
 };
 
 #endif /* ThresholdsDataInputFactory_h */

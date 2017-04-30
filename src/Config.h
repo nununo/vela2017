@@ -17,6 +17,7 @@
 #include "HistorySettings.h"
 #include "LevelSettings.h"
 #include "LayerSettings.h"
+#include "ArduinoSettings.h"
 #include "Util.h"
 
 class Config {
@@ -30,6 +31,7 @@ public:
   vector<LevelSettings*> createLevelSettingsList();
   LayerSettings getLayerSettings(string type);
   HistorySettings getHistorySettings();
+  ArduinoSettings getArduinoSettings();
 
 private:
   ofXml xml;

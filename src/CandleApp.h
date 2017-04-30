@@ -8,6 +8,7 @@
 #include "ClipLayers.h"
 #include "ValueHistoriesLayer.h"
 #include "GeneralSettings.h"
+#include "Arduino.h"
 #include "Config.h"
 
 #define XML_FILENAME "vela.xml"
@@ -38,4 +39,5 @@ private:
   ValueHistoriesLayer *valueHistoriesLayer;
   ClipLayers *clipLayers;
   GeneralSettings generalSettings;
+  Arduino *arduino;
 };
