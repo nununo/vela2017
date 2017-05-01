@@ -26,7 +26,9 @@ protected:
 
 private:
   void drawHistory(string name, ValueHistory* history);
-  ofVec2f getHistoryMinMax(const ValueHistory* history);
+  ofVec2f getThresholdsMinMax(const ValueHistory* history);
+  ofVec2f getValuesMinMax(const ValueHistory* history);
+  ofVec2f getMinMax(ofVec2f valuesMinMax, ofVec2f thresholdsMinMax);
   float mapHeight(ofVec2f minMax, float value);
   void drawLine(ofVec2f minMax, ValueHistory *history, float value);
 

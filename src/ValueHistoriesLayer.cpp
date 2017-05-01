@@ -24,7 +24,7 @@ ValueHistoriesLayer::~ValueHistoriesLayer() {
 }
 
 //--------------------------------------------------------------
-ofVec2f ValueHistoriesLayer::getHistoryMinMax(const ValueHistory* history) {
+ofVec2f ValueHistoriesLayer::getThresholdsMinMax(const ValueHistory* history) {
   float min;
   float max;
 
@@ -35,8 +35,17 @@ ofVec2f ValueHistoriesLayer::getHistoryMinMax(const ValueHistory* history) {
     min = history->getThresholds().getBlowOut();
     max = history->getThresholds().getOffset();
   }
+  return ofVec2f(min,max);
+}
 
+//--------------------------------------------------------------
+ofVec2f ValueHistoriesLayer::getValuesMinMax(const ValueHistory* history) {
+  float min;
+  float max;
+  
   deque<float> values = history->getValues();
+  min = values.back();
+  max = values.back();
   for (deque<float>::iterator it = values.begin(); it!=values.end(); ++it) {
     if ((*it)>max)
       max = (*it);
@@ -44,7 +53,17 @@ ofVec2f ValueHistoriesLayer::getHistoryMinMax(const ValueHistory* history) {
       min = (*it);
   }
   return ofVec2f(min,max);
+}
 
+//--------------------------------------------------------------
+ofVec2f ValueHistoriesLayer::getMinMax(ofVec2f valuesMinMax, ofVec2f thresholdsMinMax) {
+  ofVec2f minMax;
+  minMax = valuesMinMax;
+  if (thresholdsMinMax.x < minMax.x )
+    minMax.x = thresholdsMinMax.x;
+  if (thresholdsMinMax.y > minMax.y )
+    minMax.y = thresholdsMinMax.y;
+  return minMax;
 }
 
 //--------------------------------------------------------------
@@ -81,8 +100,11 @@ void ValueHistoriesLayer::drawLine(ofVec2f minMax, ValueHistory *history, float 
 void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
 
   float lastValue=0;
+  ofVec2f valuesMinMax;
+  ofVec2f minMax;
 
-  ofVec2f minMax = getHistoryMinMax(history);
+  valuesMinMax = getValuesMinMax(history);
+  minMax = getMinMax(valuesMinMax, getThresholdsMinMax(history));
 
   ofPushStyle();
   ofEnableAlphaBlending();
@@ -108,7 +130,7 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
   }
 
   // Draw name
-  font.drawString(name, 0, -2);
+  font.drawString(name + " min:" + ofToString(roundf(valuesMinMax.x*1)/1.0f) + " max:" + ofToString(roundf(valuesMinMax.y*1)/1), 0, -2);
 
   // Draw rectange
   ofSetColor(255,255,255,100);
