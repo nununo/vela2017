@@ -12,9 +12,9 @@
 #ifdef TARGET_RASPBERRY_PI
 
 #include "ofxOMXPlayer.h"
-#include "IMovie.h"
+#include "MovieBase.h"
 
-class MovieOMXPlayer: public IMovie {
+class MovieOMXPlayer: public MovieBase {
 public:
   MovieOMXPlayer(string filename, bool _loop);
   virtual string getFilename() {return filename;}
