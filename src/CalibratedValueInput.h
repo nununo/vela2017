@@ -43,17 +43,18 @@ private:
   float getAverage();
   float getMaxAcceptedDistance(float average);
   void removeExcentric();
-  void calibrateOffset();
-  void sampleValue(float value);
+  float calculateOffset();
+  void calibrateOffset(float offset);
+  void addValueToBuffer(float value);
   void broadcastThresholdsCalibratedEvent();
 
   ValueInput *valueInput;
   CalibrationSettings *settings;
 
   float *buffer;
-  
   int index = 0;
   int stepCounter = 0;
+  bool neverCalibrated = true;
 };
 
 #endif /* CalibratedValueInput_h */

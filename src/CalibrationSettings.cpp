@@ -9,6 +9,7 @@
 #include "CalibrationSettings.h"
 #include <sstream>
 
+//--------------------------------------------------------------
 std::string CalibrationSettings::getTrace() {
   std::stringstream ss;
   ss  << " (" << getBufferSize() << "," << getExcentricSize() << "," << getSkipSize() << ") ";

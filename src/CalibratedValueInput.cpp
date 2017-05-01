@@ -28,11 +28,15 @@ CalibratedValueInput::CalibratedValueInput(string name,
 void CalibratedValueInput::setValue(float value) {
   valueInput->setValue(value);
 
-  sampleValue(value);
+  if (neverCalibrated) {
+    calibrateOffset(value);
+    neverCalibrated = false;
+  }
+  addValueToBuffer(value);
 }
 
 //--------------------------------------------------------------
-void CalibratedValueInput::sampleValue(float value) {
+void CalibratedValueInput::addValueToBuffer(float value) {
   
   // We only get samples every N requests
   // This allows for:
@@ -48,17 +52,21 @@ void CalibratedValueInput::sampleValue(float value) {
 
     // We only calibrate when the sample array is full of new data to save CPU
     if (index==0)
-      calibrateOffset();
+      calibrateOffset(calculateOffset());
   }
 }
 
 //--------------------------------------------------------------
-void CalibratedValueInput::calibrateOffset() {
-  
+float CalibratedValueInput::calculateOffset() {
   removeExcentric();
-  
-  valueInput->getThresholds()->setOffset(getAverage());
+  return getAverage();
+}
 
+//--------------------------------------------------------------
+void CalibratedValueInput::calibrateOffset(float offset) {
+  
+  valueInput->getThresholds()->setOffset(offset);
+  
   broadcastThresholdsCalibratedEvent();
   
   ofLogNotice() << "Calibrating. Result: " << valueInput->getThresholds()->getOffset();
@@ -102,10 +110,3 @@ void CalibratedValueInput::broadcastThresholdsCalibratedEvent() {
   ThresholdsEventArgs evenArgs = ThresholdsEventArgs(getName(), *getThresholds());
   ofNotifyEvent(thresholdsCalibrated, evenArgs);
 }
-//--------------------------------------------------------------
-/*string CalibratedValueInput::getTrace() {
-  stringstream ss;
-  ss  << "calibrated: " << settings->getTrace() << "(" << roundf((float)index/(float)settings->getBufferSize()*10)/10 << ")";
-  return ss.str();
-}*/
-
