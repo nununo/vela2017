@@ -12,11 +12,12 @@
 #include "ofMain.h"
 #include "ClipOutputSettings.h"
 #include "LevelSettings.h"
-#include "IMovie.h"
+#include "MovieBase.h"
+#include "ITrace.h"
 
-class Clip {
+class Clip : public ITrace {
 public:
-  Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, IMovie *movie);
+  Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, MovieBase *movie);
   void rewind() {movie->rewind();}
   void pause(bool value=true);
   void update();
@@ -27,12 +28,15 @@ public:
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
   bool getCanRestart() {return levelSettings->getCanRestart();}
+  
+  // ITrace
+  string getTrace();
 
 private:
   float timeToPercentage(float time);
   int calcAlpha();
   
-  IMovie *movie;
+  MovieBase *movie;
   ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
   float fadeInPercentage;                 // Fade in percentage converted from fade in time

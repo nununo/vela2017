@@ -8,9 +8,10 @@
 
 #include "Clip.h"
 #include "Util.h"
+#include <ostream>
 
 //-----------------------------------------------------------------------
-Clip::Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, IMovie* _movie) {
+Clip::Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, MovieBase* _movie) {
 
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
@@ -69,4 +70,12 @@ void Clip::pause(bool value) {
     movie->setPaused(false);
     ofLogNotice() << " Clip " << movie->getFilename() << " unpaused";
   }
+}
+
+//-----------------------------------------------------------------------
+string Clip::getTrace() {
+  stringstream ss;
+  
+  ss << movie->getTrace() << " Playing: " << isPlaying() << " Alpha: " << getAlpha();
+  return ss.str();
 }

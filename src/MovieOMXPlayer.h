@@ -26,6 +26,7 @@ public:
   virtual void draw(float x, float y, float width, float height);
   virtual void setPaused(bool pause=true) {movie.setPaused(pause);}
   virtual bool isPaused() {return movie.isPaused();}
+  virtual bool getLoop();
   
 private:
   void calcFinished();

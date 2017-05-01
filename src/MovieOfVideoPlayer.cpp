@@ -25,11 +25,21 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
 }
 
 //--------------------------------------------------------------
-void MovieOfVideoPlayer::setLoop(bool loop) {
+void MovieOfVideoPlayer::setLoop(bool _loop) {
+  loop = _loop;
   if (loop)
     movie->setLoopState(OF_LOOP_NORMAL);
   else
     movie->setLoopState(OF_LOOP_NONE);
+}
+
+//--------------------------------------------------------------
+bool MovieOfVideoPlayer::getLoop() {
+  return loop;
+// This doesn't work and I don't understand why. movie->getLoopState() always returns OF_LOOP_NORMAL
+//  ofLoopType loopType = movie->getLoopState();
+//  bool loop = (loopType == OF_LOOP_NORMAL);
+//  return loop;
 }
 
 //--------------------------------------------------------------

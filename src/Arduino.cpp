@@ -79,12 +79,10 @@ void Arduino::update() {
 string Arduino::getTrace() {
   stringstream ss;
   
-  ss << "arduino" << ": " << device << " initialized: " << serial.isInitialized();
+  ss << "Arduino" << ": " << device << " connected: " << serial.isInitialized();
   
   for(int i=0; i<3; i++)
     ss << " v[" << i << "]=" << (int)values[i] << " ";
-  
-  ss << endl;
-  
+    
   return ss.str();
 }

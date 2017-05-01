@@ -44,7 +44,7 @@ string InputIntensity::getTrace() {
   
   ss << "InputLevel:\n"
   "  Last read: " + Util::blowIntensityToString(lastBlowIntensity) +
-  " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) + "\n";
+  " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) << endl;
   
   ss << input->getTrace();
   

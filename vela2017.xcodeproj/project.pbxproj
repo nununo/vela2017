@@ -39,6 +39,7 @@
 		7DB94A611EB14CF1008ADD74 /* CalibratedValueInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */; };
 		7DB94A6B1EB170F4008ADD74 /* ThresholdsDataInputFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94A691EB170F4008ADD74 /* ThresholdsDataInputFactory.cpp */; };
 		7DB94A6D1EB1F7BE008ADD74 /* Layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB94A6C1EB1F7BE008ADD74 /* Layer.cpp */; };
+		7DCBC1741EB7561000FC1FC7 /* MovieBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DCBC1731EB7561000FC1FC7 /* MovieBase.cpp */; };
 		7DE285411EB00CE1005C3777 /* ValueHistories.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE2853F1EB00CE1005C3777 /* ValueHistories.cpp */; };
 		7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE285421EB01506005C3777 /* ValueHistoriesLayer.cpp */; };
 		7DE2854A1EB021D8005C3777 /* ValueHistory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DE285481EB021D8005C3777 /* ValueHistory.cpp */; };
@@ -97,7 +98,7 @@
 		7D42EEEC1EA305DD00383C3C /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GeneralSettings.cpp; sourceTree = "<group>"; };
 		7D42EEF01EA315DF00383C3C /* GeneralSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeneralSettings.h; sourceTree = "<group>"; };
-		7D4C8CA11EAD70A1009076C4 /* IMovie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IMovie.h; sourceTree = "<group>"; };
+		7D4C8CA11EAD70A1009076C4 /* MovieBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieBase.h; sourceTree = "<group>"; };
 		7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOfVideoPlayer.cpp; sourceTree = "<group>"; };
 		7D4C8CA31EAD7212009076C4 /* MovieOfVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieOfVideoPlayer.h; sourceTree = "<group>"; };
 		7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieFactory.cpp; sourceTree = "<group>"; };
@@ -153,6 +154,7 @@
 		7DB94A6A1EB170F4008ADD74 /* ThresholdsDataInputFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThresholdsDataInputFactory.h; sourceTree = "<group>"; };
 		7DB94A6C1EB1F7BE008ADD74 /* Layer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Layer.cpp; sourceTree = "<group>"; };
 		7DB94A721EB20853008ADD74 /* LayerSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LayerSettings.h; sourceTree = "<group>"; };
+		7DCBC1731EB7561000FC1FC7 /* MovieBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieBase.cpp; sourceTree = "<group>"; };
 		7DE2853F1EB00CE1005C3777 /* ValueHistories.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueHistories.cpp; sourceTree = "<group>"; };
 		7DE285401EB00CE1005C3777 /* ValueHistories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueHistories.h; sourceTree = "<group>"; };
 		7DE285421EB01506005C3777 /* ValueHistoriesLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueHistoriesLayer.cpp; sourceTree = "<group>"; };
@@ -253,7 +255,8 @@
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
 				7D0A2A071E9452E100637568 /* LevelSettings.cpp */,
 				7D0A2A081E9452E100637568 /* LevelSettings.h */,
-				7D4C8CA11EAD70A1009076C4 /* IMovie.h */,
+				7DCBC1731EB7561000FC1FC7 /* MovieBase.cpp */,
+				7D4C8CA11EAD70A1009076C4 /* MovieBase.h */,
 				7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */,
 				7D4C8CA31EAD7212009076C4 /* MovieOfVideoPlayer.h */,
 				7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */,
@@ -317,6 +320,7 @@
 		7DB90F061E7B69F4000978EC /* inputs */ = {
 			isa = PBXGroup;
 			children = (
+				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
 				7D42A3BD1E78C9C80097B54C /* InputIntensity.h */,
 				7D42A3B31E78BAA60097B54C /* DataInput.h */,
 				7DB90F031E7B6799000978EC /* AutoFlickerInput.cpp */,
@@ -330,7 +334,6 @@
 				7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */,
 				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
 				7D60A9111E9961F3009FF4F2 /* MultiInput.h */,
-				7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */,
 				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
 				7DB90EF81E7B4D16000978EC /* ArduinoInput.h */,
 				7DB90EFD1E7B5D32000978EC /* KeyboardInput.cpp */,
@@ -491,6 +494,7 @@
 				7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */,
 				7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */,
 				7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */,
+				7DCBC1741EB7561000FC1FC7 /* MovieBase.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,
 				7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */,
 				7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */,

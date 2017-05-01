@@ -39,6 +39,11 @@ void MovieOMXPlayer::calcFinished() {
 }
 
 //--------------------------------------------------------------
+bool MovieOMXPlayer::getLoop() {
+  return movie.getSettings().enableLooping;
+}
+
+//--------------------------------------------------------------
 void MovieOMXPlayer::update() {
   calcFinished();
 }

@@ -38,7 +38,7 @@ string ValueInput::getTrace() {
   ss << roundf(getThresholds()->getHigh()*100)/100 << "| ";
   ss << roundf(getThresholds()->getBlowOut()*100)/100 << "| ";
 
-  ss << "value: " << roundf((lastValue)*100)/100 << " intensity: " << Util::blowIntensityToString(getBlowIntensity()) << "\n";
+  ss << "value: " << roundf((lastValue)*100)/100 << " intensity: " << Util::blowIntensityToString(getBlowIntensity());
   
   return ss.str();
 }

@@ -62,7 +62,7 @@ void AutoFlickerInput::onBlowIntensityChanged(BlowIntensity &e) {
 string AutoFlickerInput::getTrace() {
   stringstream ss;
 
-  ss << getName() << ": min period: " << minPeriod << " lastTime: " << lastTime << "\n";
+  ss << getName() << ": min period: " << minPeriod << " lastTime: " << lastTime;
 
   return ss.str();
 }

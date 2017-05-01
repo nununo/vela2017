@@ -20,7 +20,7 @@ void InfoLayer::update() {
   vector<ITrace*>::iterator it;
 
   for (it = list.begin(); it != list.end(); it++)
-    ss << (*it)->getTrace();
+    ss << (*it)->getTrace() << endl;
 
   text = ss.str();
 }

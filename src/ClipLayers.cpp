@@ -67,10 +67,10 @@ string ClipLayers::getTrace() {
   ss << "  currentIntensity :" << Util::blowIntensityToString(currentIntensity) << "\n";
   ss << "  isBaseLayerVisible: " << isBaseLayerVisible()<< "\n";
   
-  ss << baseLayer->getTrace();
+  ss << baseLayer->getTrace() << endl;
   
   if (topLayer)
-    ss << topLayer->getTrace();
+    ss << topLayer->getTrace() << endl;
   
   return ss.str();
 }

@@ -10,10 +10,11 @@
 #define IMovie_h
 
 #include "ofMain.h"
+#include "ITrace.h"
 
 #define ALPHA_MAX 255
 
-class IMovie {
+class MovieBase : public ITrace {
 public:
   virtual string getFilename() = 0;
   virtual bool isFinished() = 0;
@@ -25,6 +26,10 @@ public:
   virtual void setPaused(bool pause=true) = 0;
   virtual void setAlpha(int _alpha) {alpha=_alpha;}
   virtual bool isPaused() = 0;
+  virtual bool getLoop() = 0;
+
+  // ITrace
+  string getTrace();
   
 protected:
   int getAlpha() {return alpha;}

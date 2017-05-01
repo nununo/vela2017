@@ -9,9 +9,9 @@
 #ifndef MovieOfVideoPlayer_h
 #define MovieOfVideoPlayer_h
 
-#include "IMovie.h"
+#include "MovieBase.h"
 
-class MovieOfVideoPlayer: public IMovie {
+class MovieOfVideoPlayer: public MovieBase {
 public:
   MovieOfVideoPlayer(string filename, bool loop);
   virtual string getFilename() {return filename;}
@@ -23,12 +23,14 @@ public:
   virtual void draw(float x, float y, float width, float height);
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
+  virtual bool getLoop();
 
 private:
   void setLoop(bool loop);
   
   string filename;
   ofVideoPlayer *movie;
+  bool loop;
 };
 
 

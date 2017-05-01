@@ -45,12 +45,11 @@ BlowIntensity MultiInput::getBlowIntensity() {
 std::string MultiInput::getTrace() {
   std::stringstream ss;
   
-  ss << getName() << std::endl;
+  ss << getName();
 
   std::vector<DataInput*>::iterator it;
-
   for (it = dataInputs.begin(); it != dataInputs.end(); it++)
-    ss << "  " << (*it)->getTrace();
+    ss << std::endl << "  " << (*it)->getTrace();
 
   return ss.str();
 }
