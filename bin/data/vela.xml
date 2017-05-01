@@ -13,8 +13,10 @@
     <zoomY>1.0</zoomY>
   </clipOutput>
   <arduino>
+    <device name="pi1">/dev/ttyACM0</device>
     <device name="mac">cu.usbmodem1411</device>
-    <device name="pi">/dev/ttyUSB0</device>
+    <device name="pi1">/dev/ttyACM0</device>
+    <device name="pi2">/dev/ttyAMA0</device>
   </arduino>
   <levels>
     <level>
@@ -78,15 +80,15 @@
     </input>
   </inputs>
   <layers>
-  	<layer type="info" visible="1">
-      <offsetX>0</offsetX>
-      <offsetY>0</offsetY> 
+    <layer type="info" visible="1">
+      <offsetX>20</offsetX>
+      <offsetY>20</offsetY> 
       <rotated180>0</rotated180>
       <portraitMode>0</portraitMode>
     </layer>
   	<layer type="history" visible="1">
       <offsetX>0</offsetX>
-      <offsetY>600</offsetY>
+      <offsetY>400</offsetY>
       <rotated180>0</rotated180>
       <portraitMode>0</portraitMode>
     </layer>

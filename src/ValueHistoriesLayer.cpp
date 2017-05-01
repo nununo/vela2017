@@ -79,10 +79,9 @@ void ValueHistoriesLayer::drawLine(ofVec2f minMax, ValueHistory *history, float 
 
 //--------------------------------------------------------------
 void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
-  
-  int height = getSize().y;
+
   float lastValue=0;
-  
+
   ofVec2f minMax = getHistoryMinMax(history);
 
   ofPushStyle();
@@ -95,7 +94,7 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
   drawLine(minMax, history, history->getThresholds().getLow());
   drawLine(minMax, history, history->getThresholds().getHigh());
   drawLine(minMax, history, history->getThresholds().getBlowOut());
-  
+
   // Value history
   ofSetColor(ofColor::white);
 
@@ -107,7 +106,7 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
     lastValue = (*it);
     i++;
   }
-  
+
   // Draw name
   font.drawString(name, 0, -2);
 
