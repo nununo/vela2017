@@ -42,8 +42,7 @@ void InputIntensity::setBlowIntensity(BlowIntensity newBlowIntensity) {
 string InputIntensity::getTrace() {
   stringstream ss;
   
-  ss << "InputLevel:\n"
-  "  Last read: " + Util::blowIntensityToString(lastBlowIntensity) +
+  ss << "Intensity: " + Util::blowIntensityToString(lastBlowIntensity) +
   " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) << endl;
   
   ss << input->getTrace();

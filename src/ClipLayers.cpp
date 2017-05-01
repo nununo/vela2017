@@ -63,9 +63,9 @@ void ClipLayers::draw() {
 string ClipLayers::getTrace() {
   stringstream ss;
 
-  ss << "  topLayer: " << (topLayer != NULL) << "\n";
-  ss << "  currentIntensity :" << Util::blowIntensityToString(currentIntensity) << "\n";
-  ss << "  isBaseLayerVisible: " << isBaseLayerVisible()<< "\n";
+  ss << "  topLayer: " << (topLayer != NULL);
+  ss << "  currentIntensity :" << Util::blowIntensityToString(currentIntensity);
+  ss << "  isBaseLayerVisible: " << isBaseLayerVisible() << endl;
   
   ss << baseLayer->getTrace() << endl;
   
