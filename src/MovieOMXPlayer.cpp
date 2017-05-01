@@ -40,8 +40,7 @@ void MovieOMXPlayer::calcFinished() {
 
 //--------------------------------------------------------------
 bool MovieOMXPlayer::getLoop() {
-  ofLogNotice() << "MovieOMXPlayer: " << filename << " bool: " << movie.getSettings().enableLooping
-  << " " << std:boolalpha << movie.getSettings().enableLooping << endl;
+  ofLogNotice() << "MovieOMXPlayer: " << filename << " bool: " << movie.getSettings().enableLooping;
   return movie.getSettings().enableLooping;
 }
 
