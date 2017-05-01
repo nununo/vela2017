@@ -106,16 +106,16 @@ HistorySettings Config::getHistorySettings() {
 ArduinoSettings Config::getArduinoSettings() {
   ArduinoSettings arduinoSettings;
   
-  if (!xml.setTo("arduino")) {
+  if (!xml.setTo("arduino/device[0]")) {
     ofLogError() << "XML position to /vela2017/arduino failed. Check XML";
     return arduinoSettings;
   }
   
   do
-    arduinoSettings.addDevice(xml.getValue("device"));
+    arduinoSettings.addDevice(xml.getValue());
   while(xml.setToSibling());
   
-  xml.setToParent();
+  xml.setToParent(2);
   
   return arduinoSettings;
 }

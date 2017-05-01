@@ -13,7 +13,6 @@
     <zoomY>1.0</zoomY>
   </clipOutput>
   <arduino>
-    <device name="pi1">/dev/ttyACM0</device>
     <device name="mac">cu.usbmodem1411</device>
     <device name="pi1">/dev/ttyACM0</device>
     <device name="pi2">/dev/ttyAMA0</device>
