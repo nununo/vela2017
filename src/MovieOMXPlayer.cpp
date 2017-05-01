@@ -13,11 +13,11 @@
 //--------------------------------------------------------------
 MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 
-  filename = ofToDataPath(_filename, true);
+  filename=_filename;
 
   //Somewhat like ofFboSettings we may have a lot of options so this is the current model
   ofxOMXPlayerSettings settings;
-  settings.videoPath = filename;
+  settings.videoPath = ofToDataPath(filename, true);
   settings.useHDMIForAudio = true;	//default true
   settings.enableTexture = true;		//default true
   settings.enableLooping = loop;		//default true
