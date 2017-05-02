@@ -54,23 +54,23 @@ void Arduino::update() {
   unsigned char bytesReadString[7];
   
   //clear our buffers
-  memset(bytesReadString, 0, 7);
-  memset(bytesReturned, 0, 6);
+  memset(bytesReadString, 0, 5);
+  memset(bytesReturned, 0, 4);
   
   //we read as much as possible so we make sure we get the newest data
-  while( (nRead = serial.readBytes( bytesReturned, 6)) > 0){
+  while( (nRead = serial.readBytes( bytesReturned, 4)) > 0){
     nTimesRead++;
     nBytesRead = nRead;
   }
   
   //if we have got 3 pairs of 2 bytes
-  if( nBytesRead == 6){
+  if( nBytesRead == 4){
     
     //lets update our buffer
     memcpy(bytesReadString, bytesReturned, 7);
     
     //we need to put the bytes back into an int
-    for(int i=0; i<3; i++)
+    for(int i=0; i<2; i++)
       values[i] = (unsigned char)bytesReadString[2*i+1] << 8 | (unsigned char)bytesReadString[2*i];
   }
 }
@@ -81,7 +81,7 @@ string Arduino::getTrace() {
   
   ss << "Arduino" << ": " << device << " connected: " << serial.isInitialized();
   
-  for(int i=0; i<3; i++)
+  for(int i=0; i<2; i++)
     ss << " v[" << i << "]=" << (int)values[i] << " ";
     
   return ss.str();

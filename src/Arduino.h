@@ -36,7 +36,7 @@ private:
   ArduinoSettings settings;
   ofSerial serial;
   string device;
-  float values[4] = {0,0,0,0};
+  float values[2] = {0,0};
 };
 
 #endif /* Arduino_h */
