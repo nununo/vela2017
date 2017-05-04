@@ -20,14 +20,13 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
   settings.videoPath = ofToDataPath(filename, true);
   settings.useHDMIForAudio = true;	//default true
   settings.enableTexture = true;		//default true
-  settings.enableLooping = loop;		//default true
+  settings.enableLooping = _loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
 
   movie.setup(settings);
   
   lastPosition = -1;
   finished = false;
-  loop = _loop;
 }
 
 //--------------------------------------------------------------

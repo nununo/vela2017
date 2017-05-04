@@ -34,7 +34,6 @@ private:
   string filename;
   float lastPosition;
   bool finished;
-  bool loop;
   ofxOMXPlayer movie;
 };
 
