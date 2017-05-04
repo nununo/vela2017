@@ -50,7 +50,7 @@
   <calibration>
     <bufferSize>100</bufferSize>
     <excentricSize>25</excentricSize>
-    <skipSize>1</skipSize>
+    <samplePeriod>1</samplePeriod>
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>

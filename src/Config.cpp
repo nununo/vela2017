@@ -131,7 +131,7 @@ CalibrationSettings* Config::createCalibrationSettings() {
   CalibrationSettings *calibrationSettings =
   new CalibrationSettings(xml.getIntValue("bufferSize"),
                       xml.getIntValue("excentricSize"),
-                      xml.getIntValue("skipSize"));
+                      xml.getIntValue("samplePeriod"));
   
   xml.setToParent();
   

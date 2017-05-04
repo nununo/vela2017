@@ -43,7 +43,7 @@ void CalibratedValueInput::addValueToBuffer(float value) {
   // - longer calibration cycles without keeping a very long array
   // - lower excentricity since we won't store all values for peak moments
   
-  stepCounter = ((stepCounter + 1) % settings->getSkipSize());
+  stepCounter = ((stepCounter + 1) % settings->getSamplePeriod());
 
   if (stepCounter==0) {
     buffer[index] = value;

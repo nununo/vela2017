@@ -13,20 +13,20 @@
 
 class CalibrationSettings : ITrace {
 public:
-  CalibrationSettings(int _bufferSize, int _excentricSize, int _skipSize) {
+  CalibrationSettings(int _bufferSize, int _excentricSize, int _samplePeriod) {
     bufferSize = _bufferSize;
     excentricSize = _excentricSize;
-    skipSize = _skipSize;
+    samplePeriod = _samplePeriod;
   }
   int getBufferSize() {return bufferSize;}
   int getExcentricSize() {return excentricSize;}
-  int getSkipSize() {return skipSize;}
+  int getSamplePeriod() {return samplePeriod;}
   
   std::string getTrace();
 
 private:
   int bufferSize;
   int excentricSize;
-  int skipSize;
+  int samplePeriod;
 };
 #endif /* CalibrationSettings_h */
