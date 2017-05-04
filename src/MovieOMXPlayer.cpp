@@ -31,7 +31,7 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 
 //--------------------------------------------------------------
 void MovieOMXPlayer::calcFinished() {
-  if (!loop && !isPaused() && getPosition()>0.95f && (getPosition()==lastPosition || getPosition()>1)) {
+  if (!getLoop() && !isPaused() && getPosition()>0.95f && (getPosition()==lastPosition || getPosition()>1)) {
     finished = true;
   }
   lastPosition = getPosition();
@@ -39,7 +39,6 @@ void MovieOMXPlayer::calcFinished() {
 
 //--------------------------------------------------------------
 bool MovieOMXPlayer::getLoop() {
-  ofLogNotice() << "MovieOMXPlayer: " << filename << " bool: " << movie.getSettings().enableLooping;
   return movie.getSettings().enableLooping;
 }
 
