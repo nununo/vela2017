@@ -111,10 +111,12 @@ void ValueHistoriesLayer::drawHistory(string name, ValueHistory* history) {
 
   // Threshold lines
   ofSetColor(255,255,255,100);
-
   drawLine(minMax, history, history->getThresholds().getOffset());
+  ofSetColor(0,255,0,100);
   drawLine(minMax, history, history->getThresholds().getLow());
+  ofSetColor(255,255,0,100);
   drawLine(minMax, history, history->getThresholds().getHigh());
+  ofSetColor(255,0,0,100);
   drawLine(minMax, history, history->getThresholds().getBlowOut());
 
   // Value history
