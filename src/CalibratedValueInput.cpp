@@ -65,7 +65,7 @@ float CalibratedValueInput::calculateOffset() {
 //--------------------------------------------------------------
 void CalibratedValueInput::calibrateOffset(float offset) {
   
-  valueInput->getThresholds()->setOffset(offset);
+  valueInput->getThresholds()->setOffset(roundf(offset));
   
   broadcastThresholdsCalibratedEvent();
   
