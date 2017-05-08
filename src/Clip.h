@@ -10,6 +10,7 @@
 #define Clip_h
 
 #include "ofMain.h"
+#include "GeneralSettings.h"
 #include "ClipOutputSettings.h"
 #include "LevelSettings.h"
 #include "MovieBase.h"
@@ -17,7 +18,8 @@
 
 class Clip : public ITrace {
 public:
-  Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, MovieBase *movie);
+  Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, string filename);
+  ~Clip();
   void rewind() {movie->rewind();}
   void pause(bool value=true);
   void update();
@@ -33,6 +35,7 @@ public:
   string getTrace();
 
 private:
+  MovieBase* createMovie(GeneralSettings generalSettings, string filename);
   float timeToPercentage(float time);
   int calcAlpha();
   

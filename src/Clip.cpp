@@ -9,13 +9,14 @@
 #include "Clip.h"
 #include "Util.h"
 #include <ostream>
+#include "MovieFactory.h"
 
 //-----------------------------------------------------------------------
-Clip::Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, MovieBase* _movie) {
+Clip::Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, string filename) {
 
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
-  movie = _movie;
+  movie = createMovie(generalSettings, filename);
 
   pause();
 
@@ -23,6 +24,21 @@ Clip::Clip(ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
 
   alpha=0;
+}
+
+//-----------------------------------------------------------------------
+Clip::~Clip() {
+  delete movie;
+  movie = NULL;
+  levelSettings = NULL;
+}
+
+//-----------------------------------------------------------------------
+MovieBase* Clip::createMovie(GeneralSettings generalSettings, string filename) {
+  ofLogNotice() << "Creating movie " << filename;
+  return MovieFactory::create(filename,
+                              levelSettings->getLoop(),
+                              generalSettings);
 }
 
 //-----------------------------------------------------------------------

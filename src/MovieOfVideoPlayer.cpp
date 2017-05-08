@@ -25,6 +25,12 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
 }
 
 //--------------------------------------------------------------
+MovieOfVideoPlayer::~MovieOfVideoPlayer() {
+  delete movie;
+  movie = NULL;
+}
+
+//--------------------------------------------------------------
 void MovieOfVideoPlayer::setLoop(bool _loop) {
   loop = _loop;
   if (loop)
