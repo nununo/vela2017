@@ -30,7 +30,7 @@ void ClipLayers::update(BlowIntensity intensity) {
     currentIntensity = BlowIntensity::IDLE;
   }
 
-  if (intensity > BlowIntensity::IDLE && (!topLayer || topLayer->getCanRestart())) {
+  if (intensity > BlowIntensity::IDLE && (!topLayer || topLayer->getCanBeInterrupted())) {
     delete topLayer;
     topLayer = new ClipLayer(layerSettings, intensity, levels->getRandomClip(intensity));
     currentIntensity = intensity;

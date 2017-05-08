@@ -16,7 +16,7 @@ public:
   void pause(bool value=true) {clip->pause(value);}
   bool isOpaque() {return clip->isOpaque();}
   BlowIntensity getIntensity() {return intensity;}
-  bool getCanRestart() {return clip->getCanRestart();}
+  bool getCanBeInterrupted() {return clip->getCanBeInterrupted();}
   
   // ITrace
   virtual string getTrace();

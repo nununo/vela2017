@@ -13,19 +13,19 @@
 
 class LevelSettings {
 public:
-  LevelSettings(std::string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop, bool _canRestart);
+  LevelSettings(std::string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop, bool _canBeInterrupted);
   std::string getMovieFolder() {return movieFolder;}
   float getFadeInTime() {return fadeInTime;}
   float getFadeOutTime() {return fadeOutTime;}
   bool getLoop() {return loop;}
-  bool getCanRestart() {return canRestart;}
+  bool getCanBeInterrupted() {return canBeInterrupted;}
   
 private:
   std::string movieFolder;
   float fadeInTime;
   float fadeOutTime;
   bool loop;
-  bool canRestart;
+  bool canBeInterrupted;
 };
 
 #endif /* LevelSettings_h */
