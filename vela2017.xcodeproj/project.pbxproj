@@ -296,12 +296,10 @@
 				7D42EEF01EA315DF00383C3C /* GeneralSettings.h */,
 				7DA246DB1EABBAB70077EB85 /* CalibrationSettings.cpp */,
 				7D8B87E01EA5527D00A5201D /* CalibrationSettings.h */,
-				7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */,
 				7DE2853F1EB00CE1005C3777 /* ValueHistories.cpp */,
 				7DE285401EB00CE1005C3777 /* ValueHistories.h */,
 				7DE285481EB021D8005C3777 /* ValueHistory.cpp */,
 				7DE285491EB021D8005C3777 /* ValueHistory.h */,
-				7DB94A5D1EB146D6008ADD74 /* ThresholdsEventArgs.h */,
 				7D65E7BB1EB4F1850087018A /* HistorySettings.h */,
 				7D65E7BE1EB4FA950087018A /* HistorySettings.cpp */,
 				7DB8094A1EC634B700018D53 /* ThresholdsSettings.cpp */,
@@ -310,6 +308,15 @@
 				7DB8094E1EC6371000018D53 /* ConfigXml.h */,
 			);
 			name = tools;
+			sourceTree = "<group>";
+		};
+		7DB809501EC6401900018D53 /* events */ = {
+			isa = PBXGroup;
+			children = (
+				7DB94A5D1EB146D6008ADD74 /* ThresholdsEventArgs.h */,
+				7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */,
+			);
+			name = events;
 			sourceTree = "<group>";
 		};
 		7DB90F061E7B69F4000978EC /* inputs */ = {
@@ -371,6 +378,7 @@
 		E4B69E1C0A3A1BDC003C02F2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				7DB809501EC6401900018D53 /* events */,
 				7DB3F7DD1E8DD8F90025498A /* tools */,
 				7DB3F7DC1E8DD8B20025498A /* layers */,
 				7DB90F061E7B69F4000978EC /* inputs */,

@@ -15,7 +15,7 @@
 class Util {
 public:
   static float remap(const float v, const float inMin, const float inMax, const float outMin, const float outMax);
-  static string blowIntensityToString(const BlowIntensity blowIntensity);
+  static string blowIntensityToString(const BlowIntensity blowIntensity);§
 };
 
 #endif // UTIL_H_INCLUDED
