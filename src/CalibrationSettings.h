@@ -13,6 +13,7 @@
 
 class CalibrationSettings : ITrace {
 public:
+  CalibrationSettings() : CalibrationSettings(0,0,0) {}
   CalibrationSettings(int _bufferSize, int _excentricSize, int _samplePeriod) {
     bufferSize = _bufferSize;
     excentricSize = _excentricSize;

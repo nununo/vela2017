@@ -11,7 +11,7 @@
 #include "Util.h"
 
 //--------------------------------------------------------------
-DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+DataInput* ValueInputFactory::createAux(ofXml *xml, CalibrationSettings calibrationSettings) {
   return new ValueInput(xml->getAttribute("name"), getThresholds(xml));
 }
 

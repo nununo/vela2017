@@ -9,7 +9,7 @@
 #include "ArduinoInput.h"
 
 //--------------------------------------------------------------
-ArduinoInput::ArduinoInput(string _device, Thresholds thresholds, CalibrationSettings *calibrationSettings): DataInput("arduino") {
+ArduinoInput::ArduinoInput(string _device, Thresholds thresholds, CalibrationSettings calibrationSettings): DataInput("arduino") {
   input = new CalibratedValueInput(getName(),
                                    thresholds,
                                    calibrationSettings);

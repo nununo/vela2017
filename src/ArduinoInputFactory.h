@@ -14,7 +14,7 @@
 
 class ArduinoInputFactory : public ValueInputFactory {
 public:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings);
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings calibrationSettings);
 };
 
 #endif /* ArduinoInputFactory_h */

@@ -14,7 +14,7 @@
 
 class ValueInputFactory : public DataInputFactory {
 public:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings *calibrationSettings);
+  virtual DataInput* createAux(ofXml *xml, CalibrationSettings calibrationSettings);
 
 protected:
   Thresholds getThresholds(ofXml *xml);

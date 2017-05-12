@@ -17,7 +17,7 @@ class CalibratedValueInput : public ValueInput {
 public:
   CalibratedValueInput(string name,
                        Thresholds thresholds,
-                       CalibrationSettings* calibrationSettings);
+                       CalibrationSettings calibrationSettings);
   ~CalibratedValueInput();
   
   // ITrace
@@ -36,9 +36,9 @@ private:
   void calibrateOffset(float offset);
   void addValueToBuffer(float value);
   void broadcastThresholdsCalibratedEvent();
-  bool calibrationEnabled() {return (settings->getBufferSize()>0);}
+  bool calibrationEnabled() {return (settings.getBufferSize()>0);}
 
-  CalibrationSettings *settings;
+  CalibrationSettings settings;
 
   float *buffer;
   int index = 0;

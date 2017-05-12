@@ -14,11 +14,11 @@ ofEvent<ThresholdsEventArgs> CalibratedValueInput::thresholdsCalibrated = ofEven
 //--------------------------------------------------------------
 CalibratedValueInput::CalibratedValueInput(string name,
                                            Thresholds thresholds,
-                                           CalibrationSettings* _settings) : ValueInput(name, thresholds) {
+                                           CalibrationSettings _settings) : ValueInput(name, thresholds) {
     
   settings = _settings;
   
-  buffer = new float[settings->getBufferSize()];
+  buffer = new float[settings.getBufferSize()];
 
 }
 
@@ -47,12 +47,12 @@ void CalibratedValueInput::addValueToBuffer(float value) {
   // - longer calibration cycles without keeping a very long array
   // - lower excentricity since we won't store all values for peak moments
   
-  stepCounter = ((stepCounter + 1) % settings->getSamplePeriod());
+  stepCounter = ((stepCounter + 1) % settings.getSamplePeriod());
 
   if (stepCounter==0) {
     buffer[index] = value;
 
-    index = ((index + 1) % settings->getBufferSize());
+    index = ((index + 1) % settings.getBufferSize());
 
     // We only calibrate when the sample array is full of new data to save CPU
     if (index==0)
@@ -80,23 +80,23 @@ void CalibratedValueInput::calibrateOffset(float offset) {
 float CalibratedValueInput::getAverage() {
   float sum=0;
   
-  for (int i=0; i<settings->getBufferSize(); i++)
+  for (int i=0; i<settings.getBufferSize(); i++)
     sum += buffer[i];
   
-  return sum / settings->getBufferSize();
+  return sum / settings.getBufferSize();
 }
 
 //--------------------------------------------------------------
 float CalibratedValueInput::getMaxAcceptedDistance(const float average) {
   
-  float distance[settings->getBufferSize()];
+  float distance[settings.getBufferSize()];
   
-  for (int i=0; i<settings->getBufferSize(); i++)
+  for (int i=0; i<settings.getBufferSize(); i++)
     distance[i] = abs(average-buffer[i]);
   
-  sort(distance, distance + settings->getBufferSize());
+  sort(distance, distance + settings.getBufferSize());
   
-  return distance[settings->getBufferSize()-settings->getExcentricSize()];
+  return distance[settings.getBufferSize()-settings.getExcentricSize()];
 }
 
 //--------------------------------------------------------------
@@ -104,7 +104,7 @@ void CalibratedValueInput::removeExcentric() {
   float average = getAverage();
   float maxAcceptedDistance = getMaxAcceptedDistance(average);
   
-  for (int i=0; i<settings->getBufferSize(); i++)
+  for (int i=0; i<settings.getBufferSize(); i++)
     if (abs(buffer[i]-average) > maxAcceptedDistance)
       buffer[i] = average;
 }

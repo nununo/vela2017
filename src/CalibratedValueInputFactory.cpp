@@ -11,8 +11,14 @@
 #include "CalibratedValueInput.h"
 
 //--------------------------------------------------------------
-DataInput* CalibratedValueInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
-  return new CalibratedValueInput(xml->getAttribute("name"),
-                                  getThresholds(xml),
-                                  calibrationSettings);
+DataInput* CalibratedValueInputFactory::createAux(ofXml *xml, CalibrationSettings calibrationSettings) {
+  string name = xml->getAttribute("name");
+  
+  if (Util::stringToBool(xml->getAttribute("calibrated")))
+    return new CalibratedValueInput(name,
+                                    getThresholds(xml),
+                                    calibrationSettings);
+  else
+    return new ValueInput(name,
+                          getThresholds(xml));
 }

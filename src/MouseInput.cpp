@@ -10,7 +10,7 @@
 #include "CalibratedValueInput.h"
 
 //--------------------------------------------------------------
-MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) : DataInput("mouse") {
+MouseInput::MouseInput(bool inverted, CalibrationSettings calibrationSettings) : DataInput("mouse") {
   input = new CalibratedValueInput(getName(),
                                    createThresholds(inverted),
                                    calibrationSettings);

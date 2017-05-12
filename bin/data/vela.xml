@@ -62,7 +62,7 @@
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" device="cu.usbmodem1411" enabled="1" inverted="0" calibrated="1">
+    <input type="arduino" device="cu.usbmodem1411" enabled="1" inverted="0" calibrated="0">
       <low>10</low>
       <high>75</high>
       <blowOut>400</blowOut>
