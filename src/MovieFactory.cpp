@@ -13,7 +13,7 @@
 MovieBase* MovieFactory::create(string filename, bool loop, bool useOMXPlayer) {
 
 #ifdef TARGET_RASPBERRY_PI
-  if (useOmxPlayer)
+  if (useOMXPlayer)
     return new MovieOMXPlayer(filename, loop);
   else
     return new MovieOfVideoPlayer(filename, loop);
