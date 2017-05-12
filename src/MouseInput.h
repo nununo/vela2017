@@ -16,10 +16,7 @@
 class MouseInput: public DataInput {
 public:
   MouseInput(bool inverted, CalibrationSettings *calibrationSettings);
-  ~MouseInput() {
-    delete input;
-    input=NULL;
-  }
+  ~MouseInput() {delete input; input=NULL;}
   
   // DataInput
   virtual void update() {input->setValue(ofGetScreenHeight()-ofGetMouseY());};

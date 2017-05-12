@@ -57,25 +57,15 @@
     <input type="mouse" enabled="0" inverted="0" calibrated="1">
       <low>100</low>
       <high>200</high>
-      <blowOut>300</blowOut>
+      <blowOut>600</blowOut>
     </input>
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" name="arduino.pin5" id="0" enabled="0" inverted="1" calibrated="1">
-      <low>3</low>
-      <high>5</high>
-      <blowOut>10</blowOut>
-    </input>
-    <input type="arduino" name="arduino.left" id="1" enabled="1" inverted="1" calibrated="1">
-      <low>3</low>
-      <high>5</high>
-      <blowOut>10</blowOut>
-    </input>
-    <input type="arduino" name="arduino.right" id="2" enabled="1" inverted="1" calibrated="1">
-      <low>3</low>
-      <high>5</high>
-      <blowOut>10</blowOut>
+    <input type="arduino" device="cu.usbmodem1411" enabled="1" inverted="0" calibrated="1">
+      <low>10</low>
+      <high>75</high>
+      <blowOut>400</blowOut>
     </input>
   </inputs>
   <layers>

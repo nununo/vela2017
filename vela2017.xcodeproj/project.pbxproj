@@ -19,7 +19,6 @@
 		7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */; };
 		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */; };
-		7D64097F1EB60DB7003C9903 /* Arduino.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D64097D1EB60DB7003C9903 /* Arduino.cpp */; };
 		7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D65E7B71EB4E5F40087018A /* Thresholds.cpp */; };
 		7D65E7BF1EB4FA950087018A /* HistorySettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D65E7BE1EB4FA950087018A /* HistorySettings.cpp */; };
 		7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D7245AC1E7DA83F006E5653 /* Clip.cpp */; };
@@ -109,9 +108,6 @@
 		7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFloatEventArgs.h; sourceTree = "<group>"; };
 		7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MultiInput.cpp; sourceTree = "<group>"; };
 		7D60A9111E9961F3009FF4F2 /* MultiInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiInput.h; sourceTree = "<group>"; };
-		7D64097D1EB60DB7003C9903 /* Arduino.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Arduino.cpp; sourceTree = "<group>"; };
-		7D64097E1EB60DB7003C9903 /* Arduino.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arduino.h; sourceTree = "<group>"; };
-		7D6409801EB6641C003C9903 /* ArduinoSettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArduinoSettings.h; sourceTree = "<group>"; };
 		7D65E7B71EB4E5F40087018A /* Thresholds.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Thresholds.cpp; sourceTree = "<group>"; };
 		7D65E7BB1EB4F1850087018A /* HistorySettings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HistorySettings.h; sourceTree = "<group>"; };
 		7D65E7BE1EB4FA950087018A /* HistorySettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HistorySettings.cpp; sourceTree = "<group>"; };
@@ -310,9 +306,6 @@
 				7D65E7B71EB4E5F40087018A /* Thresholds.cpp */,
 				7D65E7BB1EB4F1850087018A /* HistorySettings.h */,
 				7D65E7BE1EB4FA950087018A /* HistorySettings.cpp */,
-				7D64097D1EB60DB7003C9903 /* Arduino.cpp */,
-				7D64097E1EB60DB7003C9903 /* Arduino.h */,
-				7D6409801EB6641C003C9903 /* ArduinoSettings.h */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -519,7 +512,6 @@
 				7D7245AE1E7DA83F006E5653 /* Clip.cpp in Sources */,
 				7D42EEE71EA2F6BB00383C3C /* ArduinoInputFactory.cpp in Sources */,
 				7DAA8B4B1E77665F005385DD /* CandleApp.cpp in Sources */,
-				7D64097F1EB60DB7003C9903 /* Arduino.cpp in Sources */,
 				7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

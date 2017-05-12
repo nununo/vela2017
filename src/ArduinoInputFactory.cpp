@@ -14,15 +14,18 @@ DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calib
   
   ArduinoInput *arduinoInput = NULL;
   
-  if (Arduino::getInstance().isEnabled()) {
-    
-    ThresholdsDataInput *input=
-      (ThresholdsDataInput*)DataInputFactory::createFactory(DataInputType::DATA_INPUT_THRESHOLD)->create(xml, calibrationSettings);
+  ThresholdsDataInput *input=
+    (ThresholdsDataInput*)DataInputFactory::createFactory(DataInputType::DATA_INPUT_THRESHOLD)->create(xml, calibrationSettings);
 
-    arduinoInput =
-      new ArduinoInput(xml->getAttribute("name"),
-                       std::stoi(xml->getAttribute("id")),
-                       input);
+  arduinoInput = new ArduinoInput(xml->getAttribute("device"),
+                                  input);
+  
+  if (arduinoInput->isConnected())
+    return arduinoInput;
+  else {
+    delete arduinoInput;
+    arduinoInput = NULL;
+    input = NULL;
   }
   
   return arduinoInput;
