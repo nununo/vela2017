@@ -13,6 +13,7 @@
 #include "ArduinoInputFactory.h"
 #include "ValueInputFactory.h"
 #include "CalibratedValueInputFactory.h"
+#include "Util.h"
 
 //--------------------------------------------------------------
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {

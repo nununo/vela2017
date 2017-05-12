@@ -11,22 +11,16 @@
 
 //--------------------------------------------------------------
 DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
+  ArduinoInput *input = new ArduinoInput(xml->getAttribute("device"),
+                                         getThresholds(xml),
+                                         calibrationSettings);
   
-  ArduinoInput *arduinoInput = NULL;
-  
-  CalibratedValueInput *input=
-    (CalibratedValueInput*)DataInputFactory::createFactory(DataInputType::DATA_INPUT_CALIBRATED_VALUE)->create(xml, calibrationSettings);
-
-  arduinoInput = new ArduinoInput(xml->getAttribute("device"),
-                                  input);
-  
-  if (arduinoInput->isConnected())
-    return arduinoInput;
+  if (input->isConnected())
+    return input;
   else {
-    delete arduinoInput;
-    arduinoInput = NULL;
+    delete input;
     input = NULL;
   }
   
-  return arduinoInput;
+  return input;
 }

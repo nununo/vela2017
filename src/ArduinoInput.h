@@ -9,13 +9,12 @@
 #ifndef ArduinoInput_h
 #define ArduinoInput_h
 
-#include "DataInput.h"
-#include "ValueInput.h"
+#include "CalibratedValueInput.h"
 #include "ofMain.h"
 
 class ArduinoInput: public DataInput {
 public:
-  ArduinoInput(string device, ValueInput *input);
+  ArduinoInput(string device, Thresholds thresholds, CalibrationSettings *calibrationSettings);
   ~ArduinoInput() {delete input; input = NULL;};
   bool isConnected() {return serial.isInitialized();}
 

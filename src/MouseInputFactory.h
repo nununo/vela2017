@@ -11,7 +11,6 @@
 
 #include "DataInputFactory.h"
 #include "MouseInput.h"
-#include "Util.h"
 
 class MouseInputFactory : public DataInputFactory {
 public:

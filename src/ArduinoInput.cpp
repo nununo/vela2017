@@ -9,8 +9,10 @@
 #include "ArduinoInput.h"
 
 //--------------------------------------------------------------
-ArduinoInput::ArduinoInput(string _device, ValueInput *_input): DataInput("arduino") {
-  input = _input;
+ArduinoInput::ArduinoInput(string _device, Thresholds thresholds, CalibrationSettings *calibrationSettings): DataInput("arduino") {
+  input = new CalibratedValueInput(getName(),
+                                   thresholds,
+                                   calibrationSettings);
   device = _device;
   connect();
 }
