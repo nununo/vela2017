@@ -20,6 +20,9 @@ public:
                        CalibrationSettings* calibrationSettings);
   ~CalibratedValueInput();
   
+  // ITrace
+  virtual string getTrace();
+  
   void setValue(float value);
 
   // Event
@@ -33,6 +36,7 @@ private:
   void calibrateOffset(float offset);
   void addValueToBuffer(float value);
   void broadcastThresholdsCalibratedEvent();
+  bool calibrationEnabled() {return (settings->getBufferSize()>0);}
 
   CalibrationSettings *settings;
 

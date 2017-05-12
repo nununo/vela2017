@@ -11,17 +11,13 @@
 
 //--------------------------------------------------------------
 MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) : DataInput("mouse") {
-  
-  if (calibrationSettings)
-    input = new CalibratedValueInput(buildName(inverted, true),
-                                     getThresholds(inverted),
-                                     calibrationSettings);
-  else
-    input = new ValueInput(buildName(inverted, false), getThresholds(inverted));
+  input = new CalibratedValueInput(getName(),
+                                   createThresholds(inverted),
+                                   calibrationSettings);
 };
 
 //--------------------------------------------------------------
-Thresholds MouseInput::getThresholds(bool inverted) {
+Thresholds MouseInput::createThresholds(bool inverted) {
   Thresholds thresholds;
 
   if (!inverted)
@@ -36,14 +32,4 @@ Thresholds MouseInput::getThresholds(bool inverted) {
                             true);
   
   return thresholds;
-}
-
-//--------------------------------------------------------------
-string MouseInput::buildName(bool inverted, bool calibrated) {
-  string name = "mouse";
-  if (inverted)
-    name = name + "Inverted";
-  if (calibrated)
-    name = name + "Calibrated";
-  return name;
 }

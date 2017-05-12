@@ -26,8 +26,7 @@ public:
   virtual string getTrace() {return input->getTrace();}
 
 private:
-  Thresholds getThresholds(bool inverted);
-  string buildName(bool inverted, bool calibrated);
+  Thresholds createThresholds(bool inverted);
   
   ValueInput *input;
 };

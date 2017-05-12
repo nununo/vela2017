@@ -34,7 +34,12 @@ void ValueInput::broadcastNewValueEvent() {
 string ValueInput::getTrace() {
   stringstream ss;
   
-  ss << getName() << ": |";
+  ss << getName();
+ 
+  if (getThresholds()->isInverted())
+    ss << " inverted";
+  
+  ss << ": |";
   
   ss << roundf(getThresholds()->getOffset()*100)/100 << "| ";
 

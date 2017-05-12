@@ -32,7 +32,7 @@ CalibratedValueInput::~CalibratedValueInput() {
 void CalibratedValueInput::setValue(float value) {
   ValueInput::setValue(value);
 
-  if (neverCalibrated) {
+  if (calibrationEnabled() && neverCalibrated) {
     calibrateOffset(value);
     neverCalibrated = false;
   }
@@ -113,4 +113,11 @@ void CalibratedValueInput::removeExcentric() {
 void CalibratedValueInput::broadcastThresholdsCalibratedEvent() {
   ThresholdsEventArgs evenArgs = ThresholdsEventArgs(getName(), *getThresholds());
   ofNotifyEvent(thresholdsCalibrated, evenArgs);
+}
+
+//--------------------------------------------------------------
+string CalibratedValueInput::getTrace() {
+  stringstream ss;
+  ss << ValueInput::getTrace() << " calibrated: " << calibrationEnabled();
+  return ss.str();
 }
