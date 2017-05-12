@@ -1,13 +1,13 @@
-#ifndef CLIPS_H_INCLUDED
-#define CLIPS_H_INCLUDED
+#ifndef LEVEL_H_INCLUDED
+#define LEVEL_H_INCLUDED
 
 #include "Clip.h"
 #include "GeneralSettings.h"
 
-class Clips {
+class Level {
 
 public:
-  Clips(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
+  Level(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
   Clip *getRandomClip();
 
 private:
@@ -21,4 +21,4 @@ private:
   vector<string> filenames;
 };
 
-#endif // CLIPS_H_INCLUDED
+#endif // LEVEL_H_INCLUDED

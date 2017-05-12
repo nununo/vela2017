@@ -9,7 +9,7 @@
 #ifndef Levels_h
 #define Levels_h
 
-#include "Clips.h"
+#include "Level.h"
 #include "BlowIntensity.h"
 
 class Levels{
@@ -19,7 +19,7 @@ public:
   Clip *getRandomClip(const BlowIntensity blowIntensity);
   
 private:  
-  vector<Clips*> levels;
+  vector<Level*> levels;
 };
 
 #endif /* Levels_h */

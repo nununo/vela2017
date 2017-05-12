@@ -7,14 +7,13 @@
 //
 
 #include "Levels.h"
-#include "Clips.h"
 
 //--------------------------------------------------------------
 Levels::Levels(const GeneralSettings generalSettings, const ClipOutputSettings clipOutputSettings, const vector<LevelSettings*> levelSettingsList) {
 
   for (int i=0; i<4; i++) {
     ofLogNotice() << "Loading level " << i;
-    levels.push_back(new Clips(generalSettings, clipOutputSettings, levelSettingsList[i]));
+    levels.push_back(new Level(generalSettings, clipOutputSettings, levelSettingsList[i]));
   }
 };
 

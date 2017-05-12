@@ -28,7 +28,7 @@
 		7DAA8B4F1E7767C6005385DD /* Util.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B4D1E7767C6005385DD /* Util.cpp */; };
 		7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B561E776875005385DD /* InfoLayer.cpp */; };
 		7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */; };
-		7DAA8B611E776C62005385DD /* Clips.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* Clips.cpp */; };
+		7DAA8B611E776C62005385DD /* Level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DAA8B5F1E776C62005385DD /* Level.cpp */; };
 		7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DABC4171E9AB847006BEB5F /* ValueInput.cpp */; };
 		7DB3F7DB1E8DD1C90025498A /* SystemInfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB3F7D91E8DD1C90025498A /* SystemInfo.cpp */; };
 		7DB8094C1EC634B700018D53 /* ThresholdsSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7DB8094A1EC634B700018D53 /* ThresholdsSettings.cpp */; };
@@ -128,8 +128,8 @@
 		7DAA8B571E776875005385DD /* InfoLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoLayer.h; sourceTree = "<group>"; };
 		7DAA8B5A1E776AD4005385DD /* ClipLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ClipLayer.cpp; sourceTree = "<group>"; };
 		7DAA8B5B1E776AD4005385DD /* ClipLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClipLayer.h; sourceTree = "<group>"; };
-		7DAA8B5F1E776C62005385DD /* Clips.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Clips.cpp; sourceTree = "<group>"; };
-		7DAA8B601E776C62005385DD /* Clips.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Clips.h; sourceTree = "<group>"; };
+		7DAA8B5F1E776C62005385DD /* Level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Level.cpp; sourceTree = "<group>"; };
+		7DAA8B601E776C62005385DD /* Level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Level.h; sourceTree = "<group>"; };
 		7DABC4161E9AA759006BEB5F /* ValueInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueInput.h; sourceTree = "<group>"; };
 		7DABC4171E9AB847006BEB5F /* ValueInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueInput.cpp; sourceTree = "<group>"; };
 		7DB3F7D91E8DD1C90025498A /* SystemInfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SystemInfo.cpp; sourceTree = "<group>"; };
@@ -244,8 +244,8 @@
 			children = (
 				7D7245AC1E7DA83F006E5653 /* Clip.cpp */,
 				7D7245AD1E7DA83F006E5653 /* Clip.h */,
-				7DAA8B5F1E776C62005385DD /* Clips.cpp */,
-				7DAA8B601E776C62005385DD /* Clips.h */,
+				7DAA8B5F1E776C62005385DD /* Level.cpp */,
+				7DAA8B601E776C62005385DD /* Level.h */,
 				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
 				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
@@ -492,7 +492,7 @@
 				7D42EEED1EA305DD00383C3C /* Config.cpp in Sources */,
 				7DA246DA1EABB5000077EB85 /* MouseInputFactory.cpp in Sources */,
 				7DB3F7DB1E8DD1C90025498A /* SystemInfo.cpp in Sources */,
-				7DAA8B611E776C62005385DD /* Clips.cpp in Sources */,
+				7DAA8B611E776C62005385DD /* Level.cpp in Sources */,
 				7DE285411EB00CE1005C3777 /* ValueHistories.cpp in Sources */,
 				7D65E7BF1EB4FA950087018A /* HistorySettings.cpp in Sources */,
 				7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */,

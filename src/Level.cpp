@@ -1,7 +1,7 @@
-#include "Clips.h"
+#include "Level.h"
 
 //-----------------------------------------------------------------------
-Clips::Clips(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings) {
+Level::Level(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings) {
 
   generalSettings = _generalSettings;
   clipOutputSettings = _clipOutputSettings;
@@ -14,7 +14,7 @@ Clips::Clips(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSet
 }
 
 //-----------------------------------------------------------------------
-string Clips::getRandomFilename() {
+string Level::getRandomFilename() {
   // Select a random filename from vector
   int i = filenames.size();
   i = rand() % i;
@@ -22,7 +22,7 @@ string Clips::getRandomFilename() {
 }
 
 //-----------------------------------------------------------------------
-Clip *Clips::getRandomClip() {
+Clip *Level::getRandomClip() {
   return new Clip(generalSettings,
                         clipOutputSettings,
                         levelSettings,
@@ -30,7 +30,7 @@ Clip *Clips::getRandomClip() {
 }
 
 //-----------------------------------------------------------------------
-void Clips::buildFilenameList() {
+void Level::buildFilenameList() {
   
   ofDirectory oDir;
   
