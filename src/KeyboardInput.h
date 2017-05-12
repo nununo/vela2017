@@ -32,7 +32,7 @@ public:
   void keyReleased(ofKeyEventArgs &e);
 
 private:
-  ThresholdsDataInput *input;
+  ValueInput *input;
 
 };
 

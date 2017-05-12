@@ -7,15 +7,15 @@
 //
 
 #include "ArduinoInputFactory.h"
-#include "ThresholdsDataInputFactory.h"
+#include "CalibratedValueInputFactory.h"
 
 //--------------------------------------------------------------
 DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings *calibrationSettings) {
   
   ArduinoInput *arduinoInput = NULL;
   
-  ThresholdsDataInput *input=
-    (ThresholdsDataInput*)DataInputFactory::createFactory(DataInputType::DATA_INPUT_THRESHOLD)->create(xml, calibrationSettings);
+  CalibratedValueInput *input=
+    (CalibratedValueInput*)DataInputFactory::createFactory(DataInputType::DATA_INPUT_CALIBRATED_VALUE)->create(xml, calibrationSettings);
 
   arduinoInput = new ArduinoInput(xml->getAttribute("device"),
                                   input);

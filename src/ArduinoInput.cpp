@@ -9,7 +9,7 @@
 #include "ArduinoInput.h"
 
 //--------------------------------------------------------------
-ArduinoInput::ArduinoInput(string _device, ThresholdsDataInput *_input): DataInput("arduino") {
+ArduinoInput::ArduinoInput(string _device, ValueInput *_input): DataInput("arduino") {
   input = _input;
   device = _device;
   connect();

@@ -13,28 +13,14 @@
 #include "CalibrationSettings.h"
 #include "ThresholdsEventArgs.h"
 
-class CalibratedValueInput : public ThresholdsDataInput {
+class CalibratedValueInput : public ValueInput {
 public:
   CalibratedValueInput(string name,
                        Thresholds thresholds,
                        CalibrationSettings* calibrationSettings);
-  ~CalibratedValueInput() {
-    delete valueInput;
-    valueInput=NULL;
-    delete [] buffer;
-    buffer=NULL;
-  }
-
-  // DataInput
-  virtual void update() {valueInput->update();}
-  virtual BlowIntensity getBlowIntensity() {return valueInput->getBlowIntensity();}
+  ~CalibratedValueInput();
   
-  // ITrace
-  virtual string getTrace() {return valueInput->getTrace();}
-  
-  // ThresholdDataInput
-  virtual void setValue(float value);
-  virtual Thresholds* const getThresholds() {return valueInput->getThresholds();};
+  void setValue(float value);
 
   // Event
   static ofEvent<ThresholdsEventArgs> thresholdsCalibrated;
@@ -48,7 +34,6 @@ private:
   void addValueToBuffer(float value);
   void broadcastThresholdsCalibratedEvent();
 
-  ValueInput *valueInput;
   CalibrationSettings *settings;
 
   float *buffer;

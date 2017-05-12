@@ -10,12 +10,12 @@
 #define ArduinoInput_h
 
 #include "DataInput.h"
-#include "ThresholdsDataInput.h"
+#include "ValueInput.h"
 #include "ofMain.h"
 
 class ArduinoInput: public DataInput {
 public:
-  ArduinoInput(string device, ThresholdsDataInput *input);
+  ArduinoInput(string device, ValueInput *input);
   ~ArduinoInput() {delete input; input = NULL;};
   bool isConnected() {return serial.isInitialized();}
 
@@ -31,7 +31,7 @@ private:
   void readValueFromSerial();
   
   ofSerial serial;
-  ThresholdsDataInput *input;
+  ValueInput *input;
   string device;
   int lastValue;
 };

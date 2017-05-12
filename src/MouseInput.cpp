@@ -9,7 +9,6 @@
 #include "MouseInput.h"
 #include "CalibratedValueInput.h"
 
-
 //--------------------------------------------------------------
 MouseInput::MouseInput(bool inverted, CalibrationSettings *calibrationSettings) : DataInput("mouse") {
   

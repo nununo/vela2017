@@ -10,15 +10,14 @@
 #define ValueInput_h
 
 #include "BlowIntensity.h"
-#include "ThresholdsDataInput.h"
 #include "NameFloatEventArgs.h"
+#include "Thresholds.h"
+#include "DataInput.h"
 
-class ValueInput : public ThresholdsDataInput {
+class ValueInput : public DataInput {
 public:
-  ValueInput(string name, Thresholds _thresholds) : ThresholdsDataInput(name) {
-    thresholds=_thresholds;
-    lastValue=0;};
-
+  ValueInput(string name, Thresholds _thresholds);
+  
   // DataInput
   virtual void update() {}
   virtual BlowIntensity getBlowIntensity() {return thresholds.getBlowIntensity(lastValue);}
@@ -27,8 +26,8 @@ public:
   virtual string getTrace();
 
   // ThresholdsDataInput
-  virtual void setValue(float _value);
-  virtual Thresholds* const getThresholds() {return &thresholds;}
+  void setValue(float _value);
+  Thresholds* const getThresholds() {return &thresholds;}
 
   // Event
   static ofEvent<NameFloatEventArgs> newValue;

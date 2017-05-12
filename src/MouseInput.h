@@ -10,7 +10,7 @@
 #define MouseInput_h
 
 #include "ofMain.h"
-#include "ThresholdsDataInput.h"
+#include "ValueInput.h"
 #include "CalibrationSettings.h"
 
 class MouseInput: public DataInput {
@@ -29,7 +29,7 @@ private:
   Thresholds getThresholds(bool inverted);
   string buildName(bool inverted, bool calibrated);
   
-  ThresholdsDataInput *input;
+  ValueInput *input;
 };
 
 #endif /* MouseInput_h */

@@ -14,10 +14,8 @@ ofEvent<ThresholdsEventArgs> CalibratedValueInput::thresholdsCalibrated = ofEven
 //--------------------------------------------------------------
 CalibratedValueInput::CalibratedValueInput(string name,
                                            Thresholds thresholds,
-                                           CalibrationSettings* _settings) : ThresholdsDataInput(name) {
-  
-  valueInput = new ValueInput(name, thresholds);
-  
+                                           CalibrationSettings* _settings) : ValueInput(name, thresholds) {
+    
   settings = _settings;
   
   buffer = new float[settings->getBufferSize()];
@@ -25,8 +23,14 @@ CalibratedValueInput::CalibratedValueInput(string name,
 }
 
 //--------------------------------------------------------------
+CalibratedValueInput::~CalibratedValueInput() {
+  delete [] buffer;
+  buffer=NULL;
+}
+
+//--------------------------------------------------------------
 void CalibratedValueInput::setValue(float value) {
-  valueInput->setValue(value);
+  ValueInput::setValue(value);
 
   if (neverCalibrated) {
     calibrateOffset(value);
@@ -65,11 +69,11 @@ float CalibratedValueInput::calculateOffset() {
 //--------------------------------------------------------------
 void CalibratedValueInput::calibrateOffset(float offset) {
   
-  valueInput->getThresholds()->setOffset(roundf(offset));
+  getThresholds()->setOffset(roundf(offset));
   
   broadcastThresholdsCalibratedEvent();
   
-  ofLogNotice() << "Calibrating. Result: " << valueInput->getThresholds()->getOffset();
+  ofLogNotice() << "Calibrating. Result: " << getThresholds()->getOffset();
 }
 
 //--------------------------------------------------------------
