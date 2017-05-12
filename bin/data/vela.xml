@@ -62,7 +62,7 @@
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="arduino" device="cu.usbmodem1411" enabled="1" inverted="0" calibrated="0">
+    <input type="arduino" device="tty.usbmodem1411" enabled="1" inverted="0" calibrated="0">
       <low>10</low>
       <high>75</high>
       <blowOut>400</blowOut>
@@ -73,13 +73,13 @@
       <offsetX>40</offsetX>
       <offsetY>40</offsetY> 
       <rotated180>0</rotated180>
-      <portraitMode>1</portraitMode>
+      <portraitMode>0</portraitMode>
     </layer>
   	<layer type="history" visible="1">
       <offsetX>40</offsetX>
       <offsetY>400</offsetY>
       <rotated180>0</rotated180>
-      <portraitMode>1</portraitMode>
+      <portraitMode>0</portraitMode>
     </layer>
     <layer type="clip" visible="1">
       <offsetX>0</offsetX>

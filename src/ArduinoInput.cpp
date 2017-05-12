@@ -25,32 +25,35 @@ bool ArduinoInput::connect() {
 
 //--------------------------------------------------------------
 void ArduinoInput::readValueFromSerial() {
-  
+
   // Continue only if initialized
   if (!serial.isInitialized())
     return;
   
-  // we try to read 2 bytes
-    
-  //we are going to read 3x 0 - 1023 number as two bytes
-  //we need a buffer to store the two bytes and a second
-  //buffer with space for the terminating zero byte
   unsigned char bytesReturned[2];
-  unsigned char bytesReadString[3];
+  int bytesRead;
   
-  //clear our buffers
-  memset(bytesReadString, 0, 4);
-  memset(bytesReturned, 0, 3);
   
-  //we read as much as possible so we make sure we get the newest data
-  while( serial.readBytes( bytesReturned, 3) > 0);
+  // Arduino sends space followed by 2 bytes
+  memset(bytesReturned, 0, 2);
+  do {
+    // So first we wait for a space
+    bytesRead = serial.readBytes(bytesReturned, 1);
+  }
+  while (bytesReturned[0] != ' ' && bytesRead > 0);
   
-  //lets update our buffer
-  memcpy(bytesReadString, bytesReturned, 3);
-    
-  //we need to put the bytes back into an int
-  lastValue = (unsigned char)bytesReadString[1] << 8 |
-              (unsigned char)bytesReadString[0];
+  // If a space was found, we read the other 2 bytes
+  if (bytesReturned[0]==' ') {
+    memset(bytesReturned, 0, 2);
+    bytesRead = serial.readBytes(bytesReturned, 2);
+  
+    // If indeed we read 2 bytes, convert them into an int
+    if (bytesRead == 2)
+      lastValue = (unsigned char)bytesReturned[1] << 8 | (unsigned char)bytesReturned[0];
+  }
+  // Not sure if this is needed
+  serial.flush();
+
 }
 //--------------------------------------------------------------
 void ArduinoInput::update() {
