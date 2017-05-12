@@ -12,9 +12,9 @@ ClipLayer::ClipLayer(LayerSettings layerSettings, BlowIntensity _intensity, Clip
 
 //-----------------------------------------------------------------------
 ClipLayer::~ClipLayer() {
+  ofLogNotice() << "Destroying layer for " << clip->getFilename();
   delete clip;
   clip = NULL;
-  ofLogNotice() << "Destroyed layer for " << clip->getFilename();
 }
 
 //-----------------------------------------------------------------------
