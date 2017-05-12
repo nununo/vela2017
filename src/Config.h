@@ -9,7 +9,7 @@
 #ifndef Config_h
 #define Config_h
 
-#include "ofMain.h"
+#include "ConfigXml.h"
 #include "DataInput.h"
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
@@ -32,9 +32,9 @@ public:
   HistorySettings getHistorySettings();
 
 private:
-  ofXml xml;
+  ConfigXml *xml;
   
-  bool isEnabled() {return Util::stringToBool(xml.getAttribute("enabled"));}
+  bool isEnabled() {return xml->getBoolAttribute("enabled");}
 };
 
 #endif /* Config_h */

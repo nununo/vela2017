@@ -12,24 +12,24 @@
 //--------------------------------------------------------------
 MouseInput::MouseInput(bool inverted, CalibrationSettings calibrationSettings) : DataInput("mouse") {
   input = new CalibratedValueInput(getName(),
-                                   createThresholds(inverted),
+                                   createThresholdsSettings(inverted),
                                    calibrationSettings);
 };
 
 //--------------------------------------------------------------
-Thresholds MouseInput::createThresholds(bool inverted) {
-  Thresholds thresholds;
+ThresholdsSettings MouseInput::createThresholdsSettings(bool inverted) {
+  ThresholdsSettings settings;
 
   if (!inverted)
-    thresholds = Thresholds(1*(float)ofGetScreenHeight()/4,
-                            2*(float)ofGetScreenHeight()/4,
-                            3*(float)ofGetScreenHeight()/4,
-                            false);
+    settings = ThresholdsSettings(1*(float)ofGetScreenHeight()/4,
+                                  2*(float)ofGetScreenHeight()/4,
+                                  3*(float)ofGetScreenHeight()/4,
+                                  false);
   else
-    thresholds = Thresholds(3*(float)ofGetScreenHeight()/4,
-                            2*(float)ofGetScreenHeight()/4,
-                            1*(float)ofGetScreenHeight()/4,
-                            true);
+    settings = ThresholdsSettings(3*(float)ofGetScreenHeight()/4,
+                                  2*(float)ofGetScreenHeight()/4,
+                                  1*(float)ofGetScreenHeight()/4,
+                                  true);
   
-  return thresholds;
+  return settings;
 }

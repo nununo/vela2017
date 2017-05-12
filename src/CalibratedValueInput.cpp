@@ -13,8 +13,8 @@ ofEvent<ThresholdsEventArgs> CalibratedValueInput::thresholdsCalibrated = ofEven
 
 //--------------------------------------------------------------
 CalibratedValueInput::CalibratedValueInput(string name,
-                                           Thresholds thresholds,
-                                           CalibrationSettings _settings) : ValueInput(name, thresholds) {
+                                           ThresholdsSettings thresholdsSettings,
+                                           CalibrationSettings _settings) : ValueInput(name, thresholdsSettings) {
     
   settings = _settings;
   

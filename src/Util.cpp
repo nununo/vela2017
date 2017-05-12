@@ -38,29 +38,3 @@ string Util::blowIntensityToString(const BlowIntensity blowIntensity) {
       break;
   }
 }
-/*
-//--------------------------------------------------------------
-int Util::blowIntensityToInt(const BlowIntensity blowIntensity) {
-  switch (blowIntensity) {
-    case BlowIntensity::IDLE:
-      return 0;
-      break;
-    case BlowIntensity::LOW:
-      return 1;
-      break;
-    case BlowIntensity::HIGH:
-      return 2;
-      break;
-    case BlowIntensity::BLOWOUT:
-      return "blowOut";
-      break;
-    default:
-      return "invalidIntensity";
-      break;
-  }
-}
-*/
-//--------------------------------------------------------------
-bool Util::stringToBool(const string str) {
-  return (str=="1" || str=="enabled" || str=="active" || str=="true" );
-}

@@ -11,9 +11,6 @@
 #include "KeyboardInputFactory.h"
 #include "AutoFlickerInputFactory.h"
 #include "ArduinoInputFactory.h"
-#include "ValueInputFactory.h"
-#include "CalibratedValueInputFactory.h"
-#include "Util.h"
 
 //--------------------------------------------------------------
 DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
@@ -29,12 +26,6 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
   
   else if (dataInputType == DataInputType::DATA_INPUT_ARDUINO)
     return new ArduinoInputFactory();
-  
-  else if (dataInputType == DataInputType::DATA_INPUT_VALUE)
-    return new ValueInputFactory();
-
-  else if (dataInputType == DataInputType::DATA_INPUT_CALIBRATED_VALUE)
-    return new CalibratedValueInputFactory();
 
   else {
     ofLogError() << "Invalid input type " << dataInputType;
@@ -43,6 +34,6 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
 }
 
 //--------------------------------------------------------------
-DataInput* DataInputFactory::create(ofXml *xml, CalibrationSettings calibrationSettings) {
+DataInput* DataInputFactory::create(ConfigXml *xml, CalibrationSettings calibrationSettings) {
   return createAux(xml, calibrationSettings);
 }

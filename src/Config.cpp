@@ -13,15 +13,20 @@
 //--------------------------------------------------------------
 bool Config::setup(string filename) {
   ofFile file;
+  ofXml *xmlOf;
+  
   file.open(filename); // open a file
   ofBuffer buffer = file.readToBuffer(); // read to a buffer
   
-  if (!xml.loadFromBuffer( buffer.getText() )) {
+  xmlOf = new ofXml();
+  if (!xmlOf->loadFromBuffer( buffer.getText() )) {
     ofLogError() << "Error loading XML file"; // now get the buffer as a string and make XML
     return false;
   }
 
-  xml.setTo("vela2017");
+  xml = new ConfigXml(xmlOf);
+  
+  xml->setTo("vela2017");
   return true;
 }
 
@@ -32,7 +37,7 @@ DataInput* Config::createDataInputs() {
   
   CalibrationSettings calibrationSettings = getCalibrationSettings();
   
-  if (!xml.setTo("inputs/input[0]")) {
+  if (!xml->setTo("inputs/input[0]")) {
     ofLogError() << "XML position to /vela2017/inputs/input[0] failed. Check XML";
     return NULL;
   }
@@ -41,11 +46,11 @@ DataInput* Config::createDataInputs() {
   
   do {
     if (isEnabled())
-      multiInput->add(DataInputFactory::createFactory(xml.getAttribute("type"))->create(&xml, calibrationSettings));
+      multiInput->add(DataInputFactory::createFactory(xml->getAttribute("type"))->create(xml, calibrationSettings));
   }
-  while(xml.setToSibling());
+  while(xml->setToSibling());
   
-  xml.setToParent(2);
+  xml->setToParent(2);
   
   return multiInput;
 }
@@ -54,15 +59,15 @@ DataInput* Config::createDataInputs() {
 ClipOutputSettings Config::getClipOutputSettings() {
   ClipOutputSettings clipOutputSettings;
   
-  if (!xml.setTo("clipOutput")) {
+  if (!xml->setTo("clipOutput")) {
     ofLogError() << "XML position to /vela2017/videoOutput failed. Check XML";
     return clipOutputSettings;
   }
 
-  clipOutputSettings = ClipOutputSettings(xml.getFloatValue("zoomX"),
-                                          xml.getFloatValue("zoomY"));
+  clipOutputSettings = ClipOutputSettings(xml->getFloatValue("zoomX"),
+                                          xml->getFloatValue("zoomY"));
   
-  xml.setToParent();
+  xml->setToParent();
   
   return clipOutputSettings;
 }
@@ -71,16 +76,16 @@ ClipOutputSettings Config::getClipOutputSettings() {
 GeneralSettings Config::getGeneralSettings() {
   GeneralSettings generalSettings;
   
-  if (!xml.setTo("general")) {
+  if (!xml->setTo("general")) {
     ofLogError() << "XML position to /vela2017/general failed. Check XML";
     return generalSettings;
   }
   
-  generalSettings = GeneralSettings(xml.getIntValue("framerate"),
-                                    xml.getBoolValue("fullscreen"),
-                                    xml.getBoolValue("useOmxPlayer"));
+  generalSettings = GeneralSettings(xml->getIntValue("framerate"),
+                                    xml->getBoolValue("fullscreen"),
+                                    xml->getBoolValue("useOmxPlayer"));
   
-  xml.setToParent();
+  xml->setToParent();
   
   return generalSettings;
 }
@@ -89,15 +94,15 @@ GeneralSettings Config::getGeneralSettings() {
 HistorySettings Config::getHistorySettings() {
   HistorySettings historySettings;
   
-  if (!xml.setTo("history")) {
+  if (!xml->setTo("history")) {
     ofLogError() << "XML position to /vela2017/history failed. Check XML";
     return historySettings;
   }
   
-  historySettings = HistorySettings(xml.getIntValue("bufferSize"),
-                                    xml.getIntValue("chartHeight"));
+  historySettings = HistorySettings(xml->getIntValue("bufferSize"),
+                                    xml->getIntValue("chartHeight"));
   
-  xml.setToParent();
+  xml->setToParent();
   
   return historySettings;
 }
@@ -107,15 +112,15 @@ CalibrationSettings Config::getCalibrationSettings() {
 
   CalibrationSettings calibrationSettings;
 
-  if (!xml.setTo("calibration")) {
+  if (!xml->setTo("calibration")) {
     ofLogError() << "XML position to /vela2017/calibration failed. Check XML";
   }
   
-  calibrationSettings = CalibrationSettings(xml.getIntValue("bufferSize"),
-                                            xml.getIntValue("excentricSize"),
-                                            xml.getIntValue("samplePeriod"));
+  calibrationSettings = CalibrationSettings(xml->getIntValue("bufferSize"),
+                                            xml->getIntValue("excentricSize"),
+                                            xml->getIntValue("samplePeriod"));
   
-  xml.setToParent();
+  xml->setToParent();
   
   return calibrationSettings;
 }
@@ -124,21 +129,21 @@ CalibrationSettings Config::getCalibrationSettings() {
 vector<LevelSettings*> Config::createLevelSettingsList() {
   vector<LevelSettings*> list;
 
-  if (!xml.setTo("levels/level[0]")) {
+  if (!xml->setTo("levels/level[0]")) {
     ofLogError() << "XML position to /vela2017/levels/level[0] failed. Check XML";
     return list;
   }
 
   do {
-    list.push_back(new LevelSettings(xml.getValue("movieFolder"),
-                                     xml.getFloatValue("fadeInTime"),
-                                     xml.getFloatValue("fadeOutTime"),
-                                     xml.getBoolValue("loop"),
-                                     xml.getBoolValue("canRestart")));
+    list.push_back(new LevelSettings(xml->getValue("movieFolder"),
+                                     xml->getFloatValue("fadeInTime"),
+                                     xml->getFloatValue("fadeOutTime"),
+                                     xml->getBoolValue("loop"),
+                                     xml->getBoolValue("canRestart")));
   }
-  while(xml.setToSibling());
+  while(xml->setToSibling());
 
-  xml.setToParent(2);
+  xml->setToParent(2);
   
   return list;
 }
@@ -150,18 +155,18 @@ LayerSettings Config::getLayerSettings(string type) {
   string path;
   
   path = "layers/layer[@type='" + type + "']";
-  if (!xml.setTo(path)) {
+  if (!xml->setTo(path)) {
     ofLogError() << "XML position to " << path << " failed. Check XML";
     return layerSettings;
   }
   
-  layerSettings = LayerSettings(Util::stringToBool(xml.getAttribute("visible")),
-                                ofPoint(xml.getIntValue("offsetX"),
-                                        xml.getIntValue("offsetY")),
-                                xml.getBoolValue("rotated180"),
-                                xml.getFloatValue("portraitMode"));
+  layerSettings = LayerSettings(xml->getBoolAttribute("visible"),
+                                ofPoint(xml->getIntValue("offsetX"),
+                                        xml->getIntValue("offsetY")),
+                                xml->getBoolValue("rotated180"),
+                                xml->getFloatValue("portraitMode"));
   
-  xml.setToParent(2);
+  xml->setToParent(2);
   
   return layerSettings;
 }

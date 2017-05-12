@@ -16,7 +16,7 @@
 class CalibratedValueInput : public ValueInput {
 public:
   CalibratedValueInput(string name,
-                       Thresholds thresholds,
+                       ThresholdsSettings thresholdsSettings,
                        CalibrationSettings calibrationSettings);
   ~CalibratedValueInput();
   

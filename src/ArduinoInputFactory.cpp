@@ -7,12 +7,11 @@
 //
 
 #include "ArduinoInputFactory.h"
-#include "CalibratedValueInputFactory.h"
 
 //--------------------------------------------------------------
-DataInput* ArduinoInputFactory::createAux(ofXml *xml, CalibrationSettings calibrationSettings) {
+DataInput* ArduinoInputFactory::createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) {
   ArduinoInput *input = new ArduinoInput(xml->getAttribute("device"),
-                                         getThresholds(xml),
+                                         xml->getThresholdsSettings(),
                                          calibrationSettings);
   
   if (input->isConnected())

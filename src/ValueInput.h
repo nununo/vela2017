@@ -16,7 +16,7 @@
 
 class ValueInput : public DataInput {
 public:
-  ValueInput(string name, Thresholds _thresholds);
+  ValueInput(string name, ThresholdsSettings thresholdsSettings);
   
   // DataInput
   virtual void update() {}

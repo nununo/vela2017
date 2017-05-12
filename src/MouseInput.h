@@ -26,7 +26,7 @@ public:
   virtual string getTrace() {return input->getTrace();}
 
 private:
-  Thresholds createThresholds(bool inverted);
+  ThresholdsSettings createThresholdsSettings(bool inverted);
   
   ValueInput *input;
 };

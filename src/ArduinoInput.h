@@ -14,7 +14,7 @@
 
 class ArduinoInput: public DataInput {
 public:
-  ArduinoInput(string device, Thresholds thresholds, CalibrationSettings calibrationSettings);
+  ArduinoInput(string device, ThresholdsSettings thresholdsSettings, CalibrationSettings calibrationSettings);
   ~ArduinoInput() {delete input; input = NULL;};
   bool isConnected() {return serial.isInitialized();}
 

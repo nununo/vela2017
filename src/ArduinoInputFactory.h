@@ -9,12 +9,12 @@
 #ifndef ArduinoInputFactory_h
 #define ArduinoInputFactory_h
 
-#include "ValueInputFactory.h"
+#include "DataInputFactory.h"
 #include "ArduinoInput.h"
 
-class ArduinoInputFactory : public ValueInputFactory {
+class ArduinoInputFactory : public DataInputFactory {
 public:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings calibrationSettings);
+  virtual DataInput* createAux(ConfigXml *xml, CalibrationSettings calibrationSettings);
 };
 
 #endif /* ArduinoInputFactory_h */

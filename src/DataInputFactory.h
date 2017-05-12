@@ -12,24 +12,23 @@
 #include "ofMain.h"
 #include "DataInput.h"
 #include "CalibrationSettings.h"
+#include "ConfigXml.h"
 
 namespace DataInputType {
   const string DATA_INPUT_KEYBOARD = "keyboard";
   const string DATA_INPUT_MOUSE = "mouse";
   const string DATA_INPUT_AUTO_FLICKER = "autoFlicker";
   const string DATA_INPUT_ARDUINO = "arduino";
-  const string DATA_INPUT_VALUE = "value";
-  const string DATA_INPUT_CALIBRATED_VALUE = "calibrated";
 }
 
 class DataInputFactory {
 public:  
-  DataInput* create(ofXml *xml, CalibrationSettings calibrationSettings);
+  DataInput* create(ConfigXml *xml, CalibrationSettings calibrationSettings);
   
   static DataInputFactory* createFactory(string dataInputType);
 
 private:
-  virtual DataInput* createAux(ofXml *xml, CalibrationSettings calibrationSettings) = 0;
+  virtual DataInput* createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) = 0;
 
 };
 

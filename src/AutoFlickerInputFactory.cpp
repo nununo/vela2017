@@ -10,6 +10,6 @@
 #include "AutoFlickerInput.h"
 
 //--------------------------------------------------------------
-DataInput* AutoFlickerInputFactory::createAux(ofXml *xml, CalibrationSettings calibrationSettings) {
+DataInput* AutoFlickerInputFactory::createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) {
   return new AutoFlickerInput(xml->getIntValue("minPeriod"));
 }

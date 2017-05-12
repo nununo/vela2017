@@ -10,26 +10,24 @@
 #define Thresholds_h
 
 #include "BlowIntensity.h"
+#include "ThresholdsSettings.h"
 
 class Thresholds {
   
 public:
-  Thresholds() : Thresholds(0,0,0,false) {}
-  Thresholds(float _low, float _high, float _blowOut, bool _inverted);
-  float getLow() {return low+offset;}
-  float getHigh() {return high+offset;}
-  float getBlowOut() {return blowOut+offset;}
+  Thresholds() {}
+  Thresholds(ThresholdsSettings _settings) {settings=_settings;}
+  float getLow() {return settings.getLow()+offset;}
+  float getHigh() {return settings.getHigh()+offset;}
+  float getBlowOut() {return settings.getBlowOut()+offset;}
   float getOffset() {return offset;}
   void setOffset(float _offset) {offset=_offset;}
   BlowIntensity getBlowIntensity(float value);
-  bool isInverted() {return inverted;}
+  bool isInverted() {return settings.isInverted();}
 
 private:
   float offset=0;
-  float low;
-  float high;
-  float blowOut;
-  bool inverted;
+  ThresholdsSettings settings;
 };
 
 #endif /* Thresholds_h */
