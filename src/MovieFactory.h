@@ -10,11 +10,10 @@
 #define MovieFactory_h
 
 #include "MovieBase.h"
-#include "GeneralSettings.h"
 
 class MovieFactory {
 public:
-  static MovieBase* create(string filename, bool loop, GeneralSettings generalSettings);
+  static MovieBase* create(string filename, bool loop, bool useOMXPlayer);
 };
 
 #endif /* MovieFactory_h */

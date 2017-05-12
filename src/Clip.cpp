@@ -38,7 +38,7 @@ MovieBase* Clip::createMovie(GeneralSettings generalSettings, string filename) {
   ofLogNotice() << "Creating movie " << filename;
   return MovieFactory::create(filename,
                               levelSettings->getLoop(),
-                              generalSettings);
+                              generalSettings.getUseOmxPlayer());
 }
 
 //-----------------------------------------------------------------------
