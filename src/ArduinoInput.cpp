@@ -31,37 +31,26 @@ void ArduinoInput::readValueFromSerial() {
     return;
   
   // we try to read 2 bytes
-  
-  //clear our variables
-  int nTimesRead  = 0;
-  int nBytesRead  = 0;
-  int nRead		= 0;  // a temp variable to keep count per read
-  
+    
   //we are going to read 3x 0 - 1023 number as two bytes
   //we need a buffer to store the two bytes and a second
   //buffer with space for the terminating zero byte
-  unsigned char bytesReturned[6];
-  unsigned char bytesReadString[7];
+  unsigned char bytesReturned[2];
+  unsigned char bytesReadString[3];
   
   //clear our buffers
-  memset(bytesReadString, 0, 7);
-  memset(bytesReturned, 0, 6);
+  memset(bytesReadString, 0, 4);
+  memset(bytesReturned, 0, 3);
   
   //we read as much as possible so we make sure we get the newest data
-  while( (nRead = serial.readBytes( bytesReturned, 6)) > 0){
-    nTimesRead++;
-    nBytesRead = nRead;
-  }
+  while( serial.readBytes( bytesReturned, 3) > 0);
   
-  //if we have got 3 pairs of 2 bytes
-  if( nBytesRead == 6){
+  //lets update our buffer
+  memcpy(bytesReadString, bytesReturned, 3);
     
-    //lets update our buffer
-    memcpy(bytesReadString, bytesReturned, 7);
-    
-    //we need to put the bytes back into an int
-    lastValue = (unsigned char)bytesReadString[1] << 8 | (unsigned char)bytesReadString[0];
-  }
+  //we need to put the bytes back into an int
+  lastValue = (unsigned char)bytesReadString[1] << 8 |
+              (unsigned char)bytesReadString[0];
 }
 //--------------------------------------------------------------
 void ArduinoInput::update() {
