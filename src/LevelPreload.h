@@ -14,7 +14,7 @@
 class LevelPreload : public Level {
   
 public:
-  LevelPreload(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
+  LevelPreload(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, LevelSettings *levelSettings);
   virtual Clip *getNextClip();
   
 private:

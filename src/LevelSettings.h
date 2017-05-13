@@ -14,6 +14,7 @@
 namespace LevelType {
   const std::string PRELOAD = "preload";
   const std::string THREAD_CHANNEL = "threadChannel";
+  const std::string ON_DEMAND = "onDemand";
 }
 
 class LevelSettings {

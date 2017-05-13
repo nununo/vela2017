@@ -88,6 +88,7 @@
 		7D0178341EC72CC60084310D /* LevelPreload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPreload.h; sourceTree = "<group>"; };
 		7D0178381EC7305C0084310D /* LevelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFactory.h; sourceTree = "<group>"; };
 		7D01783D1EC731B50084310D /* LevelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelFactory.cpp; sourceTree = "<group>"; };
+		7D0178401EC737B30084310D /* LevelOnDemand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelOnDemand.h; sourceTree = "<group>"; };
 		7D0A2A071E9452E100637568 /* LevelSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSettings.cpp; sourceTree = "<group>"; };
 		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
 		7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOMXPlayer.cpp; sourceTree = "<group>"; };
@@ -259,6 +260,7 @@
 				7D0178311EC729F90084310D /* LevelThreadChannel.h */,
 				7D0178331EC72CC60084310D /* LevelPreload.cpp */,
 				7D0178341EC72CC60084310D /* LevelPreload.h */,
+				7D0178401EC737B30084310D /* LevelOnDemand.h */,
 				7D01783D1EC731B50084310D /* LevelFactory.cpp */,
 				7D0178381EC7305C0084310D /* LevelFactory.h */,
 				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,

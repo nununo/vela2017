@@ -9,6 +9,7 @@
 #include "LevelFactory.h"
 #include "LevelPreload.h"
 #include "LevelThreadChannel.h"
+#include "LevelOnDemand.h"
 
 //--------------------------------------------------------------
 Level* LevelFactory::create(GeneralSettings generalSettings,
@@ -20,7 +21,10 @@ Level* LevelFactory::create(GeneralSettings generalSettings,
 
   else if (levelSettings->getLevelType() == LevelType::THREAD_CHANNEL)
     return new LevelThreadChannel(generalSettings, clipOutputSettings, levelSettings);
-  
+
+  else if (levelSettings->getLevelType() == LevelType::ON_DEMAND)
+    return new LevelOnDemand(generalSettings, clipOutputSettings, levelSettings);
+
   else {
     ofLogError() << "Invalid level type " << levelSettings->getLevelType();
     return NULL;
