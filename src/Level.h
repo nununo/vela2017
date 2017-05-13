@@ -4,26 +4,25 @@
 #include "Clip.h"
 #include "GeneralSettings.h"
 
-class Level : public ofThread {
+class Level {
 
 public:
   Level(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
-  Clip *getNextClip();
-  
-private:
-  Clip *createRandomClip();
-  void loadNextClip();
-  void threadedFunction();
-  void buildFilenameList();
+  virtual Clip *getNextClip() = 0;
+
+protected:
   string getRandomFilename();
-  
+  GeneralSettings getGeneralSettings() const {return generalSettings;}
+  ClipOutputSettings getClipOutputSettings() const {return clipOutputSettings;}
+  LevelSettings *getLevelSettings() const {return levelSettings;}
+
+private:
+  void buildFilenameList();
+
   GeneralSettings generalSettings;
   ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
   vector<string> filenames;
-
-  ofThreadChannel<bool> clipConsumed;
-  ofThreadChannel<Clip*> nextClip;
 };
 
 #endif // LEVEL_H_INCLUDED

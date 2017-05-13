@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D0178321EC729F90084310D /* LevelThreadChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0178301EC729F90084310D /* LevelThreadChannel.cpp */; };
 		7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A2A071E9452E100637568 /* LevelSettings.cpp */; };
 		7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */; };
 		7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */; };
@@ -79,6 +80,8 @@
 
 /* Begin PBXFileReference section */
 		6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
+		7D0178301EC729F90084310D /* LevelThreadChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelThreadChannel.cpp; sourceTree = "<group>"; };
+		7D0178311EC729F90084310D /* LevelThreadChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThreadChannel.h; sourceTree = "<group>"; };
 		7D0A2A071E9452E100637568 /* LevelSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSettings.cpp; sourceTree = "<group>"; };
 		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
 		7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOMXPlayer.cpp; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 				7D7245AD1E7DA83F006E5653 /* Clip.h */,
 				7DAA8B5F1E776C62005385DD /* Level.cpp */,
 				7DAA8B601E776C62005385DD /* Level.h */,
+				7D0178301EC729F90084310D /* LevelThreadChannel.cpp */,
+				7D0178311EC729F90084310D /* LevelThreadChannel.h */,
 				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
 				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
@@ -489,6 +494,7 @@
 			files = (
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */,
+				7D0178321EC729F90084310D /* LevelThreadChannel.cpp in Sources */,
 				7D42EEED1EA305DD00383C3C /* Config.cpp in Sources */,
 				7DA246DA1EABB5000077EB85 /* MouseInputFactory.cpp in Sources */,
 				7DB3F7DB1E8DD1C90025498A /* SystemInfo.cpp in Sources */,
