@@ -8,10 +8,16 @@
 
 #include "LevelSettings.h"
 
-LevelSettings::LevelSettings(std::string _movieFolder, float _fadeInTime, float _fadeOutTime, bool _loop, bool _canRestart) {
+LevelSettings::LevelSettings(std::string _movieFolder,
+                             float _fadeInTime,
+                             float _fadeOutTime,
+                             bool _loop,
+                             bool _canRestart,
+                             bool _threadedMovieLoad) {
   movieFolder = _movieFolder;
   fadeInTime = _fadeInTime;
   fadeOutTime = _fadeOutTime;
   loop = _loop;
   canRestart = _canRestart;
+  threadedMovieLoad = _threadedMovieLoad;
 }

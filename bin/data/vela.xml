@@ -24,6 +24,7 @@
       <fadeOutTime>0</fadeOutTime>
       <loop>1</loop>
       <canRestart>0</canRestart>
+      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
     <level>
       <movieFolder>media/1</movieFolder>
@@ -31,6 +32,7 @@
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
+      <threadedMovieLoad>1</threadedMovieLoad>
     </level>
     <level>
       <movieFolder>media/2</movieFolder>
@@ -38,6 +40,7 @@
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
+      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
     <level>
       <movieFolder>media/3</movieFolder>
@@ -45,6 +48,7 @@
       <fadeOutTime>2.00</fadeOutTime>
       <loop>0</loop>
       <canRestart>0</canRestart>
+      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
   </levels>
   <calibration>
