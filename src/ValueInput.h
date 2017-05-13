@@ -26,7 +26,7 @@ public:
   virtual string getTrace();
 
   // ThresholdsDataInput
-  void setValue(float _value);
+  virtual void setValue(float _value);
   Thresholds* const getThresholds() {return &thresholds;}
 
   // Event

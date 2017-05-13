@@ -20,11 +20,12 @@ public:
                        CalibrationSettings calibrationSettings);
   ~CalibratedValueInput();
   
+  // ValueInput
+  virtual void setValue(float value);
+
   // ITrace
   virtual string getTrace();
   
-  void setValue(float value);
-
   // Event
   static ofEvent<ThresholdsEventArgs> thresholdsCalibrated;
 
