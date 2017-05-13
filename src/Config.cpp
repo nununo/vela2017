@@ -135,12 +135,12 @@ vector<LevelSettings*> Config::createLevelSettingsList() {
   }
 
   do {
-    list.push_back(new LevelSettings(xml->getValue("movieFolder"),
+    list.push_back(new LevelSettings(xml->getAttribute("type"),
+                                     xml->getValue("movieFolder"),
                                      xml->getFloatValue("fadeInTime"),
                                      xml->getFloatValue("fadeOutTime"),
                                      xml->getBoolValue("loop"),
-                                     xml->getBoolValue("canRestart"),
-                                     xml->getBoolValue("threadedMovieLoad")));
+                                     xml->getBoolValue("canRestart")));
   }
   while(xml->setToSibling());
 

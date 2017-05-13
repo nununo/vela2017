@@ -11,23 +11,28 @@
 
 #include <string>
 
+namespace LevelType {
+  const std::string PRELOAD = "preload";
+  const std::string THREAD_CHANNEL = "threadChannel";
+}
+
 class LevelSettings {
 public:
-  LevelSettings(std::string movieFolder, float fadeInTime, float fadeOutTime, bool loop, bool canRestart, bool threadedMovieLoad);
+  LevelSettings(std::string levelType, std::string movieFolder, float fadeInTime, float fadeOutTime, bool loop, bool canRestart);
+  std::string getLevelType() {return levelType;}
   std::string getMovieFolder() {return movieFolder;}
   float getFadeInTime() {return fadeInTime;}
   float getFadeOutTime() {return fadeOutTime;}
   bool getLoop() {return loop;}
   bool getCanRestart() {return canRestart;}
-  bool isThreadedMovieLoad() {return threadedMovieLoad;}
   
 private:
+  std::string levelType;
   std::string movieFolder;
   float fadeInTime;
   float fadeOutTime;
   bool loop;
   bool canRestart;
-  bool threadedMovieLoad;
 };
 
 #endif /* LevelSettings_h */

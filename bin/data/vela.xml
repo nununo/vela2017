@@ -18,7 +18,7 @@
     <device name="pi2">/dev/ttyAMA0</device>
   </arduino>
   <levels>
-    <level>
+    <level type="preload">
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
       <fadeOutTime>0</fadeOutTime>
@@ -26,7 +26,7 @@
       <canRestart>0</canRestart>
       <threadedMovieLoad>0</threadedMovieLoad>
     </level>
-    <level>
+    <level type="preload">
       <movieFolder>media/1</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
@@ -34,7 +34,7 @@
       <canRestart>1</canRestart>
       <threadedMovieLoad>1</threadedMovieLoad>
     </level>
-    <level>
+    <level type="preload">
       <movieFolder>media/2</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
@@ -42,7 +42,7 @@
       <canRestart>1</canRestart>
       <threadedMovieLoad>0</threadedMovieLoad>
     </level>
-    <level>
+    <level type="threadChannel">
       <movieFolder>media/3</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>2.00</fadeOutTime>

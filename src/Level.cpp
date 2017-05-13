@@ -31,3 +31,12 @@ void Level::buildFilenameList() {
   for(int i = 0; i < nFiles; i++)
     filenames.push_back(oDir.getPath(i));
 }
+
+//-----------------------------------------------------------------------
+Clip *Level::createClip(string filename) {
+  return new Clip(generalSettings,
+                  clipOutputSettings,
+                  levelSettings,
+                  filename);
+}
+

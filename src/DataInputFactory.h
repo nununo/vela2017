@@ -32,5 +32,4 @@ private:
 
 };
 
-
 #endif /* DataInputFactory_h */

@@ -13,22 +13,12 @@ LevelThreadChannel::LevelThreadChannel(GeneralSettings generalSettings,
                                        ClipOutputSettings clipOutputSettings,
                                        LevelSettings *levelSettings) : Level(generalSettings, clipOutputSettings, levelSettings) {
   
-  if (levelSettings->isThreadedMovieLoad()) {
-    // start the thread as soon as the class is created
-    // it won't use any CPU until we send a new frame to be analyzed
-    startThread();
+  // start the thread as soon as the class is created
+  // it won't use any CPU until we send a new frame to be analyzed
+  startThread();
     
-    // We immediately loading the next clip
-    loadNextClip();
-  }
-}
-
-//-----------------------------------------------------------------------
-Clip *LevelThreadChannel::createRandomClip() {
-  return new Clip(getGeneralSettings(),
-                  getClipOutputSettings(),
-                  getLevelSettings(),
-                  getRandomFilename());
+  // We immediately loading the next clip
+  loadNextClip();
 }
 
 //-----------------------------------------------------------------------
@@ -40,15 +30,15 @@ void LevelThreadChannel::loadNextClip() {
 Clip *LevelThreadChannel::getNextClip() {
   
   Clip *clip;
-  if (getLevelSettings()->isThreadedMovieLoad()) {
+//  if (getLevelSettings()->isThreadedMovieLoad()) {
     if (nextClip.receive(clip)) {
       clipConsumed.send(true);
       return clip;
     } else {
       return NULL;
     }
-  } else
-    return createRandomClip();
+//  } else
+//    return createRandomClip();
 }
 
 //-----------------------------------------------------------------------

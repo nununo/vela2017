@@ -12,6 +12,8 @@ public:
 
 protected:
   string getRandomFilename();
+  Clip *createClip(string filename);
+  vector<string> getFilenames() const {return filenames;}
   GeneralSettings getGeneralSettings() const {return generalSettings;}
   ClipOutputSettings getClipOutputSettings() const {return clipOutputSettings;}
   LevelSettings *getLevelSettings() const {return levelSettings;}

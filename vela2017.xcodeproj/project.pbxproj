@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7D0178321EC729F90084310D /* LevelThreadChannel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0178301EC729F90084310D /* LevelThreadChannel.cpp */; };
+		7D0178351EC72CC60084310D /* LevelPreload.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0178331EC72CC60084310D /* LevelPreload.cpp */; };
+		7D01783E1EC731B50084310D /* LevelFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D01783D1EC731B50084310D /* LevelFactory.cpp */; };
 		7D0A2A091E9452E100637568 /* LevelSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D0A2A071E9452E100637568 /* LevelSettings.cpp */; };
 		7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */; };
 		7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42A3BC1E78C9C80097B54C /* InputIntensity.cpp */; };
@@ -82,6 +84,10 @@
 		6290DD7C0336EC3E3EE6CA56 /* tinyxmlparser.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = tinyxmlparser.cpp; path = ../../of_v0.9.8_osx_release/addons/ofxXmlSettings/libs/tinyxmlparser.cpp; sourceTree = SOURCE_ROOT; };
 		7D0178301EC729F90084310D /* LevelThreadChannel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelThreadChannel.cpp; sourceTree = "<group>"; };
 		7D0178311EC729F90084310D /* LevelThreadChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelThreadChannel.h; sourceTree = "<group>"; };
+		7D0178331EC72CC60084310D /* LevelPreload.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelPreload.cpp; sourceTree = "<group>"; };
+		7D0178341EC72CC60084310D /* LevelPreload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelPreload.h; sourceTree = "<group>"; };
+		7D0178381EC7305C0084310D /* LevelFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelFactory.h; sourceTree = "<group>"; };
+		7D01783D1EC731B50084310D /* LevelFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelFactory.cpp; sourceTree = "<group>"; };
 		7D0A2A071E9452E100637568 /* LevelSettings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LevelSettings.cpp; sourceTree = "<group>"; };
 		7D0A2A081E9452E100637568 /* LevelSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSettings.h; sourceTree = "<group>"; };
 		7D11675A1EAD7D8E00098A21 /* MovieOMXPlayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieOMXPlayer.cpp; sourceTree = "<group>"; };
@@ -251,6 +257,10 @@
 				7DAA8B601E776C62005385DD /* Level.h */,
 				7D0178301EC729F90084310D /* LevelThreadChannel.cpp */,
 				7D0178311EC729F90084310D /* LevelThreadChannel.h */,
+				7D0178331EC72CC60084310D /* LevelPreload.cpp */,
+				7D0178341EC72CC60084310D /* LevelPreload.h */,
+				7D01783D1EC731B50084310D /* LevelFactory.cpp */,
+				7D0178381EC7305C0084310D /* LevelFactory.h */,
 				7DFE1C361E79D14B003ECE97 /* Levels.cpp */,
 				7DFE1C371E79D14B003ECE97 /* Levels.h */,
 				7D7245B51E7DCDE7006E5653 /* ClipOutputSettings.h */,
@@ -492,6 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D0178351EC72CC60084310D /* LevelPreload.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
 				7DB90F051E7B6799000978EC /* AutoFlickerInput.cpp in Sources */,
 				7D0178321EC729F90084310D /* LevelThreadChannel.cpp in Sources */,
@@ -509,6 +520,7 @@
 				7DB8094F1EC6371000018D53 /* ConfigXml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */,
 				7D42EEE21EA2E98600383C3C /* AutoFlickerInputFactory.cpp in Sources */,
+				7D01783E1EC731B50084310D /* LevelFactory.cpp in Sources */,
 				7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */,
 				7D42A3BE1E78C9C80097B54C /* InputIntensity.cpp in Sources */,
 				7D42EEF11EA315DF00383C3C /* GeneralSettings.cpp in Sources */,

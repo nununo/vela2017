@@ -18,7 +18,7 @@ public:
   virtual Clip *getNextClip();
   
 private:
-  Clip *createRandomClip();
+  Clip *createRandomClip() {return createClip(getRandomFilename());}
   void loadNextClip();
   void threadedFunction();
     

@@ -33,6 +33,8 @@ public:
   
   // ITrace
   string getTrace();
+  
+  bool isPreloaded() {return (levelSettings->getLevelType() == LevelType::PRELOAD);}
 
 private:
   MovieBase* createMovie(GeneralSettings generalSettings, string filename);
