@@ -20,10 +20,10 @@ Clip::Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettin
 
   pause();
 
-  fadeInPercentage = timeToPercentage(levelSettings->getFadeInTime());
+  fadeInPercentage = 0; //timeToPercentage(levelSettings->getFadeInTime());
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
 
-  alpha=0;
+  alpha=255;
 }
 
 //-----------------------------------------------------------------------
@@ -71,7 +71,7 @@ int Clip::calcAlpha() {
     return ALPHA_MAX;
   else {
     float alpha =
-    Util::remap(movie->getPosition(), 0, fadeInPercentage, 0, 1) *        // Fade in
+    //Util::remap(movie->getPosition(), 0, fadeInPercentage, 0, 1) *        // Fade in
     Util::remap(movie->getPosition(), 0.98-fadeOutPercentage, 0.98, 1, 0); // Fade out
     return (int)(alpha * ALPHA_MAX);
   }
