@@ -30,6 +30,7 @@ public:
   bool isOpaque() {return alpha == ALPHA_MAX;}
   int getAlpha() {return alpha;}
   bool getCanRestart() {return levelSettings->getCanRestart();}
+  void setup() {movie->setup();}
   
   // ITrace
   string getTrace();

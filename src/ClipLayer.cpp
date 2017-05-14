@@ -5,6 +5,7 @@ ClipLayer::ClipLayer(LayerSettings layerSettings, BlowIntensity _intensity, Clip
   clip = _clip;
   intensity = _intensity;
   
+  clip->setup();
   clip->rewind();
   
   ofLogNotice() << "Created layer for " << clip->getFilename();

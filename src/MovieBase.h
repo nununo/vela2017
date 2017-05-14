@@ -27,6 +27,7 @@ public:
   virtual void setAlpha(int _alpha) {alpha=_alpha;}
   virtual bool isPaused() = 0;
   virtual bool getLoop() = 0;
+  virtual void setup() = 0; // Will be used to enable textures
 
   // ITrace
   string getTrace();

@@ -19,7 +19,7 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
   ofxOMXPlayerSettings settings;
   settings.videoPath = ofToDataPath(filename, true);
   settings.useHDMIForAudio = true;	//default true
-  settings.enableTexture = true;		//default true
+  settings.enableTexture = false;		//default true
   settings.enableLooping = _loop;		//default true
   settings.enableAudio = false;		//default true, save resources by disabling
 

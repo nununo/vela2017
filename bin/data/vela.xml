@@ -26,7 +26,7 @@
       <canRestart>0</canRestart>
       <threadedMovieLoad>0</threadedMovieLoad>
     </level>
-    <level type="preload">
+    <level type="threadChannel">
       <movieFolder>media/1</movieFolder>
       <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>

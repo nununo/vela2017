@@ -25,6 +25,7 @@ public:
   virtual void setPaused(bool pause=true) {movie->setPaused(pause);}
   virtual bool isPaused() {return movie->isPaused();}
   virtual bool getLoop();
+  virtual void setup();
 
 private:
   void setLoop(bool loop);

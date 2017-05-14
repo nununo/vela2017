@@ -19,6 +19,7 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
   movie->setPixelFormat(OF_PIXELS_NATIVE);
 #endif
 
+  movie->setUseTexture(false);
   movie->load(filename);
   movie->play();
   setLoop(loop);
@@ -28,6 +29,11 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
 MovieOfVideoPlayer::~MovieOfVideoPlayer() {
   delete movie;
   movie = NULL;
+}
+
+//--------------------------------------------------------------
+void MovieOfVideoPlayer::setup() {
+  movie->setUseTexture(true);
 }
 
 //--------------------------------------------------------------
