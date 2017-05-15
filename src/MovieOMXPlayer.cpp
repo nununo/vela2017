@@ -30,7 +30,7 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 }
 
 //--------------------------------------------------------------
-void setup() {
+void MovieOMXPlayer::setup() {
   if (!movie.isTextureEnabled()) {
     ofxOMXPlayerSettings settings = movie.getSettings();
     settings.enableTexture = true;
