@@ -30,6 +30,17 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
 }
 
 //--------------------------------------------------------------
+virtual void setup() {
+  if (!isTextureEnabled()) {
+    ofxOMXPlayerSettings settings = movie.getSettings();
+    settings.enableTexture = true;
+    movie.setup(settings);
+    //movie.toggleMode();
+    //movie.updatePixels();
+  }
+}
+
+//--------------------------------------------------------------
 void MovieOMXPlayer::calcFinished() {
   if (!getLoop() && !isPaused() && getPosition()>0.95f && (getPosition()==lastPosition || getPosition()>1)) {
     finished = true;
