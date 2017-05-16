@@ -11,9 +11,10 @@
 #include "MovieOMXPlayer.h"
 
 //--------------------------------------------------------------
-MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop) {
+MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop, ofColor color) {
 
   filename=_filename;
+  color = _color;
 
   //Somewhat like ofFboSettings we may have a lot of options so this is the current model
   ofxOMXPlayerSettings settings;
@@ -57,7 +58,7 @@ void MovieOMXPlayer::draw(float x, float y, float width, float height) {
   else
     ofEnableAlphaBlending();
 
-  ofSetColor(255,255,255,getAlpha());
+  ofSetColor(color,getAlpha());
 
   movie.draw(x, y, width, height);
 

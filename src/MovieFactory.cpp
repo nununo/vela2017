@@ -14,9 +14,9 @@ MovieBase* MovieFactory::create(string filename, bool loop, ofColor color, bool 
 
 #ifdef TARGET_RASPBERRY_PI
   if (useOMXPlayer)
-    return new MovieOMXPlayer(filename, loop);
+    return new MovieOMXPlayer(filename, loop, color);
   else
-    return new MovieOfVideoPlayer(filename, loop);
+    return new MovieOfVideoPlayer(filename, loop, color);
 #else
   return new MovieOfVideoPlayer(filename, loop, color);
 #endif

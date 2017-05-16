@@ -16,7 +16,7 @@
 
 class MovieOMXPlayer: public MovieBase {
 public:
-  MovieOMXPlayer(string filename, bool _loop);
+  MovieOMXPlayer(string filename, bool _loop, ofColor color);
   virtual string getFilename() {return filename;}
   virtual bool isFinished() {return finished;}
   virtual float getPosition() {return ((float)movie.getCurrentFrame())/(float)movie.getTotalNumFrames();}
@@ -35,6 +35,7 @@ private:
   float lastPosition;
   bool finished;
   ofxOMXPlayer movie;
+  ofColor color;
 };
 
 #endif
