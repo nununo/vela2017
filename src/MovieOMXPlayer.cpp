@@ -11,7 +11,7 @@
 #include "MovieOMXPlayer.h"
 
 //--------------------------------------------------------------
-MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop, ofColor color) {
+MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop, ofColor _color) {
 
   filename=_filename;
   color = _color;
