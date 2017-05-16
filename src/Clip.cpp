@@ -38,6 +38,7 @@ MovieBase* Clip::createMovie(GeneralSettings generalSettings, string filename) {
   ofLogNotice() << "Creating movie " << filename;
   return MovieFactory::create(filename,
                               levelSettings->getLoop(),
+                              clipOutputSettings.getColor(),
                               generalSettings.getUseOmxPlayer());
 }
 
@@ -63,7 +64,6 @@ void Clip::draw() {
               ofGetWidth()*clipOutputSettings.getZoomX(),
               ofGetHeight()*clipOutputSettings.getZoomY());
 }
-
 
 //-----------------------------------------------------------------------
 int Clip::calcAlpha() {

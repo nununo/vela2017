@@ -65,11 +65,21 @@ ClipOutputSettings Config::getClipOutputSettings() {
   }
 
   clipOutputSettings = ClipOutputSettings(xml->getFloatValue("zoomX"),
-                                          xml->getFloatValue("zoomY"));
+                                          xml->getFloatValue("zoomY"),
+                                          ofColor::fromHex(strToHex(xml->getValue("color"))));
   
   xml->setToParent();
   
   return clipOutputSettings;
+}
+
+//--------------------------------------------------------------
+unsigned int Config::strToHex(string hex) {
+  unsigned int x;
+  std::stringstream ss;
+  ss << std::hex << hex;
+  ss >> x;
+  return x;
 }
 
 //--------------------------------------------------------------

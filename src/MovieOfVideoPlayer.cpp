@@ -9,9 +9,10 @@
 #include "MovieOfVideoPlayer.h"
 
 //--------------------------------------------------------------
-MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop) {
+MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop, ofColor _color) {
 
   filename = _filename;
+  color = _color;
   
   movie = new ofVideoPlayer();
 
@@ -53,10 +54,10 @@ void MovieOfVideoPlayer::draw(float x, float y, float width, float height) {
   if (getAlpha() == ALPHA_MAX)
   {
     ofDisableAlphaBlending();
-    ofSetHexColor(0xFFFFFF);
+    ofSetColor(color);
   } else {
     ofEnableAlphaBlending();
-    ofSetColor(255, 255, 255, getAlpha());
+    ofSetColor(color, getAlpha());
   }
   
   movie->draw(x, y, width, height);

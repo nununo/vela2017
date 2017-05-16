@@ -13,7 +13,7 @@
 
 class MovieOfVideoPlayer: public MovieBase {
 public:
-  MovieOfVideoPlayer(string filename, bool loop);
+  MovieOfVideoPlayer(string filename, bool loop, ofColor color);
   ~MovieOfVideoPlayer();
   virtual string getFilename() {return filename;}
   virtual bool isFinished() {return movie->getIsMovieDone();}
@@ -32,6 +32,7 @@ private:
   string filename;
   ofVideoPlayer *movie;
   bool loop;
+  ofColor color;
 };
 
 

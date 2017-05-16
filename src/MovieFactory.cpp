@@ -10,7 +10,7 @@
 #include "MovieOfVideoPlayer.h"
 #include "MovieOMXPlayer.h"
 
-MovieBase* MovieFactory::create(string filename, bool loop, bool useOMXPlayer) {
+MovieBase* MovieFactory::create(string filename, bool loop, ofColor color, bool useOMXPlayer) {
 
 #ifdef TARGET_RASPBERRY_PI
   if (useOMXPlayer)
@@ -18,7 +18,7 @@ MovieBase* MovieFactory::create(string filename, bool loop, bool useOMXPlayer) {
   else
     return new MovieOfVideoPlayer(filename, loop);
 #else
-  return new MovieOfVideoPlayer(filename, loop);
+  return new MovieOfVideoPlayer(filename, loop, color);
 #endif
 
 }

@@ -35,6 +35,7 @@ private:
   ConfigXml *xml;
   
   bool isEnabled() {return xml->getBoolAttribute("enabled");}
+  unsigned int strToHex(string hex);
 };
 
 #endif /* Config_h */

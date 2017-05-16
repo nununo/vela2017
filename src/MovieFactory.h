@@ -13,7 +13,7 @@
 
 class MovieFactory {
 public:
-  static MovieBase* create(string filename, bool loop, bool useOMXPlayer);
+  static MovieBase* create(string filename, bool loop, ofColor color, bool useOMXPlayer);
 };
 
 #endif /* MovieFactory_h */
