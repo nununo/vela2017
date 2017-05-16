@@ -55,10 +55,6 @@ void sendValue(int value) {
   //gnarly code to turn the int into two bytes
   byte1 = value &0xFF;
   byte2 = (value >> 8) &0xFF;
-        
-  //send both bytes
-  //Serial.write(byte1);
-  //Serial.write(byte2);
 
   Serial.print(' ');
   Serial.write(byte1);
