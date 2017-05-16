@@ -15,11 +15,6 @@ MovieOfVideoPlayer::MovieOfVideoPlayer(string _filename, bool loop, ofColor _col
   color = _color;
   
   movie = new ofVideoPlayer();
-
-#ifdef TARGET_RASPBERRY_PI
-  movie->setPixelFormat(OF_PIXELS_NATIVE);
-#endif
-
   movie->load(filename);
   movie->play();
   setLoop(loop);
