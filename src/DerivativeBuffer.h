@@ -15,9 +15,10 @@ public:
   void addValue(float value);
   float getDerivative() {return lastDerivative;}
   float getLastValue() {return buffer[position];}
-  
+
 private:
   float calcDerivative();
+  int getCircularIndex(int index);
   
   float *buffer;
   int position;
