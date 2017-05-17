@@ -21,8 +21,10 @@ ClipLayer::~ClipLayer() {
 
 //-----------------------------------------------------------------------
 void ClipLayer::update() {
-  if (!clip->isPlaying())
+  if (!clip->isPlaying()) {
     setVisible(false);
+    ofLogNotice() << clip->getFilename() << " not playing, set invisible";
+  }
   
   if (isVisible())
     clip->update();
