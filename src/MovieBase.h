@@ -27,13 +27,12 @@ public:
   virtual void setAlpha(int _alpha) {alpha=_alpha;}
   virtual bool isPaused() = 0;
   virtual bool getLoop() = 0;
-
+  
   // ITrace
   string getTrace();
-  
-protected:
+
   int getAlpha() {return alpha;}
-  
+
 private:
   int alpha;
 };

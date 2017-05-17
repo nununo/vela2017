@@ -22,7 +22,7 @@ Clip::Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettin
 
   fadeOutPercentage = timeToPercentage(levelSettings->getFadeOutTime());
 
-  alpha=255;
+  movie->setAlpha(ALPHA_MAX);
 }
 
 //-----------------------------------------------------------------------
@@ -52,8 +52,7 @@ void Clip::update() {
   pause(false);
 
   movie->update();
-  alpha = calcAlpha();
-  movie->setAlpha(alpha);
+  movie->setAlpha(calcAlpha());
 }
 
 //-----------------------------------------------------------------------

@@ -27,8 +27,8 @@ public:
   bool isPlaying() {return (levelSettings->getLoop() || !movie->isFinished());}
   string getFilename() {return movie->getFilename();};
   float getPosition() {return movie->getPosition();}
-  bool isOpaque() {return alpha == ALPHA_MAX;}
-  int getAlpha() {return alpha;}
+  bool isOpaque() {return movie->getAlpha() == ALPHA_MAX;}
+  int getAlpha() {return movie->getAlpha();}
   bool getCanRestart() {return levelSettings->getCanRestart();}
   
   // ITrace
@@ -45,7 +45,6 @@ private:
   ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
   float fadeOutPercentage;                // Fade out percentage converted from fade out time
-  int alpha;                              // Alpha channel
 };
 
 #endif /* Clip_h */
