@@ -25,9 +25,6 @@ public:
 
   // ITrace
   virtual string getTrace();
-  
-  // Event
-  static ofEvent<ThresholdsEventArgs> thresholdsCalibrated;
 
 private:
   float getAverage();
@@ -36,7 +33,6 @@ private:
   float calculateOffset();
   void calibrateOffset(float offset);
   void addValueToBuffer(float value);
-  void broadcastThresholdsCalibratedEvent();
   bool calibrationEnabled() {return (settings.getBufferSize()>0);}
 
   CalibrationSettings settings;

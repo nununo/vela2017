@@ -20,6 +20,8 @@
 		7D42EEF11EA315DF00383C3C /* GeneralSettings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D42EEEF1EA315DF00383C3C /* GeneralSettings.cpp */; };
 		7D4C8CA41EAD7212009076C4 /* MovieOfVideoPlayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA21EAD7212009076C4 /* MovieOfVideoPlayer.cpp */; };
 		7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */; };
+		7D579BA81ECCD9A000074CF6 /* DerivativeValueInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D579BA61ECCD9A000074CF6 /* DerivativeValueInput.cpp */; };
+		7D579BAB1ECCDE5F00074CF6 /* DerivativeBuffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D579BA91ECCDE5F00074CF6 /* DerivativeBuffer.cpp */; };
 		7D58DF111EA286AC00BDFA7F /* MouseInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */; };
 		7D60A9121E9961F3009FF4F2 /* MultiInput.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D60A9101E9961F3009FF4F2 /* MultiInput.cpp */; };
 		7D65E7B81EB4E5F40087018A /* Thresholds.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7D65E7B71EB4E5F40087018A /* Thresholds.cpp */; };
@@ -114,6 +116,10 @@
 		7D4C8CA51EAD7619009076C4 /* MovieFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovieFactory.cpp; sourceTree = "<group>"; };
 		7D4C8CA61EAD7619009076C4 /* MovieFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieFactory.h; sourceTree = "<group>"; };
 		7D5680B41E7F509400B739C3 /* TODO.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO.txt; sourceTree = "<group>"; };
+		7D579BA61ECCD9A000074CF6 /* DerivativeValueInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DerivativeValueInput.cpp; sourceTree = "<group>"; };
+		7D579BA71ECCD9A000074CF6 /* DerivativeValueInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerivativeValueInput.h; sourceTree = "<group>"; };
+		7D579BA91ECCDE5F00074CF6 /* DerivativeBuffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DerivativeBuffer.cpp; sourceTree = "<group>"; };
+		7D579BAA1ECCDE5F00074CF6 /* DerivativeBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DerivativeBuffer.h; sourceTree = "<group>"; };
 		7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MouseInput.cpp; sourceTree = "<group>"; };
 		7D58DF101EA286AC00BDFA7F /* MouseInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MouseInput.h; sourceTree = "<group>"; };
 		7D5DA2AF1EAFFC3C00662FB6 /* NameFloatEventArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NameFloatEventArgs.h; sourceTree = "<group>"; };
@@ -323,6 +329,8 @@
 				7DB8094B1EC634B700018D53 /* ThresholdsSettings.h */,
 				7DB8094D1EC6371000018D53 /* ConfigXml.cpp */,
 				7DB8094E1EC6371000018D53 /* ConfigXml.h */,
+				7D579BA91ECCDE5F00074CF6 /* DerivativeBuffer.cpp */,
+				7D579BAA1ECCDE5F00074CF6 /* DerivativeBuffer.h */,
 			);
 			name = tools;
 			sourceTree = "<group>";
@@ -352,6 +360,8 @@
 				7DABC4161E9AA759006BEB5F /* ValueInput.h */,
 				7DB94A5F1EB14CF1008ADD74 /* CalibratedValueInput.cpp */,
 				7DB94A601EB14CF1008ADD74 /* CalibratedValueInput.h */,
+				7D579BA61ECCD9A000074CF6 /* DerivativeValueInput.cpp */,
+				7D579BA71ECCD9A000074CF6 /* DerivativeValueInput.h */,
 				7D58DF0F1EA286AC00BDFA7F /* MouseInput.cpp */,
 				7D58DF101EA286AC00BDFA7F /* MouseInput.h */,
 				7DB90EF71E7B4D16000978EC /* ArduinoInput.cpp */,
@@ -518,6 +528,7 @@
 				7DE285441EB01506005C3777 /* ValueHistoriesLayer.cpp in Sources */,
 				7D11675C1EAD7D8E00098A21 /* MovieOMXPlayer.cpp in Sources */,
 				7DCBC1741EB7561000FC1FC7 /* MovieBase.cpp in Sources */,
+				7D579BAB1ECCDE5F00074CF6 /* DerivativeBuffer.cpp in Sources */,
 				7DABC4181E9AB847006BEB5F /* ValueInput.cpp in Sources */,
 				7DB8094F1EC6371000018D53 /* ConfigXml.cpp in Sources */,
 				7DAA8B581E776875005385DD /* InfoLayer.cpp in Sources */,
@@ -533,6 +544,7 @@
 				7DB94A611EB14CF1008ADD74 /* CalibratedValueInput.cpp in Sources */,
 				7DB90EFF1E7B5D32000978EC /* KeyboardInput.cpp in Sources */,
 				7DAA8B5C1E776AD4005385DD /* ClipLayer.cpp in Sources */,
+				7D579BA81ECCD9A000074CF6 /* DerivativeValueInput.cpp in Sources */,
 				7D42EEE41EA2F45100383C3C /* DataInputFactory.cpp in Sources */,
 				7DA246DC1EABBAB70077EB85 /* CalibrationSettings.cpp in Sources */,
 				7D4C8CA71EAD7619009076C4 /* MovieFactory.cpp in Sources */,

@@ -12,12 +12,12 @@
 //--------------------------------------------------------------
 ValueHistories::ValueHistories() {
   ofAddListener(ValueInput::newValue , this, &ValueHistories::onNewValue);
-  ofAddListener(CalibratedValueInput::thresholdsCalibrated , this, &ValueHistories::onThresholdsCalibrated);
+  ofAddListener(ValueInput::newThresholds , this, &ValueHistories::onNewThresholds);
 }
 
 //--------------------------------------------------------------
 ValueHistories::~ValueHistories() {
-  ofRemoveListener(CalibratedValueInput::thresholdsCalibrated, this, &ValueHistories::onThresholdsCalibrated);
+  ofRemoveListener(ValueInput::newThresholds, this, &ValueHistories::onNewThresholds);
   ofRemoveListener(ValueInput::newValue, this, &ValueHistories::onNewValue);
 }
 
@@ -32,7 +32,7 @@ std::vector<std::string> ValueHistories::getKeys() {
 }
 
 //--------------------------------------------------------------
-void ValueHistories::onThresholdsCalibrated(ThresholdsEventArgs &e) {
+void ValueHistories::onNewThresholds(ThresholdsEventArgs &e) {
   setThresholds(e.getName(), e.getThresholds());
 }
 
