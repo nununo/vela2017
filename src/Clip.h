@@ -44,7 +44,6 @@ private:
   MovieBase *movie;
   ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
-  float fadeInPercentage;                 // Fade in percentage converted from fade in time
   float fadeOutPercentage;                // Fade out percentage converted from fade out time
   int alpha;                              // Alpha channel
 };

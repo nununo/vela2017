@@ -11,7 +11,7 @@
   <clipOutput>
     <zoomX>1.0</zoomX>
     <zoomY>1.0</zoomY>
-    <color>FF0000</color>
+    <color>FFFFFF</color>
   </clipOutput>
   <calibration>
     <bufferSize>100</bufferSize>
@@ -58,34 +58,26 @@
     <level type="onDemand">
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
-      <fadeOutTime>0</fadeOutTime>
       <loop>1</loop>
       <canRestart>0</canRestart>
-      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
     <level type="preload">
       <movieFolder>media/1</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
-      <threadedMovieLoad>1</threadedMovieLoad>
     </level>
     <level type="preload">
       <movieFolder>media/2</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
       <canRestart>1</canRestart>
-      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
     <level type="preload">
       <movieFolder>media/3</movieFolder>
-      <fadeInTime>0.15</fadeInTime>
-      <fadeOutTime>2.00</fadeOutTime>
+      <fadeOutTime>3.00</fadeOutTime>
       <loop>0</loop>
       <canRestart>0</canRestart>
-      <threadedMovieLoad>0</threadedMovieLoad>
     </level>
   </levels>
 </vela2017>
