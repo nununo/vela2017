@@ -33,7 +33,6 @@ private:
   void drawLine(ofVec2f minMax, ValueHistory *history, float value);
 
   HistorySettings historySettings;
-  Thresholds thresholds;
   ValueHistories *valueHistories;
   ofTrueTypeFont font;
 };

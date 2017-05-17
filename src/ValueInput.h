@@ -11,6 +11,7 @@
 
 #include "BlowIntensity.h"
 #include "NameFloatEventArgs.h"
+#include "ThresholdsEventArgs.h"
 #include "Thresholds.h"
 #include "DataInput.h"
 
@@ -29,8 +30,12 @@ public:
   virtual void setValue(float _value);
   Thresholds* const getThresholds() {return &thresholds;}
 
-  // Event
+  // Events
   static ofEvent<NameFloatEventArgs> newValue;
+  static ofEvent<ThresholdsEventArgs> newThresholds;
+
+protected:
+  void broadcastNewThresholdsEvent();
 
 private:
   void broadcastNewValueEvent();

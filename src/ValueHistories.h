@@ -26,7 +26,7 @@ public:
   std::vector<std::string> getKeys();
 
 private:
-  void onThresholdsCalibrated(ThresholdsEventArgs &e);
+  void onNewThresholds(ThresholdsEventArgs &e);
   void onNewValue(NameFloatEventArgs &e);
 
   std::unordered_map<std::string, ValueHistory> histories;

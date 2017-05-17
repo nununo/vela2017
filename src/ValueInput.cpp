@@ -12,11 +12,15 @@
 
 // the static event, or any static variable, must be initialized outside of the class definition.
 ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();
+ofEvent<ThresholdsEventArgs> ValueInput::newThresholds = ofEvent<ThresholdsEventArgs>();
 
 //--------------------------------------------------------------
 ValueInput::ValueInput(string name, ThresholdsSettings thresholdsSettings): DataInput(name) {
   thresholds=Thresholds(thresholdsSettings);
-  lastValue=0;};
+  lastValue=0;
+  broadcastNewThresholdsEvent();
+  broadcastNewValueEvent();
+}
 
 //--------------------------------------------------------------
 void ValueInput::setValue(float value) {
@@ -29,6 +33,12 @@ void ValueInput::setValue(float value) {
 void ValueInput::broadcastNewValueEvent() {
   NameFloatEventArgs evenArgs = NameFloatEventArgs(getName(), lastValue);
   ofNotifyEvent(newValue, evenArgs);
+}
+
+//--------------------------------------------------------------
+void ValueInput::broadcastNewThresholdsEvent() {
+  ThresholdsEventArgs evenArgs = ThresholdsEventArgs(getName(), *getThresholds());
+  ofNotifyEvent(newThresholds, evenArgs);
 }
 
 //--------------------------------------------------------------
