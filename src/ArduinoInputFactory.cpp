@@ -11,8 +11,7 @@
 //--------------------------------------------------------------
 DataInput* ArduinoInputFactory::createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) {
   ArduinoInput *input = new ArduinoInput(xml->getAttribute("device"),
-                                         xml->getThresholdsSettings(),
-                                         calibrationSettings);
+                                         xml->getThresholdsSettings());
   
   if (input->isConnected())
     return input;
