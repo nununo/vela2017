@@ -29,7 +29,7 @@ public:
   float getPosition() {return movie->getPosition();}
   bool isOpaque() {return movie->getAlpha() == ALPHA_MAX;}
   int getAlpha() {return movie->getAlpha();}
-  bool getCanRestart() {return levelSettings->getCanRestart();}
+  bool getCanRestart();
   
   // ITrace
   string getTrace();

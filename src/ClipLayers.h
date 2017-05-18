@@ -25,13 +25,12 @@ public:
 private:
   bool isBaseLayerVisible();
   void onBlowIntensityChanged(BlowIntensity &e);
+  BlowIntensity getCurrentIntensity();
 
   LayerSettings layerSettings;
   Levels *levels;
   ClipLayer *baseLayer;
   ClipLayer *topLayer;
-  BlowIntensity currentIntensity;
-
 };
 
 #endif /* Layers_h */

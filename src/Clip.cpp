@@ -42,8 +42,8 @@ MovieBase* Clip::createMovie(GeneralSettings generalSettings, string filename) {
 }
 
 //-----------------------------------------------------------------------
-float Clip::timeToPercentage(float fadeTime) {
-  return Util::remap(fadeTime, 0, movie->getDuration(), 0, 1);
+float Clip::timeToPercentage(float time) {
+  return Util::remap(time, 0, movie->getDuration(), 0, 1);
 }
 
 //-----------------------------------------------------------------------
@@ -71,6 +71,11 @@ int Clip::calcAlpha() {
     float alpha = Util::remap(movie->getPosition(), 0.98-fadeOutPercentage, 0.98, 1, 0);
     return (int)(alpha * ALPHA_MAX);
   }
+}
+
+//-----------------------------------------------------------------------
+bool Clip::getCanRestart() {
+  return movie->getPosition() > timeToPercentage(levelSettings->getCannotRestartTime());
 }
 
 //-----------------------------------------------------------------------

@@ -149,7 +149,7 @@ vector<LevelSettings*> Config::createLevelSettingsList() {
                                      xml->getValue("movieFolder"),
                                      xml->getFloatValue("fadeOutTime"),
                                      xml->getBoolValue("loop"),
-                                     xml->getBoolValue("canRestart")));
+                                     xml->getFloatValue("cannotRestartTime")));
   }
   while(xml->setToSibling());
 

@@ -59,25 +59,25 @@
       <movieFolder>media/0</movieFolder>
       <fadeInTime>0</fadeInTime>
       <loop>1</loop>
-      <canRestart>0</canRestart>
+      <cannotRestartTime>0</cannotRestartTime>
     </level>
     <level type="preload">
       <movieFolder>media/1</movieFolder>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
-      <canRestart>1</canRestart>
+      <cannotRestartTime>1</cannotRestartTime>
     </level>
     <level type="preload">
       <movieFolder>media/2</movieFolder>
       <fadeOutTime>0.50</fadeOutTime>
       <loop>0</loop>
-      <canRestart>1</canRestart>
+      <cannotRestartTime>1</cannotRestartTime>
     </level>
     <level type="preload">
       <movieFolder>media/3</movieFolder>
       <fadeOutTime>3.00</fadeOutTime>
       <loop>0</loop>
-      <canRestart>0</canRestart>
+      <cannotRestartTime>100</cannotRestartTime>
     </level>
   </levels>
 </vela2017>

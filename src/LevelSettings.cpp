@@ -12,10 +12,10 @@ LevelSettings::LevelSettings(std::string _levelType,
                              std::string _movieFolder,
                              float _fadeOutTime,
                              bool _loop,
-                             bool _canRestart) {
+                             float _cannotRestartTime) {
   levelType = _levelType;
   movieFolder = _movieFolder;
   fadeOutTime = _fadeOutTime;
   loop = _loop;
-  canRestart = _canRestart;
+  cannotRestartTime = _cannotRestartTime;
 }

@@ -19,19 +19,19 @@ namespace LevelType {
 
 class LevelSettings {
 public:
-  LevelSettings(std::string levelType, std::string movieFolder, float fadeOutTime, bool loop, bool canRestart);
+  LevelSettings(std::string levelType, std::string movieFolder, float fadeOutTime, bool loop, float cannotRestartTime);
   std::string getLevelType() {return levelType;}
   std::string getMovieFolder() {return movieFolder;}
   float getFadeOutTime() {return fadeOutTime;}
   bool getLoop() {return loop;}
-  bool getCanRestart() {return canRestart;}
+  float getCannotRestartTime() {return cannotRestartTime;}
   
 private:
   std::string levelType;
   std::string movieFolder;
   float fadeOutTime;
   bool loop;
-  bool canRestart;
+  float cannotRestartTime;
 };
 
 #endif /* LevelSettings_h */

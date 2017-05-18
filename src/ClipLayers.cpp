@@ -1,4 +1,4 @@
-//
+1//
 //  ClipLayers.cpp
 //  vela2017
 //
@@ -14,7 +14,6 @@
 ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels) {
   layerSettings = _layerSettings;
   levels = _levels;
-  currentIntensity = BlowIntensity::IDLE;
   
   // Create base layer for level 0 (which will always loop)
   baseLayer = new ClipLayer(layerSettings, BlowIntensity::IDLE, levels->getRandomClip(BlowIntensity::IDLE));
@@ -36,7 +35,6 @@ void ClipLayers::update() {
   if (topLayer && !topLayer->isVisible()) {
     delete topLayer;
     topLayer = NULL;
-    currentIntensity = BlowIntensity::IDLE;
   }
 
   if (topLayer)
@@ -49,11 +47,13 @@ void ClipLayers::update() {
 };
 
 //--------------------------------------------------------------
-void ClipLayers::onBlowIntensityChanged(BlowIntensity &e) {
-  if (e > BlowIntensity::IDLE && (!topLayer || topLayer->getCanRestart())) {
-    delete topLayer;
-    topLayer = new ClipLayer(layerSettings, e, levels->getRandomClip(e));
-    currentIntensity = e;
+void ClipLayers::onBlowIntensityChanged(BlowIntensity &newIntensity) {
+  if (newIntensity > BlowIntensity::IDLE && (!topLayer ||
+                                             newIntensity > topLayer->getIntensity() ||
+                                             topLayer->getCanRestart())) {
+    if (topLayer)
+      delete topLayer;
+    topLayer = new ClipLayer(layerSettings, newIntensity, levels->getRandomClip(newIntensity));
   }
 }
 
@@ -74,9 +74,9 @@ void ClipLayers::draw() {
 //--------------------------------------------------------------
 string ClipLayers::getTrace() {
   stringstream ss;
-
+  
   ss << "  topLayer: " << (topLayer != NULL);
-  ss << "  currentIntensity :" << Util::blowIntensityToString(currentIntensity);
+  ss << "  currentIntensity :" << Util::blowIntensityToString(getCurrentIntensity());
   ss << "  isBaseLayerVisible: " << isBaseLayerVisible() << endl;
   
   ss << baseLayer->getTrace() << endl;
@@ -85,4 +85,12 @@ string ClipLayers::getTrace() {
     ss << topLayer->getTrace() << endl;
   
   return ss.str();
+}
+
+//--------------------------------------------------------------
+BlowIntensity ClipLayers::getCurrentIntensity() {
+  if (!topLayer)
+    return BlowIntensity::IDLE;
+  else
+    return topLayer->getIntensity();
 }
