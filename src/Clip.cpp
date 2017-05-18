@@ -12,11 +12,12 @@
 #include "MovieFactory.h"
 
 //-----------------------------------------------------------------------
-Clip::Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, string filename) {
+Clip::Clip(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, string filename) {
 
+  generalSettings = _generalSettings;
   clipOutputSettings = _clipOutputSettings;
   levelSettings = _levelSettings;
-  movie = createMovie(generalSettings, filename);
+  movie = createMovie(filename);
 
   pause();
 
@@ -33,7 +34,7 @@ Clip::~Clip() {
 }
 
 //-----------------------------------------------------------------------
-MovieBase* Clip::createMovie(GeneralSettings generalSettings, string filename) {
+MovieBase* Clip::createMovie(string filename) {
   ofLogNotice() << "Creating movie " << filename;
   return MovieFactory::create(filename,
                               levelSettings->getLoop(),
@@ -59,8 +60,8 @@ void Clip::update() {
 void Clip::draw() {
   movie->draw(0,
               0,
-              ofGetWidth()*clipOutputSettings.getZoomX(),
-              ofGetHeight()*clipOutputSettings.getZoomY());
+              generalSettings.getWindowSize().x*clipOutputSettings.getZoomX(),
+              generalSettings.getWindowSize().y*clipOutputSettings.getZoomY());
 }
 
 //-----------------------------------------------------------------------

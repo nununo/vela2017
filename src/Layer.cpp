@@ -9,21 +9,9 @@
 #include "Layer.h"
 
 //--------------------------------------------------------------
-Layer::Layer(LayerSettings _settings) {
-  settings=_settings;
-}
-
-//--------------------------------------------------------------
-ofPoint Layer::getSize() {
-  ofPoint size;
-   if (!settings.isPortraitMode()) {
-    size.x = ofGetWidth();
-    size.y = ofGetHeight();
-  } else {
-    size.x = ofGetHeight();
-    size.y = ofGetWidth();
-  }
-  return size;
+Layer::Layer(GeneralSettings _generalSettings, LayerSettings _layerSettings) {
+  layerSettings=_layerSettings;
+  generalSettings = _generalSettings;
 }
 
 //--------------------------------------------------------------
@@ -33,18 +21,21 @@ void Layer::draw() {
   
     ofPushMatrix();
     
-    if (settings.isRotated180()) {
-      ofTranslate(ofGetWidth()/2, ofGetHeight()/2, 0);
+    int width = generalSettings.getWindowSize().x;
+    int height = generalSettings.getWindowSize().y;
+    
+    if (layerSettings.isRotated180()) {
+      ofTranslate(width/2, height/2, 0);
       ofRotateZ(180);
-      ofTranslate(-ofGetWidth()/2, -ofGetHeight()/2, 0);
+      ofTranslate(-width/2, -height/2, 0);
     }
     
-    if (settings.isPortraitMode()) {
-      ofTranslate(ofGetWidth(),0);
+    if (layerSettings.isPortraitMode()) {
+      ofTranslate(width,0);
       ofRotateZ(90);
     }
     
-    ofTranslate(settings.getOffset().x, settings.getOffset().y);
+    ofTranslate(layerSettings.getOffset().x, layerSettings.getOffset().y);
 
     drawAlgorithm();
 

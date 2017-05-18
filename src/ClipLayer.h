@@ -10,7 +10,7 @@
 class ClipLayer: public Layer, public ITrace {
 
 public:
-  ClipLayer(LayerSettings layerSettings, BlowIntensity intensity, Clip *clip);
+  ClipLayer(GeneralSettings generalSettings, LayerSettings layerSettings, BlowIntensity intensity, Clip *clip);
   virtual ~ClipLayer();
   void update();
   void pause(bool value=true) {clip->pause(value);}

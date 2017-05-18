@@ -11,12 +11,13 @@
 #include "InputIntensity.h"
 
 //--------------------------------------------------------------
-ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels) {
+ClipLayers::ClipLayers(GeneralSettings _generalSettings, LayerSettings _layerSettings, Levels *_levels) {
+  generalSettings = _generalSettings;
   layerSettings = _layerSettings;
   levels = _levels;
   
   // Create base layer for level 0 (which will always loop)
-  baseLayer = new ClipLayer(layerSettings, BlowIntensity::IDLE, levels->getRandomClip(BlowIntensity::IDLE));
+  baseLayer = new ClipLayer(generalSettings, layerSettings, BlowIntensity::IDLE, levels->getRandomClip(BlowIntensity::IDLE));
 
   topLayer = NULL;
   
@@ -53,7 +54,7 @@ void ClipLayers::onBlowIntensityChanged(BlowIntensity &newIntensity) {
                                              topLayer->getCanRestart())) {
     if (topLayer)
       delete topLayer;
-    topLayer = new ClipLayer(layerSettings, newIntensity, levels->getRandomClip(newIntensity));
+    topLayer = new ClipLayer(generalSettings, layerSettings, newIntensity, levels->getRandomClip(newIntensity));
   }
 }
 

@@ -9,7 +9,8 @@
 #include "InfoLayer.h"
 
 //--------------------------------------------------------------
-InfoLayer::InfoLayer(LayerSettings settings) : Layer(settings) {
+InfoLayer::InfoLayer(GeneralSettings generalSettings,
+                     LayerSettings layerSettings) : Layer(generalSettings, layerSettings) {
 	font.load("frabk.ttf",10);
 }
 

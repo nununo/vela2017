@@ -14,7 +14,7 @@
 class LevelThreadChannel : public ofThread, public Level {
   
 public:
-  LevelThreadChannel(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
+  LevelThreadChannel(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, LevelSettings *levelSettings);
   virtual Clip *getNextClip();
   
 private:

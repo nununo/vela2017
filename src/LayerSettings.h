@@ -21,10 +21,10 @@ public:
     portraitMode=_portraitMode;
   }
   void setVisible(bool _visible) {visible=_visible;}
-  bool getVisible() {return visible;}
-  ofPoint getOffset() {return offset;}
-  bool isRotated180() {return rotated180;}
-  bool isPortraitMode() {return portraitMode;}
+  bool getVisible() const {return visible;}
+  ofPoint getOffset() const {return offset;}
+  bool isRotated180() const {return rotated180;}
+  bool isPortraitMode() const {return portraitMode;}
 
 private:
   bool visible;

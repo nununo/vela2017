@@ -1,7 +1,10 @@
 #include "ClipLayer.h"
 
 //-----------------------------------------------------------------------
-ClipLayer::ClipLayer(LayerSettings layerSettings, BlowIntensity _intensity, Clip *_clip) : Layer(layerSettings) {
+ClipLayer::ClipLayer(GeneralSettings generalSettings,
+                     LayerSettings layerSettings,
+                     BlowIntensity _intensity,
+                     Clip *_clip) : Layer(generalSettings, layerSettings) {
   clip = _clip;
   intensity = _intensity;
   

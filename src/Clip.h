@@ -18,7 +18,7 @@
 
 class Clip : public ITrace {
 public:
-  Clip(GeneralSettings generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings, string filename);
+  Clip(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, LevelSettings *levelSettings, string filename);
   ~Clip();
   void rewind() {movie->rewind();}
   void pause(bool value=true);
@@ -37,11 +37,12 @@ public:
   bool isPreloaded() {return (levelSettings->getLevelType() == LevelType::PRELOAD);}
 
 private:
-  MovieBase* createMovie(GeneralSettings generalSettings, string filename);
+  MovieBase* createMovie(string filename);
   float timeToPercentage(float time);
   int calcAlpha();
   
   MovieBase *movie;
+  GeneralSettings generalSettings;
   ClipOutputSettings clipOutputSettings;
   LevelSettings *levelSettings;
   float fadeOutPercentage;                // Fade out percentage converted from fade out time

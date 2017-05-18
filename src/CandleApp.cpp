@@ -14,12 +14,15 @@ void CandleApp::setup(){
 
   ClipOutputSettings clipOutputSettings = config.getClipOutputSettings();
   
-  clipLayers = new ClipLayers(config.getLayerSettings("clip"),
+  clipLayers = new ClipLayers(generalSettings,
+                              config.getLayerSettings("clip"),
                               new Levels(generalSettings,
                                          clipOutputSettings,
                                          config.createLevelSettingsList()));
   
-  valueHistoriesLayer = new ValueHistoriesLayer(config.getLayerSettings("history"), config.getHistorySettings());
+  valueHistoriesLayer = new ValueHistoriesLayer(generalSettings,
+                                                config.getLayerSettings("history"),
+                                                config.getHistorySettings());
   
   inputIntensity = new InputIntensity(config.createDataInputs());
 
@@ -72,7 +75,7 @@ void CandleApp::setFullscreen(bool value) {
   
   if (!generalSettings.getIsFullscreen()){
     ofSetWindowShape(360,288); // (720,576);
-    ofSetFullscreen(false);
+    ofSetFullscreen(true);
     
     // figure out how to put the window in the center:
     int screenW = ofGetScreenWidth();
@@ -92,8 +95,8 @@ void CandleApp::outputTraceInfo() {
 //--------------------------------------------------------------
 void CandleApp::setupInfoLayer(Config *config) {
   
-  infoLayer = new InfoLayer(config->getLayerSettings("info"));
-  infoLayer->add( new SystemInfo() );
+  infoLayer = new InfoLayer(generalSettings, config->getLayerSettings("info"));
+  infoLayer->add(new SystemInfo(generalSettings));
   infoLayer->add(inputIntensity);
   infoLayer->add(clipLayers);
 }

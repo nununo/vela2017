@@ -13,5 +13,6 @@ GeneralSettings::GeneralSettings(int _framerate, bool _isFullscreen, bool _useOm
   framerate = _framerate;
   isFullscreen = _isFullscreen;
   useOmxPlayer = _useOmxPlayer;
-  
+  windowSize.x = ofGetWidth();
+  windowSize.y = ofGetHeight();
 }

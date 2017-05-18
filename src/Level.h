@@ -7,14 +7,13 @@
 class Level {
 
 public:
-  Level(GeneralSettings _generalSettings, ClipOutputSettings _clipOutputSettings, LevelSettings *_levelSettings);
+  Level(GeneralSettings generalSettings, ClipOutputSettings clipOutputSettings, LevelSettings *levelSettings);
   virtual Clip *getNextClip() = 0;
 
 protected:
   string getRandomFilename();
   Clip *createClip(string filename);
   vector<string> getFilenames() const {return filenames;}
-  GeneralSettings getGeneralSettings() const {return generalSettings;}
   ClipOutputSettings getClipOutputSettings() const {return clipOutputSettings;}
   LevelSettings *getLevelSettings() const {return levelSettings;}
 

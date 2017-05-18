@@ -11,22 +11,23 @@
 
 #include "ofMain.h"
 #include "LayerSettings.h"
+#include "GeneralSettings.h"
 
 class Layer {
 
 public:
-  Layer() : Layer(LayerSettings()) {}
-  Layer(LayerSettings _settings);
+  Layer(GeneralSettings generalSettings, LayerSettings settings);
   ~Layer() {};
   void draw();
-  void setVisible(bool visible) {settings.setVisible(visible);}
-  bool isVisible() {return settings.getVisible();}
+  void setVisible(bool visible) {layerSettings.setVisible(visible);}
+  const bool isVisible() const {return layerSettings.getVisible();}
 
 protected:
+  const LayerSettings getLayerSettings() const {return layerSettings;}
   virtual void drawAlgorithm() = 0;
-  ofPoint getSize();
   
-  LayerSettings settings;
+  GeneralSettings generalSettings;
+  LayerSettings layerSettings;
 };
 
 #endif /* Layer_h */

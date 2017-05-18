@@ -15,7 +15,7 @@ string SystemInfo::getTrace() {
   
   ss << "System info: "
      << " Framerate: " << roundf(ofGetFrameRate()*1)/1
-  << " Resolution: " << ofGetWidth() << "x" << ofGetHeight();
+  << " Resolution: " << generalSettings.getWindowSize().x << "x" << generalSettings.getWindowSize().y;
  
   return ss.str();
 }

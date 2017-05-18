@@ -16,7 +16,7 @@
 
 class ClipLayers: public ITrace {
 public:
-  ClipLayers(LayerSettings layerSettings, Levels *levels);
+  ClipLayers(GeneralSettings generalSettings, LayerSettings layerSettings, Levels *levels);
   ~ClipLayers();
   void update();
   void draw();
@@ -27,6 +27,7 @@ private:
   void onBlowIntensityChanged(BlowIntensity &e);
   BlowIntensity getCurrentIntensity();
 
+  GeneralSettings generalSettings;
   LayerSettings layerSettings;
   Levels *levels;
   ClipLayer *baseLayer;

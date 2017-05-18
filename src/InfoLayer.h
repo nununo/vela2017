@@ -15,7 +15,7 @@
 class InfoLayer : public Layer {
   
 public:
-  InfoLayer(LayerSettings settings);
+  InfoLayer(GeneralSettings generalSettings, LayerSettings layerSettings);
   
   void add(ITrace *trace) {list.push_back(trace);}
   void update();

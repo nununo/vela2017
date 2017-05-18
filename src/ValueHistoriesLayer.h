@@ -18,7 +18,7 @@
 class ValueHistoriesLayer : public Layer {
 
 public:
-  ValueHistoriesLayer(LayerSettings layerSettings, HistorySettings historySettings);
+  ValueHistoriesLayer(GeneralSettings generalSettings, LayerSettings layerSettings, HistorySettings historySettings);
   ~ValueHistoriesLayer();
 
 protected:

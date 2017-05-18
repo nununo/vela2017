@@ -10,7 +10,9 @@
 #include "CalibratedValueInput.h"
 
 //--------------------------------------------------------------
-ValueHistoriesLayer::ValueHistoriesLayer(LayerSettings layerSettings, HistorySettings _historySettings) : Layer(layerSettings) {
+ValueHistoriesLayer::ValueHistoriesLayer(GeneralSettings generalSettings,
+                                         LayerSettings layerSettings,
+                                         HistorySettings _historySettings) : Layer(generalSettings, layerSettings) {
   historySettings = _historySettings;
   valueHistories = new ValueHistories();
   font.load("frabk.ttf",10);
