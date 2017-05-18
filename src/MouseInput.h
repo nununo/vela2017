@@ -11,11 +11,10 @@
 
 #include "ofMain.h"
 #include "ValueInput.h"
-#include "CalibrationSettings.h"
 
 class MouseInput: public DataInput {
 public:
-  MouseInput(bool inverted, CalibrationSettings calibrationSettings);
+  MouseInput(ThresholdsSettings thresholdsSettings);
   ~MouseInput() {delete input; input=NULL;}
   
   // DataInput

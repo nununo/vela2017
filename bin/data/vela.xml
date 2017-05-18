@@ -20,7 +20,7 @@
   </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
-    <input type="arduino" device="tty.usbmodem1411" devicePi="ttyACM0" enabled="1" inverted="0" calibrated="1">
+    <input type="arduino" device="tty.usbmodem1411" devicePi="ttyACM0" enabled="1" inverted="0">
       <low>7</low>
       <high>75</high>
       <blowOut>400</blowOut>
@@ -28,10 +28,10 @@
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="mouse" enabled="0" inverted="0" calibrated="1">
-      <low>100</low>
-      <high>200</high>
-      <blowOut>600</blowOut>
+    <input type="mouse" enabled="1" inverted="0">
+      <low>10</low>
+      <high>50</high>
+      <blowOut>200</blowOut>
     </input>
   </inputs>
   <layers>
