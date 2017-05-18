@@ -7,7 +7,6 @@
 //
 
 #include "ValueHistoriesLayer.h"
-#include "CalibratedValueInput.h"
 
 //--------------------------------------------------------------
 ValueHistoriesLayer::ValueHistoriesLayer(GeneralSettings generalSettings,

@@ -7,7 +7,7 @@
 //
 
 #include "ValueHistories.h"
-#include "CalibratedValueInput.h"
+#include "ValueInput.h"
 
 //--------------------------------------------------------------
 ValueHistories::ValueHistories() {
