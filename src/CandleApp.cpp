@@ -4,6 +4,8 @@
 //--------------------------------------------------------------
 void CandleApp::setup(){
 
+  ofSetLogLevel(OF_LOG_VERBOSE);
+  
   Config config;
   
   config.setup(XML_FILENAME);
