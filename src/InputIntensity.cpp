@@ -10,7 +10,7 @@
 #include "Util.h"
 
 // the static event, or any static variable, must be initialized outside of the class definition.
-ofEvent<BlowIntensity> InputIntensity::blowIntensityChanged = ofEvent<BlowIntensity>();
+ofFastEvent<BlowIntensity> InputIntensity::blowIntensityChanged = ofFastEvent<BlowIntensity>();
 
 //--------------------------------------------------------------
 void InputIntensity::update() {

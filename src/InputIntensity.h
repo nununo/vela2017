@@ -21,7 +21,7 @@ public:
   virtual std::string getTrace();
 
   // Event
-  static ofEvent<BlowIntensity> blowIntensityChanged;
+  static ofFastEvent<BlowIntensity> blowIntensityChanged;
 
 private:
   void setBlowIntensity(BlowIntensity newBlowIntensity);

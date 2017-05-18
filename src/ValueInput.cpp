@@ -11,8 +11,8 @@
 #include <sstream>
 
 // the static event, or any static variable, must be initialized outside of the class definition.
-ofEvent<NameFloatEventArgs> ValueInput::newValue = ofEvent<NameFloatEventArgs>();
-ofEvent<ThresholdsEventArgs> ValueInput::newThresholds = ofEvent<ThresholdsEventArgs>();
+ofFastEvent<NameFloatEventArgs> ValueInput::newValue = ofFastEvent<NameFloatEventArgs>();
+ofFastEvent<ThresholdsEventArgs> ValueInput::newThresholds = ofFastEvent<ThresholdsEventArgs>();
 
 //--------------------------------------------------------------
 ValueInput::ValueInput(string name, ThresholdsSettings thresholdsSettings): DataInput(name) {

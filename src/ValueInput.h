@@ -31,8 +31,8 @@ public:
   Thresholds* const getThresholds() {return &thresholds;}
 
   // Events
-  static ofEvent<NameFloatEventArgs> newValue;
-  static ofEvent<ThresholdsEventArgs> newThresholds;
+  static ofFastEvent<NameFloatEventArgs> newValue;
+  static ofFastEvent<ThresholdsEventArgs> newThresholds;
 
 protected:
   void broadcastNewThresholdsEvent();
