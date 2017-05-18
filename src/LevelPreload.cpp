@@ -18,6 +18,8 @@ LevelPreload::LevelPreload(GeneralSettings generalSettings,
 
 //-----------------------------------------------------------------------
 Clip *LevelPreload::getNextClip() {
+  ofLogVerbose(__func__) << "get random preloaded clip";
+  
   // Select a random movie from vector
   int i = list.size();
   i = rand() % i;
