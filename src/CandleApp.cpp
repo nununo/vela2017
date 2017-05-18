@@ -36,7 +36,7 @@ void CandleApp::setup(){
 //--------------------------------------------------------------
 void CandleApp::update(){
   inputIntensity->update();
-  clipLayers->update(inputIntensity->getBlowIntensity());
+  clipLayers->update();
   infoLayer->update();
 }
 

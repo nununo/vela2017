@@ -20,30 +20,18 @@ void InputIntensity::update() {
 
 //--------------------------------------------------------------
 void InputIntensity::setBlowIntensity(BlowIntensity newBlowIntensity) {
-  BlowIntensity newConvertedBlowIntensity;
-  BlowIntensity lastConvertedBlowIntensityCopy;
   
-  if (newBlowIntensity > lastBlowIntensity)
-    newConvertedBlowIntensity = input->getBlowIntensity();
-  else
-    newConvertedBlowIntensity = BlowIntensity::IDLE;
-  
-  lastBlowIntensity = newBlowIntensity;
+  if (newBlowIntensity != lastBlowIntensity)
+    broadcastBlowIntensityChangedEvent(newBlowIntensity);
 
-  lastConvertedBlowIntensityCopy = lastConvertedBlowIntensity;
-  lastConvertedBlowIntensity = newConvertedBlowIntensity;
-  
-  if (newConvertedBlowIntensity != lastConvertedBlowIntensityCopy) {
-    broadcastBlowIntensityChangedEvent();
-  }
+  lastBlowIntensity = newBlowIntensity;
 }
 
 //--------------------------------------------------------------
 string InputIntensity::getTrace() {
   stringstream ss;
   
-  ss << "Intensity: " + Util::blowIntensityToString(lastBlowIntensity) +
-  " Last converted: " + Util::blowIntensityToString(lastConvertedBlowIntensity) << endl;
+  ss << "Intensity: " + Util::blowIntensityToString(lastBlowIntensity) << endl;
   
   ss << input->getTrace();
   
@@ -51,6 +39,6 @@ string InputIntensity::getTrace() {
 };
 
 //--------------------------------------------------------------
-void InputIntensity::broadcastBlowIntensityChangedEvent() {
-  ofNotifyEvent(blowIntensityChanged, lastConvertedBlowIntensity);
+void InputIntensity::broadcastBlowIntensityChangedEvent(BlowIntensity blowIntensity) {
+  ofNotifyEvent(blowIntensityChanged, blowIntensity);
 }

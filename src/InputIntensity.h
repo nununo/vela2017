@@ -15,7 +15,6 @@
 class InputIntensity: public ITrace {
 public:
   InputIntensity(DataInput *_input) {input=_input; lastBlowIntensity=BlowIntensity::IDLE;}
-  BlowIntensity getBlowIntensity() {return lastConvertedBlowIntensity;}
   void update();
   
   // ITrace
@@ -26,11 +25,10 @@ public:
 
 private:
   void setBlowIntensity(BlowIntensity newBlowIntensity);
-  void broadcastBlowIntensityChangedEvent();
+  void broadcastBlowIntensityChangedEvent(BlowIntensity blowIntensity);
 
   DataInput *input;
   BlowIntensity lastBlowIntensity;
-  BlowIntensity lastConvertedBlowIntensity; // Converted back to IDLE unless the intensity increases
 };
 
 #endif /* InputIntensity_h */

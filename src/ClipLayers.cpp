@@ -8,7 +8,9 @@
 
 #include "ClipLayers.h"
 #include "Util.h"
+#include "InputIntensity.h"
 
+//--------------------------------------------------------------
 ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels) {
   layerSettings = _layerSettings;
   levels = _levels;
@@ -18,22 +20,23 @@ ClipLayers::ClipLayers(LayerSettings _layerSettings, Levels *_levels) {
   baseLayer = new ClipLayer(layerSettings, BlowIntensity::IDLE, levels->getRandomClip(BlowIntensity::IDLE));
 
   topLayer = NULL;
+  
+  ofAddListener(InputIntensity::blowIntensityChanged , this, &ClipLayers::onBlowIntensityChanged);
 }
 
 //--------------------------------------------------------------
-void ClipLayers::update(BlowIntensity intensity) {
+ClipLayers::~ClipLayers() {
+  ofRemoveListener(InputIntensity::blowIntensityChanged, this, &ClipLayers::onBlowIntensityChanged);
+}
+
+//--------------------------------------------------------------
+void ClipLayers::update() {
 
   // Delete top layer if it finished playing
   if (topLayer && !topLayer->isVisible()) {
     delete topLayer;
     topLayer = NULL;
     currentIntensity = BlowIntensity::IDLE;
-  }
-
-  if (intensity > BlowIntensity::IDLE && (!topLayer || topLayer->getCanRestart())) {
-    delete topLayer;
-    topLayer = new ClipLayer(layerSettings, intensity, levels->getRandomClip(intensity));
-    currentIntensity = intensity;
   }
 
   if (topLayer)
@@ -44,6 +47,15 @@ void ClipLayers::update(BlowIntensity intensity) {
   else
     baseLayer->pause();
 };
+
+//--------------------------------------------------------------
+void ClipLayers::onBlowIntensityChanged(BlowIntensity &e) {
+  if (e > BlowIntensity::IDLE && (!topLayer || topLayer->getCanRestart())) {
+    delete topLayer;
+    topLayer = new ClipLayer(layerSettings, e, levels->getRandomClip(e));
+    currentIntensity = e;
+  }
+}
 
 //--------------------------------------------------------------
 bool ClipLayers::isBaseLayerVisible() {

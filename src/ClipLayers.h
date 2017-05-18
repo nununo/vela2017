@@ -17,12 +17,14 @@
 class ClipLayers: public ITrace {
 public:
   ClipLayers(LayerSettings layerSettings, Levels *levels);
-  void update(BlowIntensity intensity);
+  ~ClipLayers();
+  void update();
   void draw();
   virtual string getTrace();
   
 private:
   bool isBaseLayerVisible();
+  void onBlowIntensityChanged(BlowIntensity &e);
 
   LayerSettings layerSettings;
   Levels *levels;
