@@ -75,7 +75,7 @@ void CandleApp::setFullscreen(bool value) {
   
   if (!generalSettings.getIsFullscreen()){
     ofSetWindowShape(360,288); // (720,576);
-    ofSetFullscreen(true);
+    ofSetFullscreen(false);
     
     // figure out how to put the window in the center:
     int screenW = ofGetScreenWidth();
