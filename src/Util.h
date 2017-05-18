@@ -10,12 +10,11 @@
 #define UTIL_H_INCLUDED
 
 #include "BlowIntensity.h"
-#include "ofMain.h"
+#include <string>
 
 class Util {
 public:
-  static float remap(const float v, const float inMin, const float inMax, const float outMin, const float outMax);
-  static string blowIntensityToString(const BlowIntensity blowIntensity);
+  static std::string blowIntensityToString(const BlowIntensity blowIntensity);
 };
 
 #endif // UTIL_H_INCLUDED
