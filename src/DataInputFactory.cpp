@@ -34,6 +34,6 @@ DataInputFactory* DataInputFactory::createFactory(string dataInputType) {
 }
 
 //--------------------------------------------------------------
-DataInput* DataInputFactory::create(ConfigXml *xml, CalibrationSettings calibrationSettings) {
-  return createAux(xml, calibrationSettings);
+DataInput* DataInputFactory::create(ConfigXml *xml) {
+  return createAux(xml);
 }

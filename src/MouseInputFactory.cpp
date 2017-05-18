@@ -8,6 +8,6 @@
 
 #include "MouseInputFactory.h"
 
-DataInput* MouseInputFactory::createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) {
+DataInput* MouseInputFactory::createAux(ConfigXml *xml) {
   return new MouseInput(xml->getThresholdsSettings());
 }

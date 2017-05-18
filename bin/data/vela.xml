@@ -13,11 +13,6 @@
     <zoomY>1.0</zoomY>
     <color>FFFFFF</color>
   </clipOutput>
-  <calibration>
-    <bufferSize>100</bufferSize>
-    <excentricSize>25</excentricSize>
-    <samplePeriod>1</samplePeriod>
-  </calibration>
   <inputs>
     <input type="keyboard" enabled="1"/>
     <input type="arduino" device="tty.usbmodem1411" devicePi="ttyACM0" enabled="1" inverted="0">

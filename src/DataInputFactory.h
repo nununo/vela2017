@@ -11,7 +11,6 @@
 
 #include "ofMain.h"
 #include "DataInput.h"
-#include "CalibrationSettings.h"
 #include "ConfigXml.h"
 
 namespace DataInputType {
@@ -23,12 +22,12 @@ namespace DataInputType {
 
 class DataInputFactory {
 public:  
-  DataInput* create(ConfigXml *xml, CalibrationSettings calibrationSettings);
+  DataInput* create(ConfigXml *xml);
   
   static DataInputFactory* createFactory(string dataInputType);
 
 private:
-  virtual DataInput* createAux(ConfigXml *xml, CalibrationSettings calibrationSettings) = 0;
+  virtual DataInput* createAux(ConfigXml *xml) = 0;
 
 };
 

@@ -13,7 +13,6 @@
 #include "DataInput.h"
 #include "ClipOutputSettings.h"
 #include "GeneralSettings.h"
-#include "CalibrationSettings.h"
 #include "HistorySettings.h"
 #include "LevelSettings.h"
 #include "LayerSettings.h"
@@ -26,7 +25,6 @@ public:
   DataInput* createDataInputs();
   ClipOutputSettings getClipOutputSettings();
   GeneralSettings getGeneralSettings();
-  CalibrationSettings getCalibrationSettings();
   vector<LevelSettings*> createLevelSettingsList();
   LayerSettings getLayerSettings(string type);
   HistorySettings getHistorySettings();
