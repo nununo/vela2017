@@ -18,10 +18,9 @@ class MovieOMXPlayer: public MovieBase {
 public:
   MovieOMXPlayer(string filename, bool _loop, ofColor color);
   virtual string getFilename() {return filename;}
-  virtual bool isFinished() {return finished;}
   virtual float getPosition() {return ((float)movie.getCurrentFrame())/(float)movie.getTotalNumFrames();}
   virtual float getDuration() {return movie.getDurationInSeconds();}
-  virtual void rewind() {finished=false; lastPosition=-1; movie.restartMovie();}
+  virtual void rewindAux() {movie.restartMovie();}
   virtual void update();
   virtual void draw(float x, float y, float width, float height);
   virtual void setPaused(bool pause=true) {movie.setPaused(pause);}
@@ -32,8 +31,6 @@ private:
   void calcFinished();
   
   string filename;
-  float lastPosition;
-  bool finished;
   ofxOMXPlayer movie;
   ofColor color;
 };

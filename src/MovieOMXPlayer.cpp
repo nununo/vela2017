@@ -25,17 +25,6 @@ MovieOMXPlayer::MovieOMXPlayer(string _filename, bool _loop, ofColor _color) {
   settings.enableAudio = false;		//default true, save resources by disabling
 
   movie.setup(settings);
-  
-  lastPosition = -1;
-  finished = false;
-}
-
-//--------------------------------------------------------------
-void MovieOMXPlayer::calcFinished() {
-  if (!getLoop() && !isPaused() && getPosition()>0.95f && (getPosition()==lastPosition || getPosition()>1)) {
-    finished = true;
-  }
-  lastPosition = getPosition();
 }
 
 //--------------------------------------------------------------

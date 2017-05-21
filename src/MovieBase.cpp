@@ -9,6 +9,20 @@
 #include "MovieBase.h"
 #include <ostream>
 
+//-----------------------------------------------------------------------
+void MovieBase::rewind() {
+  if (!getLoop())
+    timeOutMoment = ofGetElapsedTimef() + getDuration();
+
+  rewindAux();
+}
+
+//-----------------------------------------------------------------------
+bool MovieBase::isFinished() {
+  return ( (!getLoop() && timeOutMoment < ofGetElapsedTimef()));
+}
+
+//-----------------------------------------------------------------------
 string MovieBase::getTrace() {
   stringstream ss;
   
