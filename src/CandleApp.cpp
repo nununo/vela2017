@@ -34,7 +34,7 @@ void CandleApp::setup(){
   ofBackground(0, 0, 0);
 
 #if defined(TARGET_OSX)
-  CGDisplayHideCursor(0);
+  CGDisplayHideCursor(NULL);
 #else
   ofHideCursor();
 #endif
