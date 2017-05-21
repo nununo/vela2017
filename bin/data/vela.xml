@@ -23,7 +23,7 @@
     <input type="autoFlicker" enabled="0">
       <minPeriod>10000</minPeriod>
     </input>
-    <input type="mouse" enabled="1" inverted="0">
+    <input type="mouse" enabled="0" inverted="0">
       <low>10</low>
       <high>50</high>
       <blowOut>200</blowOut>
