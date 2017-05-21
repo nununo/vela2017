@@ -28,8 +28,12 @@ void CandleApp::setup(){
 
   setupInfoLayer(&config);
 
+#if defined(TARGET_OSX)
+  CGDisplayHideCursor(0);
+#else
   ofHideCursor();
-  
+#endif
+
   ofSetVerticalSync(true);
   ofSetFrameRate(generalSettings.getFramerate());
   
