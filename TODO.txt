@@ -1,6 +1,0 @@
-- Add indent parameter to getTrace
-- XML Schema
-
-- Consider implementing a damper
-
-- ArduinoDataInput could inherit from MultiDataInput and only accept ValueInput as input
